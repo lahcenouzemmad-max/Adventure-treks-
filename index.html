@@ -1,42 +1,15 @@
 <!DOCTYPE html>
 <html lang="fr">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Adventure Treks - Guide Expert Maroc | Trekking Atlas & Désert Merzouga</title>
-   
-    <meta name="google-site-verification" content="lO7Zv3yvFMllSxhb23p6rD6T18m6jz2J6pHPX3ahEZE" />
-    <!-- Meta Tags SEO Avancé -->
     <meta name="description" content="Adventure Treks avec Ali Ouzemmad - Guide expert 30+ ans. Trekking Toubkal, randonnée Mgoun, circuits désert Merzouga. Prix tout compris.">
-    <meta name="keywords" content="trekking maroc, randonnée maroc, guide maroc, toubkal trek, mgoun, désert merzouga, circuit atlas, voyage maroc, tourisme aventure, guide berbère, ali ouzemmad, vallée des roses, haut atlas, sud maroc, safari désert, trekking atlas, randonnée désert, vacances maroc, voyage trekking, expédition maroc, tourisme maroc">
+    <meta name="keywords" content="trekking maroc, randonnée maroc, guide maroc, toubkal trek, mgoun, désert merzouga">
     <meta name="author" content="Ali Ouzemmad">
     <meta name="robots" content="index, follow">
     
-    <!-- Open Graph Tags -->
-    <meta property="og:title" content="Adventure Treks - Guide Expert Maroc">
-    <meta property="og:description" content="Guide expert 30+ ans - Trekking Atlas, randonnées désert Merzouga">
-    <meta property="og:type" content="website">
-    <meta property="og:locale" content="fr_FR">
-    
-    <!-- Schema.org markup -->
-    <script type="application/ld+json">
-    {
-        "@context": "https://schema.org",
-        "@type": "TouristAttraction",
-        "name": "Adventure Treks Maroc",
-        "description": "Guide expert pour trekking dans l'Atlas et randonnées dans le désert Marocain",
-        "address": {
-            "@type": "PostalAddress",
-            "addressRegion": "Vallée des Roses - Ouarzazate",
-            "addressCountry": "MA"
-        },
-        "telephone": "+212661796117"
-    }
-    </script>
-    
     <style>
-        /* كل الـ CSS الأصلي يبقى كما هو */
         :root {
             --primary: #27AE60;
             --secondary: #2E86C1;
@@ -45,7 +18,6 @@
             --dark: #1B4F72;
             --light-green: #EAFAF1;
             --shadow: 0 4px 15px rgba(0,0,0,0.1);
-            --gradient: linear-gradient(135deg, var(--primary), var(--secondary));
         }
 
         * {
@@ -55,75 +27,18 @@
         }
 
         body {
-            font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
             line-height: 1.6;
-            color: var(--dark);
+            color: #333;
             background: #f8f9fa;
-            scroll-behavior: smooth;
-        }
-
-        .header-top {
-            background: var(--dark);
-            color: white;
-            padding: 0.5rem 1rem;
-        }
-
-        .header-container {
-            max-width: 1200px;
-            margin: 0 auto;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-        }
-
-        .language-registration {
-            display: flex;
-            align-items: center;
-            gap: 1rem;
-        }
-
-        .language-switcher {
-            display: flex;
-            background: rgba(255,255,255,0.1);
-            border-radius: 20px;
-            padding: 0.25rem;
-        }
-
-        .lang-btn {
-            padding: 0.4rem 1rem;
-            border: none;
-            background: none;
-            cursor: pointer;
-            border-radius: 15px;
-            font-weight: 500;
-            transition: all 0.3s ease;
-            color: white;
-            font-size: 0.9rem;
-        }
-
-        .lang-btn.active {
-            background: var(--primary);
-            color: white;
-        }
-
-        .register-btn {
-            background: var(--primary);
-            color: white;
-            padding: 0.5rem 1rem;
-            border: none;
-            border-radius: 20px;
-            text-decoration: none;
-            font-weight: 500;
-            font-size: 0.9rem;
-            transition: all 0.3s ease;
         }
 
         .navbar {
             background: white;
             padding: 1rem;
+            box-shadow: var(--shadow);
             position: sticky;
             top: 0;
-            box-shadow: var(--shadow);
             z-index: 1000;
         }
 
@@ -145,291 +60,286 @@
         .nav-links {
             display: flex;
             list-style: none;
-            gap: 1.5rem;
+            gap: 2rem;
         }
 
         .nav-links a {
             text-decoration: none;
             color: var(--dark);
             font-weight: 500;
-            transition: all 0.3s ease;
-            padding: 0.5rem;
-            border-radius: 5px;
+            transition: color 0.3s ease;
         }
 
         .nav-links a:hover {
-            background: var(--light-green);
-        }
-
-        .mobile-menu-btn {
-            display: none;
-            background: none;
-            border: none;
-            font-size: 1.5rem;
-            cursor: pointer;
-            color: var(--dark);
+            color: var(--primary);
         }
 
         .hero {
-            background: linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.4)), url('https://drive.google.com/thumbnail?id=1tqwm60wwjHRde-aUKcnUUf9WJrMGbjla&sz=w2000');
+            background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url('https://images.unsplash.com/photo-1519681393784-d120267933ba');
             background-size: cover;
             background-position: center;
-            height: 70vh;
+            height: 80vh;
             display: flex;
             align-items: center;
             justify-content: center;
             text-align: center;
             color: white;
             padding: 0 1rem;
-            position: relative;
-            overflow: hidden;
-        }
-
-        .hero::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 800"><path fill="rgba(255,255,255,0.1)" d="M0 0h1200v800H0z"/><path fill="rgba(255,255,255,0.05)" d="M0 400h1200v400H0z"/></svg>');
         }
 
         .hero-content h1 {
-            font-size: 2.8rem;
+            font-size: 3rem;
             margin-bottom: 1rem;
-            position: relative;
-            text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
         }
 
         .hero-content p {
             font-size: 1.3rem;
             margin-bottom: 2rem;
-            text-shadow: 1px 1px 2px rgba(0,0,0,0.5);
         }
 
         .btn {
-            background: white;
-            color: var(--primary);
-            padding: 12px 25px;
+            background: var(--primary);
+            color: white;
+            padding: 12px 30px;
             border: none;
-            border-radius: 25px;
+            border-radius: 5px;
             text-decoration: none;
-            display: inline-block;
             font-weight: 600;
-            transition: all 0.3s ease;
-            cursor: pointer;
+            transition: background 0.3s ease;
         }
 
         .btn:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 6px 20px rgba(0,0,0,0.15);
+            background: #219652;
         }
 
         .section {
-            padding: 4rem 1rem;
+            padding: 5rem 1rem;
             max-width: 1200px;
             margin: 0 auto;
         }
 
         .section-title {
             text-align: center;
-            font-size: 2.2rem;
+            font-size: 2.5rem;
             margin-bottom: 3rem;
             color: var(--dark);
-            position: relative;
         }
 
-        .section-title::after {
-            content: '';
-            position: absolute;
-            bottom: -10px;
-            left: 50%;
-            transform: translateX(-50%);
-            width: 80px;
-            height: 4px;
+        .guide-profile {
+            background: white;
+            border-radius: 10px;
+            padding: 3rem;
+            box-shadow: var(--shadow);
+            text-align: center;
+        }
+
+        .guide-photo {
+            width: 200px;
+            height: 200px;
+            border-radius: 50%;
+            object-fit: cover;
+            margin-bottom: 2rem;
+            border: 5px solid var(--primary);
+        }
+
+        .guide-name {
+            color: var(--primary);
+            font-size: 2rem;
+            margin-bottom: 1rem;
+        }
+
+        .guide-experience {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin: 3rem 0;
+        }
+
+        .experience-item {
+            padding: 2rem;
+            background: var(--light-green);
+            border-radius: 10px;
+        }
+
+        .treks-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 2rem;
+        }
+
+        .trek-card {
+            background: white;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: var(--shadow);
+        }
+
+        .trek-image {
+            height: 200px;
             background: var(--primary);
-            border-radius: 2px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 1.5rem;
+            font-weight: bold;
         }
 
-        /* كل الـ CSS الأصلي يبقى كما هو - تم حذفه للإختصار */
+        .trek-content {
+            padding: 2rem;
+        }
 
+        .contact-info {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .contact-card {
+            background: white;
+            padding: 2rem;
+            border-radius: 10px;
+            box-shadow: var(--shadow);
+            text-align: center;
+        }
+
+        .footer {
+            background: var(--dark);
+            color: white;
+            padding: 3rem 1rem;
+            text-align: center;
+        }
+
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none;
+            }
+            
+            .hero-content h1 {
+                font-size: 2rem;
+            }
+            
+            .section {
+                padding: 3rem 1rem;
+            }
+            
+            .guide-experience,
+            .treks-grid,
+            .contact-info {
+                grid-template-columns: 1fr;
+            }
+        }
     </style>
 </head>
 <body>
-    <!-- Google Analytics Script (à ajouter plus tard) -->
-    <!-- <script async src="https://www.googletagmanager.com/gtag/js?id=GA_MEASUREMENT_ID"></script> -->
-
-    <div class="header-top">
-        <div class="header-container">
-            <div class="language-registration">
-                <div class="language-switcher">
-                    <button class="lang-btn active" data-lang="fr">FR</button>
-                    <button class="lang-btn" data-lang="en">EN</button>
-                </div>
-                <a href="#inscription" class="register-btn">S'inscrire</a>
-            </div>
-        </div>
-    </div>
-
     <nav class="navbar">
         <div class="nav-container">
-            <a href="#" class="logo">Adventure Treks</a>
-            <button class="mobile-menu-btn">☰</button>
+            <a href="index.html" class="logo">Adventure Treks</a>
             <ul class="nav-links">
-                <li><a href="#accueil" data-key="home">Accueil</a></li>
-                <li><a href="about.html" data-key="guide">Notre Guide</a></li>
-                <li><a href="#treks" data-key="treks">Randonnées</a></li>
-                <li><a href="#gallery" data-key="gallery">Galerie</a></li>
-                <li><a href="#avis" data-key="reviews">Avis Clients</a></li>
-                <li><a href="contact.html" data-key="contact">Contact</a></li>
+                <li><a href="index.html">Accueil</a></li>
+                <li><a href="about.html">Notre Guide</a></li>
+                <li><a href="treks.html">Randonnées</a></li>
+                <li><a href="gallery.html">Galerie</a></li>
+                <li><a href="contact.html">Contact</a></li>
             </ul>
         </div>
     </nav>
 
-    <section class="hero" id="accueil">
+    <section class="hero">
         <div class="hero-content">
-            <h1 data-key="hero_title">Adventure Treks - Guide Expert Maroc</h1>
-            <p data-key="hero_subtitle">Trekking dans l'Atlas, randonnées au désert - 30+ ans d'expérience</p>
-            <a href="#custom-request" class="btn" data-key="discover_btn">Demander un Circuit Personnalisé</a>
+            <h1>Adventure Treks - Guide Expert Maroc</h1>
+            <p>Trekking dans l'Atlas, randonnées au désert - 30+ ans d'expérience</p>
+            <a href="treks.html" class="btn">Découvrir nos Randonnées</a>
         </div>
     </section>
 
-    <!-- باقي المحتوى يبقى كما هو تماما -->
-    <!-- فقط الروابط تم تغييرها -->
-
-    <section class="section" id="guide">
-        <h2 class="section-title" data-key="guide_title">Notre Guide Expert</h2>
+    <section class="section">
+        <h2 class="section-title">Notre Guide Expert</h2>
         <div class="guide-profile">
-            <div class="guide-header">
-                <img src="https://drive.google.com/thumbnail?id=1zpuQMHPk4oemXJgLtzwsrlJ7z0C5LNU0&sz=w1000" alt="Ali Ouzemmad - Guide Expert" class="guide-photo">
-                <div class="guide-info">
-                    <h2 class="guide-name">Ali Ouzemmad</h2>
-                    <div class="guide-title" data-key="guide_job">Guide des espaces naturels et des montagnes</div>
-                    <p>Vallée des Roses - Ouarzazate / Maroc</p>
+            <img src="https://drive.google.com/thumbnail?id=1zpuQMHPk4oemXJgLtzwsrlJ7z0C5LNU0&sz=w1000" alt="Ali Ouzemmad" class="guide-photo">
+            <h2 class="guide-name">Ali Ouzemmad</h2>
+            <p><strong>Guide des espaces naturels et des montagnes</strong></p>
+            <p>Vallée des Roses - Ouarzazate / Maroc</p>
+            
+            <div class="guide-experience">
+                <div class="experience-item">
+                    <h3>Plus de 30 ans d'expérience</h3>
+                    <p>Dans le guidage touristique au Maroc</p>
+                </div>
+                <div class="experience-item">
+                    <h3>Sommets Maîtrisés</h3>
+                    <p>Toubkal, Mgoun, Siroua, Saghro</p>
+                </div>
+                <div class="experience-item">
+                    <h3>Déserts</h3>
+                    <p>Merzouga, Chegaga</p>
                 </div>
             </div>
             
-            <div class="guide-bio">
-                <p data-key="guide_exp"><strong>Plus de 30 ans d'expérience</strong> dans le guidage touristique au Maroc.</p>
-                
-                <div class="guide-experience">
-                    <div class="experience-item">
-                        <h3 data-key="peaks_title">Sommets Maîtrisés</h3>
-                        <p>Toubkal, Mgoun, Siroua, Saghro</p>
-                    </div>
-                    <div class="experience-item">
-                        <h3 data-key="deserts_title">Déserts</h3>
-                        <p>Merzouga, Chegaga</p>
-                    </div>
-                    <div class="experience-item">
-                        <h3 data-key="valleys_title">Vallées Expertisées</h3>
-                        <p>Dades, Roses, Aït Bougumez, Ourika, Drâa, Tassaout</p>
-                    </div>
-                    <div class="experience-item">
-                        <h3 data-key="groups_title">Groupes</h3>
-                        <p>2 à 12 personnes</p>
-                    </div>
-                </div>
+            <div style="background: #e8f5e8; padding: 2rem; border-radius: 10px; margin: 2rem 0;">
+                <h3 style="color: var(--primary); margin-bottom: 1rem;">Prix Tout Compris</h3>
+                <p><strong>Le prix comprend tout : guide, transport, hébergement, repas, et équipement.</strong></p>
+                <p style="margin-top: 1rem; font-style: italic;">Le prix varie selon le nombre de personnes et la durée du circuit</p>
+            </div>
+        </div>
+    </section>
 
-                <div class="price-inclusion">
-                    <div class="inclusion-title" data-key="price_title">Prix Tout Compris</div>
-                    <p data-key="price_desc"><strong>Le prix comprend tout : guide, transport, hébergement, repas, et équipement.</strong></p>
+    <section class="section" style="background: var(--light-green);">
+        <h2 class="section-title">Nos Randonnées Populaires</h2>
+        <div class="treks-grid">
+            <div class="trek-card">
+                <div class="trek-image">TOUBKAL EXPRESS</div>
+                <div class="trek-content">
+                    <h3>Toubkal Express - 4 Jours</h3>
+                    <p>Haut Atlas - Massif du Toubkal</p>
+                    <ul style="margin: 1rem 0; padding-left: 1.5rem;">
+                        <li>Ascension du Jbel Toubkal (4167m)</li>
+                        <li>Vallée d'Ourika et cascades</li>
+                        <li>Gîtes berbères</li>
+                    </ul>
+                    <a href="contact.html" class="btn">Demander ce Circuit</a>
                 </div>
-
-                <div class="price-variation">
-                    <p><strong>Le prix varie selon le nombre de personnes et la durée du circuit</strong></p>
+            </div>
+            
+            <div class="trek-card">
+                <div class="trek-image">VALLÉE DES ROSES</div>
+                <div class="trek-content">
+                    <h3>Vallée des Roses - 5 Jours</h3>
+                    <p>Drâa-Tafilalet - Kelaat M'gouna</p>
+                    <ul style="margin: 1rem 0; padding-left: 1.5rem;">
+                        <li>Découverte de la Vallée des Roses</li>
+                        <li>Gorges de Dades et Todra</li>
+                        <li>Rencontre avec population locale</li>
+                    </ul>
+                    <a href="contact.html" class="btn">Demander ce Circuit</a>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- باقي الأقسام تبقى كما هي -->
+    <section class="section" id="contact">
+        <h2 class="section-title">Contact</h2>
+        <div class="contact-info">
+            <div class="contact-card">
+                <h3>Contact Français</h3>
+                <p>Pour les clients francophones</p>
+                <p style="font-size: 1.3rem; font-weight: bold; margin: 1rem 0;">+212 661-796117</p>
+                <a href="https://wa.me/212661796117" class="btn" style="background: #25D366;">WhatsApp</a>
+            </div>
+            <div class="contact-card">
+                <h3>English Contact</h3>
+                <p>For English speaking clients</p>
+                <p style="font-size: 1.3rem; font-weight: bold; margin: 1rem 0;">+212 633-652721</p>
+                <a href="https://wa.me/212633652721" class="btn" style="background: #25D366;">WhatsApp</a>
+            </div>
+        </div>
+    </section>
 
     <footer class="footer">
         <p>Adventure Treks - Guide Expert Ali Ouzemmad</p>
         <p>Téléphone Français: +212 661-796117 | Téléphone Anglais: +212 633-652721</p>
         <p>Vallée des Roses - Ouarzazate, Maroc</p>
-        <p style="margin-top: 1rem; font-size: 0.9rem; opacity: 0.8;">
-            &copy; 2024 Adventure Treks Maroc. Tous droits réservés.
-        </p>
     </footer>
-
-    <!-- السكريبتات تبقى كما هي -->
-    <script>
-        // نظام اللغات المحسن
-        const translations = {
-            fr: {
-                "home": "Accueil",
-                "guide": "Notre Guide", 
-                "treks": "Randonnées",
-                "gallery": "Galerie",
-                "gallery_title": "Moments d'Aventure",
-                "reviews": "Avis Clients",
-                "contact": "Contact",
-                "hero_title": "Adventure Treks - Guide Expert Maroc",
-                "hero_subtitle": "Trekking dans l'Atlas, randonnées au désert - 30+ ans d'expérience",
-                "discover_btn": "Demander un Circuit Personnalisé",
-                "guide_title": "Notre Guide Expert",
-                "guide_job": "Guide des espaces naturels et des montagnes",
-                "guide_exp": "Plus de 30 ans d'expérience dans le guidage touristique au Maroc.",
-                "peaks_title": "Sommets Maîtrisés",
-                "deserts_title": "Déserts",
-                "valleys_title": "Vallées Expertisées", 
-                "groups_title": "Groupes",
-                "price_title": "Prix Tout Compris",
-                "price_desc": "Le prix comprend tout : guide, transport, hébergement, repas, et équipement.",
-                "treks_title": "Nos Randonnées par Durée"
-            },
-            en: {
-                "home": "Home",
-                "guide": "Our Guide",
-                "treks": "Treks", 
-                "gallery": "Gallery",
-                "gallery_title": "Adventure Moments",
-                "reviews": "Reviews",
-                "contact": "Contact",
-                "hero_title": "Adventure Treks - Expert Guide Morocco",
-                "hero_subtitle": "Atlas trekking, desert hikes - 30+ years of experience", 
-                "discover_btn": "Request a Custom Circuit",
-                "guide_title": "Our Expert Guide",
-                "guide_job": "Guide of natural spaces and mountains",
-                "guide_exp": "Over 30 years of experience in tourist guidance in Morocco.",
-                "peaks_title": "Mastered Peaks",
-                "deserts_title": "Deserts",
-                "valleys_title": "Expertised Valleys",
-                "groups_title": "Groups", 
-                "price_title": "All-Inclusive Price",
-                "price_desc": "The price includes everything: guide, transport, accommodation, meals, and equipment.",
-                "treks_title": "Our Treks by Duration"
-            }
-        };
-
-        // تغيير اللغة
-        document.querySelectorAll('.lang-btn').forEach(button => {
-            button.addEventListener('click', function() {
-                const lang = this.dataset.lang;
-                
-                document.querySelectorAll('.lang-btn').forEach(btn => {
-                    btn.classList.remove('active');
-                });
-                this.classList.add('active');
-                
-                document.querySelectorAll('[data-key]').forEach(element => {
-                    const key = element.getAttribute('data-key');
-                    if (translations[lang] && translations[lang][key]) {
-                        element.textContent = translations[lang][key];
-                    }
-                });
-                
-                // تحديث عنوان الصفحة
-                document.title = lang === 'fr' 
-                    ? 'Adventure Treks - Guide Expert Maroc | Trekking Atlas & Désert Merzouga'
-                    : 'Adventure Treks - Expert Guide Morocco | Atlas Trekking & Merzouga Desert';
-            });
-        });
-
-        // باقي السكريبتات تبقى كما هي
-    </script>
 </body>
 </html>
