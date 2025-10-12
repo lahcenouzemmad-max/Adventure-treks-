@@ -1,0 +1,393 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Notre Guide - Adventure Treks Maroc | Ali Ouzemmad Expert</title>
+    <meta name="description" content="Découvrez Ali Ouzemmad - Guide expert 30+ ans d'expérience en trekking Maroc. Toubkal, Mgoun, désert Merzouga.">
+    <meta name="keywords" content="ali ouzemmad guide, expert trekking maroc, guide montagne maroc, 30 ans expérience">
+    <meta name="author" content="Ali Ouzemmad">
+    
+    <style>
+        :root {
+            --primary: #27AE60;
+            --secondary: #2E86C1;
+            --accent: #58D68D;
+            --light: #FDFEFE;
+            --dark: #1B4F72;
+            --light-green: #EAFAF1;
+            --shadow: 0 4px 15px rgba(0,0,0,0.1);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
+            line-height: 1.6;
+            color: var(--dark);
+            background: #f8f9fa;
+        }
+
+        .navbar {
+            background: white;
+            padding: 1rem;
+            box-shadow: var(--shadow);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        .nav-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: bold;
+            color: var(--primary);
+            text-decoration: none;
+        }
+
+        .nav-links {
+            display: flex;
+            list-style: none;
+            gap: 1.5rem;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: var(--dark);
+            font-weight: 500;
+            transition: all 0.3s ease;
+            padding: 0.5rem;
+            border-radius: 5px;
+        }
+
+        .nav-links a:hover {
+            background: var(--light-green);
+        }
+
+        .mobile-menu-btn {
+            display: none;
+            background: none;
+            border: none;
+            font-size: 1.5rem;
+            cursor: pointer;
+            color: var(--dark);
+        }
+
+        .section {
+            padding: 4rem 1rem;
+            max-width: 1200px;
+            margin: 0 auto;
+            min-height: 70vh;
+        }
+
+        .section-title {
+            text-align: center;
+            font-size: 2.2rem;
+            margin-bottom: 3rem;
+            color: var(--dark);
+            position: relative;
+        }
+
+        .section-title::after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80px;
+            height: 4px;
+            background: var(--primary);
+            border-radius: 2px;
+        }
+
+        .guide-profile {
+            background: white;
+            border-radius: 15px;
+            padding: 2rem;
+            box-shadow: var(--shadow);
+            margin-bottom: 2rem;
+        }
+
+        .guide-header {
+            display: flex;
+            align-items: center;
+            gap: 2rem;
+            margin-bottom: 2rem;
+            text-align: left;
+        }
+
+        .guide-photo {
+            width: 200px;
+            height: 200px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 5px solid var(--primary);
+            box-shadow: var(--shadow);
+        }
+
+        .guide-name {
+            color: var(--primary);
+            font-size: 2rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .guide-title {
+            color: var(--secondary);
+            font-size: 1.2rem;
+            margin-bottom: 0.5rem;
+            font-weight: 600;
+        }
+
+        .guide-location {
+            color: var(--dark);
+            font-size: 1rem;
+        }
+
+        .guide-bio {
+            line-height: 1.8;
+        }
+
+        .guide-bio p {
+            margin-bottom: 1rem;
+        }
+
+        .guide-experience {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 1.5rem;
+            margin: 2rem 0;
+        }
+
+        .experience-item {
+            text-align: center;
+            padding: 1.5rem;
+            background: var(--light-green);
+            border-radius: 10px;
+            transition: transform 0.3s ease;
+            border-left: 4px solid var(--primary);
+        }
+
+        .experience-item:hover {
+            transform: translateY(-5px);
+        }
+
+        .experience-item h3 {
+            color: var(--primary);
+            margin-bottom: 1rem;
+            font-size: 1.2rem;
+        }
+
+        .experience-item p {
+            color: var(--dark);
+            font-weight: 500;
+        }
+
+        .certifications {
+            background: #E8F5E8;
+            border: 2px solid var(--primary);
+            border-radius: 10px;
+            padding: 1.5rem;
+            margin: 2rem 0;
+        }
+
+        .certifications h3 {
+            color: var(--primary);
+            text-align: center;
+            margin-bottom: 1rem;
+        }
+
+        .certifications ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        .certifications li {
+            padding: 0.5rem 0;
+            position: relative;
+            padding-left: 1.5rem;
+        }
+
+        .certifications li::before {
+            content: '✅';
+            position: absolute;
+            left: 0;
+        }
+
+        .cta-section {
+            text-align: center;
+            margin-top: 3rem;
+            padding: 2rem;
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            color: white;
+            border-radius: 15px;
+        }
+
+        .cta-btn {
+            background: white;
+            color: var(--primary);
+            padding: 12px 30px;
+            border: none;
+            border-radius: 25px;
+            text-decoration: none;
+            display: inline-block;
+            font-weight: 600;
+            margin-top: 1rem;
+            transition: all 0.3s ease;
+        }
+
+        .cta-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+        }
+
+        .footer {
+            background: var(--dark);
+            color: white;
+            padding: 2rem 1rem;
+            text-align: center;
+        }
+
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none;
+                flex-direction: column;
+                position: absolute;
+                top: 100%;
+                left: 0;
+                right: 0;
+                background: white;
+                box-shadow: var(--shadow);
+                padding: 1rem;
+            }
+
+            .nav-links.active {
+                display: flex;
+            }
+
+            .mobile-menu-btn {
+                display: block;
+            }
+
+            .guide-header {
+                flex-direction: column;
+                text-align: center;
+            }
+
+            .guide-photo {
+                width: 150px;
+                height: 150px;
+            }
+
+            .guide-experience {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <nav class="navbar">
+        <div class="nav-container">
+            <a href="index.html" class="logo">Adventure Treks</a>
+            <button class="mobile-menu-btn">☰</button>
+            <ul class="nav-links">
+                <li><a href="index.html">Accueil</a></li>
+                <li><a href="about.html" style="background: var(--light-green);">Notre Guide</a></li>
+                <li><a href="index.html#treks">Randonnées</a></li>
+                <li><a href="index.html#gallery">Galerie</a></li>
+                <li><a href="index.html#avis">Avis Clients</a></li>
+                <li><a href="contact.html">Contact</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <section class="section">
+        <h2 class="section-title">Notre Guide Expert</h2>
+        
+        <div class="guide-profile">
+            <div class="guide-header">
+                <img src="https://drive.google.com/thumbnail?id=1zpuQMHPk4oemXJgLtzwsrlJ7z0C5LNU0&sz=w1000" 
+                     alt="Ali Ouzemmad - Guide Expert Maroc" class="guide-photo">
+                <div class="guide-info">
+                    <h2 class="guide-name">Ali Ouzemmad</h2>
+                    <div class="guide-title">Guide des espaces naturels et des montagnes</div>
+                    <div class="guide-location">Vallée des Roses - Ouarzazate / Maroc</div>
+                </div>
+            </div>
+            
+            <div class="guide-bio">
+                <p><strong>Plus de 30 ans d'expérience</strong> dans le guidage touristique au Maroc.</p>
+                
+                <div class="guide-experience">
+                    <div class="experience-item">
+                        <h3>Sommets Maîtrisés</h3>
+                        <p>Toubkal, Mgoun, Siroua, Saghro</p>
+                    </div>
+                    <div class="experience-item">
+                        <h3>Déserts</h3>
+                        <p>Merzouga, Chegaga, Erg Chebbi</p>
+                    </div>
+                    <div class="experience-item">
+                        <h3>Vallées Expertisées</h3>
+                        <p>Dades, Roses, Aït Bougumez, Ourika, Drâa, Tassaout</p>
+                    </div>
+                    <div class="experience-item">
+                        <h3>Groupes</h3>
+                        <p>2 à 12 personnes - Circuits privés</p>
+                    </div>
+                </div>
+
+                <div class="certifications">
+                    <h3>Certifications & Compétences</h3>
+                    <ul>
+                        <li>Guide officiel des espaces naturels marocains</li>
+                        <li>Spécialiste en secourisme en milieu montagnard</li>
+                        <li>Connaissance approfondie de la flore et faune locales</li>
+                        <li>Maîtrise des techniques de bivouac et survie</li>
+                        <li>Relations authentiques avec les communautés locales</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <div class="cta-section">
+            <h3>Prêt pour l'Aventure ?</h3>
+            <p>Rejoignez Ali pour une expérience de trekking authentique et personnalisée</p>
+            <a href="contact.html" class="cta-btn">Contactez le Guide</a>
+        </div>
+    </section>
+
+    <footer class="footer">
+        <p><strong>Adventure Treks - Guide Expert Ali Ouzemmad</strong></p>
+        <p>Téléphone Français: +212 661-796117 | Téléphone Anglais: +212 633-652721</p>
+        <p>Vallée des Roses - Ouarzazate, Maroc</p>
+        <p style="margin-top: 1rem; font-size: 0.9rem; opacity: 0.8;">
+            &copy; 2024 Adventure Treks Maroc. Tous droits réservés.
+        </p>
+    </footer>
+
+    <script>
+        // القائمة المتنقلة
+        document.querySelector('.mobile-menu-btn').addEventListener('click', function() {
+            document.querySelector('.nav-links').classList.toggle('active');
+        });
+
+        // إغلاق القائمة عند النقر على رابط
+        document.querySelectorAll('.nav-links a').forEach(link => {
+            link.addEventListener('click', function() {
+                document.querySelector('.nav-links').classList.remove('active');
+            });
+        });
+    </script>
+</body>
+</html>
