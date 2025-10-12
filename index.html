@@ -170,8 +170,10 @@
         }
 
         .hero {
-            background: var(--gradient);
-            height: 60vh;
+            background: linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.4)), url('https://drive.google.com/uc?export=view&id=1tqwm60wwjHRde-aUKcnUUf9WJrMGbjla');
+            background-size: cover;
+            background-position: center;
+            height: 70vh;
             display: flex;
             align-items: center;
             justify-content: center;
@@ -193,9 +195,16 @@
         }
 
         .hero-content h1 {
-            font-size: 2.5rem;
+            font-size: 2.8rem;
             margin-bottom: 1rem;
             position: relative;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
+        }
+
+        .hero-content p {
+            font-size: 1.3rem;
+            margin-bottom: 2rem;
+            text-shadow: 1px 1px 2px rgba(0,0,0,0.5);
         }
 
         .btn {
@@ -251,6 +260,23 @@
             text-align: center;
         }
 
+        .guide-header {
+            display: flex;
+            align-items: center;
+            gap: 2rem;
+            margin-bottom: 2rem;
+            text-align: left;
+        }
+
+        .guide-photo {
+            width: 200px;
+            height: 200px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 5px solid var(--primary);
+            box-shadow: var(--shadow);
+        }
+
         .guide-name {
             color: var(--primary);
             font-size: 2rem;
@@ -294,6 +320,104 @@
             text-align: center;
             font-style: italic;
             color: #856404;
+        }
+
+        /* معرض الصور الأفقي */
+        .gallery-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            position: relative;
+            padding: 0 3rem;
+        }
+
+        .gallery-slider {
+            display: flex;
+            overflow-x: auto;
+            scroll-behavior: smooth;
+            gap: 1rem;
+            padding: 1rem 0;
+            scrollbar-width: none;
+            -ms-overflow-style: none;
+        }
+
+        .gallery-slider::-webkit-scrollbar {
+            display: none;
+        }
+
+        .gallery-item {
+            flex: 0 0 auto;
+            width: 300px;
+            height: 200px;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: var(--shadow);
+            transition: transform 0.3s ease;
+        }
+
+        .gallery-item:hover {
+            transform: scale(1.05);
+        }
+
+        .gallery-item img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: block;
+        }
+
+        .gallery-nav {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            background: rgba(255,255,255,0.9);
+            border: none;
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            font-size: 1.5rem;
+            color: var(--primary);
+            box-shadow: var(--shadow);
+            transition: all 0.3s ease;
+            z-index: 10;
+        }
+
+        .gallery-nav:hover {
+            background: var(--primary);
+            color: white;
+        }
+
+        .gallery-prev {
+            left: 0;
+        }
+
+        .gallery-next {
+            right: 0;
+        }
+
+        .gallery-dots {
+            display: flex;
+            justify-content: center;
+            gap: 0.5rem;
+            margin-top: 1rem;
+        }
+
+        .gallery-dot {
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+            background: #ddd;
+            border: none;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .gallery-dot.active {
+            background: var(--primary);
+            transform: scale(1.2);
         }
 
         .duration-filters {
@@ -358,14 +482,16 @@
         }
 
         .trek-image {
-            height: 180px;
-            background: var(--gradient);
+            height: 200px;
+            background-size: cover;
+            background-position: center;
             position: relative;
             display: flex;
             align-items: center;
             justify-content: center;
             color: white;
             font-weight: 600;
+            text-shadow: 1px 1px 3px rgba(0,0,0,0.7);
         }
 
         .trek-duration {
@@ -603,7 +729,8 @@
             border-color: var(--primary);
             outline: none;
         }
-    .footer {
+
+        .footer {
             background: var(--dark);
             color: white;
             padding: 2rem 1rem;
@@ -652,15 +779,44 @@
             }
 
             .hero {
-                height: 50vh;
+                height: 60vh;
             }
 
             .hero-content h1 {
-                font-size: 1.8rem;
+                font-size: 2rem;
+            }
+
+            .hero-content p {
+                font-size: 1.1rem;
+            }
+
+            .guide-header {
+                flex-direction: column;
+                text-align: center;
+            }
+
+            .guide-photo {
+                width: 150px;
+                height: 150px;
             }
 
             .guide-experience {
                 grid-template-columns: 1fr;
+            }
+
+            .gallery-container {
+                padding: 0 2rem;
+            }
+
+            .gallery-nav {
+                width: 40px;
+                height: 40px;
+                font-size: 1.2rem;
+            }
+
+            .gallery-item {
+                width: 250px;
+                height: 180px;
             }
 
             .treks-grid {
@@ -709,6 +865,7 @@
                 <li><a href="#accueil" data-key="home">Accueil</a></li>
                 <li><a href="#guide" data-key="guide">Notre Guide</a></li>
                 <li><a href="#treks" data-key="treks">Randonnées</a></li>
+                <li><a href="#gallery" data-key="gallery">Galerie</a></li>
                 <li><a href="#avis" data-key="reviews">Avis Clients</a></li>
                 <li><a href="#contact" data-key="contact">Contact</a></li>
             </ul>
@@ -727,9 +884,12 @@
         <h2 class="section-title" data-key="guide_title">Notre Guide Expert</h2>
         <div class="guide-profile">
             <div class="guide-header">
-                <h2 class="guide-name">Ali Ouzemmad</h2>
-                <div class="guide-title" data-key="guide_job">Guide des espaces naturels et des montagnes</div>
-                <p>Vallée des Roses - Ouarzazate / Maroc</p>
+                <img src="https://drive.google.com/uc?export=view&id=1zpuQMHPk4oemXJgLtzwsrlJ7z0C5LNU0" alt="Ali Ouzemmad - Guide Expert" class="guide-photo">
+                <div class="guide-info">
+                    <h2 class="guide-name">Ali Ouzemmad</h2>
+                    <div class="guide-title" data-key="guide_job">Guide des espaces naturels et des montagnes</div>
+                    <p>Vallée des Roses - Ouarzazate / Maroc</p>
+                </div>
             </div>
             
             <div class="guide-bio">
@@ -766,6 +926,100 @@
         </div>
     </section>
 
+    <section class="section" id="gallery">
+        <h2 class="section-title">Galerie Photos</h2>
+        <div class="gallery-container">
+            <button class="gallery-nav gallery-prev">❮</button>
+            <div class="gallery-slider" id="gallerySlider">
+                <div class="gallery-item">
+                    <img src="https://drive.google.com/uc?export=view&id=17j0rL9qOahrMQ1sjIRD1P0mcy8Cgv3pU" alt="Trekking dans l'Atlas">
+                </div>
+                <div class="gallery-item">
+                    <img src="https://drive.google.com/uc?export=view&id=1mfvWu486bDY5Cl7dQIjY2GLL-ZiHT4rF" alt="Désert de Merzouga">
+                </div>
+                <div class="gallery-item">
+                    <img src="https://drive.google.com/uc?export=view&id=1xRX5S_f4Hbg9snrmAoYIxqArNNrallQP" alt="Vallée des Roses">
+                </div>
+                <div class="gallery-item">
+                    <img src="https://drive.google.com/uc?export=view&id=1NMvh2owxnkTk00whGR7m1WYzWut65I3S" alt="Montagne du Toubkal">
+                </div>
+                <div class="gallery-item">
+                    <img src="https://drive.google.com/uc?export=view&id=1-B4bwqHUiutwq1RlpZFuVWS01MVnbeXP" alt="Gorges de Dades">
+                </div>
+                <div class="gallery-item">
+                    <img src="https://drive.google.com/uc?export=view&id=1Gzz6GCVzomb5EDBA4M-aFRqrfVr9rmAk" alt="Coucher de soleil désert">
+                </div>
+                <div class="gallery-item">
+                    <img src="https://drive.google.com/uc?export=view&id=1VwbEvHSQFA8L2yciQ6lN8zh3oaT6cHPh" alt="Village berbère">
+                </div>
+                <div class="gallery-item">
+                    <img src="https://drive.google.com/uc?export=view&id=1PvG4Ewe9tJxiu0bEy5HbyfioWdgXiJhB" alt="Randonnée en groupe">
+                </div>
+                <div class="gallery-item">
+                    <img src="https://drive.google.com/uc?export=view&id=1vQlBIsXR2jcqO2NV8fllG3JFzDExog8T" alt="Campement désert">
+                </div>
+                <div class="gallery-item">
+                    <img src="https://drive.google.com/uc?export=view&id=19aQMiurnH7CIFpMWeGynaZIY6Rv6lXiq" alt="Paysage montagneux">
+                </div>
+                <div class="gallery-item">
+                    <img src="https://drive.google.com/uc?export=view&id=1tLbosAEv8fuZdFeG-rGvI_zHjv-e3_qr" alt="Oasis marocain">
+                </div>
+                <div class="gallery-item">
+                    <img src="https://drive.google.com/uc?export=view&id=1nR6MVcQ-bdgUi3_7_JRxujIWb36NeisL" alt="Randonnée hivernale">
+                </div>
+                <div class="gallery-item">
+                    <img src="https://drive.google.com/uc?export=view&id=1YuwtYH5TID-f0OxmnmL0fHUqkSgPIW7T" alt="Culture locale">
+                </div>
+                <div class="gallery-item">
+                    <img src="https://drive.google.com/uc?export=view&id=1jDpYoRSl4yNBO5cuDx9g9EGji_dzlwt9" alt="Cascades d'Ourika">
+                </div>
+                <div class="gallery-item">
+                    <img src="https://drive.google.com/uc?export=view&id=1PzI_p770pFSXmBusRv7gpX786aqGg6_9" alt="Dunes de sable">
+                </div>
+                <div class="gallery-item">
+                    <img src="https://drive.google.com/uc?export=view&id=10yKHb_rAZ4V5FGgcb8IWrhvaQyT_UapH" alt="Guide Ali avec clients">
+                </div>
+                <div class="gallery-item">
+                    <img src="https://drive.google.com/uc?export=view&id=1uK-teTBrYcntNQU7Q1plpY-7ZJmQemG1" alt="Vue panoramique Atlas">
+                </div>
+                <div class="gallery-item">
+                    <img src="https://drive.google.com/uc?export=view&id=1EvpXRxYTCNEh3tLs8xjVqKN5kcRXP3XY" alt="Nuit en bivouac">
+                </div>
+                <div class="gallery-item">
+                    <img src="https://drive.google.com/uc?export=view&id=12FgJzEKFPhrWm5_a2VFlf4aEs2oJRJhH" alt="Rencontre avec population">
+                </div>
+                <div class="gallery-item">
+                    <img src="https://drive.google.com/uc?export=view&id=1dvg-pShqq_RZPumT5j-0Pl4uZ1t9QPuM" alt="Artisanat local">
+                </div>
+                <div class="gallery-item">
+                    <img src="https://drive.google.com/uc?export=view&id=1yO7FuOBP9tmy3fcqN0xmZO6csmRgnaMq" alt="Randonnée printanière">
+                </div>
+                <div class="gallery-item">
+                    <img src="https://drive.google.com/uc?export=view&id=1szjGYjK_la7rRUx9iMP9zEJPB1sM3BTR" alt="Gorges de Todra">
+                </div>
+                <div class="gallery-item">
+                    <img src="https://drive.google.com/uc?export=view&id=1qq6IRBkw-KLdGjAYWQ-NFUe12kwF8KP9" alt="Vallée heureuse">
+                </div>
+                <div class="gallery-item">
+                    <img src="https://drive.google.com/uc?export=view&id=10SF6MXZ1HfycHptfil2Kkhuw6biM-bNa" alt="Expédition désert">
+                </div>
+                <div class="gallery-item">
+                    <img src="https://drive.google.com/uc?export=view&id=1KHcrGoYUrsayy7M2g_z4t_OxgAHQSWwt" alt="Coucher de soleil Atlas">
+                </div>
+                <div class="gallery-item">
+                    <img src="https://drive.google.com/uc?export=view&id=13yfsh7UFSo5K-IljJ1SGUqJYAfNfTwSL" alt="Randonnée familiale">
+                </div>
+                <div class="gallery-item">
+                    <img src="https://drive.google.com/uc?export=view&id=1TwUS7UDcg0aZ-tlUsp0Bg7FGoECwupAY" alt="Pause thé berbère">
+                </div>
+            </div>
+            <button class="gallery-nav gallery-next">❯</button>
+            <div class="gallery-dots" id="galleryDots">
+                <!-- سيتم إضافة النقاط ديناميكياً -->
+            </div>
+        </div>
+    </section>
+
     <section class="section" id="treks">
         <h2 class="section-title" data-key="treks_title">Nos Randonnées par Durée</h2>
         
@@ -781,7 +1035,7 @@
                 <h3 class="category-title">Randonnées Courtes (2-6 jours)</h3>
                 <div class="treks-grid">
                     <div class="trek-card">
-                        <div class="trek-image">
+                        <div class="trek-image" style="background-image: url('https://drive.google.com/uc?export=view&id=1NMvh2owxnkTk00whGR7m1WYzWut65I3S')">
                             <div class="trek-duration">4 Jours</div>
                             <div>Toubkal Express</div>
                         </div>
@@ -808,7 +1062,7 @@
                     </div>
 
                     <div class="trek-card">
-                        <div class="trek-image">
+                        <div class="trek-image" style="background-image: url('https://drive.google.com/uc?export=view&id=1xRX5S_f4Hbg9snrmAoYIxqArNNrallQP')">
                             <div class="trek-duration">5 Jours</div>
                             <div>Vallée des Roses</div>
                         </div>
@@ -843,7 +1097,7 @@
                 <h3 class="category-title">Randonnées Moyennes (7-11 jours)</h3>
                 <div class="treks-grid">
                     <div class="trek-card">
-                        <div class="trek-image">
+                        <div class="trek-image" style="background-image: url('https://drive.google.com/uc?export=view&id=1YuwtYH5TID-f0OxmnmL0fHUqkSgPIW7T')">
                             <div class="trek-duration">8 Jours</div>
                             <div>Grand Mgoun</div>
                         </div>
@@ -871,7 +1125,7 @@
                     </div>
 
                     <div class="trek-card">
-                        <div class="trek-image">
+                        <div class="trek-image" style="background-image: url('https://drive.google.com/uc?export=view&id=1mfvWu486bDY5Cl7dQIjY2GLL-ZiHT4rF')">
                             <div class="trek-duration">10 Jours</div>
                             <div>Atlas & Oasis</div>
                         </div>
@@ -907,7 +1161,7 @@
                 <h3 class="category-title">Randonnées Longues (12-15 jours)</h3>
                 <div class="treks-grid">
                     <div class="trek-card">
-                        <div class="trek-image">
+                        <div class="trek-image" style="background-image: url('https://drive.google.com/uc?export=view&id=1vQlBIsXR2jcqO2NV8fllG3JFzDExog8T')">
                             <div class="trek-duration">12 Jours</div>
                             <div>Expédition Drâa</div>
                         </div>
@@ -937,7 +1191,7 @@
                     </div>
 
                     <div class="trek-card">
-                        <div class="trek-image">
+                        <div class="trek-image" style="background-image: url('https://drive.google.com/uc?export=view&id=1Gzz6GCVzomb5EDBA4M-aFRqrfVr9rmAk')">
                             <div class="trek-duration">15 Jours</div>
                             <div>Grand Sud</div>
                         </div>
@@ -1151,12 +1405,97 @@
     </footer>
 
     <script>
-        // نظام اللغات
+        // نظام معرض الصور الأفقي
+        const gallerySlider = document.getElementById('gallerySlider');
+        const galleryDots = document.getElementById('galleryDots');
+        const items = gallerySlider.querySelectorAll('.gallery-item');
+        const itemsPerView = 3;
+        let currentIndex = 0;
+
+        // إنشاء نقاط التنقل
+        function createDots() {
+            const totalDots = Math.ceil(items.length / itemsPerView);
+            galleryDots.innerHTML = '';
+            
+            for (let i = 0; i < totalDots; i++) {
+                const dot = document.createElement('button');
+                dot.className = 'gallery-dot';
+                if (i === 0) dot.classList.add('active');
+                dot.addEventListener('click', () => goToSlide(i));
+                galleryDots.appendChild(dot);
+            }
+        }
+
+        function goToSlide(index) {
+            currentIndex = index;
+            const scrollAmount = index * (300 + 16) * itemsPerView; // عرض العنصر + الـ gap
+            gallerySlider.scrollTo({
+                left: scrollAmount,
+                behavior: 'smooth'
+            });
+            updateDots();
+        }
+
+        function updateDots() {
+            const dots = galleryDots.querySelectorAll('.gallery-dot');
+            const activeDotIndex = Math.floor(currentIndex);
+            
+            dots.forEach((dot, index) => {
+                dot.classList.toggle('active', index === activeDotIndex);
+            });
+        }
+
+        // التنقل بالسهام
+        document.querySelector('.gallery-prev').addEventListener('click', () => {
+            if (currentIndex > 0) {
+                goToSlide(currentIndex - 1);
+            }
+        });
+
+        document.querySelector('.gallery-next').addEventListener('click', () => {
+            const maxIndex = Math.ceil(items.length / itemsPerView) - 1;
+            if (currentIndex < maxIndex) {
+                goToSlide(currentIndex + 1);
+            }
+        });
+
+        // التمرير بالسحب على الهواتف
+        let isDown = false;
+        let startX;
+        let scrollLeft;
+
+        gallerySlider.addEventListener('mousedown', (e) => {
+            isDown = true;
+            startX = e.pageX - gallerySlider.offsetLeft;
+            scrollLeft = gallerySlider.scrollLeft;
+        });
+
+        gallerySlider.addEventListener('mouseleave', () => {
+            isDown = false;
+        });
+
+        gallerySlider.addEventListener('mouseup', () => {
+            isDown = false;
+        });
+
+        gallerySlider.addEventListener('mousemove', (e) => {
+            if (!isDown) return;
+            e.preventDefault();
+            const x = e.pageX - gallerySlider.offsetLeft;
+            const walk = (x - startX) * 2;
+            gallerySlider.scrollLeft = scrollLeft - walk;
+        });
+
+        // تهيئة المعرض
+        createDots();
+
+        // نظام اللغات المحسن
         const translations = {
             fr: {
                 "home": "Accueil",
                 "guide": "Notre Guide", 
                 "treks": "Randonnées",
+                "gallery": "Galerie",
                 "reviews": "Avis Clients",
                 "contact": "Contact",
                 "hero_title": "Adventure Treks - Guide Expert Maroc",
@@ -1177,6 +1516,7 @@
                 "home": "Home",
                 "guide": "Our Guide",
                 "treks": "Treks", 
+                "gallery": "Gallery",
                 "reviews": "Reviews",
                 "contact": "Contact",
                 "hero_title": "Adventure Treks - Expert Guide Morocco",
@@ -1211,6 +1551,11 @@
                         element.textContent = translations[lang][key];
                     }
                 });
+                
+                // تحديث عنوان الصفحة
+                document.title = lang === 'fr' 
+                    ? 'Adventure Treks - Guide Expert Maroc | Trekking Atlas & Désert Merzouga'
+                    : 'Adventure Treks - Expert Guide Morocco | Atlas Trekking & Merzouga Desert';
             });
         });
 
@@ -1218,6 +1563,7 @@
         document.querySelector('.mobile-menu-btn').addEventListener('click', function() {
             document.querySelector('.nav-links').classList.toggle('active');
         });
+
         // نظام التقييم
         let currentRating = 0;
         document.querySelectorAll('.star').forEach(star => {
@@ -1387,6 +1733,3 @@ Demandes spéciales: ${specialRequests || 'Aucune'}
     </script>
 </body>
 </html>
-
-
-
