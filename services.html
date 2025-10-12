@@ -1,0 +1,358 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Services - Adventure Treks Maroc | Trekking et Randonnées</title>
+    <meta name="description" content="Services complets de trekking au Maroc. Guide expert, transport, hébergement, repas inclus. Circuits tout compris.">
+    <meta name="keywords" content="services trekking maroc, circuits tout compris, guide transport hébergement, prix inclus">
+    <meta name="author" content="Ali Ouzemmad">
+    
+    <style>
+        :root {
+            --primary: #27AE60;
+            --secondary: #2E86C1;
+            --accent: #58D68D;
+            --light: #FDFEFE;
+            --dark: #1B4F72;
+            --light-green: #EAFAF1;
+            --shadow: 0 4px 15px rgba(0,0,0,0.1);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
+            line-height: 1.6;
+            color: var(--dark);
+            background: #f8f9fa;
+        }
+
+        .navbar {
+            background: white;
+            padding: 1rem;
+            box-shadow: var(--shadow);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        .nav-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: bold;
+            color: var(--primary);
+            text-decoration: none;
+        }
+
+        .nav-links {
+            display: flex;
+            list-style: none;
+            gap: 1.5rem;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: var(--dark);
+            font-weight: 500;
+            transition: all 0.3s ease;
+            padding: 0.5rem;
+            border-radius: 5px;
+        }
+
+        .nav-links a:hover {
+            background: var(--light-green);
+        }
+
+        .mobile-menu-btn {
+            display: none;
+            background: none;
+            border: none;
+            font-size: 1.5rem;
+            cursor: pointer;
+            color: var(--dark);
+        }
+
+        .section {
+            padding: 4rem 1rem;
+            max-width: 1200px;
+            margin: 0 auto;
+            min-height: 70vh;
+        }
+
+        .section-title {
+            text-align: center;
+            font-size: 2.2rem;
+            margin-bottom: 3rem;
+            color: var(--dark);
+            position: relative;
+        }
+
+        .section-title::after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80px;
+            height: 4px;
+            background: var(--primary);
+            border-radius: 2px;
+        }
+
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-bottom: 3rem;
+        }
+
+        .service-card {
+            background: white;
+            border-radius: 15px;
+            padding: 2rem;
+            box-shadow: var(--shadow);
+            text-align: center;
+            border-top: 4px solid var(--primary);
+            transition: transform 0.3s ease;
+        }
+
+        .service-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .service-icon {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+            color: var(--primary);
+        }
+
+        .service-card h3 {
+            color: var(--primary);
+            margin-bottom: 1rem;
+            font-size: 1.3rem;
+        }
+
+        .service-card p {
+            color: var(--dark);
+            line-height: 1.6;
+        }
+
+        .included-section {
+            background: var(--light-green);
+            border-radius: 15px;
+            padding: 2rem;
+            margin: 2rem 0;
+        }
+
+        .included-section h3 {
+            color: var(--primary);
+            text-align: center;
+            margin-bottom: 1.5rem;
+            font-size: 1.5rem;
+        }
+
+        .included-list {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 1rem;
+            list-style: none;
+            padding: 0;
+        }
+
+        .included-list li {
+            padding: 0.8rem;
+            background: white;
+            border-radius: 8px;
+            text-align: center;
+            font-weight: 500;
+        }
+
+        .price-note {
+            background: #FFF3CD;
+            border: 1px solid #FFEAA7;
+            border-radius: 10px;
+            padding: 1.5rem;
+            margin: 2rem 0;
+            text-align: center;
+            font-style: italic;
+        }
+
+        .cta-section {
+            text-align: center;
+            margin-top: 3rem;
+            padding: 2rem;
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            color: white;
+            border-radius: 15px;
+        }
+
+        .cta-btn {
+            background: white;
+            color: var(--primary);
+            padding: 12px 30px;
+            border: none;
+            border-radius: 25px;
+            text-decoration: none;
+            display: inline-block;
+            font-weight: 600;
+            margin-top: 1rem;
+            transition: all 0.3s ease;
+        }
+
+        .cta-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+        }
+
+        .footer {
+            background: var(--dark);
+            color: white;
+            padding: 2rem 1rem;
+            text-align: center;
+        }
+
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none;
+                flex-direction: column;
+                position: absolute;
+                top: 100%;
+                left: 0;
+                right: 0;
+                background: white;
+                box-shadow: var(--shadow);
+                padding: 1rem;
+            }
+
+            .nav-links.active {
+                display: flex;
+            }
+
+            .mobile-menu-btn {
+                display: block;
+            }
+
+            .services-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .included-list {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <nav class="navbar">
+        <div class="nav-container">
+            <a href="index.html" class="logo">Adventure Treks</a>
+            <button class="mobile-menu-btn">☰</button>
+            <ul class="nav-links">
+                <li><a href="index.html">Accueil</a></li>
+                <li><a href="about.html">Notre Guide</a></li>
+                <li><a href="index.html#treks">Randonnées</a></li>
+                <li><a href="services.html" style="background: var(--light-green);">Services</a></li>
+                <li><a href="index.html#gallery">Galerie</a></li>
+                <li><a href="contact.html">Contact</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <section class="section">
+        <h2 class="section-title">Nos Services Complets</h2>
+        
+        <div class="services-grid">
+            <div class="service-card">
+                <div class="service-icon">M</div>
+                <h3>Trekking Montagne</h3>
+                <p>Randonnées guidées dans l'Atlas avec guide expert certifié. Ascension des plus beaux sommets du Maroc.</p>
+            </div>
+            <div class="service-card">
+                <div class="service-icon">D</div>
+                <h3>Expéditions Désert</h3>
+                <p>Circuits authentiques dans le désert de Merzouga. Nuits en bivouac sous les étoiles.</p>
+            </div>
+            <div class="service-card">
+                <div class="service-icon">H</div>
+                <h3>Hébergement Compris</h3>
+                <p>Gîtes berbères, auberges traditionnelles et bivouacs inclus dans tous nos circuits.</p>
+            </div>
+            <div class="service-card">
+                <div class="service-icon">T</div>
+                <h3>Transport Privé</h3>
+                <p>Véhicules tout-terrain confortables pour tous vos déplacements durant le circuit.</p>
+            </div>
+            <div class="service-card">
+                <div class="service-icon">R</div>
+                <h3>Repas Traditionnels</h3>
+                <p>Cuisine locale authentique préparée avec des produits frais. Petit-déjeuner, déjeuner, dîner inclus.</p>
+            </div>
+            <div class="service-card">
+                <div class="service-icon">G</div>
+                <h3>Guide Expert</h3>
+                <p>Accompagnement personnalisé par Ali Ouzemmad, guide expert avec 30+ ans d'expérience.</p>
+            </div>
+        </div>
+
+        <div class="included-section">
+            <h3>Tout Compris dans le Prix</h3>
+            <ul class="included-list">
+                <li>Guide expert francophone/anglais</li>
+                <li>Transport privé durant tout le circuit</li>
+                <li>Hébergement en gîtes et auberges</li>
+                <li>Tous les repas (petit-déjeuner, déjeuner, dîner)</li>
+                <li>Équipement de camping et bivouac</li>
+                <li>Mulet pour le transport des bagages</li>
+                <li>Frais d'entrée aux sites et parcs</li>
+                <li>Assistance 24h/24</li>
+            </ul>
+        </div>
+
+        <div class="price-note">
+            <p><strong>Le prix varie selon le nombre de personnes et la durée du circuit</strong></p>
+            <p>Contactez-nous pour un devis personnalisé adapté à vos besoins</p>
+        </div>
+
+        <div class="cta-section">
+            <h3>Service Personnalisé et Tout Compris</h3>
+            <p>Bénéficiez d'un circuit sur mesure avec tous les services inclus</p>
+            <a href="contact.html" class="cta-btn">Demander un Devis</a>
+        </div>
+    </section>
+
+    <footer class="footer">
+        <p><strong>Adventure Treks - Guide Expert Ali Ouzemmad</strong></p>
+        <p>Téléphone Français: +212 661-796117 | Téléphone Anglais: +212 633-652721</p>
+        <p>Vallée des Roses - Ouarzazate, Maroc</p>
+        <p style="margin-top: 1rem; font-size: 0.9rem; opacity: 0.8;">
+            &copy; 2024 Adventure Treks Maroc. Tous droits réservés.
+        </p>
+    </footer>
+
+    <script>
+        // القائمة المتنقلة
+        document.querySelector('.mobile-menu-btn').addEventListener('click', function() {
+            document.querySelector('.nav-links').classList.toggle('active');
+        });
+
+        // إغلاق القائمة عند النقر على رابط
+        document.querySelectorAll('.nav-links a').forEach(link => {
+            link.addEventListener('click', function() {
+                document.querySelector('.nav-links').classList.remove('active');
+            });
+        });
+    </script>
+</body>
+</html>
