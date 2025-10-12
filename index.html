@@ -1,26 +1,50 @@
-<!DOCTYPE html>
+<<!DOCTYPE html>
 <html lang="fr">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Adventure Treks - Guide Expert Maroc | Trekking Atlas & Désert Merzouga</title>
+   
+    <meta name="google-site-verification" content="lO7Zv3yvFMllSxhb23p6rD6T18m6jz2J6pHPX3ahEZE" />
+    <!-- Meta Tags SEO Avancé -->
     <meta name="description" content="Adventure Treks avec Ali Ouzemmad - Guide expert 30+ ans. Trekking Toubkal, randonnée Mgoun, circuits désert Merzouga. Prix tout compris.">
-    <meta name="keywords" content="trekking maroc, randonnée maroc, guide maroc, toubkal, mgoun, désert merzouga">
+    <meta name="keywords" content="trekking maroc, randonnée maroc, guide maroc, toubkal trek, mgoun, désert merzouga, circuit atlas, voyage maroc, tourisme aventure, guide berbère, ali ouzemmad, vallée des roses, haut atlas, sud maroc, safari désert, trekking atlas, randonnée désert, vacances maroc, voyage trekking, expédition maroc, tourisme maroc">
     <meta name="author" content="Ali Ouzemmad">
+    <meta name="robots" content="index, follow">
+    
+    <!-- Open Graph Tags -->
+    <meta property="og:title" content="Adventure Treks - Guide Expert Maroc">
+    <meta property="og:description" content="Guide expert 30+ ans - Trekking Atlas, randonnées désert Merzouga">
+    <meta property="og:type" content="website">
+    <meta property="og:locale" content="fr_FR">
+    
+    <!-- Schema.org markup -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "TouristAttraction",
+        "name": "Adventure Treks Maroc",
+        "description": "Guide expert pour trekking dans l'Atlas et randonnées dans le désert Marocain",
+        "address": {
+            "@type": "PostalAddress",
+            "addressRegion": "Vallée des Roses - Ouarzazate",
+            "addressCountry": "MA"
+        },
+        "telephone": "+212661796117"
+    }
+    </script>
     
     <style>
         :root {
             --primary: #27AE60;
-            --primary-dark: #219653;
             --secondary: #2E86C1;
             --accent: #58D68D;
             --light: #FDFEFE;
             --dark: #1B4F72;
-            --text: #2C3E50;
             --light-green: #EAFAF1;
-            --shadow: 0 10px 30px rgba(0,0,0,0.1);
-            --radius: 12px;
-            --transition: all 0.3s ease;
+            --shadow: 0 4px 15px rgba(0,0,0,0.1);
+            --gradient: linear-gradient(135deg, var(--primary), var(--secondary));
         }
 
         * {
@@ -29,29 +53,77 @@
             box-sizing: border-box;
         }
 
-        html {
+        body {
+            font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
+            line-height: 1.6;
+            color: var(--dark);
+            background: #f8f9fa;
             scroll-behavior: smooth;
         }
 
-        body {
-            font-family: 'Inter', 'Segoe UI', system-ui, sans-serif;
-            line-height: 1.7;
-            color: var(--text);
-            background: #f8f9fa;
-            overflow-x: hidden;
+        .header-top {
+            background: var(--dark);
+            color: white;
+            padding: 0.5rem 1rem;
         }
 
-        /* Navigation */
+        .header-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .language-registration {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+
+        .language-switcher {
+            display: flex;
+            background: rgba(255,255,255,0.1);
+            border-radius: 20px;
+            padding: 0.25rem;
+        }
+
+        .lang-btn {
+            padding: 0.4rem 1rem;
+            border: none;
+            background: none;
+            cursor: pointer;
+            border-radius: 15px;
+            font-weight: 500;
+            transition: all 0.3s ease;
+            color: white;
+            font-size: 0.9rem;
+        }
+
+        .lang-btn.active {
+            background: var(--primary);
+            color: white;
+        }
+
+        .register-btn {
+            background: var(--primary);
+            color: white;
+            padding: 0.5rem 1rem;
+            border: none;
+            border-radius: 20px;
+            text-decoration: none;
+            font-weight: 500;
+            font-size: 0.9rem;
+            transition: all 0.3s ease;
+        }
+
         .navbar {
-            background: rgba(255, 255, 255, 0.95);
-            backdrop-filter: blur(10px);
-            padding: 1rem 0;
-            position: fixed;
+            background: white;
+            padding: 1rem;
+            position: sticky;
             top: 0;
-            width: 100%;
+            box-shadow: var(--shadow);
             z-index: 1000;
-            box-shadow: 0 2px 20px rgba(0,0,0,0.1);
-            transition: var(--transition);
         }
 
         .nav-container {
@@ -60,59 +132,32 @@
             display: flex;
             justify-content: space-between;
             align-items: center;
-            padding: 0 2rem;
         }
 
         .logo {
-            font-size: 1.8rem;
-            font-weight: 700;
+            font-size: 1.5rem;
+            font-weight: bold;
             color: var(--primary);
             text-decoration: none;
-            display: flex;
-            align-items: center;
-            gap: 0.5rem;
-        }
-
-        .logo-icon {
-            font-size: 2rem;
         }
 
         .nav-links {
             display: flex;
             list-style: none;
-            gap: 2.5rem;
-            align-items: center;
+            gap: 1.5rem;
         }
 
         .nav-links a {
             text-decoration: none;
             color: var(--dark);
             font-weight: 500;
-            font-size: 1rem;
-            transition: var(--transition);
-            position: relative;
-            padding: 0.5rem 0;
+            transition: all 0.3s ease;
+            padding: 0.5rem;
+            border-radius: 5px;
         }
 
-        .nav-links a::after {
-            content: '';
-            position: absolute;
-            bottom: 0;
-            left: 0;
-            width: 0;
-            height: 2px;
-            background: var(--primary);
-            transition: var(--transition);
-        }
-
-        .nav-links a:hover::after,
-        .nav-links a.active::after {
-            width: 100%;
-        }
-
-        .nav-links a:hover,
-        .nav-links a.active {
-            color: var(--primary);
+        .nav-links a:hover {
+            background: var(--light-green);
         }
 
         .mobile-menu-btn {
@@ -124,245 +169,278 @@
             color: var(--dark);
         }
 
-        /* Hero Section */
         .hero {
-            background: linear-gradient(135deg, rgba(39, 174, 96, 0.9), rgba(46, 134, 193, 0.8)), 
-                        url('https://images.unsplash.com/photo-1519681393784-d120267933ba?ixlib=rb-4.0.3&auto=format&fit=crop&w=2000&q=80');
+            background: linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.4)), url('https://drive.google.com/thumbnail?id=1tqwm60wwjHRde-aUKcnUUf9WJrMGbjla&sz=w2000');
             background-size: cover;
             background-position: center;
-            background-attachment: fixed;
-            min-height: 100vh;
+            height: 70vh;
             display: flex;
             align-items: center;
             justify-content: center;
             text-align: center;
             color: white;
-            padding: 0 2rem;
+            padding: 0 1rem;
             position: relative;
+            overflow: hidden;
         }
 
-        .hero-content {
-            max-width: 800px;
-            z-index: 2;
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 800"><path fill="rgba(255,255,255,0.1)" d="M0 0h1200v800H0z"/><path fill="rgba(255,255,255,0.05)" d="M0 400h1200v400H0z"/></svg>');
         }
 
-        .hero h1 {
-            font-size: 3.5rem;
-            font-weight: 700;
-            margin-bottom: 1.5rem;
-            line-height: 1.2;
-            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+        .hero-content h1 {
+            font-size: 2.8rem;
+            margin-bottom: 1rem;
+            position: relative;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
         }
 
-        .hero p {
-            font-size: 1.4rem;
-            margin-bottom: 2.5rem;
-            opacity: 0.95;
-            text-shadow: 1px 1px 2px rgba(0,0,0,0.3);
+        .hero-content p {
+            font-size: 1.3rem;
+            margin-bottom: 2rem;
+            text-shadow: 1px 1px 2px rgba(0,0,0,0.5);
         }
 
         .btn {
-            display: inline-flex;
-            align-items: center;
-            gap: 0.5rem;
             background: white;
             color: var(--primary);
-            padding: 1rem 2.5rem;
+            padding: 12px 25px;
             border: none;
-            border-radius: 50px;
+            border-radius: 25px;
             text-decoration: none;
+            display: inline-block;
             font-weight: 600;
-            font-size: 1.1rem;
-            transition: var(--transition);
+            transition: all 0.3s ease;
             cursor: pointer;
-            box-shadow: 0 5px 20px rgba(0,0,0,0.2);
         }
 
         .btn:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 8px 30px rgba(0,0,0,0.3);
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(0,0,0,0.15);
         }
 
-        .btn-secondary {
-            background: transparent;
-            color: white;
-            border: 2px solid white;
-        }
-
-        .btn-secondary:hover {
-            background: white;
-            color: var(--primary);
-        }
-
-        /* Sections */
         .section {
-            padding: 6rem 2rem;
-        }
-
-        .section-dark {
-            background: var(--dark);
-            color: white;
-        }
-
-        .container {
+            padding: 4rem 1rem;
             max-width: 1200px;
             margin: 0 auto;
         }
 
         .section-title {
             text-align: center;
-            font-size: 2.8rem;
-            font-weight: 700;
-            margin-bottom: 1rem;
+            font-size: 2.2rem;
+            margin-bottom: 3rem;
             color: var(--dark);
+            position: relative;
         }
 
-        .section-subtitle {
-            text-align: center;
-            font-size: 1.2rem;
-            color: var(--text);
-            margin-bottom: 4rem;
-            max-width: 600px;
-            margin-left: auto;
-            margin-right: auto;
+        .section-title::after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80px;
+            height: 4px;
+            background: var(--primary);
+            border-radius: 2px;
         }
 
-        .section-dark .section-title,
-        .section-dark .section-subtitle {
-            color: white;
-        }
-
-        /* Guide Profile */
         .guide-profile {
             background: white;
-            border-radius: var(--radius);
-            padding: 4rem;
+            border-radius: 15px;
+            padding: 2rem;
             box-shadow: var(--shadow);
-            margin-bottom: 3rem;
+            margin-bottom: 2rem;
+            text-align: center;
         }
 
         .guide-header {
-            display: grid;
-            grid-template-columns: auto 1fr;
-            gap: 3rem;
+            display: flex;
             align-items: center;
-            margin-bottom: 3rem;
+            gap: 2rem;
+            margin-bottom: 2rem;
+            text-align: left;
         }
 
         .guide-photo {
-            width: 280px;
-            height: 280px;
-            border-radius: 20px;
+            width: 200px;
+            height: 200px;
+            border-radius: 50%;
             object-fit: cover;
             border: 5px solid var(--primary);
             box-shadow: var(--shadow);
-            transition: var(--transition);
         }
 
-        .guide-photo:hover {
-            transform: scale(1.05);
-        }
-
-        .guide-info h2 {
-            font-size: 2.5rem;
+        .guide-name {
             color: var(--primary);
+            font-size: 2rem;
             margin-bottom: 0.5rem;
         }
 
-        .guide-title {
-            font-size: 1.3rem;
-            color: var(--secondary);
-            margin-bottom: 1rem;
-            font-weight: 600;
-        }
-
-        .guide-location {
-            font-size: 1.1rem;
-            color: var(--text);
-            margin-bottom: 1.5rem;
-            display: flex;
-            align-items: center;
-            gap: 0.5rem;
-        }
-
-        .guide-bio {
-            font-size: 1.1rem;
-            line-height: 1.8;
-            margin-bottom: 2rem;
-        }
-
-        .guide-highlights {
+        .guide-experience {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 1.5rem;
-            margin: 2rem 0;
-        }
-
-        .highlight-card {
-            background: var(--light-green);
-            padding: 2rem;
-            border-radius: var(--radius);
-            text-align: center;
-            border-left: 4px solid var(--primary);
-            transition: var(--transition);
-        }
-
-        .highlight-card:hover {
-            transform: translateY(-5px);
-            box-shadow: var(--shadow);
-        }
-
-        .highlight-card h3 {
-            color: var(--primary);
-            margin-bottom: 1rem;
-            font-size: 1.2rem;
-        }
-
-        /* Price Section */
-        .price-section {
-            background: linear-gradient(135deg, var(--primary), var(--secondary));
-            color: white;
-            padding: 3rem;
-            border-radius: var(--radius);
-            text-align: center;
-            margin: 3rem 0;
-        }
-
-        .price-title {
-            font-size: 2rem;
-            margin-bottom: 1rem;
-        }
-
-        .price-note {
-            background: rgba(255,255,255,0.1);
-            padding: 1.5rem;
-            border-radius: var(--radius);
+            gap: 1rem;
             margin-top: 1.5rem;
-            font-style: italic;
         }
 
-        /* Treks Section */
+        .experience-item {
+            text-align: center;
+            padding: 1.5rem;
+            background: var(--light-green);
+            border-radius: 10px;
+            transition: transform 0.3s ease;
+        }
+
+        .experience-item:hover {
+            transform: translateY(-5px);
+        }
+
+        .price-inclusion {
+            background: #E8F5E8;
+            border: 2px solid var(--primary);
+            border-radius: 10px;
+            padding: 1.5rem;
+            margin: 1.5rem 0;
+            text-align: center;
+        }
+
+        .price-variation {
+            background: #FFF3CD;
+            border: 1px solid #FFEAA7;
+            border-radius: 8px;
+            padding: 1rem;
+            margin: 1rem 0;
+            text-align: center;
+            font-style: italic;
+            color: #856404;
+        }
+
+        /* معرض الصور الأفقي */
+        .gallery-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            position: relative;
+            padding: 0 3rem;
+        }
+
+        .gallery-slider {
+            display: flex;
+            overflow-x: auto;
+            scroll-behavior: smooth;
+            gap: 1rem;
+            padding: 1rem 0;
+            scrollbar-width: none;
+            -ms-overflow-style: none;
+        }
+
+        .gallery-slider::-webkit-scrollbar {
+            display: none;
+        }
+
+        .gallery-item {
+            flex: 0 0 auto;
+            width: 300px;
+            height: 200px;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: var(--shadow);
+            transition: transform 0.3s ease;
+        }
+
+        .gallery-item:hover {
+            transform: scale(1.05);
+        }
+
+        .gallery-item img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: block;
+        }
+
+        .gallery-nav {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            background: rgba(255,255,255,0.9);
+            border: none;
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            font-size: 1.5rem;
+            color: var(--primary);
+            box-shadow: var(--shadow);
+            transition: all 0.3s ease;
+            z-index: 10;
+        }
+
+        .gallery-nav:hover {
+            background: var(--primary);
+            color: white;
+        }
+
+        .gallery-prev {
+            left: 0;
+        }
+
+        .gallery-next {
+            right: 0;
+        }
+
+        .gallery-dots {
+            display: flex;
+            justify-content: center;
+            gap: 0.5rem;
+            margin-top: 1rem;
+        }
+
+        .gallery-dot {
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+            background: #ddd;
+            border: none;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .gallery-dot.active {
+            background: var(--primary);
+            transform: scale(1.2);
+        }
+
         .duration-filters {
             display: flex;
             justify-content: center;
-            gap: 1rem;
-            margin-bottom: 3rem;
+            gap: 0.5rem;
+            margin-bottom: 2rem;
             flex-wrap: wrap;
         }
 
         .duration-btn {
-            padding: 1rem 2rem;
+            padding: 10px 20px;
             border: 2px solid var(--primary);
             background: white;
             color: var(--primary);
-            border-radius: 50px;
+            border-radius: 20px;
             cursor: pointer;
             font-weight: 600;
-            transition: var(--transition);
+            transition: all 0.3s ease;
+            font-size: 0.9rem;
         }
 
-        .duration-btn.active,
-        .duration-btn:hover {
+        .duration-btn.active {
             background: var(--primary);
             color: white;
         }
@@ -373,108 +451,98 @@
 
         .treks-container.active {
             display: block;
-            animation: fadeIn 0.5s ease;
-        }
-
-        @keyframes fadeIn {
-            from { opacity: 0; transform: translateY(20px); }
-            to { opacity: 1; transform: translateY(0); }
         }
 
         .trek-category {
-            margin-bottom: 4rem;
+            margin-bottom: 3rem;
         }
 
         .category-title {
-            font-size: 2rem;
+            font-size: 1.5rem;
             color: var(--primary);
-            margin-bottom: 2rem;
-            text-align: center;
+            margin-bottom: 1.5rem;
         }
 
         .treks-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
-            gap: 2rem;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 1.5rem;
         }
 
         .trek-card {
             background: white;
-            border-radius: var(--radius);
+            border-radius: 15px;
             overflow: hidden;
             box-shadow: var(--shadow);
-            transition: var(--transition);
+            transition: transform 0.3s ease;
         }
 
         .trek-card:hover {
-            transform: translateY(-10px);
-            box-shadow: 0 20px 40px rgba(0,0,0,0.15);
+            transform: translateY(-5px);
         }
 
         .trek-image {
             height: 200px;
-            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            background: var(--gradient);
+            position: relative;
             display: flex;
             align-items: center;
             justify-content: center;
             color: white;
-            font-size: 1.5rem;
-            font-weight: 700;
-            position: relative;
+            font-weight: 600;
+            text-shadow: 1px 1px 3px rgba(0,0,0,0.7);
         }
 
         .trek-duration {
             position: absolute;
-            top: 1rem;
-            right: 1rem;
-            background: white;
-            color: var(--primary);
+            top: 0.5rem;
+            right: 0.5rem;
+            background: var(--primary);
+            color: white;
             padding: 0.5rem 1rem;
-            border-radius: 20px;
-            font-weight: 700;
-            font-size: 0.9rem;
+            border-radius: 15px;
+            font-weight: bold;
+            font-size: 0.8rem;
         }
 
         .trek-content {
-            padding: 2rem;
+            padding: 1.5rem;
         }
 
         .trek-title {
-            font-size: 1.5rem;
-            color: var(--dark);
+            font-size: 1.3rem;
             margin-bottom: 0.5rem;
+            color: var(--dark);
         }
 
         .trek-region {
             color: var(--secondary);
             margin-bottom: 1rem;
-            font-weight: 600;
+            font-size: 0.9rem;
         }
 
         .trek-details {
             display: grid;
             grid-template-columns: 1fr 1fr;
-            gap: 1rem;
-            margin: 1.5rem 0;
+            gap: 0.5rem;
+            margin-bottom: 1rem;
             background: var(--light-green);
-            padding: 1.5rem;
-            border-radius: var(--radius);
+            padding: 1rem;
+            border-radius: 8px;
         }
 
         .detail-item {
-            display: flex;
-            align-items: center;
-            gap: 0.5rem;
             font-size: 0.9rem;
         }
 
         .trek-features {
             list-style: none;
-            margin: 1.5rem 0;
+            margin: 1rem 0;
         }
 
         .trek-features li {
-            padding: 0.5rem 0;
+            padding: 0.3rem 0;
+            font-size: 0.9rem;
             position: relative;
             padding-left: 1.5rem;
         }
@@ -487,112 +555,95 @@
             font-weight: bold;
         }
 
-        /* Gallery Section */
-        .gallery-section {
-            background: var(--light);
+        .price-note {
+            background: #FFF3CD;
+            border: 1px solid #FFEAA7;
+            border-radius: 8px;
+            padding: 1rem;
+            margin: 1rem 0;
+            text-align: center;
+            font-style: italic;
         }
 
-        .gallery-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 1.5rem;
-            margin-top: 3rem;
+        /* Custom Request Form */
+        .language-selection {
+            display: flex;
+            gap: 1rem;
+            margin-bottom: 1rem;
         }
 
-        .gallery-item {
-            position: relative;
-            border-radius: var(--radius);
-            overflow: hidden;
-            aspect-ratio: 4/3;
+        .language-option {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            padding: 0.5rem 1rem;
+            border: 2px solid #ddd;
+            border-radius: 8px;
             cursor: pointer;
-            transition: var(--transition);
+            transition: all 0.3s ease;
         }
 
-        .gallery-item:hover {
-            transform: scale(1.05);
+        .language-option:hover {
+            border-color: var(--primary);
         }
 
-        .gallery-item img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            transition: var(--transition);
+        .language-option input[type="radio"]:checked + span {
+            color: var(--primary);
+            font-weight: bold;
         }
 
-        .gallery-item:hover img {
-            transform: scale(1.1);
+        .language-option input[type="radio"]:checked ~ span {
+            color: var(--primary);
+            font-weight: bold;
         }
 
-        .gallery-overlay {
-            position: absolute;
-            bottom: 0;
-            left: 0;
-            right: 0;
-            background: linear-gradient(transparent, rgba(0,0,0,0.8));
-            color: white;
-            padding: 2rem 1.5rem 1.5rem;
-            transform: translateY(100%);
-            transition: var(--transition);
-        }
-
-        .gallery-item:hover .gallery-overlay {
-            transform: translateY(0);
-        }
-
-        /* Contact Section */
-        .contact-grid {
+        .form-row {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 2rem;
-            margin-top: 3rem;
+            grid-template-columns: 1fr 1fr;
+            gap: 1rem;
+        }
+
+        .contact-info {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 1.5rem;
+            margin-top: 1.5rem;
+            text-align: center;
         }
 
         .contact-card {
             background: white;
-            padding: 2.5rem;
-            border-radius: var(--radius);
-            text-align: center;
+            padding: 1.5rem;
+            border-radius: 10px;
             box-shadow: var(--shadow);
-            transition: var(--transition);
+            border-top: 4px solid var(--primary);
+            transition: transform 0.3s ease;
         }
 
         .contact-card:hover {
             transform: translateY(-5px);
         }
 
-        .contact-card h3 {
-            color: var(--primary);
-            margin-bottom: 1rem;
-            font-size: 1.3rem;
-        }
-
-        .contact-phone {
-            font-size: 1.4rem;
-            font-weight: 700;
+        .contact-card .phone {
+            font-size: 1.2rem;
+            font-weight: bold;
             color: var(--dark);
-            margin: 1rem 0;
+            margin: 0.5rem 0;
             text-decoration: none;
             display: block;
-            transition: var(--transition);
-        }
-
-        .contact-phone:hover {
-            color: var(--primary);
         }
 
         .whatsapp-btn {
             background: #25D366;
             color: white;
-            padding: 1rem 2rem;
+            padding: 10px 20px;
             border: none;
-            border-radius: 50px;
+            border-radius: 20px;
             text-decoration: none;
-            display: inline-flex;
-            align-items: center;
-            gap: 0.5rem;
+            display: inline-block;
+            margin-top: 0.5rem;
             font-weight: 600;
-            transition: var(--transition);
-            margin-top: 1rem;
+            transition: all 0.3s ease;
         }
 
         .whatsapp-btn:hover {
@@ -600,55 +651,122 @@
             transform: translateY(-2px);
         }
 
-        /* Footer */
-        .footer {
-            background: var(--dark);
-            color: white;
-            padding: 4rem 2rem 2rem;
-            text-align: center;
+        .testimonials-container {
+            margin-top: 2rem;
         }
 
-        .footer-content {
-            max-width: 1200px;
+        .testimonial-card {
+            background: white;
+            padding: 1.5rem;
+            border-radius: 10px;
+            box-shadow: var(--shadow);
+            margin-bottom: 1rem;
+            transition: transform 0.3s ease;
+        }
+
+        .testimonial-card:hover {
+            transform: translateX(5px);
+        }
+
+        .add-comment {
+            background: white;
+            padding: 1.5rem;
+            border-radius: 15px;
+            box-shadow: var(--shadow);
+            margin-top: 2rem;
+        }
+
+        .rating-stars {
+            display: flex;
+            gap: 0.3rem;
+            margin-bottom: 1rem;
+        }
+
+        .star {
+            font-size: 1.5rem;
+            color: #ddd;
+            cursor: pointer;
+            transition: color 0.3s ease;
+        }
+
+        .star.active {
+            color: #FFD700;
+        }
+
+        .registration-form {
+            background: white;
+            padding: 2rem;
+            border-radius: 15px;
+            box-shadow: var(--shadow);
+            max-width: 500px;
             margin: 0 auto;
         }
 
-        .footer p {
-            margin: 0.5rem 0;
-            opacity: 0.9;
+        .form-group {
+            margin-bottom: 1rem;
         }
 
-        /* Responsive Design */
-        @media (max-width: 968px) {
-            .guide-header {
-                grid-template-columns: 1fr;
-                text-align: center;
-                gap: 2rem;
-            }
+        .form-group label {
+            display: block;
+            margin-bottom: 0.5rem;
+            font-weight: 600;
+        }
 
-            .guide-photo {
-                width: 200px;
-                height: 200px;
-                margin: 0 auto;
-            }
+        .form-group input,
+        .form-group textarea,
+        .form-group select {
+            width: 100%;
+            padding: 0.8rem;
+            border: 2px solid #ddd;
+            border-radius: 8px;
+            transition: border-color 0.3s ease;
+        }
 
-            .treks-grid {
-                grid-template-columns: 1fr;
-            }
+        .form-group input:focus,
+        .form-group textarea:focus,
+        .form-group select:focus {
+            border-color: var(--primary);
+            outline: none;
+        }
+
+        .footer {
+            background: var(--dark);
+            color: white;
+            padding: 2rem 1rem;
+            text-align: center;
+        }
+
+        .success-message {
+            background: #D4EDDA;
+            color: #155724;
+            padding: 1rem;
+            border-radius: 8px;
+            margin: 1rem 0;
+            text-align: center;
+            display: none;
         }
 
         @media (max-width: 768px) {
+            .header-container {
+                flex-direction: column;
+                gap: 0.5rem;
+            }
+
+            .language-registration {
+                width: 100%;
+                justify-content: center;
+            }
+
             .nav-links {
                 display: none;
+                flex-direction: column;
                 position: absolute;
                 top: 100%;
                 left: 0;
                 right: 0;
                 background: white;
-                flex-direction: column;
-                padding: 2rem;
                 box-shadow: var(--shadow);
-                text-align: center;
+                padding: 1rem;
             }
 
             .nav-links.active {
@@ -659,359 +777,959 @@
                 display: block;
             }
 
-            .hero h1 {
-                font-size: 2.5rem;
+            .hero {
+                height: 60vh;
             }
 
-            .hero p {
+            .hero-content h1 {
+                font-size: 2rem;
+            }
+
+            .hero-content p {
+                font-size: 1.1rem;
+            }
+
+            .guide-header {
+                flex-direction: column;
+                text-align: center;
+            }
+
+            .guide-photo {
+                width: 150px;
+                height: 150px;
+            }
+
+            .guide-experience {
+                grid-template-columns: 1fr;
+            }
+
+            .gallery-container {
+                padding: 0 2rem;
+            }
+
+            .gallery-nav {
+                width: 40px;
+                height: 40px;
                 font-size: 1.2rem;
             }
 
-            .section {
-                padding: 4rem 1rem;
+            .gallery-item {
+                width: 250px;
+                height: 180px;
             }
 
-            .section-title {
-                font-size: 2.2rem;
+            .treks-grid {
+                grid-template-columns: 1fr;
             }
 
-            .guide-profile {
-                padding: 2rem;
+            .contact-info {
+                grid-template-columns: 1fr;
             }
 
             .trek-details {
                 grid-template-columns: 1fr;
             }
 
-            .gallery-grid {
+            .form-row {
                 grid-template-columns: 1fr;
             }
-        }
 
-        @media (max-width: 480px) {
-            .hero h1 {
-                font-size: 2rem;
-            }
-
-            .btn {
-                padding: 0.8rem 1.5rem;
-                font-size: 1rem;
-            }
-
-            .duration-filters {
+            .language-selection {
                 flex-direction: column;
-                align-items: center;
-            }
-
-            .duration-btn {
-                width: 200px;
             }
         }
     </style>
 </head>
 <body>
-    <!-- Navigation -->
+    <!-- Google Analytics Script (à ajouter plus tard) -->
+    <!-- <script async src="https://www.googletagmanager.com/gtag/js?id=GA_MEASUREMENT_ID"></script> -->
+
+    <div class="header-top">
+        <div class="header-container">
+            <div class="language-registration">
+                <div class="language-switcher">
+                    <button class="lang-btn active" data-lang="fr">FR</button>
+                    <button class="lang-btn" data-lang="en">EN</button>
+                </div>
+                <a href="#inscription" class="register-btn">S'inscrire</a>
+            </div>
+        </div>
+    </div>
+
     <nav class="navbar">
         <div class="nav-container">
-            <a href="index.html" class="logo">
-                <span class="logo-icon">⛰️</span>
-                Adventure Treks
-            </a>
-            
+            <a href="#" class="logo">Adventure Treks</a>
             <button class="mobile-menu-btn">☰</button>
-            
             <ul class="nav-links">
-                <li><a href="index.html" class="active">Accueil</a></li>
-                <li><a href="about.html">Notre Guide</a></li>
-                <li><a href="treks.html">Randonnées</a></li>
-                <li><a href="gallery.html">Galerie</a></li>
-                <li><a href="contact.html">Contact</a></li>
+                <li><a href="#accueil" data-key="home">Accueil</a></li>
+                <li><a href="#guide" data-key="guide">Notre Guide</a></li>
+                <li><a href="#treks" data-key="treks">Randonnées</a></li>
+                <li><a href="#gallery" data-key="gallery">Galerie</a></li>
+                <li><a href="#avis" data-key="reviews">Avis Clients</a></li>
+                <li><a href="#contact" data-key="contact">Contact</a></li>
             </ul>
         </div>
     </nav>
 
-    <!-- Hero Section -->
-    <section class="hero">
+    <section class="hero" id="accueil">
         <div class="hero-content">
-            <h1>Adventure Treks<br>Guide Expert Maroc</h1>
-            <p>Trekking dans l'Atlas, randonnées au désert<br>30+ ans d'expérience</p>
-            <div style="display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap;">
-                <a href="treks.html" class="btn">
-                    <span>🎒</span>
-                    Découvrir nos Randonnées
-                </a>
-                <a href="contact.html" class="btn btn-secondary">
-                    <span>📞</span>
-                    Nous Contacter
-                </a>
-            </div>
+            <h1 data-key="hero_title">Adventure Treks - Guide Expert Maroc</h1>
+            <p data-key="hero_subtitle">Trekking dans l'Atlas, randonnées au désert - 30+ ans d'expérience</p>
+            <a href="#custom-request" class="btn" data-key="discover_btn">Demander un Circuit Personnalisé</a>
         </div>
     </section>
 
-    <!-- Guide Section -->
-    <section class="section">
-        <div class="container">
-            <h2 class="section-title">Notre Guide Expert</h2>
-            <p class="section-subtitle">Découvrez Ali Ouzemmad, votre guide expert pour des aventures inoubliables au Maroc</p>
-            
-            <div class="guide-profile">
-                <div class="guide-header">
-                    <img src="https://drive.google.com/thumbnail?id=1zpuQMHPk4oemXJgLtzwsrlJ7z0C5LNU0&sz=w1000" 
-                         alt="Ali Ouzemmad - Guide Expert Maroc" class="guide-photo">
-                    <div class="guide-info">
-                        <h2>Ali Ouzemmad</h2>
-                        <div class="guide-title">Guide des espaces naturels et des montagnes</div>
-                        <div class="guide-location">
-                            <span>📍</span>
-                            Vallée des Roses - Ouarzazate / Maroc
-                        </div>
-                        <p class="guide-bio">
-                            <strong>Plus de 30 ans d'expérience</strong> dans le guidage touristique au Maroc. 
-                            Passionné par les montagnes de l'Atlas et les vastes étendues du désert, 
-                            je partage ma connaissance approfondie de la culture berbère avec chaque voyageur.
-                        </p>
-                    </div>
+    <section class="section" id="guide">
+        <h2 class="section-title" data-key="guide_title">Notre Guide Expert</h2>
+        <div class="guide-profile">
+            <div class="guide-header">
+                <img src="https://drive.google.com/thumbnail?id=1zpuQMHPk4oemXJgLtzwsrlJ7z0C5LNU0&sz=w1000" alt="Ali Ouzemmad - Guide Expert" class="guide-photo">
+                <div class="guide-info">
+                    <h2 class="guide-name">Ali Ouzemmad</h2>
+                    <div class="guide-title" data-key="guide_job">Guide des espaces naturels et des montagnes</div>
+                    <p>Vallée des Roses - Ouarzazate / Maroc</p>
                 </div>
-
-                <div class="guide-highlights">
-                    <div class="highlight-card">
-                        <h3>🏔️ Sommets Maîtrisés</h3>
+            </div>
+            
+            <div class="guide-bio">
+                <p data-key="guide_exp"><strong>Plus de 30 ans d'expérience</strong> dans le guidage touristique au Maroc.</p>
+                
+                <div class="guide-experience">
+                    <div class="experience-item">
+                        <h3 data-key="peaks_title">Sommets Maîtrisés</h3>
                         <p>Toubkal, Mgoun, Siroua, Saghro</p>
                     </div>
-                    <div class="highlight-card">
-                        <h3>🏜️ Déserts</h3>
-                        <p>Merzouga, Chegaga, Erg Chebbi</p>
+                    <div class="experience-item">
+                        <h3 data-key="deserts_title">Déserts</h3>
+                        <p>Merzouga, Chegaga</p>
                     </div>
-                    <div class="highlight-card">
-                        <h3>🌄 Vallées Expertisées</h3>
+                    <div class="experience-item">
+                        <h3 data-key="valleys_title">Vallées Expertisées</h3>
                         <p>Dades, Roses, Aït Bougumez, Ourika, Drâa, Tassaout</p>
                     </div>
-                    <div class="highlight-card">
-                        <h3>👥 Groupes</h3>
-                        <p>2 à 12 personnes - Circuits privés</p>
+                    <div class="experience-item">
+                        <h3 data-key="groups_title">Groupes</h3>
+                        <p>2 à 12 personnes</p>
                     </div>
                 </div>
 
-                <div class="price-section">
-                    <h3 class="price-title">💰 Prix Tout Compris</h3>
-                    <p><strong>Le prix comprend tout : guide, transport, hébergement, repas, et équipement.</strong></p>
-                    <div class="price-note">
-                        Le prix varie selon le nombre de personnes et la durée du circuit
-                    </div>
+                <div class="price-inclusion">
+                    <div class="inclusion-title" data-key="price_title">Prix Tout Compris</div>
+                    <p data-key="price_desc"><strong>Le prix comprend tout : guide, transport, hébergement, repas, et équipement.</strong></p>
+                </div>
+
+                <div class="price-variation">
+                    <p><strong>Le prix varie selon le nombre de personnes et la durée du circuit</strong></p>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Featured Treks Section -->
-    <section class="section section-dark">
-        <div class="container">
-            <h2 class="section-title">Randonnées Populaires</h2>
-            <p class="section-subtitle">Découvrez nos circuits les plus appréciés</p>
-
-            <div class="treks-grid">
-                <!-- Toubkal Express -->
-                <div class="trek-card">
-                    <div class="trek-image">
-                        <div class="trek-duration">4 Jours</div>
-                        TOUBKAL EXPRESS
-                    </div>
-                    <div class="trek-content">
-                        <h3 class="trek-title">Toubkal Express</h3>
-                        <div class="trek-region">Haut Atlas - Massif du Toubkal</div>
-                        <div class="trek-details">
-                            <div class="detail-item">⏱️ 4-5h marche/jour</div>
-                            <div class="detail-item">⬆️ 4167m altitude</div>
-                            <div class="detail-item">🏠 Gîtes berbères</div>
-                            <div class="detail-item">🚗 Départ Marrakech</div>
-                        </div>
-                        <ul class="trek-features">
-                            <li>Ascension du Jbel Toubkal (4167m)</li>
-                            <li>Vallée d'Ourika et cascades de Setti Fatma</li>
-                            <li>Col de Tizi n'Ouagane</li>
-                            <li>Villages traditionnels d'Imlil et Armed</li>
-                        </ul>
-                        <a href="contact.html" class="btn" style="width: 100%; text-align: center; justify-content: center;">
-                            Demander ce Circuit
-                        </a>
-                    </div>
-                </div>
-
-                <!-- Vallée des Roses -->
-                <div class="trek-card">
-                    <div class="trek-image">
-                        <div class="trek-duration">5 Jours</div>
-                        VALLÉE DES ROSES
-                    </div>
-                    <div class="trek-content">
-                        <h3 class="trek-title">Vallée des Roses Découverte</h3>
-                        <div class="trek-region">Drâa-Tafilalet - Kelaat M'gouna</div>
-                        <div class="trek-details">
-                            <div class="detail-item">⏱️ 4-5h marche/jour</div>
-                            <div class="detail-item">🌹 Vallée des Roses</div>
-                            <div class="detail-item">🏠 Auberges locales</div>
-                            <div class="detail-item">🚗 Transport inclus</div>
-                        </div>
-                        <ul class="trek-features">
-                            <li>Découverte de la Vallée des Roses</li>
-                            <li>Visite des coopératives de rose</li>
-                            <li>Gorges de Dades et Todra</li>
-                            <li>Rencontre avec population locale</li>
-                        </ul>
-                        <a href="contact.html" class="btn" style="width: 100%; text-align: center; justify-content: center;">
-                            Demander ce Circuit
-                        </a>
-                    </div>
-                </div>
-            </div>
-
-            <div style="text-align: center; margin-top: 3rem;">
-                <a href="treks.html" class="btn btn-secondary">
-                    Voir Toutes les Randonnées
-                </a>
-            </div>
-        </div>
-    </section>
-
-    <!-- Gallery Preview -->
-    <section class="section">
-        <div class="container">
-            <h2 class="section-title">Galerie Photos</h2>
-            <p class="section-subtitle">Quelques moments d'aventure capturés</p>
-
-            <div class="gallery-grid">
+    <section class="section" id="gallery">
+        <h2 class="section-title" data-key="gallery_title">Moments d'Aventure</h2>
+        <div class="gallery-container">
+            <button class="gallery-nav gallery-prev">❮</button>
+            <div class="gallery-slider" id="gallerySlider">
                 <div class="gallery-item">
                     <img src="https://drive.google.com/thumbnail?id=17j0rL9qOahrMQ1sjIRD1P0mcy8Cgv3pU&sz=w1000" alt="Trekking dans l'Atlas">
-                    <div class="gallery-overlay">
-                        <h3>Trekking Atlas</h3>
-                    </div>
                 </div>
                 <div class="gallery-item">
                     <img src="https://drive.google.com/thumbnail?id=1mfvWu486bDY5Cl7dQIjY2GLL-ZiHT4rF&sz=w1000" alt="Désert de Merzouga">
-                    <div class="gallery-overlay">
-                        <h3>Désert Merzouga</h3>
-                    </div>
                 </div>
                 <div class="gallery-item">
                     <img src="https://drive.google.com/thumbnail?id=1xRX5S_f4Hbg9snrmAoYIxqArNNrallQP&sz=w1000" alt="Vallée des Roses">
-                    <div class="gallery-overlay">
-                        <h3>Vallée des Roses</h3>
+                </div>
+                <div class="gallery-item">
+                    <img src="https://drive.google.com/thumbnail?id=1NMvh2owxnkTk00whGR7m1WYzWut65I3S&sz=w1000" alt="Montagne du Toubkal">
+                </div>
+                <div class="gallery-item">
+                    <img src="https://drive.google.com/thumbnail?id=1-B4bwqHUiutwq1RlpZFuVWS01MVnbeXP&sz=w1000" alt="Gorges de Dades">
+                </div>
+                <div class="gallery-item">
+                    <img src="https://drive.google.com/thumbnail?id=1Gzz6GCVzomb5EDBA4M-aFRqrfVr9rmAk&sz=w1000" alt="Coucher de soleil désert">
+                </div>
+                <div class="gallery-item">
+                    <img src="https://drive.google.com/thumbnail?id=1VwbEvHSQFA8L2yciQ6lN8zh3oaT6cHPh&sz=w1000" alt="Village berbère">
+                </div>
+                <div class="gallery-item">
+                    <img src="https://drive.google.com/thumbnail?id=1PvG4Ewe9tJxiu0bEy5HbyfioWdgXiJhB&sz=w1000" alt="Randonnée en groupe">
+                </div>
+                <div class="gallery-item">
+                    <img src="https://drive.google.com/thumbnail?id=1vQlBIsXR2jcqO2NV8fllG3JFzDExog8T&sz=w1000" alt="Campement désert">
+                </div>
+                <div class="gallery-item">
+                    <img src="https://drive.google.com/thumbnail?id=19aQMiurnH7CIFpMWeGynaZIY6Rv6lXiq&sz=w1000" alt="Paysage montagneux">
+                </div>
+                <div class="gallery-item">
+                    <img src="https://drive.google.com/thumbnail?id=1tLbosAEv8fuZdFeG-rGvI_zHjv-e3_qr&sz=w1000" alt="Oasis marocain">
+                </div>
+                <div class="gallery-item">
+                    <img src="https://drive.google.com/thumbnail?id=1nR6MVcQ-bdgUi3_7_JRxujIWb36NeisL&sz=w1000" alt="Randonnée hivernale">
+                </div>
+                <div class="gallery-item">
+                    <img src="https://drive.google.com/thumbnail?id=1YuwtYH5TID-f0OxmnmL0fHUqkSgPIW7T&sz=w1000" alt="Culture locale">
+                </div>
+                <div class="gallery-item">
+                    <img src="https://drive.google.com/thumbnail?id=1jDpYoRSl4yNBO5cuDx9g9EGji_dzlwt9&sz=w1000" alt="Cascades d'Ourika">
+                </div>
+                <div class="gallery-item">
+                    <img src="https://drive.google.com/thumbnail?id=1PzI_p770pFSXmBusRv7gpX786aqGg6_9&sz=w1000" alt="Dunes de sable">
+                </div>
+                <div class="gallery-item">
+                    <img src="https://drive.google.com/thumbnail?id=10yKHb_rAZ4V5FGgcb8IWrhvaQyT_UapH&sz=w1000" alt="Guide Ali avec clients">
+                </div>
+                <div class="gallery-item">
+                    <img src="https://drive.google.com/thumbnail?id=1uK-teTBrYcntNQU7Q1plpY-7ZJmQemG1&sz=w1000" alt="Vue panoramique Atlas">
+                </div>
+                <div class="gallery-item">
+                    <img src="https://drive.google.com/thumbnail?id=1EvpXRxYTCNEh3tLs8xjVqKN5kcRXP3XY&sz=w1000" alt="Nuit en bivouac">
+                </div>
+                <div class="gallery-item">
+                    <img src="https://drive.google.com/thumbnail?id=12FgJzEKFPhrWm5_a2VFlf4aEs2oJRJhH&sz=w1000" alt="Rencontre avec population">
+                </div>
+                <div class="gallery-item">
+                    <img src="https://drive.google.com/thumbnail?id=1dvg-pShqq_RZPumT5j-0Pl4uZ1t9QPuM&sz=w1000" alt="Artisanat local">
+                </div>
+                <div class="gallery-item">
+                    <img src="https://drive.google.com/thumbnail?id=1yO7FuOBP9tmy3fcqN0xmZO6csmRgnaMq&sz=w1000" alt="Randonnée printanière">
+                </div>
+                <div class="gallery-item">
+                    <img src="https://drive.google.com/thumbnail?id=1szjGYjK_la7rRUx9iMP9zEJPB1sM3BTR&sz=w1000" alt="Gorges de Todra">
+                </div>
+                <div class="gallery-item">
+                    <img src="https://drive.google.com/thumbnail?id=1qq6IRBkw-KLdGjAYWQ-NFUe12kwF8KP9&sz=w1000" alt="Vallée heureuse">
+                </div>
+                <div class="gallery-item">
+                    <img src="https://drive.google.com/thumbnail?id=10SF6MXZ1HfycHptfil2Kkhuw6biM-bNa&sz=w1000" alt="Expédition désert">
+                </div>
+                <div class="gallery-item">
+                    <img src="https://drive.google.com/thumbnail?id=1KHcrGoYUrsayy7M2g_z4t_OxgAHQSWwt&sz=w1000" alt="Coucher de soleil Atlas">
+                </div>
+                <div class="gallery-item">
+                    <img src="https://drive.google.com/thumbnail?id=13yfsh7UFSo5K-IljJ1SGUqJYAfNfTwSL&sz=w1000" alt="Randonnée familiale">
+                </div>
+                <div class="gallery-item">
+                    <img src="https://drive.google.com/thumbnail?id=1TwUS7UDcg0aZ-tlUsp0Bg7FGoECwupAY&sz=w1000" alt="Pause thé berbère">
+                </div>
+            </div>
+            <button class="gallery-nav gallery-next">❯</button>
+            <div class="gallery-dots" id="galleryDots">
+                <!-- سيتم إضافة النقاط ديناميكياً -->
+            </div>
+        </div>
+    </section>
+
+    <section class="section" id="treks">
+        <h2 class="section-title" data-key="treks_title">Nos Randonnées par Durée</h2>
+        
+        <div class="duration-filters">
+            <button class="duration-btn active" data-duration="short">2-6 Jours</button>
+            <button class="duration-btn" data-duration="medium">7-11 Jours</button>
+            <button class="duration-btn" data-duration="long">12-15 Jours</button>
+        </div>
+
+        <!-- رحلات قصيرة -->
+        <div class="treks-container active" id="short-treks">
+            <div class="trek-category">
+                <h3 class="category-title">Randonnées Courtes (2-6 jours)</h3>
+                <div class="treks-grid">
+                    <div class="trek-card">
+                        <div class="trek-image">
+                            <div class="trek-duration">4 Jours</div>
+                            <div>Toubkal Express</div>
+                        </div>
+                        <div class="trek-content">
+                            <h3 class="trek-title">Toubkal Express</h3>
+                            <div class="trek-region">Haut Atlas - Massif du Toubkal</div>
+                            <div class="trek-details">
+                                <div class="detail-item">▶ 4-5h marche/jour</div>
+                                <div class="detail-item">▶ 4167m altitude</div>
+                                <div class="detail-item">▶ Gîtes berbères</div>
+                                <div class="detail-item">▶ Départ Marrakech</div>
+                            </div>
+                            <ul class="trek-features">
+                                <li>Ascension du Jbel Toubkal (4167m)</li>
+                                <li>Vallée d'Ourika et cascades de Setti Fatma</li>
+                                <li>Col de Tizi n'Ouagane</li>
+                                <li>Villages traditionnels d'Imlil et Armed</li>
+                            </ul>
+                            <div class="price-note">
+                                Le prix sera discuté après contact et personnalisation de votre circuit
+                            </div>
+                            <a href="#custom-request" class="btn">Demander ce Circuit</a>
+                        </div>
+                    </div>
+
+                    <div class="trek-card">
+                        <div class="trek-image">
+                            <div class="trek-duration">5 Jours</div>
+                            <div>Vallée des Roses</div>
+                        </div>
+                        <div class="trek-content">
+                            <h3 class="trek-title">Vallée des Roses Découverte</h3>
+                            <div class="trek-region">Drâa-Tafilalet - Kelaat M'gouna</div>
+                            <div class="trek-details">
+                                <div class="detail-item">▶ 4-5h marche/jour</div>
+                                <div class="detail-item">▶ Vallée des Roses</div>
+                                <div class="detail-item">▶ Auberges locales</div>
+                                <div class="detail-item">▶ Transport inclus</div>
+                            </div>
+                            <ul class="trek-features">
+                                <li>Découverte de la Vallée des Roses</li>
+                                <li>Visite des coopératives de rose</li>
+                                <li>Gorges de Dades et Todra</li>
+                                <li>Rencontre avec population locale</li>
+                            </ul>
+                            <div class="price-note">
+                                Le prix sera discuté après contact et personnalisation de votre circuit
+                            </div>
+                            <a href="#custom-request" class="btn">Demander ce Circuit</a>
+                        </div>
                     </div>
                 </div>
             </div>
+        </div>
 
-            <div style="text-align: center; margin-top: 3rem;">
-                <a href="gallery.html" class="btn">
-                    Voir la Galerie Complète
+        <!-- رحلات متوسطة -->
+        <div class="treks-container" id="medium-treks">
+            <div class="trek-category">
+                <h3 class="category-title">Randonnées Moyennes (7-11 jours)</h3>
+                <div class="treks-grid">
+                    <div class="trek-card">
+                        <div class="trek-image">
+                            <div class="trek-duration">8 Jours</div>
+                            <div>Grand Mgoun</div>
+                        </div>
+                        <div class="trek-content">
+                            <h3 class="trek-title">Grand Mgoun</h3>
+                            <div class="trek-region">Massif du Mgoun - Haut Atlas</div>
+                            <div class="trek-details">
+                                <div class="detail-item">▶ 5-6h marche/jour</div>
+                                <div class="detail-item">▶ 4068m altitude</div>
+                                <div class="detail-item">▶ Bivouac montagne</div>
+                                <div class="detail-item">▶ Mulet bagages</div>
+                            </div>
+                            <ul class="trek-features">
+                                <li>Ascension du Jbel Mgoun (4068m)</li>
+                                <li>Vallée d'Aït Bougmez "Vallée Heureuse"</li>
+                                <li>Gorges d'Aït Toumert et Tichki</li>
+                                <li>Rencontre villages berbères authentiques</li>
+                                <li>Nuits sous les étoiles en bivouac</li>
+                            </ul>
+                            <div class="price-note">
+                                Le prix sera discuté après contact et personnalisation de votre circuit
+                            </div>
+                            <a href="#custom-request" class="btn">Demander ce Circuit</a>
+                        </div>
+                    </div>
+
+                    <div class="trek-card">
+                        <div class="trek-image">
+                            <div class="trek-duration">10 Jours</div>
+                            <div>Atlas & Oasis</div>
+                        </div>
+                        <div class="trek-content">
+                            <h3 class="trek-title">Atlas & Oasis</h3>
+                            <div class="trek-region">Haut Atlas - Vallée du Drâa</div>
+                            <div class="trek-details">
+                                <div class="detail-item">▶ 4-6h marche/jour</div>
+                                <div class="detail-item">▶ Désert & Montagne</div>
+                                <div class="detail-item">▶ Auberges variées</div>
+                                <div class="detail-item">▶ Transport alterné</div>
+                            </div>
+                            <ul class="trek-features">
+                                <li>Massif du Mgoun et Vallée des Roses</li>
+                                <li>Oasis de Skoura et Fint</li>
+                                <li>Vallée du Drâa et ses palmeraies</li>
+                                <li>Kasbahs et villages fortifiés</li>
+                                <li>Dunes de Merzouga (optionnel)</li>
+                            </ul>
+                            <div class="price-note">
+                                Le prix sera discuté après contact et personnalisation de votre circuit
+                            </div>
+                            <a href="#custom-request" class="btn">Demander ce Circuit</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- رحلات طويلة -->
+        <div class="treks-container" id="long-treks">
+            <div class="trek-category">
+                <h3 class="category-title">Randonnées Longues (12-15 jours)</h3>
+                <div class="treks-grid">
+                    <div class="trek-card">
+                        <div class="trek-image">
+                            <div class="trek-duration">12 Jours</div>
+                            <div>Expédition Drâa</div>
+                        </div>
+                        <div class="trek-content">
+                            <h3 class="trek-title">Expédition Drâa-Tafilalet</h3>
+                            <div class="trek-region">Région Complète Drâa-Tafilalet</div>
+                            <div class="trek-details">
+                                <div class="detail-item">▶ 5-6h marche/jour</div>
+                                <div class="detail-item">▶ 4068m altitude max</div>
+                                <div class="detail-item">▶ Désert intégral</div>
+                                <div class="detail-item">▶ Dromadaires inclus</div>
+                            </div>
+                            <ul class="trek-features">
+                                <li>Ascension complète du Mgoun</li>
+                                <li>Traversée Gorges de Dades et Todra</li>
+                                <li>2 nuits désert de Merzouga</li>
+                                <li>Oasis de Fint, Zagora et Tazzarine</li>
+                                <li>Vallée du Drâa et ses ksours</li>
+                                <li>Visite sites historiques et culturels</li>
+                                <li>Extension vers autres régions possible</li>
+                            </ul>
+                            <div class="price-note">
+                                Le prix sera discuté après contact et personnalisation de votre circuit
+                            </div>
+                            <a href="#custom-request" class="btn">Demander le programme détaillé</a>
+                        </div>
+                    </div>
+
+                    <div class="trek-card">
+                        <div class="trek-image">
+                            <div class="trek-duration">15 Jours</div>
+                            <div>Grand Sud</div>
+                        </div>
+                        <div class="trek-content">
+                            <h3 class="trek-title">Grand Sud Marocain</h3>
+                            <div class="trek-region">Drâa-Tafilalet + Extensions</div>
+                            <div class="trek-details">
+                                <div class="detail-item">▶ 4-6h marche/jour</div>
+                                <div class="detail-item">▶ Multi-paysages</div>
+                                <div class="detail-item">▶ Hébergements confort</div>
+                                <div class="detail-item">▶ Transport privé</div>
+                            </div>
+                            <ul class="trek-features">
+                                <li>Circuit complet Drâa-Tafilalet</li>
+                                <li>Extension Ouarzazate & Aït Benhaddou</li>
+                                <li>Désert de Chegaga optionnel</li>
+                                <li>Vallée du Ziz et palmeraies</li>
+                                <li>Rencontres culturelles approfondies</li>
+                                <li>Programme personnalisable</li>
+                            </ul>
+                            <div class="price-note">
+                                Le prix sera discuté après contact et personnalisation de votre circuit
+                            </div>
+                            <a href="#custom-request" class="btn">Demander un devis personnalisé</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- نظام طلب الرحلات المخصص -->
+    <section class="section" id="custom-request">
+        <h2 class="section-title">Demande de Circuit Personnalisé</h2>
+        <div class="registration-form">
+            <div class="success-message" id="success-message">
+                ✅ Votre demande a été envoyée avec succès! Le guide Ali vous contactera dans les 24h.
+            </div>
+            <form id="custom-trip-form">
+                <!-- اختيار اللغة -->
+                <div class="form-group">
+                    <label>Langue de communication préférée *</label>
+                    <div class="language-selection">
+                        <label class="language-option">
+                            <input type="radio" name="language" value="fr" required>
+                            <span>Français</span>
+                        </label>
+                        <label class="language-option">
+                            <input type="radio" name="language" value="en" required>
+                            <span>English</span>
+                        </label>
+                    </div>
+                </div>
+
+                <!-- معلومات الرحلة -->
+                <div class="form-group">
+                    <label for="base-trip">Circuit de base *</label>
+                    <select id="base-trip" name="base_trip" required>
+                        <option value="">Choisir le circuit</option>
+                        <option value="toubkal">Toubkal Express</option>
+                        <option value="mgoun">Grand Mgoun</option>
+                        <option value="roses">Vallée des Roses</option>
+                        <option value="desert">Désert Merzouga</option>
+                        <option value="atlas-oasis">Atlas & Oasis</option>
+                        <option value="draa">Expédition Drâa</option>
+                        <option value="custom">Circuit entièrement personnalisé</option>
+                    </select>
+                </div>
+                
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="travelers-count">Nombre de voyageurs *</label>
+                        <input type="number" id="travelers-count" name="travelers_count" min="2" max="12" required>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="fitness-level">Niveau de forme physique *</label>
+                        <select id="fitness-level" name="fitness_level" required>
+                            <option value="">Choisir le niveau</option>
+                            <option value="beginner">Débutant - 3-4h marche/jour</option>
+                            <option value="intermediate">Intermédiaire - 4-5h marche/jour</option>
+                            <option value="advanced">Avancé - 5-6h marche/jour</option>
+                        </select>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label for="proposed-dates">Dates proposées *</label>
+                    <input type="text" id="proposed-dates" name="proposed_dates" placeholder="Ex: 15-20 Mars 2024" required>
+                </div>
+
+                <!-- معلومات الاتصال -->
+                <div class="form-group">
+                    <label for="client-name">Votre nom complet *</label>
+                    <input type="text" id="client-name" name="client_name" required>
+                </div>
+
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="client-email">Email *</label>
+                        <input type="email" id="client-email" name="client_email" required>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="client-phone">Téléphone *</label>
+                        <input type="tel" id="client-phone" name="client_phone" required>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label for="client-country">Pays de résidence</label>
+                    <input type="text" id="client-country" name="client_country">
+                </div>
+                
+                <div class="form-group">
+                    <label for="special-requests">Demandes spéciales</label>
+                    <textarea id="special-requests" name="special_requests" rows="4" placeholder="Toute demande particulière, modifications d'itinéraire, allergies alimentaires, etc."></textarea>
+                </div>
+                
+                <button type="submit" class="btn">Envoyer la Demande</button>
+            </form>
+        </div>
+    </section>
+
+    <section class="section" id="avis">
+        <h2 class="section-title">Avis des Clients</h2>
+        <div class="testimonials-container" id="testimonials-container">
+            <div style="text-align: center; color: var(--secondary); padding: 2rem;">
+                <p>Soyez le premier à laisser votre avis !</p>
+            </div>
+        </div>
+
+        <div class="add-comment">
+            <h3 style="text-align: center; color: var(--primary); margin-bottom: 1rem;">Laissez votre avis</h3>
+            <form class="comment-form" id="comment-form">
+                <div class="form-group">
+                    <label for="comment-name">Votre nom *</label>
+                    <input type="text" id="comment-name" required>
+                </div>
+                <div class="form-group">
+                    <label for="comment-country">Pays</label>
+                    <input type="text" id="comment-country">
+                </div>
+                <div class="form-group">
+                    <label>Votre note</label>
+                    <div class="rating-stars">
+                        <span class="star" data-rating="1">★</span>
+                        <span class="star" data-rating="2">★</span>
+                        <span class="star" data-rating="3">★</span>
+                        <span class="star" data-rating="4">★</span>
+                        <span class="star" data-rating="5">★</span>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="comment-text">Votre commentaire *</label>
+                    <textarea id="comment-text" rows="4" required placeholder="Partagez votre expérience..."></textarea>
+                </div>
+                <button type="submit" class="btn">Publier mon avis</button>
+            </form>
+        </div>
+    </section>
+
+    <section class="section" id="inscription">
+        <h2 class="section-title">Inscription à la Newsletter</h2>
+        <div class="registration-form">
+            <form id="newsletter-form">
+                <div class="form-group">
+                    <label for="newsletter-name">Nom Complet *</label>
+                    <input type="text" id="newsletter-name" required>
+                </div>
+                <div class="form-group">
+                    <label for="newsletter-email">Email *</label>
+                    <input type="email" id="newsletter-email" required>
+                </div>
+                <button type="submit" class="btn">S'inscrire</button>
+            </form>
+        </div>
+    </section>
+
+    <section class="section" id="contact">
+        <h2 class="section-title">Contact</h2>
+        <div class="contact-info">
+            <div class="contact-card">
+                <h3>Contact Français</h3>
+                <p class="language">Pour les clients francophones</p>
+                <a href="tel:+212661796117" class="phone">+212 661-796117</a>
+                <a href="https://wa.me/212661796117?text=Bonjour%20Ali,%20je%20suis%20intéressé%20par%20vos%20circuits%20de%20trekking" 
+                   class="whatsapp-btn" target="_blank">
+                   WhatsApp
+                </a>
+            </div>
+            <div class="contact-card">
+                <h3>English Contact</h3>
+                <p class="language">For English speaking clients</p>
+                <a href="tel:+212633652721" class="phone">+212 633-652721</a>
+                <a href="https://wa.me/212633652721?text=Hello%20Ali,%20I%20am%20interested%20in%20your%20trekking%20circuits" 
+                   class="whatsapp-btn" target="_blank">
+                   WhatsApp
                 </a>
             </div>
         </div>
     </section>
 
-    <!-- Contact Section -->
-    <section class="section section-dark">
-        <div class="container">
-            <h2 class="section-title">Contactez-Nous</h2>
-            <p class="section-subtitle">Prêt pour l'aventure? Contactez Ali directement</p>
-
-            <div class="contact-grid">
-                <div class="contact-card">
-                    <h3>🇫🇷 Contact Français</h3>
-                    <p>Pour les clients francophones</p>
-                    <a href="tel:+212661796117" class="contact-phone">+212 661-796117</a>
-                    <a href="https://wa.me/212661796117?text=Bonjour%20Ali,%20je%20suis%20intéressé%20par%20vos%20circuits%20de%20trekking" 
-                       class="whatsapp-btn" target="_blank">
-                       <span>💬</span>
-                       WhatsApp Français
-                    </a>
-                </div>
-
-                <div class="contact-card">
-                    <h3>🇬🇧 English Contact</h3>
-                    <p>For English speaking clients</p>
-                    <a href="tel:+212633652721" class="contact-phone">+212 633-652721</a>
-                    <a href="https://wa.me/212633652721?text=Hello%20Ali,%20I%20am%20interested%20in%20your%20trekking%20circuits" 
-                       class="whatsapp-btn" target="_blank">
-                       <span>💬</span>
-                       WhatsApp English
-                    </a>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Footer -->
     <footer class="footer">
-        <div class="footer-content">
-            <p><strong>Adventure Treks - Guide Expert Ali Ouzemmad</strong></p>
-            <p>Téléphone Français: +212 661-796117 | Téléphone Anglais: +212 633-652721</p>
-            <p>Vallée des Roses - Ouarzazate, Maroc</p>
-            <p style="margin-top: 2rem; opacity: 0.7;">
-                &copy; 2024 Adventure Treks Maroc. Tous droits réservés.
-            </p>
-        </div>
+        <p>Adventure Treks - Guide Expert Ali Ouzemmad</p>
+        <p>Téléphone Français: +212 661-796117 | Téléphone Anglais: +212 633-652721</p>
+        <p>Vallée des Roses - Ouarzazate, Maroc</p>
+        <p style="margin-top: 1rem; font-size: 0.9rem; opacity: 0.8;">
+            &copy; 2024 Adventure Treks Maroc. Tous droits réservés.
+        </p>
     </footer>
 
     <script>
-        // Mobile Menu Toggle
+        // نظام معرض الصور الأفقي
+        const gallerySlider = document.getElementById('gallerySlider');
+        const galleryDots = document.getElementById('galleryDots');
+        const items = gallerySlider.querySelectorAll('.gallery-item');
+        const itemsPerView = 3;
+        let currentIndex = 0;
+
+        // إنشاء نقاط التنقل
+        function createDots() {
+            const totalDots = Math.ceil(items.length / itemsPerView);
+            galleryDots.innerHTML = '';
+            
+            for (let i = 0; i < totalDots; i++) {
+                const dot = document.createElement('button');
+                dot.className = 'gallery-dot';
+                if (i === 0) dot.classList.add('active');
+                dot.addEventListener('click', () => goToSlide(i));
+                galleryDots.appendChild(dot);
+            }
+        }
+
+        function goToSlide(index) {
+            currentIndex = index;
+            const scrollAmount = index * (300 + 16) * itemsPerView; // عرض العنصر + الـ gap
+            gallerySlider.scrollTo({
+                left: scrollAmount,
+                behavior: 'smooth'
+            });
+            updateDots();
+        }
+
+        function updateDots() {
+            const dots = galleryDots.querySelectorAll('.gallery-dot');
+            const activeDotIndex = Math.floor(currentIndex);
+            
+            dots.forEach((dot, index) => {
+                dot.classList.toggle('active', index === activeDotIndex);
+            });
+        }
+
+        // التنقل بالسهام
+        document.querySelector('.gallery-prev').addEventListener('click', () => {
+            if (currentIndex > 0) {
+                goToSlide(currentIndex - 1);
+            }
+        });
+
+        document.querySelector('.gallery-next').addEventListener('click', () => {
+            const maxIndex = Math.ceil(items.length / itemsPerView) - 1;
+            if (currentIndex < maxIndex) {
+                goToSlide(currentIndex + 1);
+            }
+        });
+
+        // التمرير بالسحب على الهواتف
+        let isDown = false;
+        let startX;
+        let scrollLeft;
+
+        gallerySlider.addEventListener('mousedown', (e) => {
+            isDown = true;
+            startX = e.pageX - gallerySlider.offsetLeft;
+            scrollLeft = gallerySlider.scrollLeft;
+        });
+
+        gallerySlider.addEventListener('mouseleave', () => {
+            isDown = false;
+        });
+
+        gallerySlider.addEventListener('mouseup', () => {
+            isDown = false;
+        });
+
+        gallerySlider.addEventListener('mousemove', (e) => {
+            if (!isDown) return;
+            e.preventDefault();
+            const x = e.pageX - gallerySlider.offsetLeft;
+            const walk = (x - startX) * 2;
+            gallerySlider.scrollLeft = scrollLeft - walk;
+        });
+
+        // تهيئة المعرض
+        createDots();
+
+        // نظام اللغات المحسن
+        const translations = {
+            fr: {
+                "home": "Accueil",
+                "guide": "Notre Guide", 
+                "treks": "Randonnées",
+                "gallery": "Galerie",
+                "gallery_title": "Moments d'Aventure",
+                "reviews": "Avis Clients",
+                "contact": "Contact",
+                "hero_title": "Adventure Treks - Guide Expert Maroc",
+                "hero_subtitle": "Trekking dans l'Atlas, randonnées au désert - 30+ ans d'expérience",
+                "discover_btn": "Demander un Circuit Personnalisé",
+                "guide_title": "Notre Guide Expert",
+                "guide_job": "Guide des espaces naturels et des montagnes",
+                "guide_exp": "Plus de 30 ans d'expérience dans le guidage touristique au Maroc.",
+                "peaks_title": "Sommets Maîtrisés",
+                "deserts_title": "Déserts",
+                "valleys_title": "Vallées Expertisées", 
+                "groups_title": "Groupes",
+                "price_title": "Prix Tout Compris",
+                "price_desc": "Le prix comprend tout : guide, transport, hébergement, repas, et équipement.",
+                "treks_title": "Nos Randonnées par Durée"
+            },
+            en: {
+                "home": "Home",
+                "guide": "Our Guide",
+                "treks": "Treks", 
+                "gallery": "Gallery",
+                "gallery_title": "Adventure Moments",
+                "reviews": "Reviews",
+                "contact": "Contact",
+                "hero_title": "Adventure Treks - Expert Guide Morocco",
+                "hero_subtitle": "Atlas trekking, desert hikes - 30+ years of experience", 
+                "discover_btn": "Request a Custom Circuit",
+                "guide_title": "Our Expert Guide",
+                "guide_job": "Guide of natural spaces and mountains",
+                "guide_exp": "Over 30 years of experience in tourist guidance in Morocco.",
+                "peaks_title": "Mastered Peaks",
+                "deserts_title": "Deserts",
+                "valleys_title": "Expertised Valleys",
+                "groups_title": "Groups", 
+                "price_title": "All-Inclusive Price",
+                "price_desc": "The price includes everything: guide, transport, accommodation, meals, and equipment.",
+                "treks_title": "Our Treks by Duration"
+            }
+        };
+
+        // تغيير اللغة
+        document.querySelectorAll('.lang-btn').forEach(button => {
+            button.addEventListener('click', function() {
+                const lang = this.dataset.lang;
+                
+                document.querySelectorAll('.lang-btn').forEach(btn => {
+                    btn.classList.remove('active');
+                });
+                this.classList.add('active');
+                
+                document.querySelectorAll('[data-key]').forEach(element => {
+                    const key = element.getAttribute('data-key');
+                    if (translations[lang] && translations[lang][key]) {
+                        element.textContent = translations[lang][key];
+                    }
+                });
+                
+                // تحديث عنوان الصفحة
+                document.title = lang === 'fr' 
+                    ? 'Adventure Treks - Guide Expert Maroc | Trekking Atlas & Désert Merzouga'
+                    : 'Adventure Treks - Expert Guide Morocco | Atlas Trekking & Merzouga Desert';
+            });
+        });
+
+        // القائمة المتنقلة
         document.querySelector('.mobile-menu-btn').addEventListener('click', function() {
             document.querySelector('.nav-links').classList.toggle('active');
         });
 
-        // Close mobile menu when clicking on links
-        document.querySelectorAll('.nav-links a').forEach(link => {
-            link.addEventListener('click', () => {
-                document.querySelector('.nav-links').classList.remove('active');
+        // نظام التقييم
+        let currentRating = 0;
+        document.querySelectorAll('.star').forEach(star => {
+            star.addEventListener('click', function() {
+                currentRating = parseInt(this.dataset.rating);
+                document.querySelectorAll('.star').forEach(s => {
+                    if (parseInt(s.dataset.rating) <= currentRating) {
+                        s.classList.add('active');
+                    } else {
+                        s.classList.remove('active');
+                    }
+                });
             });
         });
 
-        // Navbar background on scroll
-        window.addEventListener('scroll', function() {
-            const navbar = document.querySelector('.navbar');
-            if (window.scrollY > 100) {
-                navbar.style.background = 'rgba(255, 255, 255, 0.98)';
-                navbar.style.boxShadow = '0 5px 30px rgba(0,0,0,0.1)';
-            } else {
-                navbar.style.background = 'rgba(255, 255, 255, 0.95)';
-                navbar.style.boxShadow = '0 2px 20px rgba(0,0,0,0.1)';
+        // إضافة تعليق
+        document.getElementById('comment-form').addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            if (currentRating === 0) {
+                alert('Veuillez donner une note');
+                return;
             }
+
+            const name = document.getElementById('comment-name').value;
+            const country = document.getElementById('comment-country').value;
+            const text = document.getElementById('comment-text').value;
+
+            const testimonialHTML = `
+                <div class="testimonial-card">
+                    <div class="testimonial-rating">${'★'.repeat(currentRating)}</div>
+                    <p class="testimonial-text">"${text}"</p>
+                    <div class="testimonial-author">- ${name}${country ? ', ' + country : ''}</div>
+                </div>
+            `;
+
+            const container = document.getElementById('testimonials-container');
+            if (container.querySelector('div:first-child').textContent.includes('premier')) {
+                container.innerHTML = testimonialHTML;
+            } else {
+                container.insertAdjacentHTML('afterbegin', testimonialHTML);
+            }
+
+            alert('Merci pour votre commentaire !');
+            this.reset();
+            document.querySelectorAll('.star').forEach(star => star.classList.remove('active'));
+            currentRating = 0;
         });
 
-        // Smooth scrolling for anchor links
-        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-            anchor.addEventListener('click', function (e) {
-                e.preventDefault();
-                const target = document.querySelector(this.getAttribute('href'));
-                if (target) {
-                    target.scrollIntoView({
-                        behavior: 'smooth',
-                        block: 'start'
-                    });
+        // الفلاتر
+        document.querySelectorAll('.duration-btn').forEach(button => {
+            button.addEventListener('click', function() {
+                document.querySelectorAll('.duration-btn').forEach(btn => {
+                    btn.classList.remove('active');
+                });
+                this.classList.add('active');
+                
+                document.querySelectorAll('.treks-container').forEach(container => {
+                    container.classList.remove('active');
+                });
+                
+                document.getElementById(this.dataset.duration + '-treks').classList.add('active');
+            });
+        });
+
+        // النماذج
+        document.getElementById('newsletter-form').addEventListener('submit', function(e) {
+            e.preventDefault();
+            alert('Merci pour votre inscription !');
+            this.reset();
+        });
+
+        // نظام طلب الرحلات المخصص
+        document.getElementById('custom-trip-form').addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            const formData = new FormData(this);
+            const language = formData.get('language');
+            const baseTrip = formData.get('base_trip');
+            const travelersCount = formData.get('travelers_count');
+            const fitnessLevel = formData.get('fitness_level');
+            const proposedDates = formData.get('proposed_dates');
+            const clientName = formData.get('client_name');
+            const clientEmail = formData.get('client_email');
+            const clientPhone = formData.get('client_phone');
+            const clientCountry = formData.get('client_country');
+            const specialRequests = formData.get('special_requests');
+
+            // تحديد الرقم المناسب حسب اللغة
+            const phoneNumber = language === 'fr' ? '+212661796117' : '+212633652721';
+            const guideName = language === 'fr' ? 'Ali' : 'Ali';
+            
+            // إنشاء رسالة الواتساب
+            const whatsappMessage = `
+Nouvelle demande de circuit personnalisé!
+
+Langue: ${language === 'fr' ? 'Français' : 'English'}
+Circuit de base: ${baseTrip}
+Nombre de voyageurs: ${travelersCount}
+Niveau de forme: ${fitnessLevel}
+Dates proposées: ${proposedDates}
+
+Client: ${clientName}
+Email: ${clientEmail}
+Téléphone: ${clientPhone}
+Pays: ${clientCountry}
+
+Demandes spéciales: ${specialRequests || 'Aucune'}
+            `.trim();
+
+            const encodedMessage = encodeURIComponent(whatsappMessage);
+            const whatsappUrl = `https://wa.me/${phoneNumber}?text=${encodedMessage}`;
+            
+            // فتح الواتساب
+            window.open(whatsappUrl, '_blank');
+            
+            // عرض رسالة النجاح
+            document.getElementById('success-message').style.display = 'block';
+            
+            // إعادة تعيين النموذج
+            this.reset();
+            
+            // تمرير scroll لرسالة النجاح
+            setTimeout(() => {
+                document.getElementById('success-message').scrollIntoView({ 
+                    behavior: 'smooth' 
+                });
+            }, 500);
+        });
+
+        // تحسين اختيار اللغة في النموذج
+        document.querySelectorAll('.language-option input').forEach(radio => {
+            radio.addEventListener('change', function() {
+                document.querySelectorAll('.language-option').forEach(option => {
+                    option.style.borderColor = '#ddd';
+                });
+                this.closest('.language-option').style.borderColor = 'var(--primary)';
+            });
+        });
+
+        // إضافة تأثيرات scroll
+        window.addEventListener('scroll', function() {
+            const sections = document.querySelectorAll('.section');
+            sections.forEach(section => {
+                const sectionTop = section.getBoundingClientRect().top;
+                if (sectionTop < window.innerHeight - 100) {
+                    section.style.opacity = '1';
+                    section.style.transform = 'translateY(0)';
                 }
             });
         });
 
-        // Animation on scroll
-        const observerOptions = {
-            threshold: 0.1,
-            rootMargin: '0px 0px -50px 0px'
-        };
+        // تهيئة تأثيرات CSS
+        document.querySelectorAll('.section').forEach(section => {
+            section.style.opacity = '0';
+            section.style.transform = 'translateY(20px)';
+            section.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
+        });
 
-        const observer = new IntersectionObserver((entries) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    entry.target.style.opacity = '1';
-                    entry.target.style.transform = 'translateY(0)';
-                }
+        // تفعيل تأثيرات عند التحميل
+        window.addEventListener('load', function() {
+            document.querySelectorAll('.section').forEach(section => {
+                section.style.opacity = '1';
+                section.style.transform = 'translateY(0)';
             });
-        }, observerOptions);
-
-        // Observe elements for animation
-        document.querySelectorAll('.guide-profile, .trek-card, .contact-card').forEach(el => {
-            el.style.opacity = '0';
-            el.style.transform = 'translateY(30px)';
-            el.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
-            observer.observe(el);
         });
     </script>
 </body>
