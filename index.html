@@ -170,7 +170,7 @@
         }
 
         .hero {
-            background: linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.4)), url('https://drive.google.com/uc?export=view&id=1tqwm60wwjHRde-aUKcnUUf9WJrMGbjla');
+            background: linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.4)), url('https://images.unsplash.com/photo-1519834022362-cf87219ee4f4?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80');
             background-size: cover;
             background-position: center;
             height: 70vh;
@@ -275,6 +275,13 @@
             object-fit: cover;
             border: 5px solid var(--primary);
             box-shadow: var(--shadow);
+            background: var(--light-green);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--primary);
+            font-weight: bold;
+            font-size: 1.2rem;
         }
 
         .guide-name {
@@ -352,6 +359,15 @@
             overflow: hidden;
             box-shadow: var(--shadow);
             transition: transform 0.3s ease;
+            background: var(--gradient);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-weight: 600;
+            font-size: 1.1rem;
+            text-align: center;
+            padding: 1rem;
         }
 
         .gallery-item:hover {
@@ -483,8 +499,7 @@
 
         .trek-image {
             height: 200px;
-            background-size: cover;
-            background-position: center;
+            background: var(--gradient);
             position: relative;
             display: flex;
             align-items: center;
@@ -884,7 +899,9 @@
         <h2 class="section-title" data-key="guide_title">Notre Guide Expert</h2>
         <div class="guide-profile">
             <div class="guide-header">
-                <img src="https://drive.google.com/uc?export=view&id=1zpuQMHPk4oemXJgLtzwsrlJ7z0C5LNU0" alt="Ali Ouzemmad - Guide Expert" class="guide-photo">
+                <div class="guide-photo">
+                    Photo du Guide
+                </div>
                 <div class="guide-info">
                     <h2 class="guide-name">Ali Ouzemmad</h2>
                     <div class="guide-title" data-key="guide_job">Guide des espaces naturels et des montagnes</div>
@@ -927,90 +944,39 @@
     </section>
 
     <section class="section" id="gallery">
-        <h2 class="section-title">Galerie Photos</h2>
+        <h2 class="section-title">Momentos d'Aventure</h2>
         <div class="gallery-container">
             <button class="gallery-nav gallery-prev">❮</button>
             <div class="gallery-slider" id="gallerySlider">
                 <div class="gallery-item">
-                    <img src="https://drive.google.com/uc?export=view&id=17j0rL9qOahrMQ1sjIRD1P0mcy8Cgv3pU" alt="Trekking dans l'Atlas">
+                    Trekking Atlas
                 </div>
                 <div class="gallery-item">
-                    <img src="https://drive.google.com/uc?export=view&id=1mfvWu486bDY5Cl7dQIjY2GLL-ZiHT4rF" alt="Désert de Merzouga">
+                    Désert Merzouga
                 </div>
                 <div class="gallery-item">
-                    <img src="https://drive.google.com/uc?export=view&id=1xRX5S_f4Hbg9snrmAoYIxqArNNrallQP" alt="Vallée des Roses">
+                    Vallée des Roses
                 </div>
                 <div class="gallery-item">
-                    <img src="https://drive.google.com/uc?export=view&id=1NMvh2owxnkTk00whGR7m1WYzWut65I3S" alt="Montagne du Toubkal">
+                    Montagne Toubkal
                 </div>
                 <div class="gallery-item">
-                    <img src="https://drive.google.com/uc?export=view&id=1-B4bwqHUiutwq1RlpZFuVWS01MVnbeXP" alt="Gorges de Dades">
+                    Gorges de Dades
                 </div>
                 <div class="gallery-item">
-                    <img src="https://drive.google.com/uc?export=view&id=1Gzz6GCVzomb5EDBA4M-aFRqrfVr9rmAk" alt="Coucher de soleil désert">
+                    Coucher de Soleil
                 </div>
                 <div class="gallery-item">
-                    <img src="https://drive.google.com/uc?export=view&id=1VwbEvHSQFA8L2yciQ6lN8zh3oaT6cHPh" alt="Village berbère">
+                    Village Berbère
                 </div>
                 <div class="gallery-item">
-                    <img src="https://drive.google.com/uc?export=view&id=1PvG4Ewe9tJxiu0bEy5HbyfioWdgXiJhB" alt="Randonnée en groupe">
+                    Randonnée Groupe
                 </div>
                 <div class="gallery-item">
-                    <img src="https://drive.google.com/uc?export=view&id=1vQlBIsXR2jcqO2NV8fllG3JFzDExog8T" alt="Campement désert">
+                    Campement Désert
                 </div>
                 <div class="gallery-item">
-                    <img src="https://drive.google.com/uc?export=view&id=19aQMiurnH7CIFpMWeGynaZIY6Rv6lXiq" alt="Paysage montagneux">
-                </div>
-                <div class="gallery-item">
-                    <img src="https://drive.google.com/uc?export=view&id=1tLbosAEv8fuZdFeG-rGvI_zHjv-e3_qr" alt="Oasis marocain">
-                </div>
-                <div class="gallery-item">
-                    <img src="https://drive.google.com/uc?export=view&id=1nR6MVcQ-bdgUi3_7_JRxujIWb36NeisL" alt="Randonnée hivernale">
-                </div>
-                <div class="gallery-item">
-                    <img src="https://drive.google.com/uc?export=view&id=1YuwtYH5TID-f0OxmnmL0fHUqkSgPIW7T" alt="Culture locale">
-                </div>
-                <div class="gallery-item">
-                    <img src="https://drive.google.com/uc?export=view&id=1jDpYoRSl4yNBO5cuDx9g9EGji_dzlwt9" alt="Cascades d'Ourika">
-                </div>
-                <div class="gallery-item">
-                    <img src="https://drive.google.com/uc?export=view&id=1PzI_p770pFSXmBusRv7gpX786aqGg6_9" alt="Dunes de sable">
-                </div>
-                <div class="gallery-item">
-                    <img src="https://drive.google.com/uc?export=view&id=10yKHb_rAZ4V5FGgcb8IWrhvaQyT_UapH" alt="Guide Ali avec clients">
-                </div>
-                <div class="gallery-item">
-                    <img src="https://drive.google.com/uc?export=view&id=1uK-teTBrYcntNQU7Q1plpY-7ZJmQemG1" alt="Vue panoramique Atlas">
-                </div>
-                <div class="gallery-item">
-                    <img src="https://drive.google.com/uc?export=view&id=1EvpXRxYTCNEh3tLs8xjVqKN5kcRXP3XY" alt="Nuit en bivouac">
-                </div>
-                <div class="gallery-item">
-                    <img src="https://drive.google.com/uc?export=view&id=12FgJzEKFPhrWm5_a2VFlf4aEs2oJRJhH" alt="Rencontre avec population">
-                </div>
-                <div class="gallery-item">
-                    <img src="https://drive.google.com/uc?export=view&id=1dvg-pShqq_RZPumT5j-0Pl4uZ1t9QPuM" alt="Artisanat local">
-                </div>
-                <div class="gallery-item">
-                    <img src="https://drive.google.com/uc?export=view&id=1yO7FuOBP9tmy3fcqN0xmZO6csmRgnaMq" alt="Randonnée printanière">
-                </div>
-                <div class="gallery-item">
-                    <img src="https://drive.google.com/uc?export=view&id=1szjGYjK_la7rRUx9iMP9zEJPB1sM3BTR" alt="Gorges de Todra">
-                </div>
-                <div class="gallery-item">
-                    <img src="https://drive.google.com/uc?export=view&id=1qq6IRBkw-KLdGjAYWQ-NFUe12kwF8KP9" alt="Vallée heureuse">
-                </div>
-                <div class="gallery-item">
-                    <img src="https://drive.google.com/uc?export=view&id=10SF6MXZ1HfycHptfil2Kkhuw6biM-bNa" alt="Expédition désert">
-                </div>
-                <div class="gallery-item">
-                    <img src="https://drive.google.com/uc?export=view&id=1KHcrGoYUrsayy7M2g_z4t_OxgAHQSWwt" alt="Coucher de soleil Atlas">
-                </div>
-                <div class="gallery-item">
-                    <img src="https://drive.google.com/uc?export=view&id=13yfsh7UFSo5K-IljJ1SGUqJYAfNfTwSL" alt="Randonnée familiale">
-                </div>
-                <div class="gallery-item">
-                    <img src="https://drive.google.com/uc?export=view&id=1TwUS7UDcg0aZ-tlUsp0Bg7FGoECwupAY" alt="Pause thé berbère">
+                    Paysage Montagneux
                 </div>
             </div>
             <button class="gallery-nav gallery-next">❯</button>
@@ -1035,7 +1001,7 @@
                 <h3 class="category-title">Randonnées Courtes (2-6 jours)</h3>
                 <div class="treks-grid">
                     <div class="trek-card">
-                        <div class="trek-image" style="background-image: url('https://drive.google.com/uc?export=view&id=1NMvh2owxnkTk00whGR7m1WYzWut65I3S')">
+                        <div class="trek-image">
                             <div class="trek-duration">4 Jours</div>
                             <div>Toubkal Express</div>
                         </div>
@@ -1062,7 +1028,7 @@
                     </div>
 
                     <div class="trek-card">
-                        <div class="trek-image" style="background-image: url('https://drive.google.com/uc?export=view&id=1xRX5S_f4Hbg9snrmAoYIxqArNNrallQP')">
+                        <div class="trek-image">
                             <div class="trek-duration">5 Jours</div>
                             <div>Vallée des Roses</div>
                         </div>
@@ -1097,7 +1063,7 @@
                 <h3 class="category-title">Randonnées Moyennes (7-11 jours)</h3>
                 <div class="treks-grid">
                     <div class="trek-card">
-                        <div class="trek-image" style="background-image: url('https://drive.google.com/uc?export=view&id=1YuwtYH5TID-f0OxmnmL0fHUqkSgPIW7T')">
+                        <div class="trek-image">
                             <div class="trek-duration">8 Jours</div>
                             <div>Grand Mgoun</div>
                         </div>
@@ -1125,7 +1091,7 @@
                     </div>
 
                     <div class="trek-card">
-                        <div class="trek-image" style="background-image: url('https://drive.google.com/uc?export=view&id=1mfvWu486bDY5Cl7dQIjY2GLL-ZiHT4rF')">
+                        <div class="trek-image">
                             <div class="trek-duration">10 Jours</div>
                             <div>Atlas & Oasis</div>
                         </div>
@@ -1161,7 +1127,7 @@
                 <h3 class="category-title">Randonnées Longues (12-15 jours)</h3>
                 <div class="treks-grid">
                     <div class="trek-card">
-                        <div class="trek-image" style="background-image: url('https://drive.google.com/uc?export=view&id=1vQlBIsXR2jcqO2NV8fllG3JFzDExog8T')">
+                        <div class="trek-image">
                             <div class="trek-duration">12 Jours</div>
                             <div>Expédition Drâa</div>
                         </div>
@@ -1191,7 +1157,7 @@
                     </div>
 
                     <div class="trek-card">
-                        <div class="trek-image" style="background-image: url('https://drive.google.com/uc?export=view&id=1Gzz6GCVzomb5EDBA4M-aFRqrfVr9rmAk')">
+                        <div class="trek-image">
                             <div class="trek-duration">15 Jours</div>
                             <div>Grand Sud</div>
                         </div>
