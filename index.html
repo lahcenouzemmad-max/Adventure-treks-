@@ -1,4 +1,4 @@
-<<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="fr">
 
 <head>
@@ -746,6 +746,33 @@
             display: none;
         }
 
+        /* نظام التعليقات الجديد */
+        .reviews-section {
+            padding: 60px 20px;
+            background: #f8f9fa;
+            direction: ltr;
+        }
+
+        .comments-system {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .comment-form-container {
+            background: white;
+            padding: 30px;
+            border-radius: 15px;
+            margin-bottom: 20px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+        }
+
+        .comments-display {
+            background: white;
+            padding: 30px;
+            border-radius: 15px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+        }
+
         @media (max-width: 768px) {
             .header-container {
                 flex-direction: column;
@@ -1315,41 +1342,52 @@
         </div>
     </section>
 
+    <!-- قسم التعليقات الجديد -->
     <section class="section" id="avis">
         <h2 class="section-title">Avis des Clients</h2>
-        <div class="testimonials-container" id="testimonials-container">
-            <div style="text-align: center; color: var(--secondary); padding: 2rem;">
-                <p>Soyez le premier à laisser votre avis !</p>
+        
+        <div class="comments-system">
+            <!-- نموذج كتابة التعليق -->
+            <div class="comment-form-container">
+                <h3 style="text-align: center; color: var(--primary); margin-bottom: 20px;">Laissez votre avis</h3>
+                <form id="commentForm" style="display: flex; flex-direction: column; gap: 15px;">
+                    <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 15px;">
+                        <div>
+                            <label for="authorName" style="display: block; margin-bottom: 5px; font-weight: 600;">Votre nom *</label>
+                            <input type="text" id="authorName" required style="width: 100%; padding: 12px; border: 1px solid #ddd; border-radius: 8px;">
+                        </div>
+                        <div>
+                            <label for="commentRating" style="display: block; margin-bottom: 5px; font-weight: 600;">Votre note *</label>
+                            <select id="commentRating" required style="width: 100%; padding: 12px; border: 1px solid #ddd; border-radius: 8px;">
+                                <option value="">Choisissez votre note</option>
+                                <option value="5">⭐⭐⭐⭐⭐ Excellent</option>
+                                <option value="4">⭐⭐⭐⭐ Très bien</option>
+                                <option value="3">⭐⭐⭐ Bien</option>
+                                <option value="2">⭐⭐ Moyen</option>
+                                <option value="1">⭐ Pas satisfait</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div>
+                        <label for="commentText" style="display: block; margin-bottom: 5px; font-weight: 600;">Votre commentaire *</label>
+                        <textarea id="commentText" required rows="4" placeholder="Partagez votre expérience avec nous..." style="width: 100%; padding: 12px; border: 1px solid #ddd; border-radius: 8px;"></textarea>
+                    </div>
+                    <button type="submit" style="background: var(--primary); color: white; border: none; padding: 15px; border-radius: 8px; font-size: 16px; cursor: pointer;">
+                        📤 Publier votre avis
+                    </button>
+                </form>
             </div>
-        </div>
 
-        <div class="add-comment">
-            <h3 style="text-align: center; color: var(--primary); margin-bottom: 1rem;">Laissez votre avis</h3>
-            <form class="comment-form" id="comment-form">
-                <div class="form-group">
-                    <label for="comment-name">Votre nom *</label>
-                    <input type="text" id="comment-name" required>
-                </div>
-                <div class="form-group">
-                    <label for="comment-country">Pays</label>
-                    <input type="text" id="comment-country">
-                </div>
-                <div class="form-group">
-                    <label>Votre note</label>
-                    <div class="rating-stars">
-                        <span class="star" data-rating="1">★</span>
-                        <span class="star" data-rating="2">★</span>
-                        <span class="star" data-rating="3">★</span>
-                        <span class="star" data-rating="4">★</span>
-                        <span class="star" data-rating="5">★</span>
+            <!-- عرض التعليقات -->
+            <div class="comments-display" style="margin-top: 30px;">
+                <h3 style="text-align: center; color: var(--primary); margin-bottom: 25px;">⭐ Avis des Clients</h3>
+                <div id="commentsContainer">
+                    <div style="text-align: center; padding: 40px; color: #666;">
+                        <p>🎯 Soyez le premier à laisser un avis!</p>
+                        <p>Votre opinion compte pour nous</p>
                     </div>
                 </div>
-                <div class="form-group">
-                    <label for="comment-text">Votre commentaire *</label>
-                    <textarea id="comment-text" rows="4" required placeholder="Partagez votre expérience..."></textarea>
-                </div>
-                <button type="submit" class="btn">Publier mon avis</button>
-            </form>
+            </div>
         </div>
     </section>
 
@@ -1403,262 +1441,391 @@
         </p>
     </footer>
 
+    <!-- إضافة Firebase -->
+    <script src="https://www.gstatic.com/firebasejs/9.22.0/firebase-app-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/9.22.0/firebase-firestore-compat.js"></script>
+
     <script>
-        // نظام معرض الصور الأفقي
-        const gallerySlider = document.getElementById('gallerySlider');
-        const galleryDots = document.getElementById('galleryDots');
-        const items = gallerySlider.querySelectorAll('.gallery-item');
-        const itemsPerView = 3;
-        let currentIndex = 0;
-
-        // إنشاء نقاط التنقل
-        function createDots() {
-            const totalDots = Math.ceil(items.length / itemsPerView);
-            galleryDots.innerHTML = '';
-            
-            for (let i = 0; i < totalDots; i++) {
-                const dot = document.createElement('button');
-                dot.className = 'gallery-dot';
-                if (i === 0) dot.classList.add('active');
-                dot.addEventListener('click', () => goToSlide(i));
-                galleryDots.appendChild(dot);
-            }
-        }
-
-        function goToSlide(index) {
-            currentIndex = index;
-            const scrollAmount = index * (300 + 16) * itemsPerView; // عرض العنصر + الـ gap
-            gallerySlider.scrollTo({
-                left: scrollAmount,
-                behavior: 'smooth'
-            });
-            updateDots();
-        }
-
-        function updateDots() {
-            const dots = galleryDots.querySelectorAll('.gallery-dot');
-            const activeDotIndex = Math.floor(currentIndex);
-            
-            dots.forEach((dot, index) => {
-                dot.classList.toggle('active', index === activeDotIndex);
-            });
-        }
-
-        // التنقل بالسهام
-        document.querySelector('.gallery-prev').addEventListener('click', () => {
-            if (currentIndex > 0) {
-                goToSlide(currentIndex - 1);
-            }
-        });
-
-        document.querySelector('.gallery-next').addEventListener('click', () => {
-            const maxIndex = Math.ceil(items.length / itemsPerView) - 1;
-            if (currentIndex < maxIndex) {
-                goToSlide(currentIndex + 1);
-            }
-        });
-
-        // التمرير بالسحب على الهواتف
-        let isDown = false;
-        let startX;
-        let scrollLeft;
-
-        gallerySlider.addEventListener('mousedown', (e) => {
-            isDown = true;
-            startX = e.pageX - gallerySlider.offsetLeft;
-            scrollLeft = gallerySlider.scrollLeft;
-        });
-
-        gallerySlider.addEventListener('mouseleave', () => {
-            isDown = false;
-        });
-
-        gallerySlider.addEventListener('mouseup', () => {
-            isDown = false;
-        });
-
-        gallerySlider.addEventListener('mousemove', (e) => {
-            if (!isDown) return;
-            e.preventDefault();
-            const x = e.pageX - gallerySlider.offsetLeft;
-            const walk = (x - startX) * 2;
-            gallerySlider.scrollLeft = scrollLeft - walk;
-        });
-
-        // تهيئة المعرض
-        createDots();
-
-        // نظام اللغات المحسن
-        const translations = {
-            fr: {
-                "home": "Accueil",
-                "guide": "Notre Guide", 
-                "treks": "Randonnées",
-                "gallery": "Galerie",
-                "gallery_title": "Moments d'Aventure",
-                "reviews": "Avis Clients",
-                "contact": "Contact",
-                "hero_title": "Adventure Treks - Guide Expert Maroc",
-                "hero_subtitle": "Trekking dans l'Atlas, randonnées au désert - 30+ ans d'expérience",
-                "discover_btn": "Demander un Circuit Personnalisé",
-                "guide_title": "Notre Guide Expert",
-                "guide_job": "Guide des espaces naturels et des montagnes",
-                "guide_exp": "Plus de 30 ans d'expérience dans le guidage touristique au Maroc.",
-                "peaks_title": "Sommets Maîtrisés",
-                "deserts_title": "Déserts",
-                "valleys_title": "Vallées Expertisées", 
-                "groups_title": "Groupes",
-                "price_title": "Prix Tout Compris",
-                "price_desc": "Le prix comprend tout : guide, transport, hébergement, repas, et équipement.",
-                "treks_title": "Nos Randonnées par Durée"
-            },
-            en: {
-                "home": "Home",
-                "guide": "Our Guide",
-                "treks": "Treks", 
-                "gallery": "Gallery",
-                "gallery_title": "Adventure Moments",
-                "reviews": "Reviews",
-                "contact": "Contact",
-                "hero_title": "Adventure Treks - Expert Guide Morocco",
-                "hero_subtitle": "Atlas trekking, desert hikes - 30+ years of experience", 
-                "discover_btn": "Request a Custom Circuit",
-                "guide_title": "Our Expert Guide",
-                "guide_job": "Guide of natural spaces and mountains",
-                "guide_exp": "Over 30 years of experience in tourist guidance in Morocco.",
-                "peaks_title": "Mastered Peaks",
-                "deserts_title": "Deserts",
-                "valleys_title": "Expertised Valleys",
-                "groups_title": "Groups", 
-                "price_title": "All-Inclusive Price",
-                "price_desc": "The price includes everything: guide, transport, accommodation, meals, and equipment.",
-                "treks_title": "Our Treks by Duration"
-            }
+        // تهيئة Firebase ببياناتك الحقيقية
+        const firebaseConfig = {
+            apiKey: "AIzaSyCgfGwHACxx_SRsjo4qKoOJsUUXxc-b7eE",
+            authDomain: "adventure-treks-comments.firebaseapp.com",
+            projectId: "adventure-treks-comments",
+            storageBucket: "adventure-treks-comments.firebasestorage.app",
+            messagingSenderId: "792729535477",
+            appId: "1:792729535477:web:17af8772f5da73ff4cd6bc"
         };
 
-        // تغيير اللغة
-        document.querySelectorAll('.lang-btn').forEach(button => {
-            button.addEventListener('click', function() {
-                const lang = this.dataset.lang;
-                
-                document.querySelectorAll('.lang-btn').forEach(btn => {
-                    btn.classList.remove('active');
-                });
-                this.classList.add('active');
-                
-                document.querySelectorAll('[data-key]').forEach(element => {
-                    const key = element.getAttribute('data-key');
-                    if (translations[lang] && translations[lang][key]) {
-                        element.textContent = translations[lang][key];
-                    }
-                });
-                
-                // تحديث عنوان الصفحة
-                document.title = lang === 'fr' 
-                    ? 'Adventure Treks - Guide Expert Maroc | Trekking Atlas & Désert Merzouga'
-                    : 'Adventure Treks - Expert Guide Morocco | Atlas Trekking & Merzouga Desert';
-            });
-        });
+        // تهيئة Firebase
+        try {
+            firebase.initializeApp(firebaseConfig);
+        } catch (error) {
+            console.log('Firebase already initialized');
+        }
 
-        // القائمة المتنقلة
-        document.querySelector('.mobile-menu-btn').addEventListener('click', function() {
-            document.querySelector('.nav-links').classList.toggle('active');
-        });
+        const db = firebase.firestore();
 
-        // نظام التقييم
-        let currentRating = 0;
-        document.querySelectorAll('.star').forEach(star => {
-            star.addEventListener('click', function() {
-                currentRating = parseInt(this.dataset.rating);
-                document.querySelectorAll('.star').forEach(s => {
-                    if (parseInt(s.dataset.rating) <= currentRating) {
-                        s.classList.add('active');
-                    } else {
-                        s.classList.remove('active');
-                    }
-                });
-            });
-        });
-
-        // إضافة تعليق
-        document.getElementById('comment-form').addEventListener('submit', function(e) {
-            e.preventDefault();
-            
-            if (currentRating === 0) {
-                alert('Veuillez donner une note');
-                return;
+        class CommentSystem {
+            constructor() {
+                this.currentVisitorId = this.getVisitorId();
+                this.init();
             }
 
-            const name = document.getElementById('comment-name').value;
-            const country = document.getElementById('comment-country').value;
-            const text = document.getElementById('comment-text').value;
-
-            const testimonialHTML = `
-                <div class="testimonial-card">
-                    <div class="testimonial-rating">${'★'.repeat(currentRating)}</div>
-                    <p class="testimonial-text">"${text}"</p>
-                    <div class="testimonial-author">- ${name}${country ? ', ' + country : ''}</div>
-                </div>
-            `;
-
-            const container = document.getElementById('testimonials-container');
-            if (container.querySelector('div:first-child').textContent.includes('premier')) {
-                container.innerHTML = testimonialHTML;
-            } else {
-                container.insertAdjacentHTML('afterbegin', testimonialHTML);
+            init() {
+                this.setupForm();
+                this.loadComments();
+                this.setupRealTimeUpdates();
             }
 
-            alert('Merci pour votre commentaire !');
-            this.reset();
-            document.querySelectorAll('.star').forEach(star => star.classList.remove('active'));
-            currentRating = 0;
-        });
+            // إنشاء معرف فريد للزائر
+            getVisitorId() {
+                let visitorId = localStorage.getItem('visitorId');
+                if (!visitorId) {
+                    visitorId = 'visitor_' + Date.now() + '_' + Math.random().toString(36).substr(2, 9);
+                    localStorage.setItem('visitorId', visitorId);
+                }
+                return visitorId;
+            }
 
-        // الفلاتر
-        document.querySelectorAll('.duration-btn').forEach(button => {
-            button.addEventListener('click', function() {
-                document.querySelectorAll('.duration-btn').forEach(btn => {
-                    btn.classList.remove('active');
+            // إعداد نموذج الإرسال
+            setupForm() {
+                const form = document.getElementById('commentForm');
+                form.addEventListener('submit', (e) => {
+                    e.preventDefault();
+                    this.submitComment();
                 });
-                this.classList.add('active');
+            }
+
+            // إرسال تعليق جديد
+            async submitComment() {
+                const name = document.getElementById('authorName').value.trim();
+                const rating = document.getElementById('commentRating').value;
+                const text = document.getElementById('commentText').value.trim();
+
+                if (!name || !rating || !text) {
+                    alert('Veuillez remplir tous les champs obligatoires.');
+                    return;
+                }
+
+                try {
+                    const commentData = {
+                        authorName: name,
+                        rating: parseInt(rating),
+                        text: text,
+                        visitorId: this.currentVisitorId,
+                        createdAt: firebase.firestore.FieldValue.serverTimestamp(),
+                        updatedAt: firebase.firestore.FieldValue.serverTimestamp()
+                    };
+
+                    await db.collection('comments').add(commentData);
+                    
+                    // إعادة تعيين النموذج
+                    document.getElementById('commentForm').reset();
+                    alert('✅ Merci pour votre avis! Votre commentaire a été publié avec succès.');
+                    
+                } catch (error) {
+                    console.error('Error submitting comment:', error);
+                    alert('⚠️ Une erreur est survenue lors de la publication de votre commentaire.');
+                }
+            }
+
+            // تحميل التعليقات
+            async loadComments() {
+                try {
+                    const snapshot = await db.collection('comments')
+                        .orderBy('createdAt', 'desc')
+                        .get();
+                    
+                    this.displayComments(snapshot.docs);
+                } catch (error) {
+                    console.error('Error loading comments:', error);
+                }
+            }
+
+            // تحديث التعليقات في الوقت الحقيقي
+            setupRealTimeUpdates() {
+                db.collection('comments')
+                    .orderBy('createdAt', 'desc')
+                    .onSnapshot((snapshot) => {
+                        this.displayComments(snapshot.docs);
+                    }, (error) => {
+                        console.error('Real-time update error:', error);
+                    });
+            }
+
+            // عرض التعليقات
+            displayComments(commentDocs) {
+                const container = document.getElementById('commentsContainer');
                 
-                document.querySelectorAll('.treks-container').forEach(container => {
-                    container.classList.remove('active');
+                if (commentDocs.length === 0) {
+                    container.innerHTML = `
+                        <div style="text-align: center; padding: 40px; color: #666;">
+                            <p>🎯 Soyez le premier à laisser un avis!</p>
+                            <p>Votre opinion compte pour nous</p>
+                        </div>
+                    `;
+                    return;
+                }
+
+                let commentsHTML = '';
+                
+                commentDocs.forEach(doc => {
+                    const comment = doc.data();
+                    const commentId = doc.id;
+                    const isOwner = comment.visitorId === this.currentVisitorId;
+                    const stars = '★'.repeat(comment.rating) + '☆'.repeat(5 - comment.rating);
+                    const date = comment.createdAt ? comment.createdAt.toDate().toLocaleDateString('fr-FR') : 'Date inconnue';
+                    
+                    commentsHTML += `
+                        <div class="comment-item" style="border-bottom: 1px solid #eee; padding: 20px 0; margin-bottom: 15px;">
+                            <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 10px;">
+                                <div style="display: flex; align-items: center;">
+                                    <strong style="color: #2c5aa0; font-size: 16px;">${comment.authorName}</strong>
+                                    <span style="margin: 0 10px; color: #ccc;">|</span>
+                                    <small style="color: #888;">${date}</small>
+                                </div>
+                                <div style="color: #ffb400; font-size: 18px;">
+                                    ${stars}
+                                    <span style="color: #666; font-size: 14px; margin-left: 5px;">(${comment.rating}/5)</span>
+                                </div>
+                            </div>
+                            <p style="color: #555; line-height: 1.6; margin: 0; background: #f8f9fa; padding: 15px; border-radius: 8px; border-left: 4px solid #2c5aa0;">
+                                ${comment.text}
+                            </p>
+                            ${isOwner ? `
+                                <div style="margin-top: 10px; text-align: right;">
+                                    <button onclick="commentSystem.editComment('${commentId}', '${comment.text.replace(/'/g, "\\'")}')" 
+                                            style="background: #28a745; color: white; border: none; padding: 5px 10px; border-radius: 4px; margin-left: 5px; cursor: pointer; font-size: 12px;">
+                                        ✏️ Modifier
+                                    </button>
+                                    <button onclick="commentSystem.deleteComment('${commentId}')" 
+                                            style="background: #dc3545; color: white; border: none; padding: 5px 10px; border-radius: 4px; cursor: pointer; font-size: 12px;">
+                                        🗑️ Supprimer
+                                    </button>
+                                </div>
+                            ` : ''}
+                        </div>
+                    `;
                 });
+
+                container.innerHTML = commentsHTML;
+            }
+
+            // تعديل التعليق
+            async editComment(commentId, currentText) {
+                const newText = prompt('Modifiez votre commentaire:', currentText);
+                if (newText && newText !== currentText) {
+                    try {
+                        await db.collection('comments').doc(commentId).update({
+                            text: newText,
+                            updatedAt: firebase.firestore.FieldValue.serverTimestamp()
+                        });
+                        alert('✅ Votre commentaire a été modifié avec succès!');
+                    } catch (error) {
+                        console.error('Error updating comment:', error);
+                        alert('⚠️ Une erreur est survenue lors de la modification.');
+                    }
+                }
+            }
+
+            // حذف التعليق
+            async deleteComment(commentId) {
+                if (confirm('Êtes-vous sûr de vouloir supprimer cet avis?')) {
+                    try {
+                        await db.collection('comments').doc(commentId).delete();
+                        alert('✅ Votre commentaire a été supprimé avec succès!');
+                    } catch (error) {
+                        console.error('Error deleting comment:', error);
+                        alert('⚠️ Une erreur est survenue lors de la suppression.');
+                    }
+                }
+            }
+        }
+
+        // بدء نظام التعليقات
+        let commentSystem;
+        document.addEventListener('DOMContentLoaded', function() {
+            commentSystem = new CommentSystem();
+            
+            // بقية الكود الأصلي...
+            // نظام معرض الصور الأفقي
+            const gallerySlider = document.getElementById('gallerySlider');
+            const galleryDots = document.getElementById('galleryDots');
+            const items = gallerySlider.querySelectorAll('.gallery-item');
+            const itemsPerView = 3;
+            let currentIndex = 0;
+
+            // إنشاء نقاط التنقل
+            function createDots() {
+                const totalDots = Math.ceil(items.length / itemsPerView);
+                galleryDots.innerHTML = '';
                 
-                document.getElementById(this.dataset.duration + '-treks').classList.add('active');
+                for (let i = 0; i < totalDots; i++) {
+                    const dot = document.createElement('button');
+                    dot.className = 'gallery-dot';
+                    if (i === 0) dot.classList.add('active');
+                    dot.addEventListener('click', () => goToSlide(i));
+                    galleryDots.appendChild(dot);
+                }
+            }
+
+            function goToSlide(index) {
+                currentIndex = index;
+                const scrollAmount = index * (300 + 16) * itemsPerView;
+                gallerySlider.scrollTo({
+                    left: scrollAmount,
+                    behavior: 'smooth'
+                });
+                updateDots();
+            }
+
+            function updateDots() {
+                const dots = galleryDots.querySelectorAll('.gallery-dot');
+                const activeDotIndex = Math.floor(currentIndex);
+                
+                dots.forEach((dot, index) => {
+                    dot.classList.toggle('active', index === activeDotIndex);
+                });
+            }
+
+            // التنقل بالسهام
+            document.querySelector('.gallery-prev').addEventListener('click', () => {
+                if (currentIndex > 0) {
+                    goToSlide(currentIndex - 1);
+                }
             });
-        });
 
-        // النماذج
-        document.getElementById('newsletter-form').addEventListener('submit', function(e) {
-            e.preventDefault();
-            alert('Merci pour votre inscription !');
-            this.reset();
-        });
+            document.querySelector('.gallery-next').addEventListener('click', () => {
+                const maxIndex = Math.ceil(items.length / itemsPerView) - 1;
+                if (currentIndex < maxIndex) {
+                    goToSlide(currentIndex + 1);
+                }
+            });
 
-        // نظام طلب الرحلات المخصص
-        document.getElementById('custom-trip-form').addEventListener('submit', function(e) {
-            e.preventDefault();
-            
-            const formData = new FormData(this);
-            const language = formData.get('language');
-            const baseTrip = formData.get('base_trip');
-            const travelersCount = formData.get('travelers_count');
-            const fitnessLevel = formData.get('fitness_level');
-            const proposedDates = formData.get('proposed_dates');
-            const clientName = formData.get('client_name');
-            const clientEmail = formData.get('client_email');
-            const clientPhone = formData.get('client_phone');
-            const clientCountry = formData.get('client_country');
-            const specialRequests = formData.get('special_requests');
+            // تهيئة المعرض
+            createDots();
 
-            // تحديد الرقم المناسب حسب اللغة
-            const phoneNumber = language === 'fr' ? '+212661796117' : '+212633652721';
-            const guideName = language === 'fr' ? 'Ali' : 'Ali';
-            
-            // إنشاء رسالة الواتساب
-            const whatsappMessage = `
+            // نظام اللغات
+            const translations = {
+                fr: {
+                    "home": "Accueil",
+                    "guide": "Notre Guide", 
+                    "treks": "Randonnées",
+                    "gallery": "Galerie",
+                    "gallery_title": "Moments d'Aventure",
+                    "reviews": "Avis Clients",
+                    "contact": "Contact",
+                    "hero_title": "Adventure Treks - Guide Expert Maroc",
+                    "hero_subtitle": "Trekking dans l'Atlas, randonnées au désert - 30+ ans d'expérience",
+                    "discover_btn": "Demander un Circuit Personnalisé",
+                    "guide_title": "Notre Guide Expert",
+                    "guide_job": "Guide des espaces naturels et des montagnes",
+                    "guide_exp": "Plus de 30 ans d'expérience dans le guidage touristique au Maroc.",
+                    "peaks_title": "Sommets Maîtrisés",
+                    "deserts_title": "Déserts",
+                    "valleys_title": "Vallées Expertisées", 
+                    "groups_title": "Groupes",
+                    "price_title": "Prix Tout Compris",
+                    "price_desc": "Le prix comprend tout : guide, transport, hébergement, repas, et équipement.",
+                    "treks_title": "Nos Randonnées par Durée"
+                },
+                en: {
+                    "home": "Home",
+                    "guide": "Our Guide",
+                    "treks": "Treks", 
+                    "gallery": "Gallery",
+                    "gallery_title": "Adventure Moments",
+                    "reviews": "Reviews",
+                    "contact": "Contact",
+                    "hero_title": "Adventure Treks - Expert Guide Morocco",
+                    "hero_subtitle": "Atlas trekking, desert hikes - 30+ years of experience", 
+                    "discover_btn": "Request a Custom Circuit",
+                    "guide_title": "Our Expert Guide",
+                    "guide_job": "Guide of natural spaces and mountains",
+                    "guide_exp": "Over 30 years of experience in tourist guidance in Morocco.",
+                    "peaks_title": "Mastered Peaks",
+                    "deserts_title": "Deserts",
+                    "valleys_title": "Expertised Valleys",
+                    "groups_title": "Groups", 
+                    "price_title": "All-Inclusive Price",
+                    "price_desc": "The price includes everything: guide, transport, accommodation, meals, and equipment.",
+                    "treks_title": "Our Treks by Duration"
+                }
+            };
+
+            // تغيير اللغة
+            document.querySelectorAll('.lang-btn').forEach(button => {
+                button.addEventListener('click', function() {
+                    const lang = this.dataset.lang;
+                    
+                    document.querySelectorAll('.lang-btn').forEach(btn => {
+                        btn.classList.remove('active');
+                    });
+                    this.classList.add('active');
+                    
+                    document.querySelectorAll('[data-key]').forEach(element => {
+                        const key = element.getAttribute('data-key');
+                        if (translations[lang] && translations[lang][key]) {
+                            element.textContent = translations[lang][key];
+                        }
+                    });
+                    
+                    // تحديث عنوان الصفحة
+                    document.title = lang === 'fr' 
+                        ? 'Adventure Treks - Guide Expert Maroc | Trekking Atlas & Désert Merzouga'
+                        : 'Adventure Treks - Expert Guide Morocco | Atlas Trekking & Merzouga Desert';
+                });
+            });
+
+            // القائمة المتنقلة
+            document.querySelector('.mobile-menu-btn').addEventListener('click', function() {
+                document.querySelector('.nav-links').classList.toggle('active');
+            });
+
+            // الفلاتر
+            document.querySelectorAll('.duration-btn').forEach(button => {
+                button.addEventListener('click', function() {
+                    document.querySelectorAll('.duration-btn').forEach(btn => {
+                        btn.classList.remove('active');
+                    });
+                    this.classList.add('active');
+                    
+                    document.querySelectorAll('.treks-container').forEach(container => {
+                        container.classList.remove('active');
+                    });
+                    
+                    document.getElementById(this.dataset.duration + '-treks').classList.add('active');
+                });
+            });
+
+            // النماذج
+            document.getElementById('newsletter-form').addEventListener('submit', function(e) {
+                e.preventDefault();
+                alert('Merci pour votre inscription !');
+                this.reset();
+            });
+
+            // نظام طلب الرحلات المخصص
+            document.getElementById('custom-trip-form').addEventListener('submit', function(e) {
+                e.preventDefault();
+                
+                const formData = new FormData(this);
+                const language = formData.get('language');
+                const baseTrip = formData.get('base_trip');
+                const travelersCount = formData.get('travelers_count');
+                const fitnessLevel = formData.get('fitness_level');
+                const proposedDates = formData.get('proposed_dates');
+                const clientName = formData.get('client_name');
+                const clientEmail = formData.get('client_email');
+                const clientPhone = formData.get('client_phone');
+                const clientCountry = formData.get('client_country');
+                const specialRequests = formData.get('special_requests');
+
+                // تحديد الرقم المناسب حسب اللغة
+                const phoneNumber = language === 'fr' ? '+212661796117' : '+212633652721';
+                
+                // إنشاء رسالة الواتساب
+                const whatsappMessage = `
 Nouvelle demande de circuit personnalisé!
 
 Langue: ${language === 'fr' ? 'Français' : 'English'}
@@ -1673,78 +1840,38 @@ Téléphone: ${clientPhone}
 Pays: ${clientCountry}
 
 Demandes spéciales: ${specialRequests || 'Aucune'}
-            `.trim();
+                `.trim();
 
-            const encodedMessage = encodeURIComponent(whatsappMessage);
-            const whatsappUrl = `https://wa.me/${phoneNumber}?text=${encodedMessage}`;
-            
-            // فتح الواتساب
-            window.open(whatsappUrl, '_blank');
-            
-            // عرض رسالة النجاح
-            document.getElementById('success-message').style.display = 'block';
-            
-            // إعادة تعيين النموذج
-            this.reset();
-            
-            // تمرير scroll لرسالة النجاح
-            setTimeout(() => {
-                document.getElementById('success-message').scrollIntoView({ 
-                    behavior: 'smooth' 
-                });
-            }, 500);
-        });
-
-        // تحسين اختيار اللغة في النموذج
-        document.querySelectorAll('.language-option input').forEach(radio => {
-            radio.addEventListener('change', function() {
-                document.querySelectorAll('.language-option').forEach(option => {
-                    option.style.borderColor = '#ddd';
-                });
-                this.closest('.language-option').style.borderColor = 'var(--primary)';
+                const encodedMessage = encodeURIComponent(whatsappMessage);
+                const whatsappUrl = `https://wa.me/${phoneNumber}?text=${encodedMessage}`;
+                
+                // فتح الواتساب
+                window.open(whatsappUrl, '_blank');
+                
+                // عرض رسالة النجاح
+                document.getElementById('success-message').style.display = 'block';
+                
+                // إعادة تعيين النموذج
+                this.reset();
+                
+                // تمرير scroll لرسالة النجاح
+                setTimeout(() => {
+                    document.getElementById('success-message').scrollIntoView({ 
+                        behavior: 'smooth' 
+                    });
+                }, 500);
             });
-        });
 
-        // إضافة تأثيرات scroll
-        window.addEventListener('scroll', function() {
-            const sections = document.querySelectorAll('.section');
-            sections.forEach(section => {
-                const sectionTop = section.getBoundingClientRect().top;
-                if (sectionTop < window.innerHeight - 100) {
-                    section.style.opacity = '1';
-                    section.style.transform = 'translateY(0)';
-                }
-            });
-        });
-
-        // تهيئة تأثيرات CSS
-        document.querySelectorAll('.section').forEach(section => {
-            section.style.opacity = '0';
-            section.style.transform = 'translateY(20px)';
-            section.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
-        });
-
-        // تفعيل تأثيرات عند التحميل
-        window.addEventListener('load', function() {
-            document.querySelectorAll('.section').forEach(section => {
-                section.style.opacity = '1';
-                section.style.transform = 'translateY(0)';
+            // تحسين اختيار اللغة في النموذج
+            document.querySelectorAll('.language-option input').forEach(radio => {
+                radio.addEventListener('change', function() {
+                    document.querySelectorAll('.language-option').forEach(option => {
+                        option.style.borderColor = '#ddd';
+                    });
+                    this.closest('.language-option').style.borderColor = 'var(--primary)';
+                });
             });
         });
     </script>
-<!-- قسم تعليقات العملاء -->
-<section id="reviews" class="reviews-section" style="padding: 60px 20px; background: #f8f9fa;">
-    <div class="container">
-        <h2 style="text-align: center; margin-bottom: 40px; color: #333;">آراء وتجارب عملائنا</h2>
-        
-        <!-- ابدأ من هنا -->
-        <div class="commentbox"></div>
-        <script src="https://unpkg.com/commentbox.io/dist/commentBox.min.js"></script>
-        <script>commentBox('5642611224051712-proj')</script>
-        <!-- انتهى هنا -->
-        
-    </div>
-</section>
-
 </body>
 </html>
