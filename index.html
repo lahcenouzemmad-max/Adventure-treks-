@@ -1732,5 +1732,29 @@ Demandes spéciales: ${specialRequests || 'Aucune'}
             });
         });
     </script>
+<!-- قسم تعليقات العملاء -->
+<section id="reviews" class="reviews-section" style="padding: 60px 20px; background: #f8f9fa;">
+    <div class="container">
+        <h2 style="text-align: center; margin-bottom: 40px; color: #333;">آراء وتجارب عملائنا</h2>
+        <div id="disqus_thread"></div>
+    </div>
+</section>
+
+   <script>
+    /**
+    *  RECOMMENDED CONFIGURATION VARIABLES: EDIT AND UNCOMMENT THE SECTION BELOW TO INSERT VALUES
+    */
+    var disqus_config = function () {
+    this.page.url = 'https://adventure-treks.vercel.app';  // Replace with your site URL
+    this.page.identifier = 'adventure-treks-main'; // Replace with unique identifier
+    };
+    
+    (function() { // DON'T EDIT BELOW THIS LINE
+    var d = document, s = d.createElement('script');
+    s.src = 'https://adventure-treks-1.disqus.com/embed.js';
+    s.setAttribute('data-timestamp', +new Date());
+    (d.head || d.body).appendChild(s);
+    })();
+</script>
 </body>
 </html>
