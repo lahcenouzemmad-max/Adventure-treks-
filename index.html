@@ -38,7 +38,6 @@
     </script>
     
     <style>
-        /* كل الـ CSS يبقى كما هو بدون أي تغيير */
         :root {
             --primary: #27AE60;
             --secondary: #2E86C1;
@@ -50,7 +49,824 @@
             --gradient: linear-gradient(135deg, var(--primary), var(--secondary));
         }
 
-        /* ... كل الـ CSS الأصلي يبقى تماماً كما هو ... */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
+            line-height: 1.6;
+            color: var(--dark);
+            background: #f8f9fa;
+            scroll-behavior: smooth;
+        }
+
+        .header-top {
+            background: var(--dark);
+            color: white;
+            padding: 0.5rem 1rem;
+        }
+
+        .header-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .language-registration {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+
+        .language-switcher {
+            display: flex;
+            background: rgba(255,255,255,0.1);
+            border-radius: 20px;
+            padding: 0.25rem;
+        }
+
+        .lang-btn {
+            padding: 0.4rem 1rem;
+            border: none;
+            background: none;
+            cursor: pointer;
+            border-radius: 15px;
+            font-weight: 500;
+            transition: all 0.3s ease;
+            color: white;
+            font-size: 0.9rem;
+        }
+
+        .lang-btn.active {
+            background: var(--primary);
+            color: white;
+        }
+
+        .register-btn {
+            background: var(--primary);
+            color: white;
+            padding: 0.5rem 1rem;
+            border: none;
+            border-radius: 20px;
+            text-decoration: none;
+            font-weight: 500;
+            font-size: 0.9rem;
+            transition: all 0.3s ease;
+        }
+
+        .navbar {
+            background: white;
+            padding: 1rem;
+            position: sticky;
+            top: 0;
+            box-shadow: var(--shadow);
+            z-index: 1000;
+        }
+
+        .nav-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: bold;
+            color: var(--primary);
+            text-decoration: none;
+        }
+
+        .nav-links {
+            display: flex;
+            list-style: none;
+            gap: 1.5rem;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: var(--dark);
+            font-weight: 500;
+            transition: all 0.3s ease;
+            padding: 0.5rem;
+            border-radius: 5px;
+        }
+
+        .nav-links a:hover {
+            background: var(--light-green);
+        }
+
+        .mobile-menu-btn {
+            display: none;
+            background: none;
+            border: none;
+            font-size: 1.5rem;
+            cursor: pointer;
+            color: var(--dark);
+        }
+
+        .hero {
+            background: linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.4)), url('https://drive.google.com/thumbnail?id=1tqwm60wwjHRde-aUKcnUUf9WJrMGbjla&sz=w2000');
+            background-size: cover;
+            background-position: center;
+            height: 70vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            color: white;
+            padding: 0 1rem;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 800"><path fill="rgba(255,255,255,0.1)" d="M0 0h1200v800H0z"/><path fill="rgba(255,255,255,0.05)" d="M0 400h1200v400H0z"/></svg>');
+        }
+
+        .hero-content h1 {
+            font-size: 2.8rem;
+            margin-bottom: 1rem;
+            position: relative;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
+        }
+
+        .hero-content p {
+            font-size: 1.3rem;
+            margin-bottom: 2rem;
+            text-shadow: 1px 1px 2px rgba(0,0,0,0.5);
+        }
+
+        .btn {
+            background: white;
+            color: var(--primary);
+            padding: 12px 25px;
+            border: none;
+            border-radius: 25px;
+            text-decoration: none;
+            display: inline-block;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            cursor: pointer;
+        }
+
+        .btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(0,0,0,0.15);
+        }
+
+        .section {
+            padding: 4rem 1rem;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .section-title {
+            text-align: center;
+            font-size: 2.2rem;
+            margin-bottom: 3rem;
+            color: var(--dark);
+            position: relative;
+        }
+
+        .section-title::after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80px;
+            height: 4px;
+            background: var(--primary);
+            border-radius: 2px;
+        }
+
+        .guide-profile {
+            background: white;
+            border-radius: 15px;
+            padding: 2rem;
+            box-shadow: var(--shadow);
+            margin-bottom: 2rem;
+            text-align: center;
+        }
+
+        .guide-header {
+            display: flex;
+            align-items: center;
+            gap: 2rem;
+            margin-bottom: 2rem;
+            text-align: left;
+        }
+
+        .guide-photo {
+            width: 200px;
+            height: 200px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 5px solid var(--primary);
+            box-shadow: var(--shadow);
+        }
+
+        .guide-name {
+            color: var(--primary);
+            font-size: 2rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .guide-experience {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 1rem;
+            margin-top: 1.5rem;
+        }
+
+        .experience-item {
+            text-align: center;
+            padding: 1.5rem;
+            background: var(--light-green);
+            border-radius: 10px;
+            transition: transform 0.3s ease;
+        }
+
+        .experience-item:hover {
+            transform: translateY(-5px);
+        }
+
+        .price-inclusion {
+            background: #E8F5E8;
+            border: 2px solid var(--primary);
+            border-radius: 10px;
+            padding: 1.5rem;
+            margin: 1.5rem 0;
+            text-align: center;
+        }
+
+        .price-variation {
+            background: #FFF3CD;
+            border: 1px solid #FFEAA7;
+            border-radius: 8px;
+            padding: 1rem;
+            margin: 1rem 0;
+            text-align: center;
+            font-style: italic;
+            color: #856404;
+        }
+
+        /* معرض الصور الأفقي */
+        .gallery-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            position: relative;
+            padding: 0 3rem;
+        }
+
+        .gallery-slider {
+            display: flex;
+            overflow-x: auto;
+            scroll-behavior: smooth;
+            gap: 1rem;
+            padding: 1rem 0;
+            scrollbar-width: none;
+            -ms-overflow-style: none;
+        }
+
+        .gallery-slider::-webkit-scrollbar {
+            display: none;
+        }
+
+        .gallery-item {
+            flex: 0 0 auto;
+            width: 300px;
+            height: 200px;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: var(--shadow);
+            transition: transform 0.3s ease;
+        }
+
+        .gallery-item:hover {
+            transform: scale(1.05);
+        }
+
+        .gallery-item img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: block;
+        }
+
+        .gallery-nav {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            background: rgba(255,255,255,0.9);
+            border: none;
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            font-size: 1.5rem;
+            color: var(--primary);
+            box-shadow: var(--shadow);
+            transition: all 0.3s ease;
+            z-index: 10;
+        }
+
+        .gallery-nav:hover {
+            background: var(--primary);
+            color: white;
+        }
+
+        .gallery-prev {
+            left: 0;
+        }
+
+        .gallery-next {
+            right: 0;
+        }
+
+        .gallery-dots {
+            display: flex;
+            justify-content: center;
+            gap: 0.5rem;
+            margin-top: 1rem;
+        }
+
+        .gallery-dot {
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+            background: #ddd;
+            border: none;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .gallery-dot.active {
+            background: var(--primary);
+            transform: scale(1.2);
+        }
+
+        .duration-filters {
+            display: flex;
+            justify-content: center;
+            gap: 0.5rem;
+            margin-bottom: 2rem;
+            flex-wrap: wrap;
+        }
+
+        .duration-btn {
+            padding: 10px 20px;
+            border: 2px solid var(--primary);
+            background: white;
+            color: var(--primary);
+            border-radius: 20px;
+            cursor: pointer;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            font-size: 0.9rem;
+        }
+
+        .duration-btn.active {
+            background: var(--primary);
+            color: white;
+        }
+
+        .treks-container {
+            display: none;
+        }
+
+        .treks-container.active {
+            display: block;
+        }
+
+        .trek-category {
+            margin-bottom: 3rem;
+        }
+
+        .category-title {
+            font-size: 1.5rem;
+            color: var(--primary);
+            margin-bottom: 1.5rem;
+        }
+
+        .treks-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 1.5rem;
+        }
+
+        .trek-card {
+            background: white;
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: var(--shadow);
+            transition: transform 0.3s ease;
+        }
+
+        .trek-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .trek-image {
+            height: 200px;
+            background: var(--gradient);
+            position: relative;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-weight: 600;
+            text-shadow: 1px 1px 3px rgba(0,0,0,0.7);
+        }
+
+        .trek-duration {
+            position: absolute;
+            top: 0.5rem;
+            right: 0.5rem;
+            background: var(--primary);
+            color: white;
+            padding: 0.5rem 1rem;
+            border-radius: 15px;
+            font-weight: bold;
+            font-size: 0.8rem;
+        }
+
+        .trek-content {
+            padding: 1.5rem;
+        }
+
+        .trek-title {
+            font-size: 1.3rem;
+            margin-bottom: 0.5rem;
+            color: var(--dark);
+        }
+
+        .trek-region {
+            color: var(--secondary);
+            margin-bottom: 1rem;
+            font-size: 0.9rem;
+        }
+
+        .trek-details {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 0.5rem;
+            margin-bottom: 1rem;
+            background: var(--light-green);
+            padding: 1rem;
+            border-radius: 8px;
+        }
+
+        .detail-item {
+            font-size: 0.9rem;
+        }
+
+        .trek-features {
+            list-style: none;
+            margin: 1rem 0;
+        }
+
+        .trek-features li {
+            padding: 0.3rem 0;
+            font-size: 0.9rem;
+            position: relative;
+            padding-left: 1.5rem;
+        }
+
+        .trek-features li::before {
+            content: '✓';
+            position: absolute;
+            left: 0;
+            color: var(--primary);
+            font-weight: bold;
+        }
+
+        .price-note {
+            background: #FFF3CD;
+            border: 1px solid #FFEAA7;
+            border-radius: 8px;
+            padding: 1rem;
+            margin: 1rem 0;
+            text-align: center;
+            font-style: italic;
+        }
+
+        /* Custom Request Form */
+        .language-selection {
+            display: flex;
+            gap: 1rem;
+            margin-bottom: 1rem;
+        }
+
+        .language-option {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            padding: 0.5rem 1rem;
+            border: 2px solid #ddd;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .language-option:hover {
+            border-color: var(--primary);
+        }
+
+        .language-option input[type="radio"]:checked + span {
+            color: var(--primary);
+            font-weight: bold;
+        }
+
+        .language-option input[type="radio"]:checked ~ span {
+            color: var(--primary);
+            font-weight: bold;
+        }
+
+        .form-row {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1rem;
+        }
+
+        .contact-info {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 1.5rem;
+            margin-top: 1.5rem;
+            text-align: center;
+        }
+
+        .contact-card {
+            background: white;
+            padding: 1.5rem;
+            border-radius: 10px;
+            box-shadow: var(--shadow);
+            border-top: 4px solid var(--primary);
+            transition: transform 0.3s ease;
+        }
+
+        .contact-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .contact-card .phone {
+            font-size: 1.2rem;
+            font-weight: bold;
+            color: var(--dark);
+            margin: 0.5rem 0;
+            text-decoration: none;
+            display: block;
+        }
+
+        .whatsapp-btn {
+            background: #25D366;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 20px;
+            text-decoration: none;
+            display: inline-block;
+            margin-top: 0.5rem;
+            font-weight: 600;
+            transition: all 0.3s ease;
+        }
+
+        .whatsapp-btn:hover {
+            background: #128C7E;
+            transform: translateY(-2px);
+        }
+
+        .testimonials-container {
+            margin-top: 2rem;
+        }
+
+        .testimonial-card {
+            background: white;
+            padding: 1.5rem;
+            border-radius: 10px;
+            box-shadow: var(--shadow);
+            margin-bottom: 1rem;
+            transition: transform 0.3s ease;
+        }
+
+        .testimonial-card:hover {
+            transform: translateX(5px);
+        }
+
+        .add-comment {
+            background: white;
+            padding: 1.5rem;
+            border-radius: 15px;
+            box-shadow: var(--shadow);
+            margin-top: 2rem;
+        }
+
+        .rating-stars {
+            display: flex;
+            gap: 0.3rem;
+            margin-bottom: 1rem;
+        }
+
+        .star {
+            font-size: 1.5rem;
+            color: #ddd;
+            cursor: pointer;
+            transition: color 0.3s ease;
+        }
+
+        .star.active {
+            color: #FFD700;
+        }
+
+        .registration-form {
+            background: white;
+            padding: 2rem;
+            border-radius: 15px;
+            box-shadow: var(--shadow);
+            max-width: 500px;
+            margin: 0 auto;
+        }
+
+        .form-group {
+            margin-bottom: 1rem;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 0.5rem;
+            font-weight: 600;
+        }
+
+        .form-group input,
+        .form-group textarea,
+        .form-group select {
+            width: 100%;
+            padding: 0.8rem;
+            border: 2px solid #ddd;
+            border-radius: 8px;
+            transition: border-color 0.3s ease;
+        }
+
+        .form-group input:focus,
+        .form-group textarea:focus,
+        .form-group select:focus {
+            border-color: var(--primary);
+            outline: none;
+        }
+
+        .footer {
+            background: var(--dark);
+            color: white;
+            padding: 2rem 1rem;
+            text-align: center;
+        }
+
+        .success-message {
+            background: #D4EDDA;
+            color: #155724;
+            padding: 1rem;
+            border-radius: 8px;
+            margin: 1rem 0;
+            text-align: center;
+            display: none;
+        }
+
+        /* نظام التعليقات الجديد */
+        .reviews-section {
+            padding: 60px 20px;
+            background: #f8f9fa;
+            direction: ltr;
+        }
+
+        .comments-system {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .comment-form-container {
+            background: white;
+            padding: 30px;
+            border-radius: 15px;
+            margin-bottom: 20px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+        }
+
+        .comments-display {
+            background: white;
+            padding: 30px;
+            border-radius: 15px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+        }
+
+        @media (max-width: 768px) {
+            .header-container {
+                flex-direction: column;
+                gap: 0.5rem;
+            }
+
+            .language-registration {
+                width: 100%;
+                justify-content: center;
+            }
+
+            .nav-links {
+                display: none;
+                flex-direction: column;
+                position: absolute;
+                top: 100%;
+                left: 0;
+                right: 0;
+                background: white;
+                box-shadow: var(--shadow);
+                padding: 1rem;
+            }
+
+            .nav-links.active {
+                display: flex;
+            }
+
+            .mobile-menu-btn {
+                display: block;
+            }
+
+            .hero {
+                height: 60vh;
+            }
+
+            .hero-content h1 {
+                font-size: 2rem;
+            }
+
+            .hero-content p {
+                font-size: 1.1rem;
+            }
+
+            .guide-header {
+                flex-direction: column;
+                text-align: center;
+            }
+
+            .guide-photo {
+                width: 150px;
+                height: 150px;
+            }
+
+            .guide-experience {
+                grid-template-columns: 1fr;
+            }
+
+            .gallery-container {
+                padding: 0 2rem;
+            }
+
+            .gallery-nav {
+                width: 40px;
+                height: 40px;
+                font-size: 1.2rem;
+            }
+
+            .gallery-item {
+                width: 250px;
+                height: 180px;
+            }
+
+            .treks-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .contact-info {
+                grid-template-columns: 1fr;
+            }
+
+            .trek-details {
+                grid-template-columns: 1fr;
+            }
+
+            .form-row {
+                grid-template-columns: 1fr;
+            }
+
+            .language-selection {
+                flex-direction: column;
+            }
+        }
     </style>
 </head>
 <body>
@@ -64,7 +880,7 @@
                     <button class="lang-btn active" data-lang="fr">FR</button>
                     <button class="lang-btn" data-lang="en">EN</button>
                 </div>
-                <a href="#inscription" class="register-btn">Contact Direct</a>
+                <a href="#contact" class="register-btn">Contact Direct</a>
             </div>
         </div>
     </div>
@@ -138,11 +954,97 @@
         </div>
     </section>
 
-    <!-- قسم المعرض يبقى كما هو -->
     <section class="section" id="gallery">
         <h2 class="section-title" data-key="gallery_title">Aventures avec Votre Guide</h2>
         <div class="gallery-container">
-            <!-- كل محتوى المعرض يبقى كما هو -->
+            <button class="gallery-nav gallery-prev">❮</button>
+            <div class="gallery-slider" id="gallerySlider">
+                <div class="gallery-item">
+                    <img src="https://drive.google.com/thumbnail?id=17j0rL9qOahrMQ1sjIRD1P0mcy8Cgv3pU&sz=w1000" alt="Trekking dans l'Atlas">
+                </div>
+                <div class="gallery-item">
+                    <img src="https://drive.google.com/thumbnail?id=1mfvWu486bDY5Cl7dQIjY2GLL-ZiHT4rF&sz=w1000" alt="Désert de Merzouga">
+                </div>
+                <div class="gallery-item">
+                    <img src="https://drive.google.com/thumbnail?id=1xRX5S_f4Hbg9snrmAoYIxqArNNrallQP&sz=w1000" alt="Vallée des Roses">
+                </div>
+                <div class="gallery-item">
+                    <img src="https://drive.google.com/thumbnail?id=1NMvh2owxnkTk00whGR7m1WYzWut65I3S&sz=w1000" alt="Montagne du Toubkal">
+                </div>
+                <div class="gallery-item">
+                    <img src="https://drive.google.com/thumbnail?id=1-B4bwqHUiutwq1RlpZFuVWS01MVnbeXP&sz=w1000" alt="Gorges de Dades">
+                </div>
+                <div class="gallery-item">
+                    <img src="https://drive.google.com/thumbnail?id=1Gzz6GCVzomb5EDBA4M-aFRqrfVr9rmAk&sz=w1000" alt="Coucher de soleil désert">
+                </div>
+                <div class="gallery-item">
+                    <img src="https://drive.google.com/thumbnail?id=1VwbEvHSQFA8L2yciQ6lN8zh3oaT6cHPh&sz=w1000" alt="Village berbère">
+                </div>
+                <div class="gallery-item">
+                    <img src="https://drive.google.com/thumbnail?id=1PvG4Ewe9tJxiu0bEy5HbyfioWdgXiJhB&sz=w1000" alt="Randonnée en groupe">
+                </div>
+                <div class="gallery-item">
+                    <img src="https://drive.google.com/thumbnail?id=1vQlBIsXR2jcqO2NV8fllG3JFzDExog8T&sz=w1000" alt="Campement désert">
+                </div>
+                <div class="gallery-item">
+                    <img src="https://drive.google.com/thumbnail?id=19aQMiurnH7CIFpMWeGynaZIY6Rv6lXiq&sz=w1000" alt="Paysage montagneux">
+                </div>
+                <div class="gallery-item">
+                    <img src="https://drive.google.com/thumbnail?id=1tLbosAEv8fuZdFeG-rGvI_zHjv-e3_qr&sz=w1000" alt="Oasis marocain">
+                </div>
+                <div class="gallery-item">
+                    <img src="https://drive.google.com/thumbnail?id=1nR6MVcQ-bdgUi3_7_JRxujIWb36NeisL&sz=w1000" alt="Randonnée hivernale">
+                </div>
+                <div class="gallery-item">
+                    <img src="https://drive.google.com/thumbnail?id=1YuwtYH5TID-f0OxmnmL0fHUqkSgPIW7T&sz=w1000" alt="Culture locale">
+                </div>
+                <div class="gallery-item">
+                    <img src="https://drive.google.com/thumbnail?id=1jDpYoRSl4yNBO5cuDx9g9EGji_dzlwt9&sz=w1000" alt="Cascades d'Ourika">
+                </div>
+                <div class="gallery-item">
+                    <img src="https://drive.google.com/thumbnail?id=1PzI_p770pFSXmBusRv7gpX786aqGg6_9&sz=w1000" alt="Dunes de sable">
+                </div>
+                <div class="gallery-item">
+                    <img src="https://drive.google.com/thumbnail?id=10yKHb_rAZ4V5FGgcb8IWrhvaQyT_UapH&sz=w1000" alt="Guide Ali avec clients">
+                </div>
+                <div class="gallery-item">
+                    <img src="https://drive.google.com/thumbnail?id=1uK-teTBrYcntNQU7Q1plpY-7ZJmQemG1&sz=w1000" alt="Vue panoramique Atlas">
+                </div>
+                <div class="gallery-item">
+                    <img src="https://drive.google.com/thumbnail?id=1EvpXRxYTCNEh3tLs8xjVqKN5kcRXP3XY&sz=w1000" alt="Nuit en bivouac">
+                </div>
+                <div class="gallery-item">
+                    <img src="https://drive.google.com/thumbnail?id=12FgJzEKFPhrWm5_a2VFlf4aEs2oJRJhH&sz=w1000" alt="Rencontre avec population">
+                </div>
+                <div class="gallery-item">
+                    <img src="https://drive.google.com/thumbnail?id=1dvg-pShqq_RZPumT5j-0Pl4uZ1t9QPuM&sz=w1000" alt="Artisanat local">
+                </div>
+                <div class="gallery-item">
+                    <img src="https://drive.google.com/thumbnail?id=1yO7FuOBP9tmy3fcqN0xmZO6csmRgnaMq&sz=w1000" alt="Randonnée printanière">
+                </div>
+                <div class="gallery-item">
+                    <img src="https://drive.google.com/thumbnail?id=1szjGYjK_la7rRUx9iMP9zEJPB1sM3BTR&sz=w1000" alt="Gorges de Todra">
+                </div>
+                <div class="gallery-item">
+                    <img src="https://drive.google.com/thumbnail?id=1qq6IRBkw-KLdGjAYWQ-NFUe12kwF8KP9&sz=w1000" alt="Vallée heureuse">
+                </div>
+                <div class="gallery-item">
+                    <img src="https://drive.google.com/thumbnail?id=10SF6MXZ1HfycHptfil2Kkhuw6biM-bNa&sz=w1000" alt="Expédition désert">
+                </div>
+                <div class="gallery-item">
+                    <img src="https://drive.google.com/thumbnail?id=1KHcrGoYUrsayy7M2g_z4t_OxgAHQSWwt&sz=w1000" alt="Coucher de soleil Atlas">
+                </div>
+                <div class="gallery-item">
+                    <img src="https://drive.google.com/thumbnail?id=13yfsh7UFSo5K-IljJ1SGUqJYAfNfTwSL&sz=w1000" alt="Randonnée familiale">
+                </div>
+                <div class="gallery-item">
+                    <img src="https://drive.google.com/thumbnail?id=1TwUS7UDcg0aZ-tlUsp0Bg7FGoECwupAY&sz=w1000" alt="Pause thé berbère">
+                </div>
+            </div>
+            <button class="gallery-nav gallery-next">❯</button>
+            <div class="gallery-dots" id="galleryDots">
+                <!-- سيتم إضافة النقاط ديناميكياً -->
+            </div>
         </div>
     </section>
 
@@ -217,7 +1119,136 @@
             </div>
         </div>
 
-        <!-- باقي الأقسام تتبع نفس النمط -->
+        <!-- رحلات متوسطة -->
+        <div class="treks-container" id="medium-treks">
+            <div class="trek-category">
+                <h3 class="category-title">Randonnées Moyennes avec Accompagnement Personnalisé</h3>
+                <div class="treks-grid">
+                    <div class="trek-card">
+                        <div class="trek-image">
+                            <div class="trek-duration">8 Jours</div>
+                            <div>Grand Mgoun</div>
+                        </div>
+                        <div class="trek-content">
+                            <h3 class="trek-title">Grand Mgoun avec Votre Guide</h3>
+                            <div class="trek-region">Massif du Mgoun - Haut Atlas</div>
+                            <div class="trek-details">
+                                <div class="detail-item">▶ 5-6h marche/jour</div>
+                                <div class="detail-item">▶ 4068m altitude</div>
+                                <div class="detail-item">▶ Bivouac montagne</div>
+                                <div class="detail-item">▶ Accompagnement personnel</div>
+                            </div>
+                            <ul class="trek-features">
+                                <li>Ascension du Jbel Mgoun (4068m) avec votre guide</li>
+                                <li>Vallée d'Aït Bougmez "Vallée Heureuse"</li>
+                                <li>Gorges d'Aït Toumert et Tichki</li>
+                                <li>Rencontre villages berbères authentiques</li>
+                                <li>Nuits sous les étoiles en bivouac</li>
+                            </ul>
+                            <div class="price-note">
+                                Tarif personnalisé selon vos dates et préférences
+                            </div>
+                            <a href="#custom-request" class="btn">Réserver avec Ali</a>
+                        </div>
+                    </div>
+
+                    <div class="trek-card">
+                        <div class="trek-image">
+                            <div class="trek-duration">10 Jours</div>
+                            <div>Atlas & Oasis</div>
+                        </div>
+                        <div class="trek-content">
+                            <h3 class="trek-title">Atlas & Oasis avec Guide Personnel</h3>
+                            <div class="trek-region">Haut Atlas - Vallée du Drâa</div>
+                            <div class="trek-details">
+                                <div class="detail-item">▶ 4-6h marche/jour</div>
+                                <div class="detail-item">▶ Désert & Montagne</div>
+                                <div class="detail-item">▶ Accompagnement personnalisé</div>
+                                <div class="detail-item">▶ Transport inclus</div>
+                            </div>
+                            <ul class="trek-features">
+                                <li>Massif du Mgoun et Vallée des Roses avec votre guide</li>
+                                <li>Oasis de Skoura et Fint</li>
+                                <li>Vallée du Drâa et ses palmeraies</li>
+                                <li>Kasbahs et villages fortifiés</li>
+                                <li>Dunes de Merzouga (optionnel)</li>
+                            </ul>
+                            <div class="price-note">
+                                Tarif personnalisé selon vos dates et préférences
+                            </div>
+                            <a href="#custom-request" class="btn">Réserver avec Ali</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- رحلات طويلة -->
+        <div class="treks-container" id="long-treks">
+            <div class="trek-category">
+                <h3 class="category-title">Randonnées Longues avec Accompagnement Personnalisé</h3>
+                <div class="treks-grid">
+                    <div class="trek-card">
+                        <div class="trek-image">
+                            <div class="trek-duration">12 Jours</div>
+                            <div>Expédition Drâa</div>
+                        </div>
+                        <div class="trek-content">
+                            <h3 class="trek-title">Expédition Drâa avec Votre Guide</h3>
+                            <div class="trek-region">Région Complète Drâa-Tafilalet</div>
+                            <div class="trek-details">
+                                <div class="detail-item">▶ 5-6h marche/jour</div>
+                                <div class="detail-item">▶ 4068m altitude max</div>
+                                <div class="detail-item">▶ Désert intégral</div>
+                                <div class="detail-item">▶ Accompagnement personnel</div>
+                            </div>
+                            <ul class="trek-features">
+                                <li>Ascension complète du Mgoun avec votre guide</li>
+                                <li>Traversée Gorges de Dades et Todra</li>
+                                <li>2 nuits désert de Merzouga</li>
+                                <li>Oasis de Fint, Zagora et Tazzarine</li>
+                                <li>Vallée du Drâa et ses ksours</li>
+                                <li>Visite sites historiques et culturels</li>
+                                <li>Extension vers autres régions possible</li>
+                            </ul>
+                            <div class="price-note">
+                                Tarif personnalisé selon vos dates et préférences
+                            </div>
+                            <a href="#custom-request" class="btn">Demander le programme détaillé</a>
+                        </div>
+                    </div>
+
+                    <div class="trek-card">
+                        <div class="trek-image">
+                            <div class="trek-duration">15 Jours</div>
+                            <div>Grand Sud</div>
+                        </div>
+                        <div class="trek-content">
+                            <h3 class="trek-title">Grand Sud Marocain avec Guide Personnel</h3>
+                            <div class="trek-region">Drâa-Tafilalet + Extensions</div>
+                            <div class="trek-details">
+                                <div class="detail-item">▶ 4-6h marche/jour</div>
+                                <div class="detail-item">▶ Multi-paysages</div>
+                                <div class="detail-item">▶ Accompagnement personnalisé</div>
+                                <div class="detail-item">▶ Transport privé</div>
+                            </div>
+                            <ul class="trek-features">
+                                <li>Circuit complet Drâa-Tafilalet avec votre guide</li>
+                                <li>Extension Ouarzazate & Aït Benhaddou</li>
+                                <li>Désert de Chegaga optionnel</li>
+                                <li>Vallée du Ziz et palmeraies</li>
+                                <li>Rencontres culturelles approfondies</li>
+                                <li>Programme personnalisable</li>
+                            </ul>
+                            <div class="price-note">
+                                Tarif personnalisé selon vos dates et préférences
+                            </div>
+                            <a href="#custom-request" class="btn">Demander un devis personnalisé</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
     </section>
 
     <!-- نظام طلب الرحلات المخصص -->
@@ -228,15 +1259,138 @@
                 ✅ Votre demande a été envoyée! Ali vous contacte personnellement dans les 24h.
             </div>
             <form id="custom-trip-form">
-                <!-- كل محتوى النموذج يبقى كما هو -->
+                <!-- اختيار اللغة -->
+                <div class="form-group">
+                    <label>Langue de communication préférée *</label>
+                    <div class="language-selection">
+                        <label class="language-option">
+                            <input type="radio" name="language" value="fr" required>
+                            <span>Français</span>
+                        </label>
+                        <label class="language-option">
+                            <input type="radio" name="language" value="en" required>
+                            <span>English</span>
+                        </label>
+                    </div>
+                </div>
+
+                <!-- معلومات الرحلة -->
+                <div class="form-group">
+                    <label for="base-trip">Circuit de base *</label>
+                    <select id="base-trip" name="base_trip" required>
+                        <option value="">Choisir le circuit</option>
+                        <option value="toubkal">Toubkal Express avec Ali</option>
+                        <option value="mgoun">Grand Mgoun avec Ali</option>
+                        <option value="roses">Vallée des Roses avec Ali</option>
+                        <option value="desert">Désert Merzouga avec Ali</option>
+                        <option value="atlas-oasis">Atlas & Oasis avec Ali</option>
+                        <option value="draa">Expédition Drâa avec Ali</option>
+                        <option value="custom">Circuit entièrement personnalisé avec Ali</option>
+                    </select>
+                </div>
+                
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="travelers-count">Nombre de voyageurs *</label>
+                        <input type="number" id="travelers-count" name="travelers_count" min="2" max="12" required>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="fitness-level">Niveau de forme physique *</label>
+                        <select id="fitness-level" name="fitness_level" required>
+                            <option value="">Choisir le niveau</option>
+                            <option value="beginner">Débutant - 3-4h marche/jour</option>
+                            <option value="intermediate">Intermédiaire - 4-5h marche/jour</option>
+                            <option value="advanced">Avancé - 5-6h marche/jour</option>
+                        </select>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label for="proposed-dates">Dates proposées *</label>
+                    <input type="text" id="proposed-dates" name="proposed_dates" placeholder="Ex: 15-20 Mars 2024" required>
+                </div>
+
+                <!-- معلومات الاتصال -->
+                <div class="form-group">
+                    <label for="client-name">Votre nom complet *</label>
+                    <input type="text" id="client-name" name="client_name" required>
+                </div>
+
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="client-email">Email *</label>
+                        <input type="email" id="client-email" name="client_email" required>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="client-phone">Téléphone *</label>
+                        <input type="tel" id="client-phone" name="client_phone" required>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label for="client-country">Pays de résidence</label>
+                    <input type="text" id="client-country" name="client_country">
+                </div>
+                
+                <div class="form-group">
+                    <label for="special-requests">Demandes spéciales</label>
+                    <textarea id="special-requests" name="special_requests" rows="4" placeholder="Toute demande particulière, modifications d'itinéraire, allergies alimentaires, etc."></textarea>
+                </div>
+                
+                <button type="submit" class="btn">Envoyer la Demande à Ali</button>
             </form>
         </div>
     </section>
 
-    <!-- قسم التعليقات يبقى كما هو -->
+    <!-- قسم التعليقات الجديد -->
     <section class="section" id="avis">
         <h2 class="section-title">Avis sur l'Accompagnement d'Ali</h2>
-        <!-- محتوى التعليقات يبقى كما هو -->
+        
+        <div class="comments-system">
+            <!-- نموذج كتابة التعليق -->
+            <div class="comment-form-container">
+                <h3 style="text-align: center; color: var(--primary); margin-bottom: 20px;">Laissez votre avis sur Ali</h3>
+                <form id="commentForm" style="display: flex; flex-direction: column; gap: 15px;">
+                    <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 15px;">
+                        <div>
+                            <label for="authorName" style="display: block; margin-bottom: 5px; font-weight: 600;">Votre nom *</label>
+                            <input type="text" id="authorName" required style="width: 100%; padding: 12px; border: 1px solid #ddd; border-radius: 8px;">
+                        </div>
+                        <div>
+                            <label for="commentRating" style="display: block; margin-bottom: 5px; font-weight: 600;">Votre note *</label>
+                            <select id="commentRating" required style="width: 100%; padding: 12px; border: 1px solid #ddd; border-radius: 8px;">
+                                <option value="">Choisissez votre note</option>
+                                <option value="5">⭐⭐⭐⭐⭐ Excellent</option>
+                                <option value="4">⭐⭐⭐⭐ Très bien</option>
+                                <option value="3">⭐⭐⭐ Bien</option>
+                                <option value="2">⭐⭐ Moyen</option>
+                                <option value="1">⭐ Pas satisfait</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div>
+                        <label for="commentText" style="display: block; margin-bottom: 5px; font-weight: 600;">Votre expérience avec Ali *</label>
+                        <textarea id="commentText" required rows="4" placeholder="Partagez votre expérience avec Ali comme guide..." style="width: 100%; padding: 12px; border: 1px solid #ddd; border-radius: 8px;"></textarea>
+                    </div>
+                    <button type="submit" style="background: var(--primary); color: white; border: none; padding: 15px; border-radius: 8px; font-size: 16px; cursor: pointer;">
+                        📤 Publier votre avis
+                    </button>
+                </form>
+            </div>
+
+            <!-- عرض التعليقات -->
+            <div class="comments-display" style="margin-top: 30px;">
+                <h3 style="text-align: center; color: var(--primary); margin-bottom: 25px;">⭐ Avis des Clients sur Ali</h3>
+                <div id="commentsContainer">
+                    <div style="text-align: center; padding: 40px; color: #666;">
+                        <p>🎯 Soyez le premier à laisser un avis sur Ali!</p>
+                        <p>Votre opinion compte pour nous</p>
+                    </div>
+                </div>
+            </div>
+        </div>
     </section>
 
     <section class="section" id="inscription">
@@ -251,7 +1405,7 @@
                     <label for="newsletter-email">Email *</label>
                     <input type="email" id="newsletter-email" required>
                 </div>
-                <button type="submit" class="btn">Contacter Ali</button>
+                <button type="submit" class="btn">Contacter Ali Directement</button>
             </form>
         </div>
     </section>
@@ -263,7 +1417,7 @@
                 <h3>Contact Direct Français</h3>
                 <p class="language">Ali vous répond personnellement</p>
                 <a href="tel:+212661796117" class="phone">+212 661-796117</a>
-                <a href="https://wa.me/212661796117?text=Bonjour%20Ali,%20je%20suis%20intéressé%20par%20vos%20services%20de%20guide" 
+                <a href="https://wa.me/212661796117?text=Bonjour%20Ali,%20je%20suis%20intéressé%20par%20vos%20services%20de%20guide%20personnel" 
                    class="whatsapp-btn" target="_blank">
                    WhatsApp Direct
                 </a>
@@ -272,7 +1426,7 @@
                 <h3>Direct English Contact</h3>
                 <p class="language">Ali answers you personally</p>
                 <a href="tel:+212633652721" class="phone">+212 633-652721</a>
-                <a href="https://wa.me/212633652721?text=Hello%20Ali,%20I%20am%20interested%20in%20your%20guide%20services" 
+                <a href="https://wa.me/212633652721?text=Hello%20Ali,%20I%20am%20interested%20in%20your%20personal%20guide%20services" 
                    class="whatsapp-btn" target="_blank">
                    Direct WhatsApp
                 </a>
@@ -289,61 +1443,436 @@
         </p>
     </footer>
 
-    <!-- كل الـ JavaScript يبقى كما هو بدون تغيير -->
+    <!-- إضافة Firebase -->
     <script src="https://www.gstatic.com/firebasejs/9.22.0/firebase-app-compat.js"></script>
     <script src="https://www.gstatic.com/firebasejs/9.22.0/firebase-firestore-compat.js"></script>
 
     <script>
-        // كل الـ JavaScript الأصلي يبقى تماماً كما هو
-        // فقط سيتم تحديث بعض النصوص في الترجمات
-        const translations = {
-            fr: {
-                "home": "Accueil",
-                "guide": "Votre Guide", 
-                "treks": "Randonnées",
-                "gallery": "Galerie",
-                "gallery_title": "Aventures avec Votre Guide",
-                "reviews": "Avis Clients",
-                "contact": "Contact Direct",
-                "hero_title": "Adventure Treks avec Ali - Votre Guide Personnel",
-                "hero_subtitle": "Trekking dans l'Atlas, randonnées au désert - Guide expert 30+ ans d'expérience",
-                "discover_btn": "Circuit Personnalisé avec Ali",
-                "guide_title": "Votre Guide Expert",
-                "guide_job": "Votre guide personnel pour espaces naturels et montagnes",
-                "guide_exp": "Plus de 30 ans d'expérience en tant que guide personnel au Maroc.",
-                "peaks_title": "Sommets Maîtrisés",
-                "deserts_title": "Déserts",
-                "valleys_title": "Vallées Expertisées", 
-                "groups_title": "Accompagnement",
-                "price_title": "Prix Tout Compris avec Votre Guide",
-                "price_desc": "Je m'occupe de tout : guidage personnel, transport, hébergement, repas, et équipement.",
-                "treks_title": "Randonnées avec Votre Guide"
-            },
-            en: {
-                "home": "Home",
-                "guide": "Your Guide",
-                "treks": "Treks", 
-                "gallery": "Gallery",
-                "gallery_title": "Adventures with Your Guide",
-                "reviews": "Reviews",
-                "contact": "Direct Contact",
-                "hero_title": "Adventure Treks with Ali - Your Personal Guide",
-                "hero_subtitle": "Atlas trekking, desert hikes - Expert guide 30+ years experience", 
-                "discover_btn": "Custom Circuit with Ali",
-                "guide_title": "Your Expert Guide",
-                "guide_job": "Your personal guide for natural spaces and mountains",
-                "guide_exp": "Over 30 years of experience as a personal guide in Morocco.",
-                "peaks_title": "Mastered Peaks",
-                "deserts_title": "Deserts",
-                "valleys_title": "Expertised Valleys",
-                "groups_title": "Personal Service", 
-                "price_title": "All-Inclusive with Your Guide",
-                "price_desc": "I take care of everything: personal guidance, transport, accommodation, meals, and equipment.",
-                "treks_title": "Treks with Your Guide"
-            }
+        // تهيئة Firebase ببياناتك الحقيقية
+        const firebaseConfig = {
+            apiKey: "AIzaSyCgfGwHACxx_SRsjo4qKoOJsUUXxc-b7eE",
+            authDomain: "adventure-treks-comments.firebaseapp.com",
+            projectId: "adventure-treks-comments",
+            storageBucket: "adventure-treks-comments.firebasestorage.app",
+            messagingSenderId: "792729535477",
+            appId: "1:792729535477:web:17af8772f5da73ff4cd6bc"
         };
 
-        // باقي الكود الأصلي يبقى كما هو...
+        // تهيئة Firebase
+        try {
+            firebase.initializeApp(firebaseConfig);
+        } catch (error) {
+            console.log('Firebase already initialized');
+        }
+
+        const db = firebase.firestore();
+
+        class CommentSystem {
+            constructor() {
+                this.currentVisitorId = this.getVisitorId();
+                this.init();
+            }
+
+            init() {
+                this.setupForm();
+                this.loadComments();
+                this.setupRealTimeUpdates();
+            }
+
+            // إنشاء معرف فريد للزائر
+            getVisitorId() {
+                let visitorId = localStorage.getItem('visitorId');
+                if (!visitorId) {
+                    visitorId = 'visitor_' + Date.now() + '_' + Math.random().toString(36).substr(2, 9);
+                    localStorage.setItem('visitorId', visitorId);
+                }
+                return visitorId;
+            }
+
+            // إعداد نموذج الإرسال
+            setupForm() {
+                const form = document.getElementById('commentForm');
+                form.addEventListener('submit', (e) => {
+                    e.preventDefault();
+                    this.submitComment();
+                });
+            }
+
+            // إرسال تعليق جديد
+            async submitComment() {
+                const name = document.getElementById('authorName').value.trim();
+                const rating = document.getElementById('commentRating').value;
+                const text = document.getElementById('commentText').value.trim();
+
+                if (!name || !rating || !text) {
+                    alert('Veuillez remplir tous les champs obligatoires.');
+                    return;
+                }
+
+                try {
+                    const commentData = {
+                        authorName: name,
+                        rating: parseInt(rating),
+                        text: text,
+                        visitorId: this.currentVisitorId,
+                        createdAt: firebase.firestore.FieldValue.serverTimestamp(),
+                        updatedAt: firebase.firestore.FieldValue.serverTimestamp()
+                    };
+
+                    await db.collection('comments').add(commentData);
+                    
+                    // إعادة تعيين النموذج
+                    document.getElementById('commentForm').reset();
+                    alert('✅ Merci pour votre avis! Votre commentaire a été publié avec succès.');
+                    
+                } catch (error) {
+                    console.error('Error submitting comment:', error);
+                    alert('⚠️ Une erreur est survenue lors de la publication de votre commentaire.');
+                }
+            }
+
+            // تحميل التعليقات
+            async loadComments() {
+                try {
+                    const snapshot = await db.collection('comments')
+                        .orderBy('createdAt', 'desc')
+                        .get();
+                    
+                    this.displayComments(snapshot.docs);
+                } catch (error) {
+                    console.error('Error loading comments:', error);
+                }
+            }
+
+            // تحديث التعليقات في الوقت الحقيقي
+            setupRealTimeUpdates() {
+                db.collection('comments')
+                    .orderBy('createdAt', 'desc')
+                    .onSnapshot((snapshot) => {
+                        this.displayComments(snapshot.docs);
+                    }, (error) => {
+                        console.error('Real-time update error:', error);
+                    });
+            }
+
+            // عرض التعليقات
+            displayComments(commentDocs) {
+                const container = document.getElementById('commentsContainer');
+                
+                if (commentDocs.length === 0) {
+                    container.innerHTML = `
+                        <div style="text-align: center; padding: 40px; color: #666;">
+                            <p>🎯 Soyez le premier à laisser un avis sur Ali!</p>
+                            <p>Votre opinion compte pour nous</p>
+                        </div>
+                    `;
+                    return;
+                }
+
+                let commentsHTML = '';
+                
+                commentDocs.forEach(doc => {
+                    const comment = doc.data();
+                    const commentId = doc.id;
+                    const isOwner = comment.visitorId === this.currentVisitorId;
+                    const stars = '★'.repeat(comment.rating) + '☆'.repeat(5 - comment.rating);
+                    const date = comment.createdAt ? comment.createdAt.toDate().toLocaleDateString('fr-FR') : 'Date inconnue';
+                    
+                    commentsHTML += `
+                        <div class="comment-item" style="border-bottom: 1px solid #eee; padding: 20px 0; margin-bottom: 15px;">
+                            <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 10px;">
+                                <div style="display: flex; align-items: center;">
+                                    <strong style="color: #2c5aa0; font-size: 16px;">${comment.authorName}</strong>
+                                    <span style="margin: 0 10px; color: #ccc;">|</span>
+                                    <small style="color: #888;">${date}</small>
+                                </div>
+                                <div style="color: #ffb400; font-size: 18px;">
+                                    ${stars}
+                                    <span style="color: #666; font-size: 14px; margin-left: 5px;">(${comment.rating}/5)</span>
+                                </div>
+                            </div>
+                            <p style="color: #555; line-height: 1.6; margin: 0; background: #f8f9fa; padding: 15px; border-radius: 8px; border-left: 4px solid #2c5aa0;">
+                                ${comment.text}
+                            </p>
+                            ${isOwner ? `
+                                <div style="margin-top: 10px; text-align: right;">
+                                    <button onclick="commentSystem.editComment('${commentId}', '${comment.text.replace(/'/g, "\\'")}')" 
+                                            style="background: #28a745; color: white; border: none; padding: 5px 10px; border-radius: 4px; margin-left: 5px; cursor: pointer; font-size: 12px;">
+                                        ✏️ Modifier
+                                    </button>
+                                    <button onclick="commentSystem.deleteComment('${commentId}')" 
+                                            style="background: #dc3545; color: white; border: none; padding: 5px 10px; border-radius: 4px; cursor: pointer; font-size: 12px;">
+                                        🗑️ Supprimer
+                                    </button>
+                                </div>
+                            ` : ''}
+                        </div>
+                    `;
+                });
+
+                container.innerHTML = commentsHTML;
+            }
+
+            // تعديل التعليق
+            async editComment(commentId, currentText) {
+                const newText = prompt('Modifiez votre commentaire:', currentText);
+                if (newText && newText !== currentText) {
+                    try {
+                        await db.collection('comments').doc(commentId).update({
+                            text: newText,
+                            updatedAt: firebase.firestore.FieldValue.serverTimestamp()
+                        });
+                        alert('✅ Votre commentaire a été modifié avec succès!');
+                    } catch (error) {
+                        console.error('Error updating comment:', error);
+                        alert('⚠️ Une erreur est survenue lors de la modification.');
+                    }
+                }
+            }
+
+            // حذف التعليق
+            async deleteComment(commentId) {
+                if (confirm('Êtes-vous sûr de vouloir supprimer cet avis?')) {
+                    try {
+                        await db.collection('comments').doc(commentId).delete();
+                        alert('✅ Votre commentaire a été supprimé avec succès!');
+                    } catch (error) {
+                        console.error('Error deleting comment:', error);
+                        alert('⚠️ Une erreur est survenue lors de la suppression.');
+                    }
+                }
+            }
+        }
+
+        // بدء نظام التعليقات
+        let commentSystem;
+        document.addEventListener('DOMContentLoaded', function() {
+            commentSystem = new CommentSystem();
+            
+            // نظام معرض الصور الأفقي
+            const gallerySlider = document.getElementById('gallerySlider');
+            const galleryDots = document.getElementById('galleryDots');
+            const items = gallerySlider.querySelectorAll('.gallery-item');
+            const itemsPerView = 3;
+            let currentIndex = 0;
+
+            // إنشاء نقاط التنقل
+            function createDots() {
+                const totalDots = Math.ceil(items.length / itemsPerView);
+                galleryDots.innerHTML = '';
+                
+                for (let i = 0; i < totalDots; i++) {
+                    const dot = document.createElement('button');
+                    dot.className = 'gallery-dot';
+                    if (i === 0) dot.classList.add('active');
+                    dot.addEventListener('click', () => goToSlide(i));
+                    galleryDots.appendChild(dot);
+                }
+            }
+
+            function goToSlide(index) {
+                currentIndex = index;
+                const scrollAmount = index * (300 + 16) * itemsPerView;
+                gallerySlider.scrollTo({
+                    left: scrollAmount,
+                    behavior: 'smooth'
+                });
+                updateDots();
+            }
+
+            function updateDots() {
+                const dots = galleryDots.querySelectorAll('.gallery-dot');
+                const activeDotIndex = Math.floor(currentIndex);
+                
+                dots.forEach((dot, index) => {
+                    dot.classList.toggle('active', index === activeDotIndex);
+                });
+            }
+
+            // التنقل بالسهام
+            document.querySelector('.gallery-prev').addEventListener('click', () => {
+                if (currentIndex > 0) {
+                    goToSlide(currentIndex - 1);
+                }
+            });
+
+            document.querySelector('.gallery-next').addEventListener('click', () => {
+                const maxIndex = Math.ceil(items.length / itemsPerView) - 1;
+                if (currentIndex < maxIndex) {
+                    goToSlide(currentIndex + 1);
+                }
+            });
+
+            // تهيئة المعرض
+            createDots();
+
+            // نظام اللغات
+            const translations = {
+                fr: {
+                    "home": "Accueil",
+                    "guide": "Votre Guide", 
+                    "treks": "Randonnées",
+                    "gallery": "Galerie",
+                    "gallery_title": "Aventures avec Votre Guide",
+                    "reviews": "Avis Clients",
+                    "contact": "Contact Direct",
+                    "hero_title": "Adventure Treks avec Ali - Votre Guide Personnel",
+                    "hero_subtitle": "Trekking dans l'Atlas, randonnées au désert - Guide expert 30+ ans d'expérience",
+                    "discover_btn": "Circuit Personnalisé avec Ali",
+                    "guide_title": "Votre Guide Expert",
+                    "guide_job": "Votre guide personnel pour espaces naturels et montagnes",
+                    "guide_exp": "Plus de 30 ans d'expérience en tant que guide personnel au Maroc.",
+                    "peaks_title": "Sommets Maîtrisés",
+                    "deserts_title": "Déserts",
+                    "valleys_title": "Vallées Expertisées", 
+                    "groups_title": "Accompagnement",
+                    "price_title": "Prix Tout Compris avec Votre Guide",
+                    "price_desc": "Je m'occupe de tout : guidage personnel, transport, hébergement, repas, et équipement.",
+                    "treks_title": "Randonnées avec Votre Guide"
+                },
+                en: {
+                    "home": "Home",
+                    "guide": "Your Guide",
+                    "treks": "Treks", 
+                    "gallery": "Gallery",
+                    "gallery_title": "Adventures with Your Guide",
+                    "reviews": "Reviews",
+                    "contact": "Direct Contact",
+                    "hero_title": "Adventure Treks with Ali - Your Personal Guide",
+                    "hero_subtitle": "Atlas trekking, desert hikes - Expert guide 30+ years experience", 
+                    "discover_btn": "Custom Circuit with Ali",
+                    "guide_title": "Your Expert Guide",
+                    "guide_job": "Your personal guide for natural spaces and mountains",
+                    "guide_exp": "Over 30 years of experience as a personal guide in Morocco.",
+                    "peaks_title": "Mastered Peaks",
+                    "deserts_title": "Deserts",
+                    "valleys_title": "Expertised Valleys",
+                    "groups_title": "Personal Service", 
+                    "price_title": "All-Inclusive with Your Guide",
+                    "price_desc": "I take care of everything: personal guidance, transport, accommodation, meals, and equipment.",
+                    "treks_title": "Treks with Your Guide"
+                }
+            };
+
+            // تغيير اللغة
+            document.querySelectorAll('.lang-btn').forEach(button => {
+                button.addEventListener('click', function() {
+                    const lang = this.dataset.lang;
+                    
+                    document.querySelectorAll('.lang-btn').forEach(btn => {
+                        btn.classList.remove('active');
+                    });
+                    this.classList.add('active');
+                    
+                    document.querySelectorAll('[data-key]').forEach(element => {
+                        const key = element.getAttribute('data-key');
+                        if (translations[lang] && translations[lang][key]) {
+                            element.textContent = translations[lang][key];
+                        }
+                    });
+                    
+                    // تحديث عنوان الصفحة
+                    document.title = lang === 'fr' 
+                        ? 'Adventure Treks avec Ali - Guide Expert Maroc | Trekking Atlas & Désert'
+                        : 'Adventure Treks with Ali - Expert Guide Morocco | Atlas Trekking & Desert';
+                });
+            });
+
+            // القائمة المتنقلة
+            document.querySelector('.mobile-menu-btn').addEventListener('click', function() {
+                document.querySelector('.nav-links').classList.toggle('active');
+            });
+
+            // الفلاتر
+            document.querySelectorAll('.duration-btn').forEach(button => {
+                button.addEventListener('click', function() {
+                    document.querySelectorAll('.duration-btn').forEach(btn => {
+                        btn.classList.remove('active');
+                    });
+                    this.classList.add('active');
+                    
+                    document.querySelectorAll('.treks-container').forEach(container => {
+                        container.classList.remove('active');
+                    });
+                    
+                    document.getElementById(this.dataset.duration + '-treks').classList.add('active');
+                });
+            });
+
+            // النماذج
+            document.getElementById('newsletter-form').addEventListener('submit', function(e) {
+                e.preventDefault();
+                alert('Merci! Ali vous contacte personnellement dans les 24h.');
+                this.reset();
+            });
+
+            // نظام طلب الرحلات المخصص
+            document.getElementById('custom-trip-form').addEventListener('submit', function(e) {
+                e.preventDefault();
+                
+                const formData = new FormData(this);
+                const language = formData.get('language');
+                const baseTrip = formData.get('base_trip');
+                const travelersCount = formData.get('travelers_count');
+                const fitnessLevel = formData.get('fitness_level');
+                const proposedDates = formData.get('proposed_dates');
+                const clientName = formData.get('client_name');
+                const clientEmail = formData.get('client_email');
+                const clientPhone = formData.get('client_phone');
+                const clientCountry = formData.get('client_country');
+                const specialRequests = formData.get('special_requests');
+
+                // تحديد الرقم المناسب حسب اللغة
+                const phoneNumber = language === 'fr' ? '+212661796117' : '+212633652721';
+                
+                // إنشاء رسالة الواتساب
+                const whatsappMessage = `
+Nouvelle demande de circuit personnalisé avec Ali!
+
+Langue: ${language === 'fr' ? 'Français' : 'English'}
+Circuit de base: ${baseTrip}
+Nombre de voyageurs: ${travelersCount}
+Niveau de forme: ${fitnessLevel}
+Dates proposées: ${proposedDates}
+
+Client: ${clientName}
+Email: ${clientEmail}
+Téléphone: ${clientPhone}
+Pays: ${clientCountry}
+
+Demandes spéciales: ${specialRequests || 'Aucune'}
+                `.trim();
+
+                const encodedMessage = encodeURIComponent(whatsappMessage);
+                const whatsappUrl = `https://wa.me/${phoneNumber}?text=${encodedMessage}`;
+                
+                // فتح الواتساب
+                window.open(whatsappUrl, '_blank');
+                
+                // عرض رسالة النجاح
+                document.getElementById('success-message').style.display = 'block';
+                
+                // إعادة تعيين النموذج
+                this.reset();
+                
+                // تمرير scroll لرسالة النجاح
+                setTimeout(() => {
+                    document.getElementById('success-message').scrollIntoView({ 
+                        behavior: 'smooth' 
+                    });
+                }, 500);
+            });
+
+            // تحسين اختيار اللغة في النموذج
+            document.querySelectorAll('.language-option input').forEach(radio => {
+                radio.addEventListener('change', function() {
+                    document.querySelectorAll('.language-option').forEach(option => {
+                        option.style.borderColor = '#ddd';
+                    });
+                    this.closest('.language-option').style.borderColor = 'var(--primary)';
+                });
+            });
+        });
     </script>
 </body>
 </html>
