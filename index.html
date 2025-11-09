@@ -775,14 +775,43 @@
             box-shadow: 0 4px 15px rgba(0,0,0,0.1);
         }
 
-        /* زر تسجيل الدخول */
+        /* أنظمة التسجيل */
         .auth-section {
             background: white;
-            padding: 20px;
+            padding: 25px;
             border-radius: 15px;
-            margin-bottom: 20px;
+            margin-bottom: 25px;
             box-shadow: 0 4px 15px rgba(0,0,0,0.1);
-            text-align: center;
+        }
+
+        .auth-tabs {
+            display: flex;
+            margin-bottom: 20px;
+            border-bottom: 2px solid #eee;
+        }
+
+        .auth-tab {
+            padding: 12px 25px;
+            background: none;
+            border: none;
+            cursor: pointer;
+            font-weight: 600;
+            color: #666;
+            border-bottom: 3px solid transparent;
+            transition: all 0.3s ease;
+        }
+
+        .auth-tab.active {
+            color: var(--primary);
+            border-bottom-color: var(--primary);
+        }
+
+        .auth-form {
+            display: none;
+        }
+
+        .auth-form.active {
+            display: block;
         }
 
         .auth-buttons {
@@ -790,6 +819,7 @@
             gap: 10px;
             justify-content: center;
             flex-wrap: wrap;
+            margin-top: 20px;
         }
 
         .auth-btn {
@@ -806,6 +836,11 @@
 
         .google-btn {
             background: #4285F4;
+            color: white;
+        }
+
+        .email-btn {
+            background: var(--primary);
             color: white;
         }
 
@@ -860,6 +895,29 @@
             background: #ccc;
             cursor: not-allowed;
             transform: none;
+        }
+
+        .divider {
+            text-align: center;
+            margin: 20px 0;
+            position: relative;
+            color: #666;
+        }
+
+        .divider::before {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 0;
+            right: 0;
+            height: 1px;
+            background: #ddd;
+        }
+
+        .divider span {
+            background: white;
+            padding: 0 15px;
+            position: relative;
         }
 
         @media (max-width: 768px) {
@@ -955,6 +1013,10 @@
             }
 
             .auth-buttons {
+                flex-direction: column;
+            }
+
+            .auth-tabs {
                 flex-direction: column;
             }
         }
@@ -1454,12 +1516,44 @@
                         🚪 Déconnexion
                     </button>
                 </div>
+                
                 <div id="loginSection">
-                    <p style="margin-bottom: 15px; color: #666;">Connectez-vous pour laisser un avis</p>
-                    <div class="auth-buttons">
-                        <button class="auth-btn google-btn" onclick="commentSystem.signInWithGoogle()">
-                            <span>🔐 Google</span>
-                        </button>
+                    <div class="auth-tabs">
+                        <button class="auth-tab active" onclick="commentSystem.showAuthTab('email')">📧 Email & Mot de passe</button>
+                        <button class="auth-tab" onclick="commentSystem.showAuthTab('google')">🔐 Google</button>
+                    </div>
+
+                    <!-- تسجيل بالبريد الإلكتروني -->
+                    <div id="emailAuth" class="auth-form active">
+                        <form id="emailAuthForm" style="display: flex; flex-direction: column; gap: 15px;">
+                            <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 15px;">
+                                <div>
+                                    <label for="authName" style="display: block; margin-bottom: 5px; font-weight: 600;">Nom complet *</label>
+                                    <input type="text" id="authName" required style="width: 100%; padding: 12px; border: 1px solid #ddd; border-radius: 8px;">
+                                </div>
+                                <div>
+                                    <label for="authEmail" style="display: block; margin-bottom: 5px; font-weight: 600;">Email *</label>
+                                    <input type="email" id="authEmail" required style="width: 100%; padding: 12px; border: 1px solid #ddd; border-radius: 8px;">
+                                </div>
+                            </div>
+                            <div>
+                                <label for="authPassword" style="display: block; margin-bottom: 5px; font-weight: 600;">Mot de passe *</label>
+                                <input type="password" id="authPassword" required minlength="6" style="width: 100%; padding: 12px; border: 1px solid #ddd; border-radius: 8px;">
+                            </div>
+                            <button type="submit" class="auth-btn email-btn" style="width: 100%;">
+                                📝 Créer un compte
+                            </button>
+                        </form>
+                    </div>
+
+                    <!-- تسجيل بجوجل -->
+                    <div id="googleAuth" class="auth-form">
+                        <div style="text-align: center; padding: 20px;">
+                            <p style="margin-bottom: 20px; color: #666;">Connectez-vous rapidement avec votre compte Google</p>
+                            <button class="auth-btn google-btn" onclick="commentSystem.signInWithGoogle()" style="width: 100%;">
+                                <span>🔐 Se connecter avec Google</span>
+                            </button>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -1468,22 +1562,16 @@
             <div class="comment-form-container" id="commentFormContainer" style="display: none;">
                 <h3 style="text-align: center; color: var(--primary); margin-bottom: 20px;">Laissez votre avis sur Ali</h3>
                 <form id="commentForm" style="display: flex; flex-direction: column; gap: 15px;">
-                    <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 15px;">
-                        <div>
-                            <label for="authorName" style="display: block; margin-bottom: 5px; font-weight: 600;">Votre nom *</label>
-                            <input type="text" id="authorName" required style="width: 100%; padding: 12px; border: 1px solid #ddd; border-radius: 8px;">
-                        </div>
-                        <div>
-                            <label for="commentRating" style="display: block; margin-bottom: 5px; font-weight: 600;">Votre note *</label>
-                            <select id="commentRating" required style="width: 100%; padding: 12px; border: 1px solid #ddd; border-radius: 8px;">
-                                <option value="">Choisissez votre note</option>
-                                <option value="5">⭐⭐⭐⭐⭐ Excellent</option>
-                                <option value="4">⭐⭐⭐⭐ Très bien</option>
-                                <option value="3">⭐⭐⭐ Bien</option>
-                                <option value="2">⭐⭐ Moyen</option>
-                                <option value="1">⭐ Pas satisfait</option>
-                            </select>
-                        </div>
+                    <div>
+                        <label for="commentRating" style="display: block; margin-bottom: 5px; font-weight: 600;">Votre note *</label>
+                        <select id="commentRating" required style="width: 100%; padding: 12px; border: 1px solid #ddd; border-radius: 8px;">
+                            <option value="">Choisissez votre note</option>
+                            <option value="5">⭐⭐⭐⭐⭐ Excellent</option>
+                            <option value="4">⭐⭐⭐⭐ Très bien</option>
+                            <option value="3">⭐⭐⭐ Bien</option>
+                            <option value="2">⭐⭐ Moyen</option>
+                            <option value="1">⭐ Pas satisfait</option>
+                        </select>
                     </div>
                     <div>
                         <label for="commentText" style="display: block; margin-bottom: 5px; font-weight: 600;">Votre expérience avec Ali *</label>
@@ -1601,7 +1689,7 @@
 
             init() {
                 this.setupAuth();
-                this.setupForm();
+                this.setupForms();
                 this.loadComments();
                 this.setupRealTimeUpdates();
             }
@@ -1611,6 +1699,36 @@
                 auth.onAuthStateChanged((user) => {
                     this.updateAuthUI(user);
                 });
+            }
+
+            // إعداد النماذج
+            setupForms() {
+                // نموذج التعليق
+                const commentForm = document.getElementById('commentForm');
+                commentForm.addEventListener('submit', (e) => {
+                    e.preventDefault();
+                    this.submitComment();
+                });
+
+                // نموذج التسجيل بالبريد
+                const emailAuthForm = document.getElementById('emailAuthForm');
+                emailAuthForm.addEventListener('submit', (e) => {
+                    e.preventDefault();
+                    this.signUpWithEmail();
+                });
+            }
+
+            // عرض تبويبات التسجيل
+            showAuthTab(tabName) {
+                document.querySelectorAll('.auth-tab').forEach(tab => {
+                    tab.classList.remove('active');
+                });
+                document.querySelectorAll('.auth-form').forEach(form => {
+                    form.classList.remove('active');
+                });
+
+                event.target.classList.add('active');
+                document.getElementById(tabName + 'Auth').classList.add('active');
             }
 
             // تحديث واجهة المستخدم حسب حالة التسجيل
@@ -1625,16 +1743,47 @@
                     userInfo.style.display = 'block';
                     commentFormContainer.style.display = 'block';
                     
-                    document.getElementById('userName').textContent = user.displayName || 'Utilisateur';
-                    document.getElementById('userAvatar').textContent = (user.displayName || 'U').charAt(0).toUpperCase();
-                    
-                    // تعبئة اسم المستخدم تلقائياً
-                    document.getElementById('authorName').value = user.displayName || '';
+                    document.getElementById('userName').textContent = user.displayName || user.email;
+                    document.getElementById('userAvatar').textContent = (user.displayName || user.email).charAt(0).toUpperCase();
                 } else {
                     // المستخدم غير مسجل
                     loginSection.style.display = 'block';
                     userInfo.style.display = 'none';
                     commentFormContainer.style.display = 'none';
+                }
+            }
+
+            // التسجيل بالبريد الإلكتروني
+            async signUpWithEmail() {
+                const name = document.getElementById('authName').value.trim();
+                const email = document.getElementById('authEmail').value.trim();
+                const password = document.getElementById('authPassword').value;
+
+                if (!name || !email || !password) {
+                    alert('Veuillez remplir tous les champs.');
+                    return;
+                }
+
+                if (password.length < 6) {
+                    alert('Le mot de passe doit contenir au moins 6 caractères.');
+                    return;
+                }
+
+                try {
+                    const userCredential = await auth.createUserWithEmailAndPassword(email, password);
+                    await userCredential.user.updateProfile({
+                        displayName: name
+                    });
+                    
+                    alert('✅ Compte créé avec succès! Vous pouvez maintenant laisser un avis.');
+                    
+                } catch (error) {
+                    console.error('Error signing up:', error);
+                    if (error.code === 'auth/email-already-in-use') {
+                        alert('Cet email est déjà utilisé. Veuillez vous connecter.');
+                    } else {
+                        alert('Erreur de création de compte: ' + error.message);
+                    }
                 }
             }
 
@@ -1653,18 +1802,10 @@
             async signOut() {
                 try {
                     await auth.signOut();
+                    alert('Vous êtes déconnecté.');
                 } catch (error) {
                     console.error('Error signing out:', error);
                 }
-            }
-
-            // إعداد نموذج الإرسال
-            setupForm() {
-                const form = document.getElementById('commentForm');
-                form.addEventListener('submit', (e) => {
-                    e.preventDefault();
-                    this.submitComment();
-                });
             }
 
             // إرسال تعليق جديد
@@ -1675,18 +1816,17 @@
                     return;
                 }
 
-                const name = document.getElementById('authorName').value.trim();
                 const rating = document.getElementById('commentRating').value;
                 const text = document.getElementById('commentText').value.trim();
 
-                if (!name || !rating || !text) {
+                if (!rating || !text) {
                     alert('Veuillez remplir tous les champs obligatoires.');
                     return;
                 }
 
                 try {
                     const commentData = {
-                        authorName: name,
+                        authorName: user.displayName || user.email,
                         rating: parseInt(rating),
                         text: text,
                         userId: user.uid,
