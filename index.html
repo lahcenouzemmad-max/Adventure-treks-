@@ -1,20 +1,25 @@
 <!DOCTYPE html>
 <html lang="fr">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Adventure Treks avec Ali - Guide Expert Maroc | Trekking Atlas & Désert</title>
-    
-    <!-- SEO Meta -->
-    <meta name="description" content="Ali Ouzemmad - Guide personnel 30+ ans d'expérience. Trekking Toubkal, randonnée Mgoun, circuits désert Merzouga. Service personnalisé.">
-    <meta name="keywords" content="guide personnel maroc, ali ouzemmad, trekking atlas, désert merzouga">
+   
+    <meta name="google-site-verification" content="lO7Zv3yvFMllSxhb23p6rD6T18m6jz2J6pHPX3ahEZE" />
+    <!-- Meta Tags SEO Avancé -->
+    <meta name="description" content="Adventure Treks avec Ali Ouzemmad - Votre guide personnel 30+ ans d'expérience. Trekking Toubkal, randonnée Mgoun, circuits désert Merzouga.">
+    <meta name="keywords" content="guide personnel maroc, guide trekking, randonnée avec guide, ali ouzemmad, trekking atlas, désert merzouga, guide francophone maroc, Multi-day adventure treks, Atlas Mountains experiences, Sahara desert tours, Cultural immersion, Customized itineraries, Local expert guidance, Drâa-Tafilalet tours, Guide touristique, Touristique guide, expert guide, Tour guide, Visites Guidées,Erg Chebbi, Ouarzazate, gorges dades, vallée des roses">
     <meta name="author" content="Ali Ouzemmad">
+    <meta name="robots" content="index, follow">
     
-    <!-- PWA -->
-    <link rel="manifest" href="/manifest.json">
-    <meta name="theme-color" content="#27AE60">
+    <!-- Open Graph Tags -->
+    <meta property="og:title" content="Adventure Treks avec Ali - Guide Expert Maroc">
+    <meta property="og:description" content="Votre guide personnel pour trekking dans l'Atlas et randonnées désert - 30+ ans d'expérience">
+    <meta property="og:type" content="website">
+    <meta property="og:locale" content="fr_FR">
     
-    <!-- Schema.org -->
+    <!-- Schema.org markup -->
     <script type="application/ld+json">
     {
         "@context": "https://schema.org",
@@ -31,7 +36,7 @@
         "knowsAbout": ["Trekking", "Randonnée", "Guide touristique", "Montagne", "Désert"]
     }
     </script>
-
+    
     <style>
         :root {
             --primary: #27AE60;
@@ -55,6 +60,7 @@
             line-height: 1.6;
             color: var(--dark);
             background: #f8f9fa;
+            scroll-behavior: smooth;
         }
 
         .header-top {
@@ -69,6 +75,12 @@
             display: flex;
             justify-content: space-between;
             align-items: center;
+        }
+
+        .language-registration {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
         }
 
         .language-switcher {
@@ -105,10 +117,6 @@
             font-weight: 500;
             font-size: 0.9rem;
             transition: all 0.3s ease;
-        }
-
-        .register-btn:hover {
-            background: var(--accent);
         }
 
         .navbar {
@@ -174,11 +182,24 @@
             text-align: center;
             color: white;
             padding: 0 1rem;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 800"><path fill="rgba(255,255,255,0.1)" d="M0 0h1200v800H0z"/><path fill="rgba(255,255,255,0.05)" d="M0 400h1200v400H0z"/></svg>');
         }
 
         .hero-content h1 {
             font-size: 2.8rem;
             margin-bottom: 1rem;
+            position: relative;
             text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
         }
 
@@ -235,22 +256,23 @@
         .guide-profile {
             background: white;
             border-radius: 15px;
-            padding: 3rem;
+            padding: 2rem;
             box-shadow: var(--shadow);
             margin-bottom: 2rem;
+            text-align: center;
         }
 
         .guide-header {
             display: flex;
             align-items: center;
-            gap: 3rem;
-            margin-bottom: 3rem;
+            gap: 2rem;
+            margin-bottom: 2rem;
             text-align: left;
         }
 
         .guide-photo {
-            width: 250px;
-            height: 250px;
+            width: 200px;
+            height: 200px;
             border-radius: 50%;
             object-fit: cover;
             border: 5px solid var(--primary);
@@ -259,7 +281,7 @@
 
         .guide-name {
             color: var(--primary);
-            font-size: 2.5rem;
+            font-size: 2rem;
             margin-bottom: 0.5rem;
         }
 
@@ -291,61 +313,18 @@
             text-align: center;
         }
 
-        .story-section {
-            background: var(--light-green);
-            padding: 3rem;
-            border-radius: 15px;
-            margin: 2rem 0;
-        }
-
-        .story-section h3 {
-            color: var(--primary);
-            margin-bottom: 1.5rem;
-            font-size: 1.8rem;
-        }
-
-        .special-features {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 2rem;
-            margin: 3rem 0;
-        }
-
-        .feature-card {
-            background: white;
-            padding: 2rem;
-            border-radius: 15px;
-            box-shadow: var(--shadow);
+        .price-variation {
+            background: #FFF3CD;
+            border: 1px solid #FFEAA7;
+            border-radius: 8px;
+            padding: 1rem;
+            margin: 1rem 0;
             text-align: center;
-            border-top: 4px solid var(--primary);
-            transition: transform 0.3s ease;
+            font-style: italic;
+            color: #856404;
         }
 
-        .feature-card:hover {
-            transform: translateY(-5px);
-        }
-
-        .feature-icon {
-            font-size: 3rem;
-            margin-bottom: 1rem;
-        }
-
-        .customer-stories {
-            background: white;
-            padding: 3rem;
-            border-radius: 15px;
-            box-shadow: var(--shadow);
-            margin: 2rem 0;
-        }
-
-        .story-card {
-            background: var(--light-green);
-            padding: 2rem;
-            border-radius: 10px;
-            margin: 1.5rem 0;
-            border-left: 4px solid var(--primary);
-        }
-
+        /* معرض الصور الأفقي */
         .gallery-container {
             max-width: 1200px;
             margin: 0 auto;
@@ -360,6 +339,7 @@
             gap: 1rem;
             padding: 1rem 0;
             scrollbar-width: none;
+            -ms-overflow-style: none;
         }
 
         .gallery-slider::-webkit-scrollbar {
@@ -384,6 +364,7 @@
             width: 100%;
             height: 100%;
             object-fit: cover;
+            display: block;
         }
 
         .gallery-nav {
@@ -419,24 +400,46 @@
             right: 0;
         }
 
+        .gallery-dots {
+            display: flex;
+            justify-content: center;
+            gap: 0.5rem;
+            margin-top: 1rem;
+        }
+
+        .gallery-dot {
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+            background: #ddd;
+            border: none;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .gallery-dot.active {
+            background: var(--primary);
+            transform: scale(1.2);
+        }
+
         .duration-filters {
             display: flex;
             justify-content: center;
             gap: 0.5rem;
-            margin-bottom: 3rem;
+            margin-bottom: 2rem;
             flex-wrap: wrap;
         }
 
         .duration-btn {
-            padding: 12px 24px;
+            padding: 10px 20px;
             border: 2px solid var(--primary);
             background: white;
             color: var(--primary);
-            border-radius: 25px;
+            border-radius: 20px;
             cursor: pointer;
             font-weight: 600;
             transition: all 0.3s ease;
-            font-size: 1rem;
+            font-size: 0.9rem;
         }
 
         .duration-btn.active {
@@ -452,10 +455,20 @@
             display: block;
         }
 
+        .trek-category {
+            margin-bottom: 3rem;
+        }
+
+        .category-title {
+            font-size: 1.5rem;
+            color: var(--primary);
+            margin-bottom: 1.5rem;
+        }
+
         .treks-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
-            gap: 2rem;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 1.5rem;
         }
 
         .trek-card {
@@ -467,39 +480,39 @@
         }
 
         .trek-card:hover {
-            transform: translateY(-10px);
+            transform: translateY(-5px);
         }
 
         .trek-image {
             height: 200px;
-            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            background: var(--gradient);
             position: relative;
             display: flex;
             align-items: center;
             justify-content: center;
             color: white;
             font-weight: 600;
-            font-size: 1.2rem;
+            text-shadow: 1px 1px 3px rgba(0,0,0,0.7);
         }
 
         .trek-duration {
             position: absolute;
-            top: 1rem;
-            right: 1rem;
+            top: 0.5rem;
+            right: 0.5rem;
             background: var(--primary);
             color: white;
             padding: 0.5rem 1rem;
-            border-radius: 20px;
+            border-radius: 15px;
             font-weight: bold;
-            font-size: 0.9rem;
+            font-size: 0.8rem;
         }
 
         .trek-content {
-            padding: 2rem;
+            padding: 1.5rem;
         }
 
         .trek-title {
-            font-size: 1.4rem;
+            font-size: 1.3rem;
             margin-bottom: 0.5rem;
             color: var(--dark);
         }
@@ -507,35 +520,31 @@
         .trek-region {
             color: var(--secondary);
             margin-bottom: 1rem;
-            font-size: 1rem;
-            font-weight: 500;
+            font-size: 0.9rem;
         }
 
         .trek-details {
             display: grid;
             grid-template-columns: 1fr 1fr;
             gap: 0.5rem;
-            margin-bottom: 1.5rem;
+            margin-bottom: 1rem;
             background: var(--light-green);
             padding: 1rem;
-            border-radius: 10px;
+            border-radius: 8px;
         }
 
         .detail-item {
             font-size: 0.9rem;
-            display: flex;
-            align-items: center;
-            gap: 0.5rem;
         }
 
         .trek-features {
             list-style: none;
-            margin: 1.5rem 0;
+            margin: 1rem 0;
         }
 
         .trek-features li {
-            padding: 0.5rem 0;
-            font-size: 0.95rem;
+            padding: 0.3rem 0;
+            font-size: 0.9rem;
             position: relative;
             padding-left: 1.5rem;
         }
@@ -558,44 +567,7 @@
             font-style: italic;
         }
 
-        .registration-form {
-            background: white;
-            padding: 2rem;
-            border-radius: 15px;
-            box-shadow: var(--shadow);
-            max-width: 500px;
-            margin: 0 auto;
-        }
-
-        .form-group {
-            margin-bottom: 1rem;
-        }
-
-        .form-group label {
-            display: block;
-            margin-bottom: 0.5rem;
-            font-weight: 600;
-        }
-
-        .form-group input, .form-group select, .form-group textarea {
-            width: 100%;
-            padding: 0.8rem;
-            border: 2px solid #ddd;
-            border-radius: 8px;
-            transition: border-color 0.3s ease;
-        }
-
-        .form-group input:focus, .form-group select:focus, .form-group textarea:focus {
-            border-color: var(--primary);
-            outline: none;
-        }
-
-        .form-row {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 1rem;
-        }
-
+        /* Custom Request Form */
         .language-selection {
             display: flex;
             gap: 1rem;
@@ -617,48 +589,63 @@
             border-color: var(--primary);
         }
 
+        .language-option input[type="radio"]:checked + span {
+            color: var(--primary);
+            font-weight: bold;
+        }
+
+        .language-option input[type="radio"]:checked ~ span {
+            color: var(--primary);
+            font-weight: bold;
+        }
+
+        .form-row {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1rem;
+        }
+
         .contact-info {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 2rem;
-            margin-top: 2rem;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 1.5rem;
+            margin-top: 1.5rem;
+            text-align: center;
         }
 
         .contact-card {
             background: white;
-            padding: 2rem;
-            border-radius: 15px;
+            padding: 1.5rem;
+            border-radius: 10px;
             box-shadow: var(--shadow);
             border-top: 4px solid var(--primary);
-            text-align: center;
+            transition: transform 0.3s ease;
         }
 
-        .contact-card h3 {
-            color: var(--primary);
-            margin-bottom: 1rem;
-            font-size: 1.3rem;
+        .contact-card:hover {
+            transform: translateY(-5px);
         }
 
-        .phone {
-            font-size: 1.3rem;
+        .contact-card .phone {
+            font-size: 1.2rem;
             font-weight: bold;
             color: var(--dark);
+            margin: 0.5rem 0;
             text-decoration: none;
             display: block;
-            margin: 1rem 0;
         }
 
         .whatsapp-btn {
             background: #25D366;
             color: white;
-            padding: 12px 25px;
+            padding: 10px 20px;
             border: none;
-            border-radius: 25px;
+            border-radius: 20px;
             text-decoration: none;
             display: inline-block;
+            margin-top: 0.5rem;
             font-weight: 600;
             transition: all 0.3s ease;
-            margin-top: 1rem;
         }
 
         .whatsapp-btn:hover {
@@ -666,31 +653,89 @@
             transform: translateY(-2px);
         }
 
-        .footer {
-            background: var(--dark);
-            color: white;
-            padding: 3rem 1rem;
-            text-align: center;
+        .testimonials-container {
+            margin-top: 2rem;
         }
 
-        .footer-content {
-            max-width: 1200px;
-            margin: 0 auto;
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 2rem;
-            text-align: left;
+        .testimonial-card {
+            background: white;
+            padding: 1.5rem;
+            border-radius: 10px;
+            box-shadow: var(--shadow);
+            margin-bottom: 1rem;
+            transition: transform 0.3s ease;
         }
 
-        .footer-section h3 {
-            color: var(--primary);
+        .testimonial-card:hover {
+            transform: translateX(5px);
+        }
+
+        .add-comment {
+            background: white;
+            padding: 1.5rem;
+            border-radius: 15px;
+            box-shadow: var(--shadow);
+            margin-top: 2rem;
+        }
+
+        .rating-stars {
+            display: flex;
+            gap: 0.3rem;
             margin-bottom: 1rem;
         }
 
-        .footer-bottom {
-            margin-top: 2rem;
-            padding-top: 2rem;
-            border-top: 1px solid rgba(255,255,255,0.1);
+        .star {
+            font-size: 1.5rem;
+            color: #ddd;
+            cursor: pointer;
+            transition: color 0.3s ease;
+        }
+
+        .star.active {
+            color: #FFD700;
+        }
+
+        .registration-form {
+            background: white;
+            padding: 2rem;
+            border-radius: 15px;
+            box-shadow: var(--shadow);
+            max-width: 500px;
+            margin: 0 auto;
+        }
+
+        .form-group {
+            margin-bottom: 1rem;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 0.5rem;
+            font-weight: 600;
+        }
+
+        .form-group input,
+        .form-group textarea,
+        .form-group select {
+            width: 100%;
+            padding: 0.8rem;
+            border: 2px solid #ddd;
+            border-radius: 8px;
+            transition: border-color 0.3s ease;
+        }
+
+        .form-group input:focus,
+        .form-group textarea:focus,
+        .form-group select:focus {
+            border-color: var(--primary);
+            outline: none;
+        }
+
+        .footer {
+            background: var(--dark);
+            color: white;
+            padding: 2rem 1rem;
+            text-align: center;
         }
 
         .success-message {
@@ -703,6 +748,34 @@
             display: none;
         }
 
+        /* نظام التعليقات الجديد */
+        .reviews-section {
+            padding: 60px 20px;
+            background: #f8f9fa;
+            direction: ltr;
+        }
+
+        .comments-system {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .comment-form-container {
+            background: white;
+            padding: 30px;
+            border-radius: 15px;
+            margin-bottom: 20px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+        }
+
+        .comments-display {
+            background: white;
+            padding: 30px;
+            border-radius: 15px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+        }
+
+        /* أنظمة التسجيل */
         .auth-section {
             background: white;
             padding: 25px;
@@ -796,6 +869,7 @@
             font-weight: bold;
         }
 
+        /* زر تحميل المزيد */
         .load-more-container {
             text-align: center;
             margin-top: 20px;
@@ -821,6 +895,29 @@
             background: #ccc;
             cursor: not-allowed;
             transform: none;
+        }
+
+        .divider {
+            text-align: center;
+            margin: 20px 0;
+            position: relative;
+            color: #666;
+        }
+
+        .divider::before {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 0;
+            right: 0;
+            height: 1px;
+            background: #ddd;
+        }
+
+        .divider span {
+            background: white;
+            padding: 0 15px;
+            position: relative;
         }
 
         @media (max-width: 768px) {
@@ -926,7 +1023,9 @@
     </style>
 </head>
 <body>
-    <!-- Header -->
+    <!-- Google Analytics Script (à ajouter plus tard) -->
+    <!-- <script async src="https://www.googletagmanager.com/gtag/js?id=GA_MEASUREMENT_ID"></script> -->
+
     <div class="header-top">
         <div class="header-container">
             <div class="language-registration">
@@ -939,7 +1038,6 @@
         </div>
     </div>
 
-    <!-- Navigation -->
     <nav class="navbar">
         <div class="nav-container">
             <a href="#" class="logo">Adventure Treks avec Ali</a>
@@ -955,7 +1053,6 @@
         </div>
     </nav>
 
-    <!-- Hero Section -->
     <section class="hero" id="accueil">
         <div class="hero-content">
             <h1 data-key="hero_title">Adventure Treks avec Ali - Votre Guide Personnel</h1>
@@ -964,7 +1061,6 @@
         </div>
     </section>
 
-    <!-- Guide Section -->
     <section class="section" id="guide">
         <h2 class="section-title" data-key="guide_title">Votre Guide Expert</h2>
         <div class="guide-profile">
@@ -1011,55 +1107,11 @@
         </div>
     </section>
 
-    <!-- Story Section -->
-    <section class="section" id="story">
-        <h2 class="section-title">Mon Histoire - Fils des Montagnes</h2>
-        <div class="story-section">
-            <h3>🎯 L'Histoire d'Ali Ouzemmad</h3>
-            <div class="story-content">
-                <p><strong>Je suis un enfant de la Vallée des Roses</strong>. Mon père était guide dans cette région magnifique, et j'ai grandi en parcourant chaque sentier du Mgoun. Depuis mon plus jeune âge, j'ai exploré chaque vallée, gravi chaque sommet, découvert chaque secret de ces montagnes qui sont ma maison.</p>
-                
-                <p><strong>30 années de passion</strong> - Ces trois dernières décennies, j'ai transformé cet héritage en créant des souvenirs inoubliables pour mes clients. Chaque randonnée est une nouvelle aventure, chaque voyageur devient un ami.</p>
-                
-                <p><strong>Ma philosophie</strong> : "Je ne suis pas votre guide, je suis votre ami au Maroc". Je respecte votre intimité, j'écoute vos souhaits, et j'adapte chaque expérience à votre personnalité unique.</p>
-            </div>
-        </div>
-    </section>
-
-    <!-- What Makes Us Special -->
-    <section class="section" id="special">
-        <h2 class="section-title">Ce qui nous Distingue</h2>
-        <div class="special-features">
-            <div class="feature-card">
-                <div class="feature-icon">🏔️</div>
-                <h3>Fils des Montagnes</h3>
-                <p>Né et élevé dans l'Atlas, je connais chaque sentier, chaque changement de temps, chaque secret de ces montagnes comme ma poche.</p>
-            </div>
-            <div class="feature-card">
-                <div class="feature-icon">⭐</div>
-                <h3>30+ Ans d'Expérience</h3>
-                <p>Trois décennies à créer des aventures mémorables et à bâtir des relations durables avec mes clients.</p>
-            </div>
-            <div class="feature-card">
-                <div class="feature-icon">👥</div>
-                <h3>Approche Personnalisée</h3>
-                <p>Je comprends que chaque voyageur est unique et j'adapte chaque expérience à votre personnalité.</p>
-            </div>
-            <div class="feature-card">
-                <div class="feature-icon">🤝</div>
-                <h3>Votre Ami au Maroc</h3>
-                <p>Je ne suis pas seulement votre guide, je suis votre ami qui vous fait découvrir la vraie beauté du Maroc.</p>
-            </div>
-        </div>
-    </section>
-
-    <!-- Gallery Section -->
     <section class="section" id="gallery">
         <h2 class="section-title" data-key="gallery_title">Aventures avec Votre Guide</h2>
         <div class="gallery-container">
             <button class="gallery-nav gallery-prev">❮</button>
             <div class="gallery-slider" id="gallerySlider">
-                <!-- All 26 images from original site -->
                 <div class="gallery-item">
                     <img src="https://drive.google.com/thumbnail?id=17j0rL9qOahrMQ1sjIRD1P0mcy8Cgv3pU&sz=w1000" alt="Trekking dans l'Atlas">
                 </div>
@@ -1075,16 +1127,136 @@
                 <div class="gallery-item">
                     <img src="https://drive.google.com/thumbnail?id=1-B4bwqHUiutwq1RlpZFuVWS01MVnbeXP&sz=w1000" alt="Gorges de Dades">
                 </div>
-                <!-- Add remaining 21 images here -->
+                <div class="gallery-item">
+                    <img src="https://drive.google.com/thumbnail?id=1Gzz6GCVzomb5EDBA4M-aFRqrfVr9rmAk&sz=w1000" alt="Coucher de soleil désert">
+                </div>
+                <div class="gallery-item">
+                    <img src="https://drive.google.com/thumbnail?id=1VwbEvHSQFA8L2yciQ6lN8zh3oaT6cHPh&sz=w1000" alt="Village berbère">
+                </div>
+                <div class="gallery-item">
+                    <img src="https://drive.google.com/thumbnail?id=1PvG4Ewe9tJxiu0bEy5HbyfioWdgXiJhB&sz=w1000" alt="Randonnée en groupe">
+                </div>
+                <div class="gallery-item">
+                    <img src="https://drive.google.com/thumbnail?id=1vQlBIsXR2jcqO2NV8fllG3JFzDExog8T&sz=w1000" alt="Campement désert">
+                </div>
+                <div class="gallery-item">
+                    <img src="https://drive.google.com/thumbnail?id=19aQMiurnH7CIFpMWeGynaZIY6Rv6lXiq&sz=w1000" alt="Paysage montagneux">
+                </div>
+                <div class="gallery-item">
+                    <img src="https://drive.google.com/thumbnail?id=1tLbosAEv8fuZdFeG-rGvI_zHjv-e3_qr&sz=w1000" alt="Oasis marocain">
+                </div>
+                <div class="gallery-item">
+                    <img src="https://drive.google.com/thumbnail?id=1nR6MVcQ-bdgUi3_7_JRxujIWb36NeisL&sz=w1000" alt="Randonnée hivernale">
+                </div>
+                <div class="gallery-item">
+                    <img src="https://drive.google.com/thumbnail?id=1YuwtYH5TID-f0OxmnmL0fHUqkSgPIW7T&sz=w1000" alt="Culture locale">
+                </div>
+                <div class="gallery-item">
+                    <img src="https://drive.google.com/thumbnail?id=1jDpYoRSl4yNBO5cuDx9g9EGji_dzlwt9&sz=w1000" alt="Cascades d'Ourika">
+                </div>
+                <div class="gallery-item">
+                    <img src="https://drive.google.com/thumbnail?id=1PzI_p770pFSXmBusRv7gpX786aqGg6_9&sz=w1000" alt="Dunes de sable">
+                </div>
+                <div class="gallery-item">
+                    <img src="https://drive.google.com/thumbnail?id=10yKHb_rAZ4V5FGgcb8IWrhvaQyT_UapH&sz=w1000" alt="Guide Ali avec clients">
+                </div>
+                <div class="gallery-item">
+                    <img src="https://drive.google.com/thumbnail?id=1uK-teTBrYcntNQU7Q1plpY-7ZJmQemG1&sz=w1000" alt="Vue panoramique Atlas">
+                </div>
+                <div class="gallery-item">
+                    <img src="https://drive.google.com/thumbnail?id=1EvpXRxYTCNEh3tLs8xjVqKN5kcRXP3XY&sz=w1000" alt="Nuit en bivouac">
+                </div>
+                <div class="gallery-item">
+                    <img src="https://drive.google.com/thumbnail?id=12FgJzEKFPhrWm5_a2VFlf4aEs2oJRJhH&sz=w1000" alt="Rencontre avec population">
+                </div>
+                <div class="gallery-item">
+                    <img src="https://drive.google.com/thumbnail?id=1dvg-pShqq_RZPumT5j-0Pl4uZ1t9QPuM&sz=w1000" alt="Artisanat local">
+                </div>
+                <div class="gallery-item">
+                    <img src="https://drive.google.com/thumbnail?id=1yO7FuOBP9tmy3fcqN0xmZO6csmRgnaMq&sz=w1000" alt="Randonnée printanière">
+                </div>
+                <div class="gallery-item">
+                    <img src="https://drive.google.com/thumbnail?id=1szjGYjK_la7rRUx9iMP9zEJPB1sM3BTR&sz=w1000" alt="Gorges de Todra">
+                </div>
+                <div class="gallery-item">
+                    <img src="https://drive.google.com/thumbnail?id=1qq6IRBkw-KLdGjAYWQ-NFUe12kwF8KP9&sz=w1000" alt="Vallée heureuse">
+                </div>
+                <div class="gallery-item">
+                    <img src="https://drive.google.com/thumbnail?id=10SF6MXZ1HfycHptfil2Kkhuw6biM-bNa&sz=w1000" alt="Expédition désert">
+                </div>
+                <div class="gallery-item">
+                    <img src="https://drive.google.com/thumbnail?id=1KHcrGoYUrsayy7M2g_z4t_OxgAHQSWwt&sz=w1000" alt="Coucher de soleil Atlas">
+                </div>
+                <div class="gallery-item">
+                    <img src="https://drive.google.com/thumbnail?id=13yfsh7UFSo5K-IljJ1SGUqJYAfNfTwSL&sz=w1000" alt="Randonnée familiale">
+                </div>
+                <div class="gallery-item">
+                    <img src="https://drive.google.com/thumbnail?id=1TwUS7UDcg0aZ-tlUsp0Bg7FGoECwupAY&sz=w1000" alt="Pause thé berbère">
+                </div>
             </div>
             <button class="gallery-nav gallery-next">❯</button>
+            <div class="gallery-dots" id="galleryDots">
+                <!-- سيتم إضافة النقاط ديناميكياً -->
+            </div>
         </div>
     </section>
 
-    <!-- Rest of the code remains the same as the previous comprehensive version -->
-    <!-- Including: Treks Section, Customer Stories, Reviews System, Contact Section, Footer -->
+    <section class="section" id="treks">
+        <h2 class="section-title" data-key="treks_title">Randonnées avec Votre Guide</h2>
+        
+        <div class="duration-filters">
+            <button class="duration-btn active" data-duration="short">2-6 Jours</button>
+            <button class="duration-btn" data-duration="medium">7-11 Jours</button>
+            <button class="duration-btn" data-duration="long">12-15 Jours</button>
+        </div>
 
-    <!-- Firebase and JavaScript remain the same as previous version -->
+        <!-- رحلات قصيرة -->
+        <div class="treks-container active" id="short-treks">
+            <div class="trek-category">
+                <h3 class="category-title">Randonnées Courtes avec Accompagnement Personnalisé</h3>
+                <div class="treks-grid">
+                    <div class="trek-card">
+                        <div class="trek-image">
+                            <div class="trek-duration">4 Jours</div>
+                            <div>Toubkal avec Ali</div>
+                        </div>
+                        <div class="trek-content">
+                            <h3 class="trek-title">Toubkal Express avec Votre Guide</h3>
+                            <div class="trek-region">Haut Atlas - Massif du Toubkal</div>
+                            <div class="trek-details">
+                                <div class="detail-item">▶ 4-5h marche/jour</div>
+                                <div class="detail-item">▶ 4167m altitude</div>
+                                <div class="detail-item">▶ Accompagnement personnel</div>
+                                <div class="detail-item">▶ Départ Marrakech</div>
+                            </div>
+                            <ul class="trek-features">
+                                <li>Ascension du Jbel Toubkal (4167m) avec votre guide</li>
+                                <li>Vallée d'Ourika et cascades de Setti Fatma</li>
+                                <li>Col de Tizi n'Ouagane</li>
+                                <li>Villages traditionnels d'Imlil et Armed</li>
+                            </ul>
+                            <div class="price-note">
+                                Tarif personnalisé selon vos dates et préférences
+                            </div>
+                            <a href="#custom-request" class="btn">Réserver avec Ali</a>
+                        </div>
+                    </div>
 
-</body>
-</html>
+                    <div class="trek-card">
+                        <div class="trek-image">
+                            <div class="trek-duration">5 Jours</div>
+                            <div>Vallée des Roses</div>
+                        </div>
+                        <div class="trek-content">
+                            <h3 class="trek-title">Vallée des Roses avec Guide Personnel</h3>
+                            <div class="trek-region">Drâa-Tafilalet - Kelaat M'gouna</div>
+                            <div class="trek-details">
+                                <div class="detail-item">▶ 4-5h marche/jour</div>
+                                <div class="detail-item">▶ Vallée des Roses</div>
+                                <div class="detail-item">▶ Accompagnement personnalisé</div>
+                                <div class="detail-item">▶ Transport inclus</div>
+                            </div>
+                            <ul class="trek-features">
+                                <li>Découverte de la Vallée des Roses avec votre guide</li>
+                                <li>Visite des coopératives de rose</li>
+                            
