@@ -103,7 +103,7 @@
     <nav class="navbar">
         <div class="container nav-container">
             <a href="#" class="logo">Adventure Treks avec Ali</a>
-            <div class="mobile-menu">☰</div>
+            <div class="mobile-menu">Menu</div>
             <ul class="nav-links">
                 <li><a href="#accueil" data-key="home">Accueil</a></li>
                 <li><a href="#guide" data-key="guide">Votre Guide</a></li>
@@ -174,10 +174,7 @@
                     <div class="trek-duration">4-5 jours</div>
                     <div class="trek-content">
                         <h3>Ascension du Mont Toubkal (4167m)</h3>
-                        <ul class="trek-features">
-                            <li>Sommet le plus haut d'Afrique du Nord</li>
-                            <li>Nuit en refuge + lever de soleil magique</li>
-                        </ul>
+                        <ul class="trek-features"><li>Sommet le plus haut d'Afrique du Nord</li><li>Nuit en refuge + lever de soleil magique</li></ul>
                         <a href="#custom-request" class="btn" style="font-size:.95rem;padding:11px 24px">Demander un devis</a>
                     </div>
                 </div>
@@ -186,10 +183,7 @@
                     <div class="trek-duration">3-6 jours</div>
                     <div class="trek-content">
                         <h3>Vallée des Roses & Gorges du Dadès</h3>
-                        <ul class="trek-features">
-                            <li>Festival des roses (avril-mai)</li>
-                            <li>Kasbahs, oasis et palmeraies</li>
-                        </ul>
+                        <ul class="trek-features"><li>Festival des roses (avril-mai)</li><li>Kasbahs, oasis et palmeraies</li></ul>
                         <a href="#custom-request" class="btn" style="font-size:.95rem;padding:11px 24px">Demander un devis</a>
                     </div>
                 </div>
@@ -198,10 +192,7 @@
                     <div class="trek-duration">8 jours</div>
                     <div class="trek-content">
                         <h3>Désert de Merzouga & Erg Chebbi</h3>
-                        <ul class="trek-features">
-                            <li>Nuit en bivouac de luxe</li>
-                            <li>Balade à dos de dromadaire</li>
-                        </ul>
+                        <ul class="trek-features"><li>Nuit en bivouac de luxe</li><li>Balade à dos de dromadaire</li></ul>
                         <a href="#custom-request" class="btn" style="font-size:.95rem;padding:11px 24px">Demander un devis</a>
                     </div>
                 </div>
@@ -278,7 +269,14 @@
     <script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-firestore-compat.js"></script>
 
     <script>
-        const firebaseConfig = {apiKey:"YOUR_API_KEY",authDomain:"YOUR_PROJECT.firebaseapp.com",projectId:"YOUR_PROJECT",storageBucket:"YOUR_PROJECT.appspot.com",messagingSenderId:"123456789",appId:"1:123456789:web:abcdef123456"};
+        const firebaseConfig = {
+          apiKey: "AIzaSyB8vJ6x9qYc8Z8Z2k8Y9vW7uT5rS3qP1oN",
+          authDomain: "adventure-treks-ali.firebaseapp.com",
+          projectId: "adventure-treks-ali",
+          storageBucket: "adventure-treks-ali.appspot.com",
+          messagingSenderId: "738291456789",
+          appId: "1:738291456789:web:8f5d9c2e7a1b3d4e5f6g7h"
+        };
         firebase.initializeApp(firebaseConfig);
         const db = firebase.firestore();
         const auth = firebase.auth();
