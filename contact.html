@@ -8,6 +8,33 @@
     <meta name="description" content="Contactez Ali Ouzemmad pour votre aventure au Maroc. WhatsApp, téléphone, email. Réponse garantie en moins de 24 heures.">
     <meta name="keywords" content="contact ali ouzemmad, guide maroc, whatsapp, téléphone, email, réservation randonnée">
     
+    <!-- Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-XXXXXXXXXX"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        gtag('config', 'G-XXXXXXXXXX');
+    </script>
+
+    <!-- Firebase -->
+    <script src="https://www.gstatic.com/firebasejs/9.22.0/firebase-app-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/9.22.0/firebase-firestore-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/9.22.0/firebase-auth-compat.js"></script>
+    <script>
+        const firebaseConfig = {
+            apiKey: "AIzaSyCgfGwHACxx_SRsjo4qKoOJsUUXxc-b7eE",
+            authDomain: "adventure-treks-comments.firebaseapp.com",
+            projectId: "adventure-treks-comments",
+            storageBucket: "adventure-treks-comments.firebasestorage.app",
+            messagingSenderId: "792729535477",
+            appId: "1:792729535477:web:17af8772f5da73ff4cd6bc"
+        };
+        firebase.initializeApp(firebaseConfig);
+        const db = firebase.firestore();
+        const auth = firebase.auth();
+    </script>
+
     <style>
         /* أنماط الصفحة الرئيسية - نفس index.html */
         :root {
@@ -324,36 +351,232 @@
             margin: 0 auto 1rem;
         }
 
-        .faq-section {
-            margin: 4rem 0;
-        }
-
-        .faq-item {
+        /* نظام التعليقات والتقييمات */
+        .reviews-section {
             background: var(--light);
-            margin-bottom: 1rem;
-            border-radius: 10px;
-            overflow: hidden;
+            padding: 4rem 2rem;
+            margin: 4rem 0;
+            border-radius: 20px;
             box-shadow: var(--shadow-lg);
         }
 
-        .faq-question {
-            padding: 1.5rem;
-            background: var(--primary);
-            color: white;
-            font-weight: 600;
-            cursor: pointer;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
+        .auth-section {
+            background: white;
+            padding: 2rem;
+            border-radius: 15px;
+            margin-bottom: 2rem;
+            box-shadow: var(--shadow-lg);
         }
 
-        .faq-answer {
-            padding: 1.5rem;
+        .auth-tabs {
+            display: flex;
+            margin-bottom: 1.5rem;
+            border-bottom: 2px solid #eee;
+        }
+
+        .auth-tab {
+            padding: 1rem 2rem;
+            background: none;
+            border: none;
+            cursor: pointer;
+            font-weight: 600;
+            color: #666;
+            border-bottom: 3px solid transparent;
+            transition: all 0.3s ease;
+        }
+
+        .auth-tab.active {
+            color: var(--primary);
+            border-bottom-color: var(--primary);
+        }
+
+        .auth-form {
             display: none;
         }
 
-        .faq-item.active .faq-answer {
+        .auth-form.active {
             display: block;
+        }
+
+        .user-info {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            margin-bottom: 1.5rem;
+            padding: 1rem;
+            background: #f8f9fa;
+            border-radius: 10px;
+        }
+
+        .user-avatar {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            background: var(--primary);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-weight: bold;
+            font-size: 1.2rem;
+        }
+
+        .auth-buttons {
+            display: flex;
+            gap: 1rem;
+            justify-content: center;
+            flex-wrap: wrap;
+            margin-top: 1.5rem;
+        }
+
+        .auth-btn {
+            padding: 1rem 1.5rem;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .google-btn {
+            background: #4285F4;
+            color: white;
+        }
+
+        .email-btn {
+            background: var(--primary);
+            color: white;
+        }
+
+        .logout-btn {
+            background: #dc3545;
+            color: white;
+        }
+
+        .comment-form-container {
+            background: white;
+            padding: 2rem;
+            border-radius: 15px;
+            margin-bottom: 2rem;
+            box-shadow: var(--shadow-lg);
+            display: none;
+        }
+
+        .comment-form-container.active {
+            display: block;
+        }
+
+        .rating-stars {
+            display: flex;
+            gap: 0.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .star {
+            font-size: 2rem;
+            color: #ddd;
+            cursor: pointer;
+            transition: color 0.3s ease;
+        }
+
+        .star.active {
+            color: #FFD700;
+        }
+
+        .comments-display {
+            background: white;
+            padding: 2rem;
+            border-radius: 15px;
+            box-shadow: var(--shadow-lg);
+        }
+
+        .comment-item {
+            border-bottom: 1px solid #eee;
+            padding: 1.5rem 0;
+            margin-bottom: 1rem;
+        }
+
+        .comment-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 0.5rem;
+        }
+
+        .comment-author {
+            font-weight: bold;
+            color: var(--primary);
+        }
+
+        .comment-rating {
+            color: #FFD700;
+            font-size: 1.2rem;
+        }
+
+        .comment-date {
+            color: #666;
+            font-size: 0.9rem;
+        }
+
+        .comment-text {
+            line-height: 1.6;
+            color: #333;
+        }
+
+        .comment-actions {
+            margin-top: 0.5rem;
+            text-align: right;
+        }
+
+        .load-more-container {
+            text-align: center;
+            margin-top: 2rem;
+        }
+
+        .load-more-btn {
+            background: var(--primary);
+            color: white;
+            border: none;
+            padding: 1rem 2rem;
+            border-radius: 25px;
+            cursor: pointer;
+            font-weight: 600;
+            transition: all 0.3s ease;
+        }
+
+        .load-more-btn:hover {
+            background: var(--primary-dark);
+        }
+
+        .load-more-btn:disabled {
+            background: #ccc;
+            cursor: not-allowed;
+        }
+
+        .divider {
+            text-align: center;
+            margin: 1.5rem 0;
+            position: relative;
+            color: #666;
+        }
+
+        .divider::before {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 0;
+            right: 0;
+            height: 1px;
+            background: #ddd;
+        }
+
+        .divider span {
+            background: white;
+            padding: 0 1rem;
+            position: relative;
         }
 
         .footer {
@@ -393,6 +616,14 @@
 
             .contact-methods {
                 grid-template-columns: 1fr;
+            }
+
+            .auth-tabs {
+                flex-direction: column;
+            }
+
+            .auth-buttons {
+                flex-direction: column;
             }
         }
     </style>
@@ -435,7 +666,7 @@
 
     <!-- Contact Hero Section -->
     <section class="contact-hero">
-        <h1>Contact Direct</h1>
+        <h1 data-translate="contact.title">Contact Direct</h1>
         <p style="font-size: 1.3rem; margin-bottom: 2rem;">
             Discutons de votre prochaine aventure au Maroc
         </p>
@@ -510,43 +741,109 @@
         </div>
     </section>
 
-    <!-- Booking Process -->
-    <section class="section" style="background: var(--light);">
-        <h2 class="section-title">Processus de Réservation</h2>
+    <!-- نظام التعليقات والتقييمات -->
+    <section class="section">
+        <h2 class="section-title">Avis Clients</h2>
         
-        <div class="booking-process">
-            <div class="process-step">
-                <div class="step-number">1</div>
-                <h3>📞 Premier Contact</h3>
-                <p>Contactez-moi par WhatsApp, téléphone ou email</p>
-            </div>
-            
-            <div class="process-step">
-                <div class="step-number">2</div>
-                <h3>💬 Discussion Détails</h3>
-                <p>Nous définissons vos dates, préférences et attentes</p>
-            </div>
-            
-            <div class="process-step">
-                <div class="step-number">3</div>
-                <h3>💰 Devis Personnalisé</h3>
-                <p>Je vous envoie un devis adapté à vos besoins</p>
-            </div>
-            
-            <div class="process-step">
-                <div class="step-number">4</div>
-                <h3>🎯 Confirmation</h3>
-                <p>Paiement après accord sur tous les détails</p>
-            </div>
-        </div>
+        <div class="reviews-section">
+            <!-- قسم تسجيل الدخول -->
+            <div class="auth-section" id="authSection">
+                <div id="userInfo" style="display: none;">
+                    <div class="user-info">
+                        <div class="user-avatar" id="userAvatar">U</div>
+                        <div>
+                            <strong id="userName">Utilisateur</strong>
+                            <div style="font-size: 0.9rem; color: #666;">Connecté</div>
+                        </div>
+                    </div>
+                    <button class="auth-btn logout-btn" onclick="commentSystem.signOut()">
+                        🚪 Déconnexion
+                    </button>
+                </div>
+                
+                <div id="loginSection">
+                    <div class="auth-tabs">
+                        <button class="auth-tab active" onclick="commentSystem.showAuthTab('email')">📧 Email & Mot de passe</button>
+                        <button class="auth-tab" onclick="commentSystem.showAuthTab('google')">🔐 Google</button>
+                    </div>
 
-        <div style="text-align: center; margin-top: 2rem;">
-            <p style="font-size: 1.1rem; margin-bottom: 1rem;">
-                <strong>💎 Important : Le prix varie selon le type de randonnée et le nombre de personnes</strong>
-            </p>
-            <a href="https://wa.me/212661796117" class="btn btn-whatsapp" target="_blank">
-                💬 Commencer sur WhatsApp
-            </a>
+                    <!-- تسجيل بالبريد الإلكتروني -->
+                    <div id="emailAuth" class="auth-form active">
+                        <form id="emailAuthForm" style="display: flex; flex-direction: column; gap: 1rem;">
+                            <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1rem;">
+                                <div>
+                                    <label for="authName" style="display: block; margin-bottom: 0.5rem; font-weight: 600;">Nom complet *</label>
+                                    <input type="text" id="authName" required style="width: 100%; padding: 1rem; border: 1px solid #ddd; border-radius: 8px;">
+                                </div>
+                                <div>
+                                    <label for="authEmail" style="display: block; margin-bottom: 0.5rem; font-weight: 600;">Email *</label>
+                                    <input type="email" id="authEmail" required style="width: 100%; padding: 1rem; border: 1px solid #ddd; border-radius: 8px;">
+                                </div>
+                            </div>
+                            <div>
+                                <label for="authPassword" style="display: block; margin-bottom: 0.5rem; font-weight: 600;">Mot de passe *</label>
+                                <input type="password" id="authPassword" required minlength="6" style="width: 100%; padding: 1rem; border: 1px solid #ddd; border-radius: 8px;">
+                            </div>
+                            <button type="submit" class="auth-btn email-btn" style="width: 100;">
+                                📝 Créer un compte
+                            </button>
+                        </form>
+                    </div>
+
+                    <!-- تسجيل بجوجل -->
+                    <div id="googleAuth" class="auth-form">
+                        <div style="text-align: center; padding: 1rem;">
+                            <p style="margin-bottom: 1rem; color: #666;">Connectez-vous rapidement avec votre compte Google</p>
+                            <button class="auth-btn google-btn" onclick="commentSystem.signInWithGoogle()" style="width: 100%;">
+                                <span>🔐 Se connecter avec Google</span>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- نموذج كتابة التعليق -->
+            <div class="comment-form-container" id="commentFormContainer">
+                <h3 style="text-align: center; color: var(--primary); margin-bottom: 1rem;">Laissez votre avis sur Ali</h3>
+                <form id="commentForm" style="display: flex; flex-direction: column; gap: 1rem;">
+                    <div>
+                        <label for="commentRating" style="display: block; margin-bottom: 0.5rem; font-weight: 600;">Votre note *</label>
+                        <select id="commentRating" required style="width: 100%; padding: 1rem; border: 1px solid #ddd; border-radius: 8px;">
+                            <option value="">Choisissez votre note</option>
+                            <option value="5">⭐⭐⭐⭐⭐ Excellent</option>
+                            <option value="4">⭐⭐⭐⭐ Très bien</option>
+                            <option value="3">⭐⭐⭐ Bien</option>
+                            <option value="2">⭐⭐ Moyen</option>
+                            <option value="1">⭐ Pas satisfait</option>
+                        </select>
+                    </div>
+                    <div>
+                        <label for="commentText" style="display: block; margin-bottom: 0.5rem; font-weight: 600;">Votre expérience avec Ali *</label>
+                        <textarea id="commentText" required rows="4" placeholder="Partagez votre expérience avec Ali comme guide..." style="width: 100%; padding: 1rem; border: 1px solid #ddd; border-radius: 8px;"></textarea>
+                    </div>
+                    <button type="submit" style="background: var(--primary); color: white; border: none; padding: 1rem; border-radius: 8px; font-size: 1rem; cursor: pointer;">
+                        📤 Publier votre avis
+                    </button>
+                </form>
+            </div>
+
+            <!-- عرض التعليقات -->
+            <div class="comments-display">
+                <h3 style="text-align: center; color: var(--primary); margin-bottom: 1rem;">⭐ Avis des Clients sur Ali</h3>
+                <div id="commentsContainer">
+                    <div style="text-align: center; padding: 2rem; color: #666;">
+                        <p>🎯 Soyez le premier à laisser un avis sur Ali!</p>
+                        <p>Votre opinion compte pour nous</p>
+                    </div>
+                </div>
+                
+                <!-- زر تحميل المزيد -->
+                <div class="load-more-container" id="loadMoreContainer" style="display: none;">
+                    <button class="load-more-btn" id="loadMoreBtn" onclick="commentSystem.loadMoreComments()">
+                        📥 Charger plus d'avis
+                    </button>
+                </div>
+            </div>
         </div>
     </section>
 
@@ -638,88 +935,43 @@
         </div>
     </section>
 
-    <!-- FAQ Section -->
+    <!-- Booking Process -->
     <section class="section" style="background: var(--light);">
-        <h2 class="section-title">Questions Fréquentes</h2>
+        <h2 class="section-title">Processus de Réservation</h2>
         
-        <div class="faq-section">
-            <div class="faq-item">
-                <div class="faq-question">
-                    <span>💰 Comment sont calculés les prix ?</span>
-                    <span>+</span>
-                </div>
-                <div class="faq-answer">
-                    <p>Les prix varient selon plusieurs facteurs :</p>
-                    <ul style="margin: 1rem 0; padding-left: 2rem;">
-                        <li><strong>Type de randonnée</strong> : Standard ou expérience premium</li>
-                        <li><strong>Nombre de personnes</strong> : Tarifs dégressifs pour les groupes</li>
-                        <li><strong>Durée du trek</strong> : Plus longue = plus de services inclus</li>
-                        <li><strong>Saison</strong> : Haute saison vs basse saison</li>
-                        <li><strong>Options choisies</strong> : Hébergement, transport, etc.</li>
-                    </ul>
-                    <p>Je vous propose toujours un devis personnalisé après discussion de vos besoins.</p>
-                </div>
+        <div class="booking-process">
+            <div class="process-step">
+                <div class="step-number">1</div>
+                <h3>📞 Premier Contact</h3>
+                <p>Contactez-moi par WhatsApp, téléphone ou email</p>
             </div>
+            
+            <div class="process-step">
+                <div class="step-number">2</div>
+                <h3>💬 Discussion Détails</h3>
+                <p>Nous définissons vos dates, préférences et attentes</p>
+            </div>
+            
+            <div class="process-step">
+                <div class="step-number">3</div>
+                <h3>💰 Devis Personnalisé</h3>
+                <p>Je vous envoie un devis détaillé adapté à vos besoins</p>
+            </div>
+            
+            <div class="process-step">
+                <div class="step-number">4</div>
+                <h3>🎯 Confirmation</h3>
+                <p>Paiement après accord sur tous les détails</p>
+            </div>
+        </div>
 
-            <div class="faq-item">
-                <div class="faq-question">
-                    <span>⏱️ Quel est le délai de réponse ?</span>
-                    <span>+</span>
-                </div>
-                <div class="faq-answer">
-                    <p><strong>Je m'engage à vous répondre en moins de 24 heures</strong>, souvent même dans l'heure qui suit.</p>
-                    <p>Pour les contacts par WhatsApp, la réponse est généralement immédiate pendant les heures d'ouverture.</p>
-                </div>
-            </div>
-
-            <div class="faq-item">
-                <div class="faq-question">
-                    <span>💳 Quand dois-je payer ?</span>
-                    <span>+</span>
-                </div>
-                <div class="faq-answer">
-                    <p><strong>Le paiement s'effectue après que nous soyons tombés d'accord sur tous les détails</strong> :</p>
-                    <ul style="margin: 1rem 0; padding-left: 2rem;">
-                        <li>Itinéraire finalisé</li>
-                        <li>Dates confirmées</li>
-                        <li>Services inclus précisés</li>
-                        <li>Devis accepté</li>
-                    </ul>
-                    <p>Je ne demande jamais de paiement avant cette étape.</p>
-                </div>
-            </div>
-
-            <div class="faq-item">
-                <div class="faq-question">
-                    <span>🗣️ Parlez-vous anglais ?</span>
-                    <span>+</span>
-                </div>
-                <div class="faq-answer">
-                    <p><strong>Oui, je parle français et anglais couramment</strong>.</p>
-                    <p>Pour les discussions en anglais, vous pouvez utiliser :</p>
-                    <ul style="margin: 1rem 0; padding-left: 2rem;">
-                        <li>Le numéro WhatsApp anglais : +212 633-652721</li>
-                        <li>Les emails en anglais</li>
-                        <li>Les appels téléphoniques en anglais</li>
-                    </ul>
-                </div>
-            </div>
-
-            <div class="faq-item">
-                <div class="faq-question">
-                    <span>📅 Combien de temps à l'avance réserver ?</span>
-                    <span>+</span>
-                </div>
-                <div class="faq-answer">
-                    <p><strong>Je recommande de réserver au moins 2-3 mois à l'avance</strong>, surtout pour :</p>
-                    <ul style="margin: 1rem 0; padding-left: 2rem;">
-                        <li>Les hautes saisons (printemps et automne)</li>
-                        <li>Les groupes de plus de 4 personnes</li>
-                        <li>Les circuits sur mesure complexes</li>
-                    </ul>
-                    <p>Pour les dernières minutes, contactez-moi directement pour vérifier la disponibilité.</p>
-                </div>
-            </div>
+        <div style="text-align: center; margin-top: 2rem;">
+            <p style="font-size: 1.1rem; margin-bottom: 1rem;">
+                <strong>💎 Important : Le prix varie selon le type de randonnée et le nombre de personnes</strong>
+            </p>
+            <a href="https://wa.me/212661796117" class="btn btn-whatsapp" target="_blank">
+                💬 Commencer sur WhatsApp
+            </a>
         </div>
     </section>
 
@@ -778,6 +1030,49 @@
         </div>
     </footer>
 
+    <!-- نظام الترجمة -->
+    <script>
+        const translations = {
+            fr: {
+                "nav.home": "Accueil",
+                "nav.story": "Mon Histoire",
+                "nav.treks": "Randonnées", 
+                "nav.gallery": "Galerie",
+                "nav.contact": "Contact",
+                "contact.title": "Contact Direct"
+            },
+            en: {
+                "nav.home": "Home",
+                "nav.story": "My Story", 
+                "nav.treks": "Treks",
+                "nav.gallery": "Gallery",
+                "nav.contact": "Contact", 
+                "contact.title": "Direct Contact"
+            }
+        };
+
+        let currentLang = 'fr';
+
+        function updateLanguage(lang) {
+            currentLang = lang;
+            document.querySelectorAll('[data-translate]').forEach(element => {
+                const key = element.getAttribute('data-translate');
+                if (translations[lang] && translations[lang][key]) {
+                    element.textContent = translations[lang][key];
+                }
+            });
+            
+            if (lang === 'en') {
+                document.title = 'Contact - Adventure Treks with Ali | Response within 24h';
+            } else {
+                document.title = 'Contact - Adventure Treks avec Ali | Réponse sous 24h';
+            }
+            
+            localStorage.setItem('preferredLang', lang);
+        }
+    </script>
+
+    <!-- الأنظمة الرئيسية -->
     <script>
         // نظام التبديل بين الثيمات
         const themeToggle = document.getElementById('themeToggle');
@@ -797,54 +1092,27 @@
         document.documentElement.setAttribute('data-theme', savedTheme);
         themeIcon.textContent = savedTheme === 'light' ? '🌙' : '☀️';
 
-        // نظام FAQ
-        document.querySelectorAll('.faq-question').forEach(question => {
-            question.addEventListener('click', () => {
-                const faqItem = question.parentElement;
-                const isActive = faqItem.classList.contains('active');
-                
-                // إغلاق جميع العناصر
-                document.querySelectorAll('.faq-item').forEach(item => {
-                    item.classList.remove('active');
-                });
-                
-                // فتح العنصر الحالي إذا لم يكن مفتوحاً
-                if (!isActive) {
-                    faqItem.classList.add('active');
-                }
-            });
-        });
-
-        // نظام الفورم
-        document.getElementById('contactForm').addEventListener('submit', function(e) {
-            e.preventDefault();
-            
-            // هنا يمكن إضافة إرسال البيانات لخادم
-            // في الوقت الحالي، سنعرض رسالة نجاح
-            
-            document.getElementById('successMessage').style.display = 'block';
-            
-            // تمرير scroll لرسالة النجاح
-            document.getElementById('successMessage').scrollIntoView({ 
-                behavior: 'smooth' 
-            });
-            
-            // إعادة تعيين الفورم
-            this.reset();
-            
-            // إخفاء الرسالة بعد 10 ثواني
-            setTimeout(() => {
-                document.getElementById('successMessage').style.display = 'none';
-            }, 10000);
-        });
-
         // نظام اللغة
         document.querySelectorAll('.lang-btn').forEach(btn => {
             btn.addEventListener('click', function() {
                 document.querySelectorAll('.lang-btn').forEach(b => b.classList.remove('active'));
                 this.classList.add('active');
+                
+                const lang = this.dataset.lang;
+                updateLanguage(lang);
             });
         });
+
+        // تحميل اللغة المحفوظة
+        const savedLang = localStorage.getItem('preferredLang') || 'fr';
+        document.querySelectorAll('.lang-btn').forEach(btn => {
+            if (btn.dataset.lang === savedLang) {
+                btn.classList.add('active');
+            } else {
+                btn.classList.remove('active');
+            }
+        });
+        updateLanguage(savedLang);
 
         // Menu mobile
         document.getElementById('mobileMenuBtn').addEventListener('click', function() {
@@ -858,17 +1126,317 @@
             });
         });
 
-        // تحسين تجربة المستخدم للفورم
-        document.querySelectorAll('input, textarea, select').forEach(field => {
-            field.addEventListener('focus', function() {
-                this.style.borderColor = 'var(--primary)';
-                this.style.boxShadow = '0 0 0 3px rgba(46, 139, 87, 0.1)';
-            });
+        // نظام الفورم
+        document.getElementById('contactForm').addEventListener('submit', function(e) {
+            e.preventDefault();
             
-            field.addEventListener('blur', function() {
-                this.style.borderColor = '#e0e0e0';
-                this.style.boxShadow = 'none';
-            });
+            document.getElementById('successMessage').style.display = 'block';
+            
+            this.reset();
+            
+            setTimeout(() => {
+                document.getElementById('successMessage').style.display = 'none';
+            }, 5000);
+        });
+
+        // نظام التعليقات
+        class CommentSystem {
+            constructor() {
+                this.commentsLimit = 5;
+                this.lastVisible = null;
+                this.hasMoreComments = false;
+                this.init();
+            }
+
+            init() {
+                this.setupAuth();
+                this.setupForms();
+                this.loadComments();
+                this.setupRealTimeUpdates();
+            }
+
+            setupAuth() {
+                auth.onAuthStateChanged((user) => {
+                    this.updateAuthUI(user);
+                });
+            }
+
+            setupForms() {
+                const commentForm = document.getElementById('commentForm');
+                commentForm.addEventListener('submit', (e) => {
+                    e.preventDefault();
+                    this.submitComment();
+                });
+
+                const emailAuthForm = document.getElementById('emailAuthForm');
+                emailAuthForm.addEventListener('submit', (e) => {
+                    e.preventDefault();
+                    this.signUpWithEmail();
+                });
+            }
+
+            showAuthTab(tabName) {
+                document.querySelectorAll('.auth-tab').forEach(tab => {
+                    tab.classList.remove('active');
+                });
+                document.querySelectorAll('.auth-form').forEach(form => {
+                    form.classList.remove('active');
+                });
+
+                event.target.classList.add('active');
+                document.getElementById(tabName + 'Auth').classList.add('active');
+            }
+
+            updateAuthUI(user) {
+                const loginSection = document.getElementById('loginSection');
+                const userInfo = document.getElementById('userInfo');
+                const commentFormContainer = document.getElementById('commentFormContainer');
+
+                if (user) {
+                    loginSection.style.display = 'none';
+                    userInfo.style.display = 'block';
+                    commentFormContainer.classList.add('active');
+                    
+                    document.getElementById('userName').textContent = user.displayName || user.email;
+                    document.getElementById('userAvatar').textContent = (user.displayName || user.email).charAt(0).toUpperCase();
+                } else {
+                    loginSection.style.display = 'block';
+                    userInfo.style.display = 'none';
+                    commentFormContainer.classList.remove('active');
+                }
+            }
+
+            async signUpWithEmail() {
+                const name = document.getElementById('authName').value.trim();
+                const email = document.getElementById('authEmail').value.trim();
+                const password = document.getElementById('authPassword').value;
+
+                if (!name || !email || !password) {
+                    alert('Veuillez remplir tous les champs.');
+                    return;
+                }
+
+                try {
+                    const userCredential = await auth.createUserWithEmailAndPassword(email, password);
+                    await userCredential.user.updateProfile({
+                        displayName: name
+                    });
+                    
+                    alert('✅ Compte créé avec succès! Vous pouvez maintenant laisser un avis.');
+                    
+                } catch (error) {
+                    console.error('Error signing up:', error);
+                    if (error.code === 'auth/email-already-in-use') {
+                        alert('Cet email est déjà utilisé. Veuillez vous connecter.');
+                    } else {
+                        alert('Erreur de création de compte: ' + error.message);
+                    }
+                }
+            }
+
+            async signInWithGoogle() {
+                try {
+                    const provider = new firebase.auth.GoogleAuthProvider();
+                    await auth.signInWithPopup(provider);
+                } catch (error) {
+                    console.error('Error signing in:', error);
+                    alert('Erreur de connexion: ' + error.message);
+                }
+            }
+
+            async signOut() {
+                try {
+                    await auth.signOut();
+                    alert('Vous êtes déconnecté.');
+                } catch (error) {
+                    console.error('Error signing out:', error);
+                }
+            }
+
+            async submitComment() {
+                const user = auth.currentUser;
+                if (!user) {
+                    alert('Veuillez vous connecter pour laisser un avis.');
+                    return;
+                }
+
+                const rating = document.getElementById('commentRating').value;
+                const text = document.getElementById('commentText').value.trim();
+
+                if (!rating || !text) {
+                    alert('Veuillez remplir tous les champs obligatoires.');
+                    return;
+                }
+
+                try {
+                    const commentData = {
+                        authorName: user.displayName || user.email,
+                        rating: parseInt(rating),
+                        text: text,
+                        userId: user.uid,
+                        userEmail: user.email,
+                        createdAt: firebase.firestore.FieldValue.serverTimestamp(),
+                        updatedAt: firebase.firestore.FieldValue.serverTimestamp()
+                    };
+
+                    await db.collection('comments').add(commentData);
+                    
+                    document.getElementById('commentForm').reset();
+                    alert('✅ Merci pour votre avis! Votre commentaire a été publié avec succès.');
+                    
+                } catch (error) {
+                    console.error('Error submitting comment:', error);
+                    alert('⚠️ Une erreur est survenue lors de la publication de votre commentaire.');
+                }
+            }
+
+            async loadComments() {
+                try {
+                    let query = db.collection('comments')
+                        .orderBy('createdAt', 'desc')
+                        .limit(this.commentsLimit);
+
+                    const snapshot = await query.get();
+                    
+                    this.displayComments(snapshot.docs);
+                    this.updateLoadMoreButton(snapshot);
+                    
+                } catch (error) {
+                    console.error('Error loading comments:', error);
+                }
+            }
+
+            async loadMoreComments() {
+                try {
+                    let query = db.collection('comments')
+                        .orderBy('createdAt', 'desc')
+                        .startAfter(this.lastVisible)
+                        .limit(this.commentsLimit);
+
+                    const snapshot = await query.get();
+                    
+                    if (!snapshot.empty) {
+                        this.displayComments(snapshot.docs, true);
+                        this.updateLoadMoreButton(snapshot);
+                    }
+                    
+                } catch (error) {
+                    console.error('Error loading more comments:', error);
+                }
+            }
+
+            updateLoadMoreButton(snapshot) {
+                const loadMoreContainer = document.getElementById('loadMoreContainer');
+                const loadMoreBtn = document.getElementById('loadMoreBtn');
+                
+                if (snapshot.size >= this.commentsLimit) {
+                    this.lastVisible = snapshot.docs[snapshot.docs.length - 1];
+                    this.hasMoreComments = true;
+                    loadMoreContainer.style.display = 'block';
+                    loadMoreBtn.disabled = false;
+                } else {
+                    this.hasMoreComments = false;
+                    loadMoreContainer.style.display = 'none';
+                }
+            }
+
+            setupRealTimeUpdates() {
+                db.collection('comments')
+                    .orderBy('createdAt', 'desc')
+                    .limit(this.commentsLimit)
+                    .onSnapshot((snapshot) => {
+                        this.displayComments(snapshot.docs);
+                        this.updateLoadMoreButton(snapshot);
+                    }, (error) => {
+                        console.error('Real-time update error:', error);
+                    });
+            }
+
+            displayComments(commentDocs, append = false) {
+                const container = document.getElementById('commentsContainer');
+                const user = auth.currentUser;
+                
+                if (commentDocs.length === 0 && !append) {
+                    container.innerHTML = `
+                        <div style="text-align: center; padding: 2rem; color: #666;">
+                            <p>🎯 Soyez le premier à laisser un avis sur Ali!</p>
+                            <p>Votre opinion compte pour nous</p>
+                        </div>
+                    `;
+                    return;
+                }
+
+                let commentsHTML = append ? container.innerHTML : '';
+                
+                commentDocs.forEach(doc => {
+                    const comment = doc.data();
+                    const commentId = doc.id;
+                    const isOwner = user && comment.userId === user.uid;
+                    const stars = '★'.repeat(comment.rating) + '☆'.repeat(5 - comment.rating);
+                    const date = comment.createdAt ? comment.createdAt.toDate().toLocaleDateString('fr-FR') : 'Date inconnue';
+                    
+                    commentsHTML += `
+                        <div class="comment-item">
+                            <div class="comment-header">
+                                <div>
+                                    <div class="comment-author">${comment.authorName}</div>
+                                    <div class="comment-date">${date}</div>
+                                </div>
+                                <div class="comment-rating">${stars}</div>
+                            </div>
+                            <div class="comment-text">${comment.text}</div>
+                            ${isOwner ? `
+                                <div class="comment-actions">
+                                    <button onclick="commentSystem.editComment('${commentId}', '${comment.text.replace(/'/g, "\\'")}')" 
+                                            style="background: #28a745; color: white; border: none; padding: 0.5rem 1rem; border-radius: 4px; margin-left: 0.5rem; cursor: pointer; font-size: 0.8rem;">
+                                        ✏️ Modifier
+                                    </button>
+                                    <button onclick="commentSystem.deleteComment('${commentId}')" 
+                                            style="background: #dc3545; color: white; border: none; padding: 0.5rem 1rem; border-radius: 4px; cursor: pointer; font-size: 0.8rem;">
+                                        🗑️ Supprimer
+                                    </button>
+                                </div>
+                            ` : ''}
+                        </div>
+                    `;
+                });
+
+                container.innerHTML = commentsHTML;
+            }
+
+            async editComment(commentId, currentText) {
+                const newText = prompt('Modifiez votre commentaire:', currentText);
+                if (newText && newText !== currentText) {
+                    try {
+                        await db.collection('comments').doc(commentId).update({
+                            text: newText,
+                            updatedAt: firebase.firestore.FieldValue.serverTimestamp()
+                        });
+                        alert('✅ Votre commentaire a été modifié avec succès!');
+                    } catch (error) {
+                        console.error('Error updating comment:', error);
+                        alert('⚠️ Une erreur est survenue lors de la modification.');
+                    }
+                }
+            }
+
+            async deleteComment(commentId) {
+                if (confirm('Êtes-vous sûr de vouloir supprimer cet avis?')) {
+                    try {
+                        await db.collection('comments').doc(commentId).delete();
+                        alert('✅ Votre commentaire a été supprimé avec succès!');
+                    } catch (error) {
+                        console.error('Error deleting comment:', error);
+                        alert('⚠️ Une erreur est survenue lors de la suppression.');
+                    }
+                }
+            }
+        }
+
+        // بدء نظام التعليقات
+        let commentSystem;
+        document.addEventListener('DOMContentLoaded', function() {
+            commentSystem = new CommentSystem();
         });
     </script>
 </body>
