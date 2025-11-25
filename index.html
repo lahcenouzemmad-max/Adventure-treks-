@@ -4,22 +4,16 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Adventure Treks avec Ali - Guide Personnel Maroc | Toubkal, Vallée des Roses, Désert</title>
-    <meta name="description" content="Ali Ouzemmad - Guide berbère 30+ ans d'expérience. Randonnées authentiques dans l'Atlas et le désert. Circuits 100% personnalisés.">
-    <meta name="keywords" content="ali ouzemmad, guide maroc, toubkal, vallée des roses, désert merzouga, randonnée atlas">
+    <meta name="description" content="Ali Ouzemmad - Guide berbère 30+ ans d'expérience. Randonnées authentiques Atlas & Désert.">
+    <meta name="keywords" content="guide maroc, trekking atlas, désert merzouga, ali ouzemmad, toubkal, vallée des roses">
     <meta name="google-site-verification" content="lO7Zv3yvFMllSxhb23p6rD6T18m6jz2J6pHPX3ahEZE" />
-    <meta property="og:title" content="Adventure Treks avec Ali - Guide Personnel Maroc">
-    <meta property="og:description" content="30+ ans d'expérience - Votre guide personnel dans l'Atlas et le désert">
-    <meta property="og:image" content="https://drive.google.com/thumbnail?id=1tqwm60wwjHRde-aUKcnUUf9WJrMGbjla&sz=w1200">
-    <meta property="og:url" content="https://adventure-treks.vercel.app">
-
     <style>
-        :root{--p:#27AE60;--s:#2E86C1;--d:#1B4F72;--lg:#EAFAF1;--sh:0 10px 30px rgba(0,0,0,0.1);--r:16px;--tr:all .3s ease}
+        :root{--p:#27AE60;--d:#1B4F72;--lg:#EAFAF1;--sh:0 10px 30px rgba(0,0,0,0.1);--r:16px;--tr:all .3s ease}
         *{margin:0;padding:0;box-sizing:border-box}
         body{font-family:'Segoe UI',sans-serif;line-height:1.7;color:#333;background:#f8f9fa;scroll-behavior:smooth}
         .c{max-width:1280px;margin:auto;padding:0 1rem}
         .top{background:var(--d);color:#fff;padding:.6rem 0;font-size:.95rem}
         .top .c{display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:1rem}
-        .lang{display:flex;background:rgba(255,255,255,.15);border-radius:30px;overflow:hidden}
         .lang button{padding:.5rem 1rem;background:none;border:none;color:#fff;cursor:pointer;font-weight:600}
         .lang button.active{background:var(--p)}
         nav{background:#fff;padding:1rem 0;position:sticky;top:0;z-index:1000;box-shadow:var(--sh)}
@@ -36,7 +30,7 @@
         .btn:hover{transform:translateY(-5px);box-shadow:0 15px 40px rgba(0,0,0,.35)}
         .sec{padding:90px 0}
         .st{text-align:center;font-size:2.8rem;margin-bottom:3rem;color:var(--d);position:relative}
-        .st::after{content:'';width:100px;height:5px;background:var(--p);position:absolute;bottom:-15px;left:50%;transform:translateX(-50%);border-radius:3px}
+        .st::after{content:'';width:100px;height:5px;background:var(--p);position:absolute;bottom:-15px;left:50%;transform:translateX(-50%)}
         .guide{background:#fff;border-radius:var(--r);overflow:hidden;box-shadow:var(--sh);padding:3rem;display:flex;flex-wrap:wrap;gap:3rem;align-items:center}
         .gp{width:320px;height:320px;border-radius:50%;object-fit:cover;border:10px solid var(--p);box-shadow:var(--sh)}
         .expgrid{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:1.5rem;margin-top:2rem}
@@ -61,22 +55,17 @@
         .tcon ul{list-style:none;margin:1rem 0}
         .tcon li{padding:.4rem 0;position:relative;padding-left:1.8rem}
         .tcon li::before{content:'✓';position:absolute;left:0;color:var(--p);font-weight:bold}
-        .rev{background:linear-gradient(135deg,#f8f9fa,#e8f5e8);padding:90px 0}
+        .rev{background:linear-gradient(135deg,#f8f9fa,#e8f5e8)}
         .formc,.comc{background:#fff;padding:3rem;border-radius:var(--r);box-shadow:var(--sh);max-width:900px;margin:auto}
-        .formc h3{margin-bottom:1.5rem}
         .cg{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:2rem;margin-top:3rem}
-        .cc{background:#fff;padding:2.5rem;border-radius:var(--r);text-align:center;box-shadow:var(--sh);border-top:6px solid var(--p);transition:var(--tr)}
-        .cc:hover{transform:translateY(-10px)}
-        .wa{background:#25D366;color:#fff;padding:14px 32px;border-radius:50px;text-decoration:none;display:inline-block;margin-top:1rem;font-weight:700;transition:var(--tr)}
+        .cc{background:#fff;padding:2.5rem;border-radius:var(--r);text-align:center;box-shadow:var(--sh);border-top:6px solid var(--p)}
+        .wa{background:#25D366;color:#fff;padding:14px 32px;border-radius:50px;text-decoration:none;display:inline-block;margin-top:1rem;font-weight:700}
         .wa:hover{background:#128C7E}
         footer{background:var(--d);color:#fff;text-align:center;padding:4rem 1rem}
         @media(max-width:992px){.hero h1{font-size:3rem}.guide{flex-direction:column;text-align:center}}
         @media(max-width:768px){
-            .hero h1{font-size:2.5rem}.hero p{font-size:1.2rem}
-            .links{display:none;position:absolute;top:100%;left:0;right:0;background:#fff;flex-direction:column;padding:1rem;box-shadow:var(--sh)}
-            .links.active{display:flex}
-            .mob{display:block}
-            .gi{flex:0 0 85%}
+            .hero h1{font-size:2.5rem}.links{display:none;position:absolute;top:100%;left:0;right:0;background:#fff;flex-direction:column;padding:1rem;box-shadow:var(--sh)}
+            .links.active{display:flex}.mob{display:block}.gi{flex:0 0 85%}
         }
     </style>
 </head>
@@ -97,21 +86,21 @@
             <a href="#" class="logo">Adventure Treks avec Ali</a>
             <div class="mob">☰</div>
             <ul class="links">
-                <li><a href="#accueil" data-key="home">Accueil</a></li>
-                <li><a href="#histoire" data-key="story">Mon Histoire</a></li>
-                <li><a href="#treks" data-key="treks">Randonnées</a></li>
-                <li><a href="#gallery" data-key="gallery">Galerie</a></li>
-                <li><a href="#avis" data-key="reviews">Avis</a></li>
-                <li><a href="#contact" data-key="contact">Contact</a></li>
+                <li><a href="#accueil">Accueil</a></li>
+                <li><a href="#histoire">Mon Histoire</a></li>
+                <li><a href="#treks">Randonnées</a></li>
+                <li><a href="#gallery">Galerie</a></li>
+                <li><a href="#avis">Avis</a></li>
+                <li><a href="#contact">Contact</a></li>
             </ul>
         </div>
     </nav>
 
     <section class="hero" id="accueil">
         <div class="c">
-            <h1 data-key="hero_title">Randonnées Inoubliables avec Ali</h1>
-            <p data-key="hero_sub">30+ ans d'expérience dans les montagnes et déserts du Maroc. Votre guide personnel pour des aventures authentiques et des souvenirs éternels.</p>
-            <a href="#custom-request" class="btn" data-key="cta">Créer mon circuit sur mesure</a>
+            <h1>Randonnées Inoubliables avec Ali</h1>
+            <p>30+ ans d'expérience dans les montagnes et déserts du Maroc. Votre guide personnel pour des aventures authentiques et des souvenirs éternels.</p>
+            <a href="#custom-request" class="btn">Créer mon circuit sur mesure</a>
         </div>
     </section>
 
@@ -122,7 +111,7 @@
                 <img src="https://drive.google.com/thumbnail?id=1zpuQMHPk4oemXJgLtzwsrlJ7z0C5LNU0&sz=w1000" alt="Ali Ouzemmad" class="gp">
                 <div>
                     <p style="font-size:1.15rem;color:#555;margin-bottom:1.5rem">
-                        Ali Ouzemmad, fils de la Vallée des Roses. Depuis l'enfance, il a parcouru les sentiers des montagnes de M'goun. Plus de 30 ans d'expérience à accompagner des voyageurs du monde entier pour créer des souvenirs inoubليables et des relations de confiance.
+                        Ali Ouzemmad, fils de la Vallée des Roses. Depuis l'enfance, il a parcouru les sentiers des montagnes de M'goun. Plus de 30 ans d'expérience à accompagner des voyageurs du monde entier pour créer des souvenirs inoubliables et des relations de confiance.
                     </p>
                     <div class="expgrid">
                         <div class="expi">Fils des Montagnes<br>Né et élevé dans l'Atlas</div>
@@ -143,8 +132,8 @@
             <h2 class="st">Nos Randonnées Authentiques</h2>
             <div class="filters">
                 <button class="fb active" data-duration="all">Toutes</button>
-                <button class="fb" data-duration="short">Courtes (3-6 jours)</button>
-                <button class="fb" data-duration="long">Longues (7+ jours)</button>
+                <button class="fb" data-duration="short">Courtes</button>
+                <button class="fb" data-duration="long">Longues</button>
             </div>
             <div class="tg">
                 <div class="tc" data-duration="short">
@@ -160,7 +149,6 @@
                         <a href="#custom-request" class="btn" style="font-size:.95rem;padding:11px 24px">Demander un devis</a>
                     </div>
                 </div>
-
                 <div class="tc" data-duration="short">
                     <div class="ti"><img src="https://drive.google.com/thumbnail?id=1xRX5S_f4Hbg9snrmAoYIxqArNNrallQP&sz=w1000" alt="Vallée des Roses"></div>
                     <div class="tdur">3-6 jours</div>
@@ -174,7 +162,6 @@
                         <a href="#custom-request" class="btn" style="font-size:.95rem;padding:11px 24px">Demander un devis</a>
                     </div>
                 </div>
-
                 <div class="tc" data-duration="long">
                     <div class="ti"><img src="https://drive.google.com/thumbnail?id=1mfvWu486bDY5Cl7dQIjY2GLL-ZiHT4rF&sz=w1000" alt="Désert"></div>
                     <div class="tdur">8 jours</div>
@@ -232,13 +219,10 @@
             <form id="custom" style="max-width:800px;margin:auto;background:#fff;padding:3rem;border-radius:var(--r);box-shadow:var(--sh)">
                 <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:1rem">
                     <input type="text" id="cname" placeholder="Votre nom" required>
-                    <input type="email" id="cemail" placeholder="Email" required>
                     <input type="tel" id="cphone" placeholder="Téléphone WhatsApp" required>
                     <input type="date" id="cdate" required>
-                    <select id="cdur"><option>Durée</option><option>3-5 jours</option><option>6-8 jours</option><option>9+ jours</option></select>
-                    <select id="cper"><option>Personnes</option><option>1-2</option><option>3-6</option><option>7+</option></select>
+                    <textarea id="cmsg" placeholder="Vos envies, niveau physique, sites préférés..." style="width:100%;height:140px;margin:1.5rem 0;padding:15px;border-radius:8px;border:1px solid #ddd"></textarea>
                 </div>
-                <textarea id="cmsg" placeholder="Vos envies, niveau physique, sites préférés..." style="width:100%;height:140px;margin:1.5rem 0;padding:15px;border-radius:8px;border:1px solid #ddd"></textarea>
                 <button type="submit" class="btn" style="width:100%;padding:16px;font-size:1.2rem">Envoyer sur WhatsApp</button>
             </form>
         </div>
@@ -269,14 +253,13 @@
 
     <footer>
         <div class="c">
-            <p>&copy; 2025 Adventure Treks avec Ali - Guide Personnel Maroc | Vallée des Roses, Kelaat M'gouna</p>
+            <p>© 2025 Adventure Treks avec Ali - Guide Personnel Maroc | Vallée des Roses</p>
         </div>
     </footer>
 
     <script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-app-compat.js"></script>
     <script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-auth-compat.js"></script>
     <script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-firestore-compat.js"></script>
-
     <script>
         const firebaseConfig = {
           apiKey: "AIzaSyB8vJ6x9qYc8Z8Z2k8Y9vW7uT5rS3qP1oN",
@@ -290,18 +273,16 @@
         const db = firebase.firestore();
         const auth = firebase.auth();
 
-        const tr = {fr:{home:"Accueil",story:"Mon Histoire",treks:"Randonnées",gallery:"Galerie",reviews:"Avis",contact:"Contact",cta:"Créer mon circuit sur mesure",hero_title:"Randonnées Inoubliables avec Ali",hero_sub:"30+ ans d'expérience dans les montagnes et déserts du Maroc. Votre guide personnel pour des aventures authentiques et des souvenirs éternels."},en:{home:"Home",story:"My Story",treks:"Treks",gallery:"Gallery",reviews:"Reviews",contact:"Contact",cta:"Create my custom trip",hero_title:"Unforgettable Treks with Ali",hero_sub:"30+ years guiding in Morocco's mountains and deserts. Your personal guide for authentic adventures."}};
-
-        document.querySelectorAll('.lang button').forEach(b=>b.addEventListener('click',()=>{document.querySelectorAll('.lang button').forEach(x=>x.classList.remove('active'));b.classList.add('active');const l=b.dataset.lang;document.querySelectorAll('[data-key]').forEach(e=>e.textContent=tr[l][e.dataset.key]||e.textContent)}));
         document.querySelector('.mob').addEventListener('click',()=>document.querySelector('.links').classList.toggle('active'));
+        document.querySelectorAll('.lang button').forEach(b=>b.addEventListener('click',()=>{document.querySelectorAll('.lang button').forEach(x=>x.classList.remove('active'));b.classList.add('active')}));
         document.querySelectorAll('.fb').forEach(b=>b.addEventListener('click',()=>{document.querySelectorAll('.fb').forEach(x=>x.classList.remove('active'));b.classList.add('active');const d=b.dataset.duration;document.querySelectorAll('.tc').forEach(c=>c.style.display=(d==='all'||c.dataset.duration===d)?'block':'none')}));
         document.querySelectorAll('.star').forEach(s=>s.addEventListener('click',()=>{document.getElementById('rating').value=s.dataset.value;document.querySelectorAll('.star').forEach(x=>x.style.color='#ddd');for(let i=1;i<=s.dataset.value;i++)document.querySelector(`.star[data-value="${i}"]`).style.color='#f39c12'}));
-        document.getElementById('custom').addEventListener('submit',e=>{e.preventDefault();const n=document.getElementById('cname').value,p=document.getElementById('cphone').value,t=encodeURIComponent(`Bonjour Ali,\nJe m'appelle \( {n}\n \){document.getElementById('cmsg').value}\nDate: \( {document.getElementById('cdate').value}\nDurée: \){document.getElementById('cdur').value}\nPersonnes: \( {document.getElementById('cper').value}\nWhatsApp: \){p}`);window.open(`https://wa.me/212661796117?text=${t}`,'_blank')});
-        document.getElementById('google').addEventListener('click',()=>{new firebase.auth.GoogleAuthProvider();auth.signInWithPopup(new firebase.auth.GoogleAuthProvider())});
+        document.getElementById('custom').addEventListener('submit',e=>{e.preventDefault();const n=document.getElementById('cname').value,p=document.getElementById('cphone').value,m=document.getElementById('cmsg').value,d=document.getElementById('cdate').value;const t=encodeURIComponent(`Bonjour Ali,\nNom: \( {n}\nTéléphone: \){p}\nDate: \( {d}\nMessage: \){m}`);window.open(`https://wa.me/212661796117?text=${t}`,'_blank')});
+        document.getElementById('google').addEventListener('click',()=>{const provider=new firebase.auth.GoogleAuthProvider();auth.signInWithPopup(provider)});
         auth.onAuthStateChanged(u=>{if(u){document.getElementById('auth').style.display='none';document.getElementById('review').style.display='block'}});
-        document.getElementById('review').addEventListener('submit',e=>{e.preventDefault();db.collection('reviews').add({name:document.getElementById('name').value,message:document.getElementById('msg').value,rating:document.getElementById('rating').value,timestamp:firebase.firestore.FieldValue.serverTimestamp()}).then(()=>{document.getElementById('review').reset();load()})});
-        function load(){db.collection('reviews').orderBy('timestamp','desc').onSnapshot(s=>{const c=document.getElementById('comments');c.innerHTML='';s.forEach(d=>{const r=d.data();const div=document.createElement('div');div.style='background:#f9f9f9;padding:1.5rem;margin:1rem 0;border-radius:12px;border-left:5px solid var(--p)';div.innerHTML=`<strong>\( {r.name}</strong> <span style="color:#f39c12"> \){'★'.repeat(r.rating)}</span><br><small>\( {new Date(r.timestamp?.toDate()).toLocaleDateString('fr-FR')}</small><p style="margin-top:.8rem"> \){r.message}</p>`;c.appendChild(div)})})}
-        load();
+        document.getElementById('review').addEventListener('submit',e=>{e.preventDefault();db.collection('reviews').add({name:document.getElementById('name').value,message:document.getElementById('msg').value,rating:document.getElementById('rating').value,timestamp:firebase.firestore.FieldValue.serverTimestamp()}).then(()=>{document.getElementById('review').reset();loadReviews()})});
+        function loadReviews(){db.collection('reviews').orderBy('timestamp','desc').onSnapshot(s=>{const c=document.getElementById('comments');c.innerHTML='';s.forEach(d=>{const r=d.data();const div=document.createElement('div');div.style='background:#f9f9f9;padding:1.5rem;margin:1rem 0;border-radius:12px;border-left:5px solid var(--p)';div.innerHTML=`<strong>\( {r.name}</strong> <span style="color:#f39c12"> \){'★'.repeat(r.rating)}</span><br><small>\( {new Date(r.timestamp?.toDate()).toLocaleDateString('fr-FR')}</small><p style="margin-top:.8rem"> \){r.message}</p>`;c.appendChild(div)})})}
+        loadReviews();
     </script>
 </body>
 </html>
