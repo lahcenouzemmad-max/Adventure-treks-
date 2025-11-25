@@ -5,9 +5,18 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Randonnées & Treks - Ali Ouzemmad | Circuits Personnalisés Maroc</title>
     
-    <meta name="description" content="Découvrez nos randonnées personnalisées : Trekking Toubkal, Vallée des Roses, Désert Merzouga. Prix adaptés selon vos besoins avec Ali, guide expert 30+ ans.">
-    <meta name="keywords" content="randonnées maroc, trekking toubkal, désert merzouga, vallée des roses, prix randonnées, guide personnel, circuits sur mesure">
+    <meta name="description" content="Découvrez nos randonnées personnalisées : Trekking Toubkal, Vallée des Roses, Désert Merzouga, Mgoun. Prix adaptés selon vos besoins avec Ali, guide expert 30+ ans.">
+    <meta name="keywords" content="randonnées maroc, trekking toubkal, désert merzouga, vallée des roses, prix randonnées, guide personnel, circuits sur mesure, mgoun trek">
     
+    <!-- Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-XXXXXXXXXX"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        gtag('config', 'G-XXXXXXXXXX');
+    </script>
+
     <style>
         /* أنماط الصفحة الرئيسية - نفس index.html */
         :root {
@@ -324,6 +333,143 @@
             margin: 0 auto 1rem;
         }
 
+        /* نظام الحجز المتقدم */
+        .booking-wizard {
+            background: var(--light);
+            border-radius: 20px;
+            padding: 3rem;
+            box-shadow: var(--shadow-xl);
+            margin: 4rem 0;
+        }
+
+        .wizard-steps {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 3rem;
+            position: relative;
+        }
+
+        .wizard-steps::before {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 0;
+            right: 0;
+            height: 2px;
+            background: var(--gray);
+            z-index: 1;
+        }
+
+        .wizard-step {
+            position: relative;
+            z-index: 2;
+            background: var(--light);
+            padding: 1rem;
+            border-radius: 50%;
+            width: 60px;
+            height: 60px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border: 2px solid var(--gray);
+            transition: all 0.3s ease;
+            font-weight: bold;
+        }
+
+        .wizard-step.active {
+            border-color: var(--primary);
+            background: var(--primary);
+            color: white;
+        }
+
+        .wizard-step.completed {
+            border-color: var(--primary);
+            background: var(--primary);
+            color: white;
+        }
+
+        .wizard-content {
+            display: none;
+        }
+
+        .wizard-content.active {
+            display: block;
+            animation: fadeIn 0.5s ease;
+        }
+
+        .form-group {
+            margin-bottom: 1.5rem;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 0.5rem;
+            font-weight: 600;
+        }
+
+        .form-group input,
+        .form-group select,
+        .form-group textarea {
+            width: 100%;
+            padding: 1rem;
+            border: 2px solid #e0e0e0;
+            border-radius: 10px;
+            font-size: 1rem;
+            transition: border-color 0.3s ease;
+        }
+
+        .form-group input:focus,
+        .form-group select:focus,
+        .form-group textarea:focus {
+            border-color: var(--primary);
+            outline: none;
+        }
+
+        .form-row {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1rem;
+        }
+
+        .language-selection {
+            display: flex;
+            gap: 1rem;
+            margin-bottom: 1rem;
+        }
+
+        .language-option {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            padding: 1rem;
+            border: 2px solid #ddd;
+            border-radius: 10px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            flex: 1;
+        }
+
+        .language-option.active {
+            border-color: var(--primary);
+            background: rgba(46, 139, 87, 0.1);
+        }
+
+        .wizard-navigation {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 2rem;
+        }
+
+        .success-message {
+            background: #d4edda;
+            color: #155724;
+            padding: 2rem;
+            border-radius: 10px;
+            text-align: center;
+            margin: 2rem 0;
+            display: none;
+        }
+
         .footer {
             background: var(--dark);
             color: white;
@@ -368,6 +514,20 @@
                 flex-direction: column;
                 align-items: center;
             }
+
+            .form-row {
+                grid-template-columns: 1fr;
+            }
+
+            .wizard-steps {
+                flex-direction: column;
+                gap: 1rem;
+                align-items: center;
+            }
+
+            .wizard-steps::before {
+                display: none;
+            }
         }
     </style>
 </head>
@@ -409,7 +569,7 @@
 
     <!-- Treks Hero Section -->
     <section class="treks-hero">
-        <h1>Nos Randonnées</h1>
+        <h1 data-translate="treks.title">Nos Randonnées</h1>
         <p style="font-size: 1.3rem; margin-bottom: 2rem;">
             Des aventures personnalisées avec votre guide Ali - 30 ans d'expérience
         </p>
@@ -476,10 +636,9 @@
                             <p>Varie selon saison, nombre de personnes et options choisies</p>
                         </div>
 
-                        <a href="https://wa.me/212661796117?text=Bonjour%20Ali,%20je%20suis%20intéressé%20par%20le%20Trekking%20Toubkal%20Express" 
-                           class="btn btn-whatsapp" style="width: 100%; text-align: center; justify-content: center;" target="_blank">
-                           💬 Demander un Devis sur WhatsApp
-                        </a>
+                        <button class="btn btn-whatsapp" style="width: 100%; text-align: center; justify-content: center;" onclick="startBooking('toubkal')">
+                            💬 Réserver Cette Randonnée
+                        </button>
                     </div>
                 </div>
 
@@ -520,10 +679,9 @@
                             <p>Prix variable selon hébergement et nombre de participants</p>
                         </div>
 
-                        <a href="https://wa.me/212661796117?text=Bonjour%20Ali,%20je%20suis%20intéressé%20par%20la%20Vallée%20des%20Roses" 
-                           class="btn btn-whatsapp" style="width: 100%; text-align: center; justify-content: center;" target="_blank">
-                           💬 Demander un Devis sur WhatsApp
-                        </a>
+                        <button class="btn btn-whatsapp" style="width: 100%; text-align: center; justify-content: center;" onclick="startBooking('roses')">
+                            💬 Réserver Cette Randonnée
+                        </button>
                     </div>
                 </div>
 
@@ -564,10 +722,9 @@
                             <p>Prix selon options et taille du groupe</p>
                         </div>
 
-                        <a href="https://wa.me/212661796117?text=Bonjour%20Ali,%20je%20suis%20intéressé%20par%20le%20Désert%20Merzouga" 
-                           class="btn btn-whatsapp" style="width: 100%; text-align: center; justify-content: center;" target="_blank">
-                           💬 Demander un Devis sur WhatsApp
-                        </a>
+                        <button class="btn btn-whatsapp" style="width: 100%; text-align: center; justify-content: center;" onclick="startBooking('desert')">
+                            💬 Réserver Cette Randonnée
+                        </button>
                     </div>
                 </div>
             </div>
@@ -582,7 +739,7 @@
 
             <div class="treks-grid">
                 <!-- Grand Mgoun -->
-                <div class="trek-card">
+                <div class="trek-card" id="mgoun">
                     <div class="trek-header" style="background: linear-gradient(135deg, #43e97b, #38f9d7);">
                         <h3>⛰️ Grand Mgoun</h3>
                         <div class="trek-duration">8 JOURS</div>
@@ -618,10 +775,95 @@
                             <p>Devis personnalisé selon vos dates et préférences</p>
                         </div>
 
-                        <a href="https://wa.me/212661796117?text=Bonjour%20Ali,%20je%20suis%20intéressé%20par%20le%20Grand%20Mgoun" 
-                           class="btn btn-whatsapp" style="width: 100%; text-align: center; justify-content: center;" target="_blank">
-                           💬 Demander un Devis sur WhatsApp
-                        </a>
+                        <button class="btn btn-whatsapp" style="width: 100%; text-align: center; justify-content: center;" onclick="startBooking('mgoun')">
+                            💬 Réserver Cette Randonnée
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Atlas & Desert Combo -->
+                <div class="trek-card" id="atlas-desert">
+                    <div class="trek-header" style="background: linear-gradient(135deg, #ff9a9e, #fecfef);">
+                        <h3>🌄 Atlas & Désert</h3>
+                        <div class="trek-duration">10 JOURS</div>
+                    </div>
+                    <div class="trek-content">
+                        <h4>Combiné Montagne et Désert</h4>
+                        <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; margin: 1.5rem 0;">
+                            <div>
+                                <strong>⏱️ Durée:</strong><br>10 jours / 9 nuits
+                            </div>
+                            <div>
+                                <strong>📈 Difficulté:</strong><br>Intermédiaire
+                            </div>
+                            <div>
+                                <strong>👥 Groupe:</strong><br>2-8 personnes
+                            </div>
+                            <div>
+                                <strong>🌍 Diversité:</strong><br>Multi-paysages
+                            </div>
+                        </div>
+                        
+                        <ul class="trek-features">
+                            <li>Trekking dans le Haut Atlas</li>
+                            <li>Traversée des gorges de Dades et Todra</li>
+                            <li>2 nuits en bivouac dans le désert</li>
+                            <li>Visite de la Vallée des Roses</li>
+                            <li>Rencontres culturelles authentiques</li>
+                            <li>Hébergement varié (refuge, bivouac, hôtel)</li>
+                        </ul>
+
+                        <div class="price-info">
+                            <strong>💰 À Partir de 4500 MAD/personne</strong>
+                            <p>Prix complet selon options choisies</p>
+                        </div>
+
+                        <button class="btn btn-whatsapp" style="width: 100%; text-align: center; justify-content: center;" onclick="startBooking('atlas-desert')">
+                            💬 Réserver Cette Randonnée
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Berber Villages Trek -->
+                <div class="trek-card" id="berber">
+                    <div class="trek-header" style="background: linear-gradient(135deg, #a8edea, #fed6e3);">
+                        <h3>🏞️ Villages Berbères</h3>
+                        <div class="trek-duration">7 JOURS</div>
+                    </div>
+                    <div class="trek-content">
+                        <h4>Immersion Culturelle Authentique</h4>
+                        <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; margin: 1.5rem 0;">
+                            <div>
+                                <strong>⏱️ Durée:</strong><br>7 jours / 6 nuits
+                            </div>
+                            <div>
+                                <strong>📈 Difficulté:</strong><br>Débutant
+                            </div>
+                            <div>
+                                <strong>👥 Groupe:</strong><br>2-12 personnes
+                            </div>
+                            <div>
+                                <strong>🎯 Focus:</strong><br>Culture & Rencontres
+                            </div>
+                        </div>
+                        
+                        <ul class="trek-features">
+                            <li>Rencontre avec les communautés berbères</li>
+                            <li>Nuits chez l'habitant authentique</li>
+                            <li>Participation à la vie quotidienne</li>
+                            <li>Cuisine traditionnelle berbère</li>
+                            <li>Artisanat local et traditions</li>
+                            <li>Randonnées douces entre villages</li>
+                        </ul>
+
+                        <div class="price-info">
+                            <strong>💰 À Partir de 2800 MAD/personne</strong>
+                            <p>Expérience culturelle immersive</p>
+                        </div>
+
+                        <button class="btn btn-whatsapp" style="width: 100%; text-align: center; justify-content: center;" onclick="startBooking('berber')">
+                            💬 Réserver Cette Randonnée
+                        </button>
                     </div>
                 </div>
             </div>
@@ -636,7 +878,7 @@
 
             <div class="treks-grid">
                 <!-- Expédition Drâa -->
-                <div class="trek-card">
+                <div class="trek-card" id="draa">
                     <div class="trek-header" style="background: linear-gradient(135deg, #fa709a, #fee140);">
                         <h3>🌄 Expédition Drâa</h3>
                         <div class="trek-duration">12 JOURS</div>
@@ -673,10 +915,53 @@
                             <p>Circuit modulable selon vos centres d'intérêt</p>
                         </div>
 
-                        <a href="https://wa.me/212661796117?text=Bonjour%20Ali,%20je%20suis%20intéressé%20par%20l'Expédition%20Drâa" 
-                           class="btn btn-whatsapp" style="width: 100%; text-align: center; justify-content: center;" target="_blank">
-                           💬 Demander un Devis sur WhatsApp
-                        </a>
+                        <button class="btn btn-whatsapp" style="width: 100%; text-align: center; justify-content: center;" onclick="startBooking('draa')">
+                            💬 Réserver Cette Randonnée
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Grand Sud Marocain -->
+                <div class="trek-card" id="grand-sud">
+                    <div class="trek-header" style="background: linear-gradient(135deg, #d299c2, #fef9d7);">
+                        <h3>🌟 Grand Sud</h3>
+                        <div class="trek-duration">15 JOURS</div>
+                    </div>
+                    <div class="trek-content">
+                        <h4>Tour Complet du Sud Marocain</h4>
+                        <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; margin: 1.5rem 0;">
+                            <div>
+                                <strong>⏱️ Durée:</strong><br>15 jours / 14 nuits
+                            </div>
+                            <div>
+                                <strong>📈 Difficulté:</strong><br>Intermédiaire
+                            </div>
+                            <div>
+                                <strong>👥 Groupe:</strong><br>2-6 personnes
+                            </div>
+                            <div>
+                                <strong>🗺️ Couverture:</strong><br>Région complète
+                            </div>
+                        </div>
+                        
+                        <ul class="trek-features">
+                            <li>Circuit complet Atlas central et oriental</li>
+                            <li>Déserts de Merzouga et Chegaga</li>
+                            <li>Vallées présahariennes (Drâa, Ziz, Dades)</li>
+                            <li>Ksour et kasbahs historiques</li>
+                            <li>Oasis et palmeraies</li>
+                            <li>Rencontres culturelles approfondies</li>
+                            <li>Options activités (quad, dromadaires)</li>
+                        </ul>
+
+                        <div class="price-info">
+                            <strong>💰 Prix Premium</strong>
+                            <p>Expérience complète tous frais inclus</p>
+                        </div>
+
+                        <button class="btn btn-whatsapp" style="width: 100%; text-align: center; justify-content: center;" onclick="startBooking('grand-sud')">
+                            💬 Réserver Cette Randonnée
+                        </button>
                     </div>
                 </div>
             </div>
@@ -712,18 +997,151 @@
                         </div>
                     </div>
 
-                    <a href="contact.html" class="btn" style="font-size: 1.1rem; padding: 1.2rem 3rem;">
+                    <button class="btn" style="font-size: 1.1rem; padding: 1.2rem 3rem;" onclick="startBooking('custom')">
                         📞 Discutons de Votre Projet
-                    </a>
+                    </button>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Processus de Réservation -->
+    <!-- نظام الحجز المتقدم -->
     <section class="section" style="background: var(--light);">
-        <h2 class="section-title">Comment Réserver</h2>
+        <h2 class="section-title">Réserver Votre Aventure</h2>
         
+        <div class="booking-wizard" id="bookingWizard" style="display: none;">
+            <div class="wizard-steps">
+                <div class="wizard-step active" id="step1">1</div>
+                <div class="wizard-step" id="step2">2</div>
+                <div class="wizard-step" id="step3">3</div>
+                <div class="wizard-step" id="step4">4</div>
+            </div>
+
+            <!-- الخطوة 1: اختيار اللغة والرحلة -->
+            <div class="wizard-content active" id="step1Content">
+                <h3 style="text-align: center; margin-bottom: 2rem;">📝 Informations de Base</h3>
+                
+                <div class="form-group">
+                    <label>Langue de communication préférée *</label>
+                    <div class="language-selection">
+                        <div class="language-option active" onclick="selectLanguage('fr')">
+                            <input type="radio" name="language" value="fr" checked style="display: none;">
+                            <span>🇫🇷 Français</span>
+                        </div>
+                        <div class="language-option" onclick="selectLanguage('en')">
+                            <input type="radio" name="language" value="en" style="display: none;">
+                            <span>🇬🇧 English</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label for="selectedTrek">Randonnée choisie *</label>
+                    <select id="selectedTrek" name="selected_trek" required>
+                        <option value="">Choisir la randonnée</option>
+                        <option value="toubkal">Toubkal Express (4 jours)</option>
+                        <option value="roses">Vallée des Roses (5 jours)</option>
+                        <option value="desert">Désert Merzouga (6 jours)</option>
+                        <option value="mgoun">Grand Mgoun (8 jours)</option>
+                        <option value="atlas-desert">Atlas & Désert (10 jours)</option>
+                        <option value="berber">Villages Berbères (7 jours)</option>
+                        <option value="draa">Expédition Drâa (12 jours)</option>
+                        <option value="grand-sud">Grand Sud (15 jours)</option>
+                        <option value="custom">Circuit Sur Mesure</option>
+                    </select>
+                </div>
+
+                <div class="wizard-navigation">
+                    <div></div>
+                    <button class="btn" onclick="nextStep(2)">Suivant →</button>
+                </div>
+            </div>
+
+            <!-- الخطوة 2: معلومات المجموعة -->
+            <div class="wizard-content" id="step2Content">
+                <h3 style="text-align: center; margin-bottom: 2rem;">👥 Votre Groupe</h3>
+                
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="travelersCount">Nombre de voyageurs *</label>
+                        <input type="number" id="travelersCount" name="travelers_count" min="2" max="12" required>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="fitnessLevel">Niveau de forme physique *</label>
+                        <select id="fitnessLevel" name="fitness_level" required>
+                            <option value="">Choisir le niveau</option>
+                            <option value="beginner">Débutant - 3-4h marche/jour</option>
+                            <option value="intermediate">Intermédiaire - 4-5h marche/jour</option>
+                            <option value="advanced">Avancé - 5-6h marche/jour</option>
+                        </select>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label for="proposedDates">Dates proposées *</label>
+                    <input type="text" id="proposedDates" name="proposed_dates" placeholder="Ex: 15-20 Mars 2024" required>
+                </div>
+
+                <div class="wizard-navigation">
+                    <button class="btn" onclick="prevStep(1)">← Précédent</button>
+                    <button class="btn" onclick="nextStep(3)">Suivant →</button>
+                </div>
+            </div>
+
+            <!-- الخطوة 3: معلومات الاتصال -->
+            <div class="wizard-content" id="step3Content">
+                <h3 style="text-align: center; margin-bottom: 2rem;">📞 Vos Coordonnées</h3>
+                
+                <div class="form-group">
+                    <label for="clientName">Votre nom complet *</label>
+                    <input type="text" id="clientName" name="client_name" required>
+                </div>
+
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="clientEmail">Email *</label>
+                        <input type="email" id="clientEmail" name="client_email" required>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="clientPhone">Téléphone *</label>
+                        <input type="tel" id="clientPhone" name="client_phone" required>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label for="clientCountry">Pays de résidence</label>
+                    <input type="text" id="clientCountry" name="client_country">
+                </div>
+
+                <div class="wizard-navigation">
+                    <button class="btn" onclick="prevStep(2)">← Précédent</button>
+                    <button class="btn" onclick="nextStep(4)">Suivant →</button>
+                </div>
+            </div>
+
+            <!-- الخطوة 4: التأكيد والإرسال -->
+            <div class="wizard-content" id="step4Content">
+                <h3 style="text-align: center; margin-bottom: 2rem;">🎯 Confirmation</h3>
+                
+                <div class="form-group">
+                    <label for="specialRequests">Demandes spéciales ou questions</label>
+                    <textarea id="specialRequests" name="special_requests" rows="4" placeholder="Toute demande particulière, modifications d'itinéraire, allergies alimentaires, etc."></textarea>
+                </div>
+
+                <div class="success-message" id="successMessage">
+                    ✅ Votre demande a été envoyée! Ali vous contacte personnellement dans les 24h.
+                </div>
+
+                <div class="wizard-navigation">
+                    <button class="btn" onclick="prevStep(3)">← Précédent</button>
+                    <button class="btn" onclick="submitBooking()">📤 Envoyer la Demande</button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Processus de Réservation -->
         <div class="booking-steps">
             <div class="step-card">
                 <div class="step-number">1</div>
@@ -771,17 +1189,16 @@
                 
                 <div>
                     <h3>Contact Direct</h3>
-                    <p>📞 +212 661-796117</p>
+                    <p>📞 +212 661-796117 (FR)</p>
+                    <p>📞 +212 633-652721 (EN)</p>
                     <p>📧 aventuretreksmaroc@gmail.com</p>
                 </div>
                 
                 <div>
-                    <h3>Réseaux Sociaux</h3>
-                    <p>
-                        <a href="https://instagram.com/adventure.treks.maroc" style="color: white;">
-                            📷 Instagram
-                        </a>
-                    </p>
+                    <h3>Informations</h3>
+                    <p>⏱️ Réponse sous 24h</p>
+                    <p>💰 Devis personnalisé</p>
+                    <p>🎯 Guide personnel</p>
                 </div>
             </div>
             
@@ -789,12 +1206,55 @@
                 <p>&copy; 2024 Adventure Treks avec Ali. Tous droits réservés.</p>
                 <p style="margin-top: 0.5rem; opacity: 0.8;">
                     Vallée des Roses - Ouarzazate, Maroc | 
-                    <strong>Prix variables selon randonnée et nombre de personnes</strong>
+                    <strong>Votre aventure personnalisée vous attend</strong>
                 </p>
             </div>
         </div>
     </footer>
 
+    <!-- نظام الترجمة -->
+    <script>
+        const translations = {
+            fr: {
+                "nav.home": "Accueil",
+                "nav.story": "Mon Histoire",
+                "nav.treks": "Randonnées", 
+                "nav.gallery": "Galerie",
+                "nav.contact": "Contact",
+                "treks.title": "Nos Randonnées"
+            },
+            en: {
+                "nav.home": "Home",
+                "nav.story": "My Story", 
+                "nav.treks": "Treks",
+                "nav.gallery": "Gallery",
+                "nav.contact": "Contact",
+                "treks.title": "Our Treks"
+            }
+        };
+
+        let currentLang = 'fr';
+
+        function updateLanguage(lang) {
+            currentLang = lang;
+            document.querySelectorAll('[data-translate]').forEach(element => {
+                const key = element.getAttribute('data-translate');
+                if (translations[lang] && translations[lang][key]) {
+                    element.textContent = translations[lang][key];
+                }
+            });
+            
+            if (lang === 'en') {
+                document.title = 'Treks & Hikes - Ali Ouzemmad | Custom Morocco Circuits';
+            } else {
+                document.title = 'Randonnées & Treks - Ali Ouzemmad | Circuits Personnalisés Maroc';
+            }
+            
+            localStorage.setItem('preferredLang', lang);
+        }
+    </script>
+
+    <!-- الأنظمة الرئيسية -->
     <script>
         // نظام التبديل بين الثيمات
         const themeToggle = document.getElementById('themeToggle');
@@ -833,8 +1293,22 @@
             btn.addEventListener('click', function() {
                 document.querySelectorAll('.lang-btn').forEach(b => b.classList.remove('active'));
                 this.classList.add('active');
+                
+                const lang = this.dataset.lang;
+                updateLanguage(lang);
             });
         });
+
+        // تحميل اللغة المحفوظة
+        const savedLang = localStorage.getItem('preferredLang') || 'fr';
+        document.querySelectorAll('.lang-btn').forEach(btn => {
+            if (btn.dataset.lang === savedLang) {
+                btn.classList.add('active');
+            } else {
+                btn.classList.remove('active');
+            }
+        });
+        updateLanguage(savedLang);
 
         // Menu mobile
         document.getElementById('mobileMenuBtn').addEventListener('click', function() {
@@ -847,6 +1321,130 @@
                 document.querySelector('.nav-links').classList.remove('active');
             });
         });
+
+        // نظام الحجز المتقدم
+        let currentStep = 1;
+        let selectedTrek = '';
+
+        function startBooking(trekId) {
+            selectedTrek = trekId;
+            document.getElementById('bookingWizard').style.display = 'block';
+            document.getElementById('selectedTrek').value = trekId;
+            window.scrollTo({ top: document.getElementById('bookingWizard').offsetTop - 100, behavior: 'smooth' });
+        }
+
+        function selectLanguage(lang) {
+            document.querySelectorAll('.language-option').forEach(option => {
+                option.classList.remove('active');
+            });
+            event.target.closest('.language-option').classList.add('active');
+        }
+
+        function nextStep(step) {
+            document.getElementById('step' + currentStep).classList.remove('active');
+            document.getElementById('step' + currentStep + 'Content').classList.remove('active');
+            
+            currentStep = step;
+            
+            document.getElementById('step' + currentStep).classList.add('active');
+            document.getElementById('step' + currentStep + 'Content').classList.add('active');
+            
+            // Mark previous steps as completed
+            for (let i = 1; i < currentStep; i++) {
+                document.getElementById('step' + i).classList.add('completed');
+            }
+        }
+
+        function prevStep(step) {
+            document.getElementById('step' + currentStep).classList.remove('active');
+            document.getElementById('step' + currentStep + 'Content').classList.remove('active');
+            
+            currentStep = step;
+            
+            document.getElementById('step' + currentStep).classList.add('active');
+            document.getElementById('step' + currentStep + 'Content').classList.add('active');
+        }
+
+        function submitBooking() {
+            const language = document.querySelector('.language-option.active input').value;
+            const trek = document.getElementById('selectedTrek').value;
+            const travelers = document.getElementById('travelersCount').value;
+            const fitness = document.getElementById('fitnessLevel').value;
+            const dates = document.getElementById('proposedDates').value;
+            const name = document.getElementById('clientName').value;
+            const email = document.getElementById('clientEmail').value;
+            const phone = document.getElementById('clientPhone').value;
+            const country = document.getElementById('clientCountry').value;
+            const requests = document.getElementById('specialRequests').value;
+
+            // تحديد الرقم المناسب حسب اللغة
+            const phoneNumber = language === 'fr' ? '+212661796117' : '+212633652721';
+            
+            // إنشاء رسالة الواتساب
+            const whatsappMessage = `
+Nouvelle demande de réservation - ${getTrekName(trek)}
+
+Langue: ${language === 'fr' ? 'Français' : 'English'}
+Randonnée: ${getTrekName(trek)}
+Nombre de voyageurs: ${travelers}
+Niveau de forme: ${fitness}
+Dates proposées: ${dates}
+
+Client: ${name}
+Email: ${email}
+Téléphone: ${phone}
+Pays: ${country}
+
+Demandes spéciales: ${requests || 'Aucune'}
+            `.trim();
+
+            const encodedMessage = encodeURIComponent(whatsappMessage);
+            const whatsappUrl = `https://wa.me/${phoneNumber}?text=${encodedMessage}`;
+            
+            // فتح الواتساب
+            window.open(whatsappUrl, '_blank');
+            
+            // عرض رسالة النجاح
+            document.getElementById('successMessage').style.display = 'block';
+            
+            // إعادة تعيين النموذج بعد 3 ثواني
+            setTimeout(() => {
+                document.getElementById('bookingWizard').style.display = 'none';
+                document.getElementById('successMessage').style.display = 'none';
+                currentStep = 1;
+                
+                // إعادة تعيين الخطوات
+                document.querySelectorAll('.wizard-step').forEach(step => {
+                    step.classList.remove('active', 'completed');
+                });
+                document.getElementById('step1').classList.add('active');
+                
+                document.querySelectorAll('.wizard-content').forEach(content => {
+                    content.classList.remove('active');
+                });
+                document.getElementById('step1Content').classList.add('active');
+                
+                // إعادة تعيين الحقول
+                document.querySelectorAll('input, select, textarea').forEach(field => {
+                    field.value = '';
+                });
+            }, 3000);
+        }
+
+        function getTrekName(trekId) {
+            const treks = {
+                'toubkal': 'Toubkal Express (4 jours)',
+                'roses': 'Vallée des Roses (5 jours)',
+                'desert': 'Désert Merzouga (6 jours)',
+                'mgoun': 'Grand Mgoun (8 jours)',
+                'atlas-desert': 'Atlas & Désert (10 jours)',
+                'berber': 'Villages Berbères (7 jours)',
+                'draa': 'Expédition Drâa (12 jours)',
+                'grand-sud': 'Grand Sud (15 jours)',
+                'custom': 'Circuit Sur Mesure'
+            };
+            return treks[trekId] || trekId;
+        }
     </script>
 </body>
 </html>
