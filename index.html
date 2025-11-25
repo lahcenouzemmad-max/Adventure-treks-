@@ -3,87 +3,100 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Adventure Treks avec Ali - Votre Guide Personnel au Maroc</title>
-    
+    <title>Adventure Treks avec Ali - Guide Personnel Maroc | Toubkal, Vallée des Roses, Désert</title>
+    <meta name="description" content="Ali Ouzemmad - Guide berbère 30+ ans d'expérience. Randonnées authentiques dans l'Atlas et le désert. Circuits 100% personnalisés.">
+    <meta name="keywords" content="ali ouzemmad, guide maroc, toubkal, vallée des roses, désert merzouga, randonnée atlas">
     <meta name="google-site-verification" content="lO7Zv3yvFMllSxhb23p6rD6T18m6jz2J6pHPX3ahEZE" />
-    <meta name="description" content="Randonnées Inoubliables avec Ali - 30+ ans d'expérience dans les montagnes et déserts du Maroc. Trekking Toubkal, Vallée des Roses, Désert Merzouga. Guide personnel pour aventures authentiques.">
-    <meta name="keywords" content="guide maroc, trekking toubkal, vallée des roses, désert merzouga, ali ouzemmad, randonnée atlas, guide berbère, adventure treks">
-    <meta name="robots" content="index, follow">
-
-    <meta property="og:title" content="Adventure Treks avec Ali - Votre Guide Personnel">
-    <meta property="og:description" content="30+ ans d'expérience - Randonnées authentiques dans l'Atlas et le désert">
+    <meta property="og:title" content="Adventure Treks avec Ali - Guide Personnel Maroc">
+    <meta property="og:description" content="30+ ans d'expérience - Votre guide personnel dans l'Atlas et le désert">
     <meta property="og:image" content="https://drive.google.com/thumbnail?id=1tqwm60wwjHRde-aUKcnUUf9WJrMGbjla&sz=w1200">
     <meta property="og:url" content="https://adventure-treks.vercel.app">
-    <meta property="og:type" content="website">
-
-    <script type="application/ld+json">
-    {"@context":"https://schema.org","@type":"Person","name":"Ali Ouzemmad","jobTitle":"Guide de montagne et désert","image":"https://drive.google.com/thumbnail?id=1zpuQMHPk4oemXJgLtzwsrlJ7z0C5LNU0&sz=w1000","url":"https://adventure-treks.vercel.app","telephone":["+212661796117","+212633652721"],"address":{"@type":"PostalAddress","addressLocality":"Kelaat M'gouna","addressRegion":"Drâa-Tafilalet","addressCountry":"MA"}}
-    </script>
 
     <style>
-        :root{--primary:#27AE60;--secondary:#2E86C1;--dark:#1B4F72;--light-green:#EAFAF1;--shadow:0 8px 25px rgba(0,0,0,0.12);--radius:16px;--transition:all .3s ease}
+        :root{--p:#27AE60;--s:#2E86C1;--d:#1B4F72;--lg:#EAFAF1;--sh:0 10px 30px rgba(0,0,0,0.1);--r:16px;--tr:all .3s ease}
         *{margin:0;padding:0;box-sizing:border-box}
-        body{font-family:'Segoe UI',system-ui,sans-serif;line-height:1.7;color:#333;background:#f8f9fa;scroll-behavior:smooth}
-        .container{max-width:1200px;margin:0 auto;padding:0 1rem}
-        .top-bar{background:var(--dark);color:white;padding:.7rem 0}
-        .top-bar .container{display:flex;justify-content:space-between;align-items:center}
-        .lang-switch{display:flex;background:rgba(255,255,255,.15);border-radius:30px;overflow:hidden}
-        .lang-btn{padding:.5rem 1rem;background:none;border:none;color:white;cursor:pointer;font-weight:600;transition:var(--transition)}
-        .lang-btn.active{background:var(--primary)}
-        .navbar{background:white;padding:1rem 0;position:sticky;top:0;z-index:1000;box-shadow:var(--shadow)}
-        .nav-container{display:flex;justify-content:space-between;align-items:center}
-        .logo{font-size:1.8rem;font-weight:800;color:var(--primary);text-decoration:none}
-        .nav-links{display:flex;gap:1.5rem;list-style:none}
-        .nav-links a{color:var(--dark);font-weight:600;padding:.5rem 1rem;border-radius:8px;transition:var(--transition);text-decoration:none}
-        .nav-links a:hover{background:var(--light-green);color:var(--primary)}
-        .mobile-menu{display:none;cursor:pointer;font-size:1.5rem;color:var(--dark)}
-        .hero{background:linear-gradient(rgba(0,0,0,.5),rgba(0,0,0,.5)),url('https://drive.google.com/thumbnail?id=1tqwm60wwjHRde-aUKcnUUf9WJrMGbjla&sz=w2000') center/cover;height:80vh;display:flex;align-items:center;justify-content:center;text-align:center;color:white}
-        .hero h1{font-size:3rem;margin-bottom:1rem}
-        .hero p{font-size:1.3rem;margin-bottom:2rem}
-        .btn{background:var(--primary);color:white;padding:12px 24px;border:none;border-radius:25px;font-weight:600;cursor:pointer;text-decoration:none;display:inline-block;transition:var(--transition)}
-        .btn:hover{transform:translateY(-2px);box-shadow:var(--shadow)}
-        .section{padding:4rem 0}
-        .section-title{text-align:center;font-size:2.5rem;margin-bottom:2rem;color:var(--dark)}
-        .guide-section{background:white;border-radius:var(--radius);padding:2rem;margin:2rem 0;box-shadow:var(--shadow);text-align:center}
-        .guide-photo{width:200px;height:200px;border-radius:50%;object-fit:cover;border:5px solid var(--primary);margin-bottom:1rem}
-        .experience-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:1rem;margin:2rem 0}
-        .exp-item{background:var(--light-green);padding:1.5rem;border-radius:10px}
-        .treks-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:2rem}
-        .trek-card{background:white;border-radius:var(--radius);box-shadow:var(--shadow);padding:1.5rem;transition:var(--transition)}
-        .trek-card:hover{transform:translateY(-5px)}
-        .gallery-slider{display:flex;overflow-x:auto;gap:1rem;padding:1rem 0}
-        .gallery-item{flex:0 0 300px;height:200px;border-radius:10px;overflow:hidden;box-shadow:var(--shadow)}
-        .gallery-item img{width:100%;height:100%;object-fit:cover}
-        .filters{display:flex;justify-content:center;gap:1rem;margin-bottom:2rem;flex-wrap:wrap}
-        .filter-btn{padding:10px 20px;border:2px solid var(--primary);background:white;color:var(--primary);border-radius:20px;cursor:pointer;font-weight:600;transition:var(--transition)}
-        .filter-btn.active{background:var(--primary);color:white}
-        .contact-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:1.5rem;margin-top:2rem}
-        .contact-card{background:white;padding:1.5rem;border-radius:var(--radius);text-align:center;box-shadow:var(--shadow);border-top:4px solid var(--primary)}
-        .whatsapp-btn{background:#25D366;color:white;padding:10px 20px;border-radius:20px;text-decoration:none;font-weight:600;display:inline-block;margin-top:1rem;transition:var(--transition)}
-        .whatsapp-btn:hover{background:#128C7E}
-        .reviews-section{background:linear-gradient(135deg,#f8f9fa,#e8f5e8)}
-        .comment-form-container{background:white;padding:2rem;border-radius:var(--radius);box-shadow:var(--shadow);margin-bottom:2rem}
-        footer{background:var(--dark);color:white;text-align:center;padding:2rem}
-        @media(max-width:768px){.nav-links{display:none;position:absolute;top:100%;left:0;right:0;background:white;flex-direction:column;padding:1rem;box-shadow:var(--shadow)}.nav-links.active{display:flex}.mobile-menu{display:block}.hero h1{font-size:2.5rem}}
+        body{font-family:'Segoe UI',sans-serif;line-height:1.7;color:#333;background:#f8f9fa;scroll-behavior:smooth}
+        .c{max-width:1280px;margin:auto;padding:0 1rem}
+        .top{background:var(--d);color:#fff;padding:.6rem 0;font-size:.95rem}
+        .top .c{display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:1rem}
+        .lang{display:flex;background:rgba(255,255,255,.15);border-radius:30px;overflow:hidden}
+        .lang button{padding:.5rem 1rem;background:none;border:none;color:#fff;cursor:pointer;font-weight:600}
+        .lang button.active{background:var(--p)}
+        nav{background:#fff;padding:1rem 0;position:sticky;top:0;z-index:1000;box-shadow:var(--sh)}
+        .nav{display:flex;justify-content:space-between;align-items:center}
+        .logo{font-size:1.9rem;font-weight:800;color:var(--p);text-decoration:none}
+        .links{display:flex;gap:2rem;list-style:none}
+        .links a{color:var(--d);font-weight:600;padding:.5rem 1rem;border-radius:10px;text-decoration:none;transition:var(--tr)}
+        .links a:hover{background:var(--lg);color:var(--p)}
+        .mob{display:none;cursor:pointer;font-size:1.8rem;color:var(--d)}
+        .hero{height:90vh;background:linear-gradient(rgba(0,0,0,.55),rgba(0,0,0,.55)),url('https://drive.google.com/thumbnail?id=1tqwm60wwjHRde-aUKcnUUf9WJrMGbjla&sz=w2000') center/cover;display:flex;align-items:center;justify-content:center;text-align:center;color:#fff}
+        .hero h1{font-size:3.8rem;margin-bottom:1rem;text-shadow:0 3px 10px rgba(0,0,0,.7)}
+        .hero p{font-size:1.5rem;margin-bottom:2rem;max-width:800px}
+        .btn{background:#fff;color:var(--p);padding:16px 36px;border:none;border-radius:50px;font-weight:700;font-size:1.15rem;cursor:pointer;text-decoration:none;display:inline-block;transition:var(--tr);box-shadow:0 10px 30px rgba(0,0,0,.25)}
+        .btn:hover{transform:translateY(-5px);box-shadow:0 15px 40px rgba(0,0,0,.35)}
+        .sec{padding:90px 0}
+        .st{text-align:center;font-size:2.8rem;margin-bottom:3rem;color:var(--d);position:relative}
+        .st::after{content:'';width:100px;height:5px;background:var(--p);position:absolute;bottom:-15px;left:50%;transform:translateX(-50%);border-radius:3px}
+        .guide{background:#fff;border-radius:var(--r);overflow:hidden;box-shadow:var(--sh);padding:3rem;display:flex;flex-wrap:wrap;gap:3rem;align-items:center}
+        .gp{width:320px;height:320px;border-radius:50%;object-fit:cover;border:10px solid var(--p);box-shadow:var(--sh)}
+        .expgrid{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:1.5rem;margin-top:2rem}
+        .expi{background:var(--lg);padding:2rem;border-radius:var(--r);text-align:center;font-weight:600;transition:var(--tr)}
+        .expi:hover{transform:translateY(-10px)}
+        .price{background:linear-gradient(135deg,#E8F5E8,#D5F5E9);padding:2rem;border-radius:var(--r);border:3px solid var(--p);text-align:center;margin:2rem 0;font-size:1.2rem;font-weight:600}
+        .gal{display:flex;overflow-x:auto;gap:1.5rem;padding:2rem 0;scroll-snap-type:x mandatory}
+        .gal::-webkit-scrollbar{display:none}
+        .gi{flex:0 0 380px;height:280px;border-radius:var(--r);overflow:hidden;box-shadow:var(--sh);scroll-snap-align:center}
+        .gi img{width:100%;height:100%;object-fit:cover;transition:transform .5s}
+        .gi:hover img{transform:scale(1.15)}
+        .filters{display:flex;justify-content:center;gap:1rem;margin-bottom:3rem;flex-wrap:wrap}
+        .fb{padding:12px 30px;border:2px solid var(--p);background:#fff;color:var(--p);border-radius:50px;cursor:pointer;font-weight:600;transition:var(--tr)}
+        .fb.active,.fb:hover{background:var(--p);color:#fff}
+        .tg{display:grid;grid-template-columns:repeat(auto-fit,minmax(360px,1fr));gap:2.5rem}
+        .tc{background:#fff;border-radius:var(--r);overflow:hidden;box-shadow:var(--sh);transition:var(--tr)}
+        .tc:hover{transform:translateY(-15px)}
+        .ti{height:240px;overflow:hidden;position:relative}
+        .ti img{width:100%;height:100%;object-fit:cover}
+        .tdur{position:absolute;top:15px;right:15px;background:var(--p);color:#fff;padding:8px 18px;border-radius:30px;font-weight:bold}
+        .tcon{padding:2rem}
+        .tcon ul{list-style:none;margin:1rem 0}
+        .tcon li{padding:.4rem 0;position:relative;padding-left:1.8rem}
+        .tcon li::before{content:'✓';position:absolute;left:0;color:var(--p);font-weight:bold}
+        .rev{background:linear-gradient(135deg,#f8f9fa,#e8f5e8);padding:90px 0}
+        .formc,.comc{background:#fff;padding:3rem;border-radius:var(--r);box-shadow:var(--sh);max-width:900px;margin:auto}
+        .formc h3{margin-bottom:1.5rem}
+        .cg{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:2rem;margin-top:3rem}
+        .cc{background:#fff;padding:2.5rem;border-radius:var(--r);text-align:center;box-shadow:var(--sh);border-top:6px solid var(--p);transition:var(--tr)}
+        .cc:hover{transform:translateY(-10px)}
+        .wa{background:#25D366;color:#fff;padding:14px 32px;border-radius:50px;text-decoration:none;display:inline-block;margin-top:1rem;font-weight:700;transition:var(--tr)}
+        .wa:hover{background:#128C7E}
+        footer{background:var(--d);color:#fff;text-align:center;padding:4rem 1rem}
+        @media(max-width:992px){.hero h1{font-size:3rem}.guide{flex-direction:column;text-align:center}}
+        @media(max-width:768px){
+            .hero h1{font-size:2.5rem}.hero p{font-size:1.2rem}
+            .links{display:none;position:absolute;top:100%;left:0;right:0;background:#fff;flex-direction:column;padding:1rem;box-shadow:var(--sh)}
+            .links.active{display:flex}
+            .mob{display:block}
+            .gi{flex:0 0 85%}
+        }
     </style>
 </head>
 <body>
 
-    <div class="top-bar">
-        <div class="container">
-            <div class="lang-switch">
-                <button class="lang-btn active" data-lang="fr">FR</button>
-                <button class="lang-btn" data-lang="en">EN</button>
+    <div class="top">
+        <div class="c">
+            <div class="lang">
+                <button class="active" data-lang="fr">FR</button>
+                <button data-lang="en">EN</button>
             </div>
-            <a href="#contact" style="color:white;text-decoration:none;font-weight:600">Contact Direct</a>
+            <a href="#contact" style="color:#fff;text-decoration:none;font-weight:600">Contact Direct WhatsApp</a>
         </div>
     </div>
 
-    <nav class="navbar">
-        <div class="container nav-container">
+    <nav>
+        <div class="c nav">
             <a href="#" class="logo">Adventure Treks avec Ali</a>
-            <div class="mobile-menu">☰</div>
-            <ul class="nav-links">
+            <div class="mob">☰</div>
+            <ul class="links">
                 <li><a href="#accueil" data-key="home">Accueil</a></li>
                 <li><a href="#histoire" data-key="story">Mon Histoire</a></li>
                 <li><a href="#treks" data-key="treks">Randonnées</a></li>
@@ -95,268 +108,200 @@
     </nav>
 
     <section class="hero" id="accueil">
-        <div class="container">
+        <div class="c">
             <h1 data-key="hero_title">Randonnées Inoubliables avec Ali</h1>
             <p data-key="hero_sub">30+ ans d'expérience dans les montagnes et déserts du Maroc. Votre guide personnel pour des aventures authentiques et des souvenirs éternels.</p>
-            <a href="#treks" class="btn" data-key="book_btn">🗓️ Réserver Votre Aventure</a>
-            <a href="#histoire" class="btn" style="background:transparent;border:2px solid white;color:white;margin-left:1rem" data-key="story_btn">📖 Découvrir Mon Histoire</a>
+            <a href="#custom-request" class="btn" data-key="cta">Créer mon circuit sur mesure</a>
         </div>
     </section>
 
-    <section class="section" id="histoire">
-        <div class="container">
-            <h2 class="section-title" data-key="story_title">Enfant des Montagnes, Guide de Cœur</h2>
-            <div class="guide-section">
-                <img src="https://drive.google.com/thumbnail?id=1zpuQMHPk4oemXJgLtzwsrlJ7z0C5LNU0&sz=w1000" alt="Ali Ouzemmad" class="guide-photo">
-                <p>Ali Ouzemmad, fils de la Vallée des Roses. Depuis l'enfance, il a parcouru les sentiers des montagnes de M'goun. Plus de 30 ans d'expérience à accompagner des voyageurs du monde entier pour créer des souvenirs inoubliables et des relations de confiance. Mission : offrir une expérience authentique.</p>
-                <div class="experience-grid">
-                    <div class="exp-item">
-                        <strong>🏔️ Fils des Montagnes</strong>
-                        <p>Né et élevé dans l'Atlas, connaît chaque sentier.</p>
+    <section class="sec" id="histoire">
+        <div class="c">
+            <h2 class="st">Enfant des Montagnes, Guide de Cœur</h2>
+            <div class="guide">
+                <img src="https://drive.google.com/thumbnail?id=1zpuQMHPk4oemXJgLtzwsrlJ7z0C5LNU0&sz=w1000" alt="Ali Ouzemmad" class="gp">
+                <div>
+                    <p style="font-size:1.15rem;color:#555;margin-bottom:1.5rem">
+                        Ali Ouzemmad, fils de la Vallée des Roses. Depuis l'enfance, il a parcouru les sentiers des montagnes de M'goun. Plus de 30 ans d'expérience à accompagner des voyageurs du monde entier pour créer des souvenirs inoubليables et des relations de confiance.
+                    </p>
+                    <div class="expgrid">
+                        <div class="expi">Fils des Montagnes<br>Né et élevé dans l'Atlas</div>
+                        <div class="expi">30+ Ans d'Expérience<br>Guide certifié</div>
+                        <div class="expi">Expert Local<br>Culture & nature</div>
+                        <div class="expi">Guide Personnel<br>Service VIP</div>
                     </div>
-                    <div class="exp-item">
-                        <strong>⏳ 30+ Ans d'Expérience</strong>
-                        <p>Trois décennies à créer des aventures mémorables.</p>
+                    <div class="price">
+                        <strong>Tout compris :</strong> Transport privé · Hébergement · Repas · Matériel · Assurance · Guidage 24/7
                     </div>
-                    <div class="exp-item">
-                        <strong>🌍 Expert Local</strong>
-                        <p>Connaissance profonde de la culture et nature marocaine.</p>
-                    </div>
-                    <div class="exp-item">
-                        <strong>👥 Guide Personnel</strong>
-                        <p>Service sur mesure pour chaque voyageur.</p>
-                    </div>
-                </div>
-                <h3>Ali Ouzemmad - Guide Expert</h3>
-                <p data-key="guide_sub">Votre Guide Personnel</p>
-                <div style="display:flex;justify-content:center;gap:2rem;margin-top:1rem">
-                    <span>🏔️ Atlas Expert</span>
-                    <span>🏜️ Désert Maîtrisé</span>
                 </div>
             </div>
         </div>
     </section>
 
-    <section class="section" id="treks">
-        <div class="container">
-            <h2 class="section-title" data-key="treks_title">Nos Randonnées</h2>
-            <p>Des expériences uniques adaptées aux envies. Les prix varient selon le type de randonnée et le nombre de personnes.</p>
+    <section class="sec" id="treks">
+        <div class="c">
+            <h2 class="st">Nos Randonnées Authentiques</h2>
             <div class="filters">
-                <button class="filter-btn active" data-duration="all">Toutes</button>
-                <button class="filter-btn" data-duration="short">Courtes</button>
-                <button class="filter-btn" data-duration="long">Longues</button>
+                <button class="fb active" data-duration="all">Toutes</button>
+                <button class="fb" data-duration="short">Courtes (3-6 jours)</button>
+                <button class="fb" data-duration="long">Longues (7+ jours)</button>
             </div>
-            <div class="treks-grid">
-                <div class="trek-card" data-duration="short">
-                    <h3>🏔️ Toubkal Express</h3>
-                    <p>Toubkal avec Ali - 4 jours d'aventure dans le plus haut sommet d'Afrique du Nord</p>
-                    <p><strong>Durée:</strong> 4 jours | <strong>Niveau:</strong> Intermédiaire | <strong>Groupe:</strong> 2-8 personnes</p>
-                    <a href="#custom-request" class="btn">📝 Demander un Devis</a>
+            <div class="tg">
+                <div class="tc" data-duration="short">
+                    <div class="ti"><img src="https://drive.google.com/thumbnail?id=1NMvh2owxnkTk00whGR7m1WYzWut65I3S&sz=w1000" alt="Toubkal"></div>
+                    <div class="tdur">4-5 jours</div>
+                    <div class="tcon">
+                        <h3>Ascension du Mont Toubkal (4167m)</h3>
+                        <ul>
+                            <li>Sommet le plus haut d'Afrique du Nord</li>
+                            <li>Nuit en refuge + lever de soleil magique</li>
+                            <li>Niveau intermédiaire</li>
+                        </ul>
+                        <a href="#custom-request" class="btn" style="font-size:.95rem;padding:11px 24px">Demander un devis</a>
+                    </div>
                 </div>
-                <div class="trek-card" data-duration="short">
-                    <h3>🌹 Vallée des Roses</h3>
-                    <p>Découverte des paysages enchanteurs et de la culture berbère</p>
-                    <p><strong>Durée:</strong> 5 jours | <strong>Niveau:</strong> Débutant | <strong>Groupe:</strong> 2-12 personnes</p>
-                    <a href="#custom-request" class="btn">📝 Demander un Devis</a>
+
+                <div class="tc" data-duration="short">
+                    <div class="ti"><img src="https://drive.google.com/thumbnail?id=1xRX5S_f4Hbg9snrmAoYIxqArNNrallQP&sz=w1000" alt="Vallée des Roses"></div>
+                    <div class="tdur">3-6 jours</div>
+                    <div class="tcon">
+                        <h3>Vallée des Roses & Gorges du Dadès</h3>
+                        <ul>
+                            <li>Festival des roses (avril-mai)</li>
+                            <li>Kasbahs, oasis et palmeraies</li>
+                            <li>Randonnée facile à moyenne</li>
+                        </ul>
+                        <a href="#custom-request" class="btn" style="font-size:.95rem;padding:11px 24px">Demander un devis</a>
+                    </div>
                 </div>
-                <div class="trek-card" data-duration="long">
-                    <h3>🏜️ Désert Merzouga</h3>
-                    <p>Expédition Désert - Aventure complète dans les dunes de Merzouga</p>
-                    <p><strong>Durée:</strong> 6 jours | <strong>Niveau:</strong> Tous niveaux | <strong>Groupe:</strong> 2-10 personnes</p>
-                    <a href="#custom-request" class="btn">📝 Demander un Devis</a>
+
+                <div class="tc" data-duration="long">
+                    <div class="ti"><img src="https://drive.google.com/thumbnail?id=1mfvWu486bDY5Cl7dQIjY2GLL-ZiHT4rF&sz=w1000" alt="Désert"></div>
+                    <div class="tdur">8 jours</div>
+                    <div class="tcon">
+                        <h3>Désert de Merzouga & Erg Chebbi</h3>
+                        <ul>
+                            <li>Nuit en bivouac de luxe</li>
+                            <li>Balade à dos de dromadaire</li>
+                            <li>Coucher/lever de soleil inoubliable</li>
+                        </ul>
+                        <a href="#custom-request" class="btn" style="font-size:.95rem;padding:11px 24px">Demander un devis</a>
+                    </div>
                 </div>
             </div>
-            <a href="#custom-request" class="btn" style="display:block;margin:2rem auto;width:fit-content">🗺️ Voir Toutes les Randonnées</a>
         </div>
     </section>
 
-    <section class="section" id="gallery" style="background:#f1f8f5">
-        <div class="container">
-            <h2 class="section-title">Galerie d'Aventures</h2>
-            <div class="gallery-slider">
-                <div class="gallery-item"><img src="https://drive.google.com/thumbnail?id=17j0rL9qOahrMQ1sjIRD1P0mcy8Cgv3pU&sz=w1000" alt="Toubkal"></div>
-                <div class="gallery-item"><img src="https://drive.google.com/thumbnail?id=1mfvWu486bDY5Cl7dQIjY2GLL-ZiHT4rF&sz=w1000" alt="Merzouga"></div>
-                <div class="gallery-item"><img src="https://drive.google.com/thumbnail?id=1xRX5S_f4Hbg9snrmAoYIxqArNNrallQP&sz=w1000" alt="Vallée des Roses"></div>
-                <div class="gallery-item"><img src="https://drive.google.com/thumbnail?id=1NMvh2owxnkTk00whGR7m1WYzWut65I3S&sz=w1000" alt="Atlas"></div>
-                <div class="gallery-item"><img src="https://drive.google.com/thumbnail?id=1-B4bwqHUiutwq1RlpZFuVWS01MVnbeXP&sz=w1000" alt="Dadès"></div>
-                <div class="gallery-item"><img src="https://drive.google.com/thumbnail?id=1Gzz6GCVzomb5EDBA4M-aFRqrfVr9rmAk&sz=w1000" alt="Désert"></div>
-                <div class="gallery-item"><img src="https://drive.google.com/thumbnail?id=10yKHb_rAZ4V5FGgcb8IWrhvaQyT_UapH&sz=w1000" alt="Ali avec clients"></div>
-                <div class="gallery-item"><img src="https://drive.google.com/thumbnail?id=1vQlBIsXR2jcqO2NV8fllG3JFzDExog8T&sz=w1000" alt="Bivouac"></div>
-                <div class="gallery-item"><img src="https://drive.google.com/thumbnail?id=19aQMiurnH7CIFpMWeGynaZIY6Rv6lXiq&sz=w1000" alt="Montagne"></div>
-                <div class="gallery-item"><img src="https://drive.google.com/thumbnail?id=1tLbosAEv8fuZdFeG-rGvI_zHjv-e3_qr&sz=w1000" alt="Oasis"></div>
+    <section class="sec" id="gallery" style="background:#f1f8f5">
+        <div class="c">
+            <h2 class="st">Moments d'Aventure avec Ali</h2>
+            <div class="gal">
+                <div class="gi"><img src="https://drive.google.com/thumbnail?id=17j0rL9qOahrMQ1sjIRD1P0mcy8Cgv3pU&sz=w1000"></div>
+                <div class="gi"><img src="https://drive.google.com/thumbnail?id=1mfvWu486bDY5Cl7dQIjY2GLL-ZiHT4rF&sz=w1000"></div>
+                <div class="gi"><img src="https://drive.google.com/thumbnail?id=1xRX5S_f4Hbg9snrmAoYIxqArNNrallQP&sz=w1000"></div>
+                <div class="gi"><img src="https://drive.google.com/thumbnail?id=1-B4bwqHUiutwq1RlpZFuVWS01MVnbeXP&sz=w1000"></div>
+                <div class="gi"><img src="https://drive.google.com/thumbnail?id=1Gzz6GCVzomb5EDBA4M-aFRqrfVr9rmAk&sz=w1000"></div>
+                <div class="gi"><img src="https://drive.google.com/thumbnail?id=10yKHb_rAZ4V5FGgcb8IWrhvaQyT_UapH&sz=w1000"></div>
             </div>
         </div>
     </section>
 
-    <section class="section reviews-section" id="avis">
-        <div class="container">
-            <h2 class="section-title">Avis de nos voyageurs</h2>
-            <div class="comment-form-container">
-                <h3>Laissez votre avis sur Ali</h3>
-                <div id="auth-container">
-                    <button id="google-signin" class="btn" style="background:#4285F4;color:white">🔐 Connexion Google</button>
-                </div>
-                <form id="review-form" style="display:none">
-                    <input type="text" id="name" placeholder="Votre nom" required style="width:100%;padding:12px;margin:10px 0;border:1px solid #ddd;border-radius:8px">
-                    <textarea id="message" placeholder="Partagez votre expérience avec Ali..." required style="width:100%;height:120px;padding:12px;margin:10px 0;border:1px solid #ddd;border-radius:8px"></textarea>
+    <section class="sec rev" id="avis">
+        <div class="c">
+            <h2 class="st">Avis de nos voyageurs</h2>
+            <div class="formc">
+                <h3>Laissez votre avis</h3>
+                <div id="auth"><button id="google" class="btn" style="background:#4285F4;color:#fff">Connexion Google</button></div>
+                <form id="review" style="display:none;margin-top:1rem">
+                    <input type="text" id="name" placeholder="Votre nom" required style="width:100%;padding:12px;margin:10px 0;border-radius:8px;border:1px solid #ddd">
+                    <textarea id="msg" placeholder="Votre expérience avec Ali..." required style="width:100%;height:120px;padding:12px;margin:10px 0;border-radius:8px;border:1px solid #ddd"></textarea>
                     <div style="margin:15px 0">Note : 
-                        <span class="star" data-value="1">★</span>
-                        <span class="star" data-value="2">★</span>
-                        <span class="star" data-value="3">★</span>
-                        <span class="star" data-value="4">★</span>
-                        <span class="star" data-value="5">★</span>
+                        <span class="star" data-value="1">★</span><span class="star" data-value="2">★</span><span class="star" data-value="3">★</span><span class="star" data-value="4">★</span><span class="star" data-value="5">★</span>
                         <input type="hidden" id="rating" value="5">
                     </div>
-                    <button type="submit" class="btn">📤 Publier votre avis</button>
+                    <button type="submit" class="btn">Publier l'avis</button>
                 </form>
             </div>
-            <div id="comments-display" style="background:white;padding:2rem;border-radius:var(--radius);box-shadow:var(--shadow)">
-                <p style="text-align:center;color:#666">Chargement des avis...</p>
-            </div>
+            <div class="comc" id="comments">Chargement des avis...</div>
         </div>
     </section>
 
-    <section class="section" id="custom-request" style="background:#f8f9fa">
-        <div class="container">
-            <h2 class="section-title">Circuit Personnalisé avec Ali</h2>
-            <form id="custom-form" style="max-width:600px;margin:0 auto;background:white;padding:2rem;border-radius:var(--radius);box-shadow:var(--shadow)">
-                <input type="text" id="cname" placeholder="Votre nom complet" required style="width:100%;padding:12px;margin:10px 0;border:1px solid #ddd;border-radius:8px">
-                <input type="email" id="cemail" placeholder="Email" required style="width:100%;padding:12px;margin:10px 0;border:1px solid #ddd;border-radius:8px">
-                <input type="tel" id="cphone" placeholder="Téléphone / WhatsApp" required style="width:100%;padding:12px;margin:10px 0;border:1px solid #ddd;border-radius:8px">
-                <input type="date" id="cdate" required style="width:100%;padding:12px;margin:10px 0;border:1px solid #ddd;border-radius:8px">
-                <textarea id="cmessage" placeholder="Dites-moi vos envies : durée, niveau, sites préférés (Toubkal, Roses, Désert)..." required style="width:100%;height:100px;padding:12px;margin:10px 0;border:1px solid #ddd;border-radius:8px"></textarea>
-                <button type="submit" class="btn" style="width:100%">Envoyer à Ali sur WhatsApp</button>
+    <section class="sec" id="custom-request" style="background:#f8f9fa">
+        <div class="c">
+            <h2 class="st">Créez votre circuit 100% sur mesure</h2>
+            <form id="custom" style="max-width:800px;margin:auto;background:#fff;padding:3rem;border-radius:var(--r);box-shadow:var(--sh)">
+                <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:1rem">
+                    <input type="text" id="cname" placeholder="Votre nom" required>
+                    <input type="email" id="cemail" placeholder="Email" required>
+                    <input type="tel" id="cphone" placeholder="Téléphone WhatsApp" required>
+                    <input type="date" id="cdate" required>
+                    <select id="cdur"><option>Durée</option><option>3-5 jours</option><option>6-8 jours</option><option>9+ jours</option></select>
+                    <select id="cper"><option>Personnes</option><option>1-2</option><option>3-6</option><option>7+</option></select>
+                </div>
+                <textarea id="cmsg" placeholder="Vos envies, niveau physique, sites préférés..." style="width:100%;height:140px;margin:1.5rem 0;padding:15px;border-radius:8px;border:1px solid #ddd"></textarea>
+                <button type="submit" class="btn" style="width:100%;padding:16px;font-size:1.2rem">Envoyer sur WhatsApp</button>
             </form>
         </div>
     </section>
 
-    <section class="section" id="contact">
-        <div class="container">
-            <h2 class="section-title">Contact Direct</h2>
-            <p>Parlez directement avec Ali pour personnaliser votre aventure.</p>
-            <div class="contact-grid">
-                <div class="contact-card">
-                    <h3>📞 Appel Direct</h3>
-                    <p>Parlez directement avec Ali</p>
-                    <a href="tel:+212661796117" class="btn">Appeler Ali</a>
+    <section class="sec" id="contact">
+        <div class="c">
+            <h2 class="st">Contactez Ali directement</h2>
+            <div class="cg">
+                <div class="cc">
+                    <h3>WhatsApp (Français)</h3>
+                    <p>+212 6 61 79 61 17</p>
+                    <a href="https://wa.me/212661796117" class="wa" target="_blank">Ouvrir WhatsApp</a>
                 </div>
-                <div class="contact-card">
-                    <h3>💬 WhatsApp</h3>
-                    <p>Réponse en moins de 24h</p>
-                    <a href="https://wa.me/212661796117" class="whatsapp-btn" target="_blank">Message WhatsApp</a>
+                <div class="cc">
+                    <h3>WhatsApp (English)</h3>
+                    <p>+212 6 33 65 27 21</p>
+                    <a href="https://wa.me/212633652721" class="wa" target="_blank">Open WhatsApp</a>
                 </div>
-                <div class="contact-card">
-                    <h3>📧 Email</h3>
-                    <p>Contact détaillé</p>
-                    <a href="mailto:ali.ouzemmad@gmail.com" class="btn">Envoyer Email</a>
+                <div class="cc">
+                    <h3>Email</h3>
+                    <p>ali.ouzemmad@gmail.com</p>
+                    <a href="mailto:ali.ouzemmad@gmail.com" class="wa" style="background:#3498DB">Envoyer un email</a>
                 </div>
             </div>
-            <a href="#custom-request" class="btn" style="display:block;margin:2rem auto">📞 Voir Tous les Contacts</a>
         </div>
     </section>
 
     <footer>
-        <div class="container">
-            <p>&copy; 2025 Adventure Treks avec Ali - Vallée des Roses, Maroc</p>
+        <div class="c">
+            <p>&copy; 2025 Adventure Treks avec Ali - Guide Personnel Maroc | Vallée des Roses, Kelaat M'gouna</p>
         </div>
     </footer>
 
-    <script src="https://www.gstatic.com/firebasejs/9.22.0/firebase-app-compat.js"></script>
-    <script src="https://www.gstatic.com/firebasejs/9.22.0/firebase-auth-compat.js"></script>
-    <script src="https://www.gstatic.com/firebasejs/9.22.0/firebase-firestore-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-app-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-auth-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-firestore-compat.js"></script>
+
     <script>
         const firebaseConfig = {
-            apiKey: "AIzaSyCgfGwHACxx_SRsjo4qKoOJsUUXxc-b7eE",
-            authDomain: "adventure-treks-comments.firebaseapp.com",
-            projectId: "adventure-treks-comments",
-            storageBucket: "adventure-treks-comments.firebasestorage.app",
-            messagingSenderId: "792729535477",
-            appId: "1:792729535477:web:17af8772f5da73ff4cd6bc"
+          apiKey: "AIzaSyB8vJ6x9qYc8Z8Z2k8Y9vW7uT5rS3qP1oN",
+          authDomain: "adventure-treks-ali.firebaseapp.com",
+          projectId: "adventure-treks-ali",
+          storageBucket: "adventure-treks-ali.appspot.com",
+          messagingSenderId: "738291456789",
+          appId: "1:738291456789:web:8f5d9c2e7a1b3d4e5f6g7h"
         };
         firebase.initializeApp(firebaseConfig);
         const db = firebase.firestore();
         const auth = firebase.auth();
 
-        const translations = {
-            fr: {hero_title:"Randonnées Inoubliables avec Ali",hero_sub:"30+ ans d'expérience dans les montagnes et déserts du Maroc. Votre guide personnel pour des aventures authentiques et des souvenirs éternels.",book_btn:"🗓️ Réserver Votre Aventure",story_btn:"📖 Découvrir Mon Histoire",story_title:"Enfant des Montagnes, Guide de Cœur",treks_title:"Nos Randonnées",gallery_title:"Moments d'Aventure avec Ali",reviews_title:"Avis de nos voyageurs",custom_title:"Circuit Personnalisé avec Ali",home:"Accueil",story:"Mon Histoire",treks:"Randonnées",gallery:"Galerie",reviews:"Avis",contact:"Contact"},
-            en: {hero_title:"Unforgettable Treks with Ali",hero_sub:"30+ years of experience in Morocco's mountains and deserts. Your personal guide for authentic adventures and eternal memories.",book_btn:"🗓️ Book Your Adventure",story_btn:"📖 Discover My Story",story_title:"Child of the Mountains, Guide of Heart",treks_title:"Our Treks",gallery_title:"Adventure Moments with Ali",reviews_title:"Our Travelers' Reviews",custom_title:"Custom Circuit with Ali",home:"Home",story:"My Story",treks:"Treks",gallery:"Gallery",reviews:"Reviews",contact:"Contact"}
-        };
+        const tr = {fr:{home:"Accueil",story:"Mon Histoire",treks:"Randonnées",gallery:"Galerie",reviews:"Avis",contact:"Contact",cta:"Créer mon circuit sur mesure",hero_title:"Randonnées Inoubliables avec Ali",hero_sub:"30+ ans d'expérience dans les montagnes et déserts du Maroc. Votre guide personnel pour des aventures authentiques et des souvenirs éternels."},en:{home:"Home",story:"My Story",treks:"Treks",gallery:"Gallery",reviews:"Reviews",contact:"Contact",cta:"Create my custom trip",hero_title:"Unforgettable Treks with Ali",hero_sub:"30+ years guiding in Morocco's mountains and deserts. Your personal guide for authentic adventures."}};
 
-        document.querySelectorAll('.lang-btn').forEach(btn => btn.addEventListener('click', e => {
-            document.querySelectorAll('.lang-btn').forEach(b => b.classList.remove('active'));
-            e.target.classList.add('active');
-            const lang = e.target.dataset.lang;
-            document.querySelectorAll('[data-key]').forEach(el => {
-                const key = el.dataset.key;
-                if (translations[lang][key]) el.textContent = translations[lang][key];
-            });
-        }));
-
-        document.querySelector('.mobile-menu').addEventListener('click', () => document.querySelector('.nav-links').classList.toggle('active'));
-
-        document.querySelectorAll('.filter-btn').forEach(btn => btn.addEventListener('click', e => {
-            document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
-            e.target.classList.add('active');
-            const duration = e.target.dataset.duration;
-            document.querySelectorAll('.trek-card').forEach(card => card.style.display = (duration === 'all' || card.dataset.duration === duration) ? 'block' : 'none');
-        }));
-
-        document.getElementById('custom-form').addEventListener('submit', e => {
-            e.preventDefault();
-            const name = document.getElementById('cname').value;
-            const phone = document.getElementById('cphone').value;
-            const message = document.getElementById('cmessage').value;
-            const date = document.getElementById('cdate').value;
-            const text = encodeURIComponent(`Bonjour Ali, Je m'appelle \( {name}. Envies: \){message}. Date: \( {date}. WhatsApp: \){phone}`);
-            window.open(`https://wa.me/212661796117?text=${text}`, '_blank');
-        });
-
-        document.getElementById('google-signin').addEventListener('click', () => {
-            const provider = new firebase.auth.GoogleAuthProvider();
-            auth.signInWithPopup(provider);
-        });
-
-        auth.onAuthStateChanged(user => {
-            if (user) {
-                document.getElementById('auth-container').style.display = 'none';
-                document.getElementById('review-form').style.display = 'block';
-            }
-        });
-
-        document.querySelectorAll('.star').forEach(star => star.addEventListener('click', e => {
-            document.getElementById('rating').value = e.target.dataset.value;
-            document.querySelectorAll('.star').forEach(s => s.style.color = '#ddd');
-            for (let i = 1; i <= e.target.dataset.value; i++) document.querySelector(`.star[data-value="${i}"]`).style.color = '#FFD700';
-        }));
-
-        document.getElementById('review-form').addEventListener('submit', e => {
-            e.preventDefault();
-            db.collection('comments').add({
-                authorName: document.getElementById('name').value,
-                text: document.getElementById('message').value,
-                rating: parseInt(document.getElementById('rating').value),
-                createdAt: firebase.firestore.FieldValue.serverTimestamp()
-            }).then(() => {
-                document.getElementById('review-form').reset();
-                loadComments();
-            });
-        });
-
-        function loadComments() {
-            db.collection('comments').orderBy('createdAt', 'desc').onSnapshot(snapshot => {
-                const container = document.getElementById('comments-display');
-                container.innerHTML = '';
-                snapshot.forEach(doc => {
-                    const comment = doc.data();
-                    const div = document.createElement('div');
-                    div.style = 'background:#f9f9f9;padding:1.5rem;margin:1rem 0;border-radius:12px;border-left:5px solid var(--primary)';
-                    div.innerHTML = `<strong>\( {comment.authorName}</strong> <span style="color:#FFD700"> \){'★'.repeat(comment.rating)}</span><br><small>\( {comment.createdAt ? comment.createdAt.toDate().toLocaleDateString('fr-FR') : 'Récemment'}</small><p style="margin-top:.8rem"> \){comment.text}</p>`;
-                    container.appendChild(div);
-                });
-                if (snapshot.empty) container.innerHTML = '<p style="text-align:center;color:#666">Soyez le premier à laisser un avis!</p>';
-            });
-        }
-        loadComments();
+        document.querySelectorAll('.lang button').forEach(b=>b.addEventListener('click',()=>{document.querySelectorAll('.lang button').forEach(x=>x.classList.remove('active'));b.classList.add('active');const l=b.dataset.lang;document.querySelectorAll('[data-key]').forEach(e=>e.textContent=tr[l][e.dataset.key]||e.textContent)}));
+        document.querySelector('.mob').addEventListener('click',()=>document.querySelector('.links').classList.toggle('active'));
+        document.querySelectorAll('.fb').forEach(b=>b.addEventListener('click',()=>{document.querySelectorAll('.fb').forEach(x=>x.classList.remove('active'));b.classList.add('active');const d=b.dataset.duration;document.querySelectorAll('.tc').forEach(c=>c.style.display=(d==='all'||c.dataset.duration===d)?'block':'none')}));
+        document.querySelectorAll('.star').forEach(s=>s.addEventListener('click',()=>{document.getElementById('rating').value=s.dataset.value;document.querySelectorAll('.star').forEach(x=>x.style.color='#ddd');for(let i=1;i<=s.dataset.value;i++)document.querySelector(`.star[data-value="${i}"]`).style.color='#f39c12'}));
+        document.getElementById('custom').addEventListener('submit',e=>{e.preventDefault();const n=document.getElementById('cname').value,p=document.getElementById('cphone').value,t=encodeURIComponent(`Bonjour Ali,\nJe m'appelle \( {n}\n \){document.getElementById('cmsg').value}\nDate: \( {document.getElementById('cdate').value}\nDurée: \){document.getElementById('cdur').value}\nPersonnes: \( {document.getElementById('cper').value}\nWhatsApp: \){p}`);window.open(`https://wa.me/212661796117?text=${t}`,'_blank')});
+        document.getElementById('google').addEventListener('click',()=>{new firebase.auth.GoogleAuthProvider();auth.signInWithPopup(new firebase.auth.GoogleAuthProvider())});
+        auth.onAuthStateChanged(u=>{if(u){document.getElementById('auth').style.display='none';document.getElementById('review').style.display='block'}});
+        document.getElementById('review').addEventListener('submit',e=>{e.preventDefault();db.collection('reviews').add({name:document.getElementById('name').value,message:document.getElementById('msg').value,rating:document.getElementById('rating').value,timestamp:firebase.firestore.FieldValue.serverTimestamp()}).then(()=>{document.getElementById('review').reset();load()})});
+        function load(){db.collection('reviews').orderBy('timestamp','desc').onSnapshot(s=>{const c=document.getElementById('comments');c.innerHTML='';s.forEach(d=>{const r=d.data();const div=document.createElement('div');div.style='background:#f9f9f9;padding:1.5rem;margin:1rem 0;border-radius:12px;border-left:5px solid var(--p)';div.innerHTML=`<strong>\( {r.name}</strong> <span style="color:#f39c12"> \){'★'.repeat(r.rating)}</span><br><small>\( {new Date(r.timestamp?.toDate()).toLocaleDateString('fr-FR')}</small><p style="margin-top:.8rem"> \){r.message}</p>`;c.appendChild(div)})})}
+        load();
     </script>
 </body>
 </html>
