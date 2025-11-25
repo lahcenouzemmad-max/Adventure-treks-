@@ -5,50 +5,15 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Adventure Treks avec Ali - Guide Expert Maroc | Trekking Atlas & Désert</title>
     
-    <!-- Meta SEO Avancé -->
-    <meta name="description" content="Ali Ouzemmad - Guide personnel natif de la Vallée des Roses. 30 ans d'expérience en trekking dans l'Atlas et le désert marocain. Créons ensemble des souvenirs inoubliables.">
-    <meta name="keywords" content="guide personnel maroc, ali ouzemmad, trekking atlas, désert merzouga, randonnée m'goun, vallée des roses, guide francophone">
+    <!-- Meta SEO -->
+    <meta name="description" content="Ali Ouzemmad - Guide personnel natif de la Vallée des Roses. 30 ans d'expérience en trekking dans l'Atlas et le désert marocain.">
+    <meta name="keywords" content="guide personnel maroc, ali ouzemmad, trekking atlas, désert merzouga, randonnée m'goun, vallée des roses">
     <meta name="author" content="Ali Ouzemmad">
-    <meta name="robots" content="index, follow">
-    <meta name="geo.region" content="MA">
-    <meta name="geo.placename" content="Ouarzazate">
     
     <!-- Open Graph -->
     <meta property="og:title" content="Adventure Treks avec Ali - Votre Guide Personnel au Maroc">
     <meta property="og:description" content="30 ans d'expérience - Trekking personnalisé dans l'Atlas et le désert">
     <meta property="og:type" content="website">
-    <meta property="og:image" content="https://images.unsplash.com/photo-1518638150340-f706e86654de?ixlib=rb-4.0.3">
-    <meta property="og:locale" content="fr_FR">
-    
-    <!-- Schema.org -->
-    <script type="application/ld+json">
-    {
-        "@context": "https://schema.org",
-        "@type": "TouristAttraction",
-        "name": "Adventure Treks avec Ali",
-        "description": "Guide personnel avec 30 ans d'expérience dans le trekking au Maroc",
-        "address": {
-            "@type": "PostalAddress",
-            "addressRegion": "Vallée des Roses - Ouarzazate",
-            "addressCountry": "MA"
-        },
-        "telephone": "+212661796117",
-        "areaServed": "Maroc",
-        "hasOfferCatalog": {
-            "@type": "OfferCatalog",
-            "name": "Services de Trekking",
-            "itemListElement": [
-                {
-                    "@type": "Offer",
-                    "itemOffered": {
-                        "@type": "Service",
-                        "name": "Trekking dans l'Atlas"
-                    }
-                }
-            ]
-        }
-    }
-    </script>
     
     <style>
         :root {
@@ -70,16 +35,11 @@
             box-sizing: border-box;
         }
 
-        html {
-            scroll-behavior: smooth;
-        }
-
         body {
             font-family: 'Inter', system-ui, -apple-system, sans-serif;
             line-height: 1.7;
             color: var(--text);
             background: var(--light);
-            overflow-x: hidden;
         }
 
         .loading {
@@ -93,7 +53,6 @@
             justify-content: center;
             align-items: center;
             z-index: 9999;
-            transition: opacity 0.5s ease;
         }
 
         .spinner {
@@ -116,12 +75,7 @@
             background: rgba(255, 255, 255, 0.95);
             backdrop-filter: blur(20px);
             z-index: 1000;
-            transition: all 0.3s ease;
             border-bottom: 1px solid rgba(0,0,0,0.1);
-        }
-
-        .header.scrolled {
-            box-shadow: var(--shadow);
         }
 
         .container {
@@ -142,13 +96,6 @@
             font-weight: 700;
             color: var(--primary);
             text-decoration: none;
-            display: flex;
-            align-items: center;
-            gap: 0.5rem;
-        }
-
-        .logo-icon {
-            font-size: 1.8rem;
         }
 
         .nav-links {
@@ -161,30 +108,7 @@
             text-decoration: none;
             color: var(--text);
             font-weight: 500;
-            transition: all 0.3s ease;
-            position: relative;
-            padding: 0.5rem 0;
-        }
-
-        .nav-links a::after {
-            content: '';
-            position: absolute;
-            bottom: 0;
-            left: 0;
-            width: 0;
-            height: 2px;
-            background: var(--primary);
-            transition: width 0.3s ease;
-        }
-
-        .nav-links a:hover::after {
-            width: 100%;
-        }
-
-        .nav-actions {
-            display: flex;
-            align-items: center;
-            gap: 1rem;
+            transition: color 0.3s ease;
         }
 
         .language-switcher {
@@ -202,7 +126,6 @@
             border-radius: 20px;
             cursor: pointer;
             transition: all 0.3s ease;
-            font-weight: 500;
         }
 
         .lang-btn.active {
@@ -210,348 +133,199 @@
             color: white;
         }
 
-        .mobile-menu-btn {
-            display: none;
-            background: none;
-            border: none;
-            font-size: 1.5rem;
-            cursor: pointer;
-            color: var(--text);
-            padding: 0.5rem;
-        }
-
         .hero {
-            height: 100vh;
-            position: relative;
-            overflow: hidden;
+            height: 70vh;
+            background: linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.4)), 
+                        url('https://drive.google.com/thumbnail?id=1tqwm60wwjHRde-aUKcnUUf9WJrMGbjla&sz=w2000') center/cover;
             display: flex;
             align-items: center;
             justify-content: center;
             text-align: center;
             color: white;
-        }
-
-        .hero-bg {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.4)), 
-                        url('https://images.unsplash.com/photo-1518638150340-f706e86654de?ixlib=rb-4.0.3&auto=format&fit=crop&w=2000&q=80') center/cover;
-            transform: scale(1.1);
-            transition: transform 0.3s ease;
-        }
-
-        .hero-content {
-            position: relative;
-            z-index: 2;
-            max-width: 800px;
-            padding: 0 20px;
+            margin-top: 80px;
         }
 
         .hero h1 {
-            font-size: clamp(2.5rem, 5vw, 4rem);
-            margin-bottom: 1.5rem;
-            font-weight: 700;
-            text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
-            animation: fadeInUp 1s ease;
-            line-height: 1.2;
-        }
-
-        .hero p {
-            font-size: clamp(1.1rem, 2vw, 1.4rem);
-            margin-bottom: 2.5rem;
-            text-shadow: 1px 1px 2px rgba(0,0,0,0.5);
-            animation: fadeInUp 1s ease 0.2s both;
-            opacity: 0.9;
+            font-size: 2.8rem;
+            margin-bottom: 1rem;
         }
 
         .btn {
-            display: inline-flex;
-            align-items: center;
-            gap: 0.5rem;
-            padding: 15px 35px;
+            display: inline-block;
+            padding: 12px 30px;
             background: var(--accent);
             color: white;
             text-decoration: none;
-            border-radius: 30px;
+            border-radius: 25px;
             font-weight: 600;
             transition: all 0.3s ease;
-            border: none;
-            cursor: pointer;
-            animation: fadeInUp 1s ease 0.4s both;
-            font-size: 1.1rem;
-            box-shadow: 0 10px 30px rgba(255, 107, 53, 0.3);
         }
 
         .btn:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 20px 40px rgba(255, 107, 53, 0.4);
-            background: #E55A2B;
-        }
-
-        .btn-secondary {
-            background: transparent;
-            border: 2px solid white;
-            box-shadow: none;
-        }
-
-        .btn-secondary:hover {
-            background: white;
-            color: var(--primary);
-        }
-
-        .scroll-indicator {
-            position: absolute;
-            bottom: 30px;
-            left: 50%;
-            transform: translateX(-50%);
-            animation: bounce 2s infinite;
-        }
-
-        .scroll-arrow {
-            width: 30px;
-            height: 30px;
-            border-right: 3px solid white;
-            border-bottom: 3px solid white;
-            transform: rotate(45deg);
-        }
-
-        @keyframes bounce {
-            0%, 20%, 50%, 80%, 100% {
-                transform: translateY(0) translateX(-50%);
-            }
-            40% {
-                transform: translateY(-10px) translateX(-50%);
-            }
-            60% {
-                transform: translateY(-5px) translateX(-50%);
-            }
-        }
-
-        @keyframes fadeInUp {
-            from {
-                opacity: 0;
-                transform: translateY(30px);
-            }
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
+            transform: translateY(-2px);
         }
 
         .section {
-            padding: 100px 0;
+            padding: 80px 0;
         }
 
         .section-title {
             text-align: center;
-            font-size: clamp(2rem, 4vw, 3rem);
+            font-size: 2.2rem;
             margin-bottom: 3rem;
             color: var(--dark);
-            position: relative;
         }
 
-        .section-title::after {
-            content: '';
-            position: absolute;
-            bottom: -15px;
-            left: 50%;
-            transform: translateX(-50%);
-            width: 80px;
-            height: 4px;
-            background: var(--primary);
-            border-radius: 2px;
-        }
-
-        .story-grid {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 4rem;
-            align-items: center;
-        }
-
-        .story-image {
-            position: relative;
-            border-radius: var(--border-radius);
-            overflow: hidden;
-            box-shadow: var(--shadow);
-        }
-
-        .story-image img {
-            width: 100%;
-            height: 500px;
-            object-fit: cover;
-            transition: transform 0.3s ease;
-        }
-
-        .story-image:hover img {
-            transform: scale(1.05);
-        }
-
-        .story-content {
-            padding: 2rem 0;
-        }
-
-        .story-content h3 {
-            font-size: 1.8rem;
-            margin-bottom: 1.5rem;
-            color: var(--dark);
-        }
-
-        .story-content p {
-            margin-bottom: 1.5rem;
-            font-size: 1.1rem;
-            line-height: 1.8;
-        }
-
-        .highlight {
-            background: linear-gradient(120deg, rgba(46, 139, 87, 0.1) 0%, rgba(46, 139, 87, 0) 100%);
-            padding: 2rem;
-            border-radius: var(--border-radius);
-            border-left: 4px solid var(--primary);
-            margin: 2rem 0;
-        }
-
-        .services-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
-            gap: 2rem;
-            margin-top: 3rem;
-        }
-
-        .service-card {
-            background: white;
-            padding: 2.5rem;
-            border-radius: var(--border-radius);
-            box-shadow: var(--shadow);
-            transition: all 0.3s ease;
-            text-align: center;
-            border: 1px solid rgba(0,0,0,0.05);
-        }
-
-        .service-card:hover {
-            transform: translateY(-10px);
-            box-shadow: var(--shadow-hover);
-        }
-
-        .service-icon {
-            font-size: 3rem;
-            margin-bottom: 1.5rem;
-            color: var(--primary);
-        }
-
-        .service-card h3 {
-            font-size: 1.5rem;
-            margin-bottom: 1rem;
-            color: var(--dark);
-        }
-
+        /* Gallery améliorée */
         .gallery-container {
             position: relative;
-            margin-top: 3rem;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 3rem;
         }
 
-        .gallery-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 1.5rem;
+        .gallery-slider {
+            display: flex;
+            overflow-x: auto;
+            scroll-behavior: smooth;
+            gap: 1rem;
+            padding: 1rem 0;
+            scrollbar-width: none;
+        }
+
+        .gallery-slider::-webkit-scrollbar {
+            display: none;
         }
 
         .gallery-item {
-            position: relative;
-            border-radius: var(--border-radius);
+            flex: 0 0 auto;
+            width: 300px;
+            height: 200px;
+            border-radius: 10px;
             overflow: hidden;
-            aspect-ratio: 4/3;
-            cursor: pointer;
+            box-shadow: var(--shadow);
+            transition: transform 0.3s ease;
+        }
+
+        .gallery-item:hover {
+            transform: scale(1.05);
         }
 
         .gallery-item img {
             width: 100%;
             height: 100%;
             object-fit: cover;
-            transition: transform 0.3s ease;
         }
 
-        .gallery-item:hover img {
-            transform: scale(1.1);
-        }
-
-        .gallery-overlay {
+        .gallery-nav {
             position: absolute;
-            bottom: 0;
-            left: 0;
-            right: 0;
-            background: linear-gradient(transparent, rgba(0,0,0,0.8));
-            color: white;
-            padding: 2rem 1rem 1rem;
-            transform: translateY(100%);
-            transition: transform 0.3s ease;
+            top: 50%;
+            transform: translateY(-50%);
+            background: rgba(255,255,255,0.9);
+            border: none;
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            cursor: pointer;
+            font-size: 1.5rem;
+            color: var(--primary);
+            display: flex;
+            align-items: center;
+            justify-content: center;
         }
 
-        .gallery-item:hover .gallery-overlay {
-            transform: translateY(0);
+        .gallery-prev { left: 0; }
+        .gallery-next { right: 0; }
+
+        /* Filtres des treks */
+        .duration-filters {
+            display: flex;
+            justify-content: center;
+            gap: 0.5rem;
+            margin-bottom: 2rem;
+            flex-wrap: wrap;
         }
 
-        .pricing-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 2rem;
-            margin-top: 3rem;
-        }
-
-        .pricing-card {
+        .duration-btn {
+            padding: 10px 20px;
+            border: 2px solid var(--primary);
             background: white;
-            padding: 2.5rem;
-            border-radius: var(--border-radius);
-            box-shadow: var(--shadow);
-            text-align: center;
-            position: relative;
-            border: 2px solid transparent;
+            color: var(--primary);
+            border-radius: 20px;
+            cursor: pointer;
+            font-weight: 600;
             transition: all 0.3s ease;
         }
 
-        .pricing-card.featured {
-            border-color: var(--primary);
-            transform: scale(1.05);
+        .duration-btn.active {
+            background: var(--primary);
+            color: white;
         }
 
-        .pricing-card:hover {
+        .treks-container {
+            display: none;
+        }
+
+        .treks-container.active {
+            display: block;
+        }
+
+        .treks-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 2rem;
+        }
+
+        .trek-card {
+            background: white;
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: var(--shadow);
+            transition: transform 0.3s ease;
+        }
+
+        .trek-card:hover {
             transform: translateY(-5px);
-            box-shadow: var(--shadow-hover);
         }
 
-        .pricing-card.featured:hover {
-            transform: scale(1.05) translateY(-5px);
+        .trek-image {
+            height: 200px;
+            background: var(--gradient);
+            position: relative;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-weight: 600;
         }
 
-        .price {
-            font-size: 3rem;
-            font-weight: 700;
-            color: var(--primary);
+        .trek-duration {
+            position: absolute;
+            top: 0.5rem;
+            right: 0.5rem;
+            background: var(--primary);
+            color: white;
+            padding: 0.5rem 1rem;
+            border-radius: 15px;
+            font-weight: bold;
+        }
+
+        .trek-content {
+            padding: 1.5rem;
+        }
+
+        .trek-features {
+            list-style: none;
             margin: 1rem 0;
         }
 
-        .price-period {
-            font-size: 1rem;
-            color: var(--text);
-            opacity: 0.7;
-        }
-
-        .features-list {
-            list-style: none;
-            margin: 2rem 0;
-            text-align: left;
-        }
-
-        .features-list li {
-            padding: 0.5rem 0;
+        .trek-features li {
+            padding: 0.3rem 0;
             position: relative;
-            padding-left: 2rem;
+            padding-left: 1.5rem;
         }
 
-        .features-list li::before {
+        .trek-features li::before {
             content: '✓';
             position: absolute;
             left: 0;
@@ -559,318 +333,152 @@
             font-weight: bold;
         }
 
-        .payment-info {
-            background: #FFF3CD;
-            border: 1px solid #FFEAA7;
-            border-radius: 10px;
-            padding: 1.5rem;
-            margin: 2rem 0;
-            text-align: center;
-        }
-
-        .contact-grid {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 4rem;
-            margin-top: 3rem;
-        }
-
+        /* Section Contact améliorée */
         .contact-info {
-            display: flex;
-            flex-direction: column;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
             gap: 2rem;
+            margin-top: 2rem;
         }
 
         .contact-card {
             background: white;
             padding: 2rem;
-            border-radius: var(--border-radius);
+            border-radius: 10px;
             box-shadow: var(--shadow);
             text-align: center;
+            border-top: 4px solid var(--primary);
         }
 
-        .contact-card h3 {
-            margin-bottom: 1rem;
+        .contact-card .phone {
+            font-size: 1.2rem;
+            font-weight: bold;
             color: var(--dark);
-        }
-
-        .contact-method {
-            display: flex;
-            align-items: center;
-            gap: 1rem;
-            margin: 1rem 0;
-            padding: 1rem;
-            background: rgba(46, 139, 87, 0.05);
-            border-radius: 10px;
-            transition: all 0.3s ease;
-        }
-
-        .contact-method:hover {
-            background: rgba(46, 139, 87, 0.1);
-            transform: translateX(10px);
-        }
-
-        .contact-icon {
-            font-size: 1.5rem;
-            color: var(--primary);
-        }
-
-        .contact-form {
-            background: white;
-            padding: 2.5rem;
-            border-radius: var(--border-radius);
-            box-shadow: var(--shadow);
-        }
-
-        .form-group {
-            margin-bottom: 1.5rem;
-        }
-
-        .form-group label {
+            margin: 0.5rem 0;
+            text-decoration: none;
             display: block;
-            margin-bottom: 0.5rem;
-            font-weight: 500;
-            color: var(--dark);
         }
 
-        .form-group input,
-        .form-group select,
-        .form-group textarea {
-            width: 100%;
-            padding: 1rem;
-            border: 2px solid #e2e8f0;
-            border-radius: 10px;
-            font-size: 1rem;
-            transition: all 0.3s ease;
-            font-family: inherit;
-        }
-
-        .form-group input:focus,
-        .form-group select:focus,
-        .form-group textarea:focus {
-            outline: none;
-            border-color: var(--primary);
-            box-shadow: 0 0 0 3px rgba(46, 139, 87, 0.1);
-        }
-
-        .comments-section {
-            background: white;
-            padding: 3rem;
-            border-radius: var(--border-radius);
-            box-shadow: var(--shadow);
-            margin-top: 3rem;
-        }
-
-        .comment-form {
-            margin-bottom: 3rem;
-        }
-
-        .rating {
-            display: flex;
+        .whatsapp-btn {
+            background: #25D366;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 20px;
+            text-decoration: none;
+            display: inline-flex;
+            align-items: center;
             gap: 0.5rem;
+            margin-top: 0.5rem;
+            font-weight: 600;
+            transition: all 0.3s ease;
+        }
+
+        .whatsapp-btn:hover {
+            background: #128C7E;
+            transform: translateY(-2px);
+        }
+
+        /* Système de commentaires avancé */
+        .comments-system {
+            background: white;
+            padding: 2rem;
+            border-radius: 15px;
+            box-shadow: var(--shadow);
+            margin-top: 2rem;
+        }
+
+        .comment-form-container {
+            margin-bottom: 2rem;
+        }
+
+        .rating-stars {
+            display: flex;
+            gap: 0.3rem;
             margin-bottom: 1rem;
         }
 
         .star {
-            font-size: 2rem;
+            font-size: 1.5rem;
             color: #ddd;
             cursor: pointer;
-            transition: color 0.2s ease;
+            transition: color 0.3s ease;
         }
 
         .star.active {
             color: #FFD700;
         }
 
-        .comments-list {
-            max-height: 500px;
+        .comments-display {
+            max-height: 400px;
             overflow-y: auto;
         }
 
-        .comment {
+        .comment-item {
             padding: 1.5rem;
-            border-bottom: 1px solid #e2e8f0;
-        }
-
-        .comment:last-child {
-            border-bottom: none;
+            border-bottom: 1px solid #eee;
         }
 
         .comment-header {
             display: flex;
-            justify-content: between;
+            justify-content: space-between;
             align-items: center;
-            margin-bottom: 1rem;
+            margin-bottom: 0.5rem;
         }
 
-        .comment-author {
-            font-weight: 600;
-            color: var(--dark);
-        }
-
-        .comment-rating {
-            color: #FFD700;
-        }
-
+        /* Politique de confidentialité compacte */
         .privacy-policy {
             background: white;
-            padding: 3rem;
-            border-radius: var(--border-radius);
+            padding: 1.5rem;
+            border-radius: 10px;
             box-shadow: var(--shadow);
-            margin-top: 3rem;
+            margin-top: 2rem;
+            font-size: 0.9rem;
         }
 
         .privacy-content {
-            max-height: 400px;
+            max-height: 200px;
             overflow-y: auto;
-            padding: 2rem;
+            padding: 1rem;
             background: #f8f9fa;
-            border-radius: 10px;
-            margin: 2rem 0;
+            border-radius: 8px;
         }
 
         .footer {
             background: var(--dark);
             color: white;
-            padding: 4rem 0 2rem;
-        }
-
-        .footer-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 3rem;
-            margin-bottom: 3rem;
-        }
-
-        .footer-column h3 {
-            margin-bottom: 1.5rem;
-            color: white;
-        }
-
-        .footer-links {
-            list-style: none;
-        }
-
-        .footer-links li {
-            margin-bottom: 0.5rem;
-        }
-
-        .footer-links a {
-            color: rgba(255,255,255,0.7);
-            text-decoration: none;
-            transition: color 0.3s ease;
-        }
-
-        .footer-links a:hover {
-            color: white;
-        }
-
-        .social-links {
-            display: flex;
-            gap: 1rem;
-            margin-top: 1rem;
-        }
-
-        .social-link {
-            display: inline-flex;
-            align-items: center;
-            justify-content: center;
-            width: 40px;
-            height: 40px;
-            background: rgba(255,255,255,0.1);
-            border-radius: 50%;
-            color: white;
-            text-decoration: none;
-            transition: all 0.3s ease;
-        }
-
-        .social-link:hover {
-            background: var(--primary);
-            transform: translateY(-2px);
-        }
-
-        .footer-bottom {
+            padding: 3rem 0 2rem;
             text-align: center;
-            padding-top: 2rem;
-            border-top: 1px solid rgba(255,255,255,0.1);
-            color: rgba(255,255,255,0.7);
         }
 
-        @media (max-width: 968px) {
-            .story-grid,
-            .contact-grid {
-                grid-template-columns: 1fr;
-                gap: 2rem;
-            }
-
-            .pricing-card.featured {
-                transform: none;
-            }
-
-            .pricing-card.featured:hover {
-                transform: translateY(-5px);
-            }
-        }
-
+        /* Design responsive */
         @media (max-width: 768px) {
             .nav-links {
                 display: none;
-                position: absolute;
-                top: 100%;
-                left: 0;
-                right: 0;
-                background: white;
-                flex-direction: column;
-                padding: 2rem;
-                box-shadow: var(--shadow);
-                text-align: center;
             }
-
-            .nav-links.active {
-                display: flex;
+            
+            .hero h1 {
+                font-size: 2rem;
             }
-
-            .mobile-menu-btn {
-                display: block;
+            
+            .gallery-container {
+                padding: 0 2rem;
             }
-
-            .services-grid,
-            .gallery-grid,
-            .pricing-grid {
+            
+            .gallery-item {
+                width: 250px;
+                height: 180px;
+            }
+            
+            .treks-grid {
                 grid-template-columns: 1fr;
             }
-
-            .hero h1 {
-                font-size: 2.5rem;
+            
+            .contact-info {
+                grid-template-columns: 1fr;
             }
-
-            .hero p {
-                font-size: 1.1rem;
-            }
-
-            .section {
-                padding: 60px 0;
-            }
-        }
-
-        .animate-in {
-            animation: fadeInUp 0.8s ease both;
-        }
-
-        .delay-1 {
-            animation-delay: 0.2s;
-        }
-
-        .delay-2 {
-            animation-delay: 0.4s;
-        }
-
-        .delay-3 {
-            animation-delay: 0.6s;
         }
     </style>
-    
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
 </head>
 <body>
@@ -878,346 +486,276 @@
         <div class="spinner"></div>
     </div>
 
-    <header class="header" id="header">
+    <header class="header">
         <div class="container">
             <nav class="nav">
-                <a href="#" class="logo">
-                    <span class="logo-icon">🏔️</span>
-                    <span data-translate="logo">Adventure Treks avec Ali</span>
-                </a>
+                <a href="#" class="logo">Adventure Treks avec Ali</a>
                 
                 <ul class="nav-links">
                     <li><a href="#accueil" data-translate="home">Accueil</a></li>
-                    <li><a href="#histoire" data-translate="story">Mon Histoire</a></li>
-                    <li><a href="#services" data-translate="services">Services</a></li>
-                    <li><a href="#galerie" data-translate="gallery">Galerie</a></li>
-                    <li><a href="#tarifs" data-translate="pricing">Tarifs</a></li>
+                    <li><a href="#guide" data-translate="guide">Votre Guide</a></li>
+                    <li><a href="#treks" data-translate="treks">Randonnées</a></li>
+                    <li><a href="#gallery" data-translate="gallery">Galerie</a></li>
                     <li><a href="#avis" data-translate="reviews">Avis</a></li>
                     <li><a href="#contact" data-translate="contact">Contact</a></li>
                 </ul>
 
-                <div class="nav-actions">
-                    <div class="language-switcher">
-                        <button class="lang-btn active" data-lang="fr">FR</button>
-                        <button class="lang-btn" data-lang="en">EN</button>
-                    </div>
-                    <button class="mobile-menu-btn">
-                        <i class="fas fa-bars"></i>
-                    </button>
+                <div class="language-switcher">
+                    <button class="lang-btn active" data-lang="fr">FR</button>
+                    <button class="lang-btn" data-lang="en">EN</button>
                 </div>
             </nav>
         </div>
     </header>
 
     <section class="hero" id="accueil">
-        <div class="hero-bg" id="heroBg"></div>
         <div class="hero-content">
-            <h1 data-translate="hero_title">Votre Guide Personnel dans les Montagnes et Déserts du Maroc</h1>
-            <p data-translate="hero_subtitle">30 ans d'expérience - Des souvenirs inoubliables garantis</p>
-            <div style="display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap;">
-                <a href="#contact" class="btn">
-                    <i class="fas fa-calendar-check"></i>
-                    <span data-translate="book_now">Réserver Maintenant</span>
-                </a>
-                <a href="#histoire" class="btn btn-secondary">
-                    <i class="fas fa-history"></i>
-                    <span data-translate="discover_story">Découvrir mon histoire</span>
-                </a>
-            </div>
-        </div>
-        
-        <div class="scroll-indicator">
-            <div class="scroll-arrow"></div>
+            <h1 data-translate="hero_title">Adventure Treks avec Ali - Votre Guide Personnel</h1>
+            <p data-translate="hero_subtitle">Trekking dans l'Atlas, randonnées au désert - Guide expert 30+ ans d'expérience</p>
+            <a href="#contact" class="btn" data-translate="discover_btn">Contact Direct avec Ali</a>
         </div>
     </section>
 
-    <section class="section" id="histoire">
+    <section class="section" id="guide">
         <div class="container">
-            <h2 class="section-title" data-translate="my_story">Mon Histoire</h2>
-            <div class="story-grid">
-                <div class="story-image animate-in">
-                    <img src="https://images.unsplash.com/photo-1551632811-561732d1e306?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80" alt="Ali dans les montagnes de l'Atlas" data-translate-alt="ali_mountains">
+            <h2 class="section-title" data-translate="guide_title">Votre Guide Expert</h2>
+            <div class="guide-profile">
+                <div style="display: flex; align-items: center; gap: 2rem; margin-bottom: 2rem;">
+                    <img src="https://drive.google.com/thumbnail?id=1zpuQMHPk4oemXJgLtzwsrlJ7z0C5LNU0&sz=w1000" alt="Ali Ouzemmad" style="width: 200px; height: 200px; border-radius: 50%; object-fit: cover; border: 5px solid var(--primary);">
+                    <div>
+                        <h2>Ali Ouzemmad</h2>
+                        <p data-translate="guide_job">Votre guide personnel pour espaces naturels et montagnes</p>
+                        <p>Vallée des Roses - Ouarzazate / Maroc</p>
+                    </div>
                 </div>
-                <div class="story-content">
-                    <h3 data-translate="story_title">Fils de la Vallée des Roses</h3>
-                    <p data-translate="story_p1">
-                        Je suis né et j'ai grandi dans la magnifique Vallée des Roses, au cœur des montagnes de l'Atlas. 
-                        Depuis mon enfance, j'ai parcouru et exploré chaque sentier du massif du M'Goun, découvrant 
-                        les secrets les mieux gardés de nos montagnes et de nos déserts.
-                    </p>
+                
+                <div class="guide-bio">
+                    <p><strong data-translate="guide_exp">Plus de 30 ans d'expérience</strong> en tant que guide personnel au Maroc.</p>
                     
-                    <div class="highlight">
-                        <p data-translate="story_p2">
-                            <strong>Ce qui fait ma différence :</strong> Je suis un enfant des montagnes. Je connais 
-                            chaque pierre, chaque sentier, et je sais comment anticiper les changements de temps 
-                            capricieux dans l'Atlas. Mes 30 années d'expérience m'ont enseigné non seulement 
-                            la géographie, mais aussi la psychologie des voyageurs.
-                        </p>
+                    <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 1rem; margin: 2rem 0;">
+                        <div style="text-align: center; padding: 1.5rem; background: var(--light); border-radius: 10px;">
+                            <h3 data-translate="peaks_title">Sommets Maîtrisés</h3>
+                            <p>Toubkal, Mgoun, Siroua, Saghro</p>
+                        </div>
+                        <div style="text-align: center; padding: 1.5rem; background: var(--light); border-radius: 10px;">
+                            <h3 data-translate="deserts_title">Déserts</h3>
+                            <p>Merzouga, Chegaga</p>
+                        </div>
+                        <div style="text-align: center; padding: 1.5rem; background: var(--light); border-radius: 10px;">
+                            <h3 data-translate="valleys_title">Vallées Expertisées</h3>
+                            <p>Dades, Roses, Aït Bougumez, Ourika, Drâa, Tassaout</p>
+                        </div>
                     </div>
 
-                    <p data-translate="story_p3">
-                        Je parle couramment le français et l'anglais, ce qui me permet de créer des liens authentiques 
-                        avec les voyageurs du monde entier. Mes clients ne reviennent pas seulement pour les paysages 
-                        époustouflants, mais pour l'amitié et la confiance que nous construisons ensemble.
-                    </p>
+                    <div style="background: #E8F5E8; padding: 1.5rem; border-radius: 10px; margin: 1.5rem 0; text-align: center;">
+                        <div data-translate="price_title" style="font-weight: bold; margin-bottom: 0.5rem;">Prix Tout Compris avec Votre Guide</div>
+                        <p data-translate="price_desc"><strong>Je m'occupe de tout : guidage personnel, transport, hébergement, repas, et équipement.</strong></p>
+                    </div>
 
-                    <h4 data-translate="memories_title" style="margin-top: 2rem; color: var(--primary);">Souvenirs Inoubliables</h4>
-                    <p data-translate="memory_1">
-                        Un couple est resté chez moi plusieurs jours. Le mari a voulu nous préparer le dîner, 
-                        et après des heures en cuisine, nous avons découvert qu'il avait oublié le pain ! 
-                        Nous en rions encore aujourd'hui.
-                    </p>
-                    <p data-translate="memory_2">
-                        Une autre fois, une famille avec deux enfants est restée une semaine complète après leur trek. 
-                        Leurs enfants jouaient avec les miens, créant des souvenirs magiques malgré la barrière 
-                        linguistique. Une soirée mémorable avec des ballons et notre chat espiègle !
-                    </p>
+                    <div style="background: #FFF3CD; padding: 1.5rem; border-radius: 8px; text-align: center; margin: 2rem 0;">
+                        <h4>Conditions de Paiement</h4>
+                        <p><strong>Avance : 20% après accord</strong></p>
+                        <p><strong>Solde : Pendant ou après la randonnée</strong></p>
+                        <p><strong>Annulation gratuite : 48h après accord</strong></p>
+                    </div>
+
+                    <!-- Histoire personnelle -->
+                    <div style="background: linear-gradient(120deg, rgba(46, 139, 87, 0.1) 0%, rgba(46, 139, 87, 0) 100%); padding: 2rem; border-radius: 10px; margin: 2rem 0;">
+                        <h3>Mon Histoire</h3>
+                        <p>Je suis né et j'ai grandi dans la magnifique Vallée des Roses, au cœur des montagnes de l'Atlas. Depuis mon enfance, j'ai parcouru chaque sentier du massif du M'Goun, découvrant les secrets de nos montagnes et déserts.</p>
+                        <p><strong>Ce qui fait ma différence :</strong> Je suis un enfant des montagnes. Je connais chaque pierre, chaque sentier, et je sais anticiper les changements de temps. Mes 30 années d'expérience m'ont enseigné la géographie et la psychologie des voyageurs.</p>
+                    </div>
                 </div>
             </div>
         </div>
     </section>
 
-    <section class="section" id="services">
+    <section class="section" id="gallery">
         <div class="container">
-            <h2 class="section-title" data-translate="services_title">Ce Qui Nous Distingue</h2>
-            <div class="services-grid">
-                <div class="service-card animate-in">
-                    <div class="service-icon">🏔️</div>
-                    <h3 data-translate="service_1_title">Expertise Locale Authentique</h3>
-                    <p data-translate="service_1_desc">
-                        En marchant avec moi, vous ne suivez pas un guide, mais un ami qui partage 
-                        30 ans de souvenirs et d'expériences dans chaque sentier.
-                    </p>
-                </div>
-                
-                <div class="service-card animate-in delay-1">
-                    <div class="service-icon">🗺️</div>
-                    <h3 data-translate="service_2_title">Connaissance Complète</h3>
-                    <p data-translate="service_2_desc">
-                        Du Toubkal au M'Goun, de Merzouga aux vallées cachées, il n'y a pas une pierre 
-                        que mes pieds n'ont pas foulée.
-                    </p>
-                </div>
-                
-                <div class="service-card animate-in delay-2">
-                    <div class="service-icon">🤝</div>
-                    <h3 data-translate="service_3_title">Relation Privilégiée</h3>
-                    <p data-translate="service_3_desc">
-                        Mes clients reviennent car je deviens leur ami au Maroc. Je respecte leur intimité 
-                        et m'adapte à leurs souhaits.
-                    </p>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <section class="section" id="galerie">
-        <div class="container">
-            <h2 class="section-title" data-translate="gallery_title">Nos Aventures</h2>
+            <h2 class="section-title" data-translate="gallery_title">Galerie Photos</h2>
             <div class="gallery-container">
-                <div class="gallery-grid">
-                    <div class="gallery-item animate-in">
-                        <img src="https://images.unsplash.com/photo-1581771515425-76c5c1d0d1c6?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80" alt="Toubkal" data-translate-alt="toubkal">
-                        <div class="gallery-overlay">
-                            <h4 data-translate="toubkal_title">Massif du Toubkal</h4>
-                            <p data-translate="toubkal_desc">Point culminant de l'Afrique du Nord (4167m) - Site historique des tribus berbères</p>
-                        </div>
-                    </div>
-                    
-                    <div class="gallery-item animate-in delay-1">
-                        <img src="https://images.unsplash.com/photo-1544984243-ec57ea16fe25?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80" alt="Vallée des Roses" data-translate-alt="vallee_roses">
-                        <div class="gallery-overlay">
-                            <h4 data-translate="vallee_roses_title">Vallée des Roses</h4>
-                            <p data-translate="vallee_roses_desc">Fleuron de la région de Ouarzazate - Célèbre pour sa production de rose de Damas</p>
-                        </div>
-                    </div>
-                    
-                    <div class="gallery-item animate-in delay-2">
-                        <img src="https://images.unsplash.com/photo-1509316785289-025f5b846b35?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80" alt="Merzouga" data-translate-alt="merzouga">
-                        <div class="gallery-overlay">
-                            <h4 data-translate="merzouga_title">Désert de Merzouga</h4>
-                            <p data-translate="merzouga_desc">Les plus belles dunes du Sahara marocain - Patrimoine naturel unique</p>
-                        </div>
-                    </div>
+                <button class="gallery-nav gallery-prev">❮</button>
+                <div class="gallery-slider" id="gallerySlider">
+                    <!-- Toutes les images originales -->
+                    <div class="gallery-item"><img src="https://drive.google.com/thumbnail?id=17j0rL9qOahrMQ1sjIRD1P0mcy8Cgv3pU&sz=w1000" alt="Trekking Atlas"></div>
+                    <div class="gallery-item"><img src="https://drive.google.com/thumbnail?id=1mfvWu486bDY5Cl7dQIjY2GLL-ZiHT4rF&sz=w1000" alt="Désert Merzouga"></div>
+                    <div class="gallery-item"><img src="https://drive.google.com/thumbnail?id=1xRX5S_f4Hbg9snrmAoYIxqArNNrallQP&sz=w1000" alt="Vallée des Roses"></div>
+                    <div class="gallery-item"><img src="https://drive.google.com/thumbnail?id=1NMvh2owxnkTk00whGR7m1WYzWut65I3S&sz=w1000" alt="Montagne Toubkal"></div>
+                    <div class="gallery-item"><img src="https://drive.google.com/thumbnail?id=1-B4bwqHUiutwq1RlpZFuVWS01MVnbeXP&sz=w1000" alt="Gorges Dades"></div>
+                    <div class="gallery-item"><img src="https://drive.google.com/thumbnail?id=1Gzz6GCVzomb5EDBA4M-aFRqrfVr9rmAk&sz=w1000" alt="Coucher de soleil"></div>
+                    <div class="gallery-item"><img src="https://drive.google.com/thumbnail?id=1VwbEvHSQFA8L2yciQ6lN8zh3oaT6cHPh&sz=w1000" alt="Village berbère"></div>
+                    <div class="gallery-item"><img src="https://drive.google.com/thumbnail?id=1PvG4Ewe9tJxiu0bEy5HbyfioWdgXiJhB&sz=w1000" alt="Randonnée groupe"></div>
                 </div>
+                <button class="gallery-nav gallery-next">❯</button>
             </div>
         </div>
     </section>
 
-    <section class="section" id="tarifs">
+    <section class="section" id="treks">
         <div class="container">
-            <h2 class="section-title" data-translate="pricing_title">Tarifs & Réservation</h2>
-            <div class="pricing-grid">
-                <div class="pricing-card animate-in">
-                    <h3 data-translate="trek_short">Randonnées Courtes</h3>
-                    <div class="price">
-                        <span data-translate="custom_price">Sur mesure</span>
+            <h2 class="section-title" data-translate="treks_title">Nos Randonnées</h2>
+            
+            <div class="duration-filters">
+                <button class="duration-btn active" data-duration="short">2-6 Jours</button>
+                <button class="duration-btn" data-duration="medium">7-11 Jours</button>
+                <button class="duration-btn" data-duration="long">12-15 Jours</button>
+            </div>
+
+            <!-- Short Treks -->
+            <div class="treks-container active" id="short-treks">
+                <div class="treks-grid">
+                    <div class="trek-card">
+                        <div class="trek-image">
+                            <div class="trek-duration">4 Jours</div>
+                            <div>Toubkal Express</div>
+                        </div>
+                        <div class="trek-content">
+                            <h3>Toubkal Express avec Votre Guide</h3>
+                            <p>Haut Atlas - Massif du Toubkal</p>
+                            <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 0.5rem; margin: 1rem 0; background: var(--light); padding: 1rem; border-radius: 8px;">
+                                <div>▶ 4-5h marche/jour</div>
+                                <div>▶ 4167m altitude</div>
+                                <div>▶ Accompagnement personnel</div>
+                                <div>▶ Départ Marrakech</div>
+                            </div>
+                            <ul class="trek-features">
+                                <li>Ascension du Jbel Toubkal (4167m) avec votre guide</li>
+                                <li>Vallée d'Ourika et cascades de Setti Fatma</li>
+                                <li>Col de Tizi n'Ouagane</li>
+                                <li>Villages traditionnels d'Imlil et Armed</li>
+                            </ul>
+                            <div style="background: #FFF3CD; padding: 1rem; border-radius: 8px; margin: 1rem 0; text-align: center;">
+                                Tarif personnalisé selon vos dates et préférences
+                            </div>
+                            <a href="#contact" class="btn">Réserver avec Ali</a>
+                        </div>
                     </div>
-                    <p class="price-period" data-translate="duration_2_6">2-6 jours</p>
-                    <ul class="features-list">
-                        <li data-translate="feature_guide">Guide personnel Ali</li>
-                        <li data-translate="feature_transport">Transport inclus</li>
-                        <li data-translate="feature_meals">Repas traditionnels</li>
-                        <li data-translate="feature_accommodation">Hébergement</li>
-                    </ul>
-                    <a href="#contact" class="btn" style="width: 100%;">
-                        <i class="fas fa-info-circle"></i>
-                        <span data-translate="get_quote">Obtenir un devis</span>
-                    </a>
-                </div>
-                
-                <div class="pricing-card featured animate-in delay-1">
-                    <div style="position: absolute; top: -10px; left: 50%; transform: translateX(-50%); background: var(--accent); color: white; padding: 0.5rem 1.5rem; border-radius: 20px; font-size: 0.9rem; font-weight: 600;">
-                        <span data-translate="popular">Populaire</span>
+
+                    <div class="trek-card">
+                        <div class="trek-image">
+                            <div class="trek-duration">5 Jours</div>
+                            <div>Vallée des Roses</div>
+                        </div>
+                        <div class="trek-content">
+                            <h3>Vallée des Roses avec Guide Personnel</h3>
+                            <p>Drâa-Tafilalet - Kelaat M'gouna</p>
+                            <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 0.5rem; margin: 1rem 0; background: var(--light); padding: 1rem; border-radius: 8px;">
+                                <div>▶ 4-5h marche/jour</div>
+                                <div>▶ Vallée des Roses</div>
+                                <div>▶ Accompagnement personnalisé</div>
+                                <div>▶ Transport inclus</div>
+                            </div>
+                            <ul class="trek-features">
+                                <li>Découverte de la Vallée des Roses avec votre guide</li>
+                                <li>Visite des coopératives de rose</li>
+                                <li>Gorges de Dades et Todra</li>
+                                <li>Rencontre avec population locale</li>
+                            </ul>
+                            <div style="background: #FFF3CD; padding: 1rem; border-radius: 8px; margin: 1rem 0; text-align: center;">
+                                Tarif personnalisé selon vos dates et préférences
+                            </div>
+                            <a href="#contact" class="btn">Réserver avec Ali</a>
+                        </div>
                     </div>
-                    <h3 data-translate="trek_medium">Randonnées Moyennes</h3>
-                    <div class="price">
-                        <span data-translate="custom_price">Sur mesure</span>
-                    </div>
-                    <p class="price-period" data-translate="duration_7_11">7-11 jours</p>
-                    <ul class="features-list">
-                        <li data-translate="feature_guide">Guide personnel Ali</li>
-                        <li data-translate="feature_transport">Transport inclus</li>
-                        <li data-translate="feature_meals">Repas traditionnels</li>
-                        <li data-translate="feature_accommodation">Hébergement</li>
-                        <li data-translate="feature_equipment">Équipement inclus</li>
-                    </ul>
-                    <a href="#contact" class="btn" style="width: 100%;">
-                        <i class="fas fa-star"></i>
-                        <span data-translate="book_popular">Réserver</span>
-                    </a>
-                </div>
-                
-                <div class="pricing-card animate-in delay-2">
-                    <h3 data-translate="trek_long">Expéditions</h3>
-                    <div class="price">
-                        <span data-translate="custom_price">Sur mesure</span>
-                    </div>
-                    <p class="price-period" data-translate="duration_12_15">12-15 jours</p>
-                    <ul class="features-list">
-                        <li data-translate="feature_guide">Guide personnel Ali</li>
-                        <li data-translate="feature_transport">Transport inclus</li>
-                        <li data-translate="feature_meals">Repas traditionnels</li>
-                        <li data-translate="feature_accommodation">Hébergement</li>
-                        <li data-translate="feature_equipment">Équipement inclus</li>
-                        <li data-translate="feature_culture">Expérience culturelle complète</li>
-                    </ul>
-                    <a href="#contact" class="btn" style="width: 100%;">
-                        <i class="fas fa-compass"></i>
-                        <span data-translate="custom_trip">Circuit personnalisé</span>
-                    </a>
                 </div>
             </div>
-            
-            <div class="payment-info">
-                <h4 data-translate="payment_terms">Conditions de Paiement</h4>
-                <p data-translate="deposit_info">
-                    <strong>Arabon :</strong> 20% après accord sur tous les détails de la randonnée
-                </p>
-                <p data-translate="balance_info">
-                    <strong>Solde :</strong> Pendant la randonnée ou à la fin
-                </p>
-                <p data-translate="cancellation_info">
-                    <strong>Annulation :</strong> Possible sans frais dans les 48 heures après l'accord
-                </p>
+
+            <!-- Medium Treks -->
+            <div class="treks-container" id="medium-treks">
+                <div class="treks-grid">
+                    <div class="trek-card">
+                        <div class="trek-image">
+                            <div class="trek-duration">8 Jours</div>
+                            <div>Grand Mgoun</div>
+                        </div>
+                        <div class="trek-content">
+                            <h3>Grand Mgoun avec Votre Guide</h3>
+                            <p>Massif du Mgoun - Haut Atlas</p>
+                            <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 0.5rem; margin: 1rem 0; background: var(--light); padding: 1rem; border-radius: 8px;">
+                                <div>▶ 5-6h marche/jour</div>
+                                <div>▶ 4068m altitude</div>
+                                <div>▶ Bivouac montagne</div>
+                                <div>▶ Accompagnement personnel</div>
+                            </div>
+                            <ul class="trek-features">
+                                <li>Ascension du Jbel Mgoun (4068m) avec votre guide</li>
+                                <li>Vallée d'Aït Bougmez "Vallée Heureuse"</li>
+                                <li>Gorges d'Aït Toumert et Tichki</li>
+                                <li>Rencontre villages berbères authentiques</li>
+                                <li>Nuits sous les étoiles en bivouac</li>
+                            </ul>
+                            <div style="background: #FFF3CD; padding: 1rem; border-radius: 8px; margin: 1rem 0; text-align: center;">
+                                Tarif personnalisé selon vos dates et préférences
+                            </div>
+                            <a href="#contact" class="btn">Réserver avec Ali</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Long Treks -->
+            <div class="treks-container" id="long-treks">
+                <div class="treks-grid">
+                    <div class="trek-card">
+                        <div class="trek-image">
+                            <div class="trek-duration">12 Jours</div>
+                            <div>Expédition Drâa</div>
+                        </div>
+                        <div class="trek-content">
+                            <h3>Expédition Drâa avec Votre Guide</h3>
+                            <p>Région Complète Drâa-Tafilalet</p>
+                            <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 0.5rem; margin: 1rem 0; background: var(--light); padding: 1rem; border-radius: 8px;">
+                                <div>▶ 5-6h marche/jour</div>
+                                <div>▶ 4068m altitude max</div>
+                                <div>▶ Désert intégral</div>
+                                <div>▶ Accompagnement personnel</div>
+                            </div>
+                            <ul class="trek-features">
+                                <li>Ascension complète du Mgoun avec votre guide</li>
+                                <li>Traversée Gorges de Dades et Todra</li>
+                                <li>2 nuits désert de Merzouga</li>
+                                <li>Oasis de Fint, Zagora et Tazzarine</li>
+                                <li>Vallée du Drâa et ses ksours</li>
+                                <li>Visite sites historiques et culturels</li>
+                            </ul>
+                            <div style="background: #FFF3CD; padding: 1rem; border-radius: 8px; margin: 1rem 0; text-align: center;">
+                                Tarif personnalisé selon vos dates et préférences
+                            </div>
+                            <a href="#contact" class="btn">Demander le programme détaillé</a>
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
     </section>
 
     <section class="section" id="avis">
         <div class="container">
-            <h2 class="section-title" data-translate="reviews_title">Avis des Clients</h2>
-            <div class="comments-section">
-                <div class="comment-form">
-                    <h3 data-translate="add_review">Ajouter un avis</h3>
-                    <form id="reviewForm">
-                        <div class="form-group">
-                            <label data-translate="your_name">Votre nom</label>
-                            <input type="text" id="reviewName" required>
+            <h2 class="section-title">Avis Clients</h2>
+            <div class="comments-system">
+                <!-- Système de commentaires complet -->
+                <div class="comment-form-container">
+                    <h3>Laissez votre avis sur Ali</h3>
+                    <form id="commentForm">
+                        <div class="rating-stars">
+                            <span class="star" data-rating="1">★</span>
+                            <span class="star" data-rating="2">★</span>
+                            <span class="star" data-rating="3">★</span>
+                            <span class="star" data-rating="4">★</span>
+                            <span class="star" data-rating="5">★</span>
                         </div>
-                        <div class="form-group">
-                            <label data-translate="your_rating">Votre note</label>
-                            <div class="rating">
-                                <span class="star" data-rating="1">★</span>
-                                <span class="star" data-rating="2">★</span>
-                                <span class="star" data-rating="3">★</span>
-                                <span class="star" data-rating="4">★</span>
-                                <span class="star" data-rating="5">★</span>
-                            </div>
-                        </div>
-                        <div class="form-group">
-                            <label data-translate="your_review">Votre avis</label>
-                            <textarea id="reviewText" rows="4" required></textarea>
-                        </div>
-                        <button type="submit" class="btn">
-                            <i class="fas fa-paper-plane"></i>
-                            <span data-translate="submit_review">Publier l'avis</span>
+                        <textarea placeholder="Partagez votre expérience avec Ali comme guide..." style="width: 100%; padding: 1rem; border-radius: 8px; border: 1px solid #ddd; min-height: 100px;"></textarea>
+                        <button type="submit" class="btn" style="margin-top: 1rem;">
+                            <i class="fas fa-paper-plane"></i> Publier votre avis
                         </button>
                     </form>
                 </div>
                 
-                <div class="comments-list" id="commentsList">
-                    <!-- Les commentaires seront ajoutés ici dynamiquement -->
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <section class="section" id="privacy">
-        <div class="container">
-            <h2 class="section-title" data-translate="privacy_title">Politique de Confidentialité</h2>
-            <div class="privacy-policy">
-                <div class="privacy-content">
-                    <h3 data-translate="privacy_intro">Protection de Vos Données Personnelles</h3>
-                    <p data-translate="privacy_p1">
-                        Chez Adventure Treks avec Ali, nous prenons la protection de vos données personnelles très au sérieux. 
-                        Cette politique explique comment nous collectons, utilisons et protégeons vos informations.
-                    </p>
-                    
-                    <h4 data-translate="data_collection">Données Que Nous Collectons</h4>
-                    <ul>
-                        <li data-translate="data_name">Nom et prénom</li>
-                        <li data-translate="data_email">Adresse e-mail</li>
-                        <li data-translate="data_phone">Numéro de téléphone</li>
-                        <li data-translate="data_preferences">Préferences de voyage</li>
-                        <li data-translate="data_emergency">Informations d'urgence (pour votre sécurité)</li>
-                    </ul>
-                    
-                    <h4 data-translate="data_usage">Utilisation de Vos Données</h4>
-                    <p data-translate="privacy_p2">
-                        Vos données sont utilisées <strong>uniquement</strong> pour :
-                    </p>
-                    <ul>
-                        <li data-translate="usage_booking">Organiser et gérer votre randonnée</li>
-                        <li data-translate="usage_communication">Communiquer avec vous concernant votre réservation</li>
-                        <li data-translate="usage_safety">Assurer votre sécurité pendant le trek</li>
-                        <li data-translate="usage_updates">Vous envoyer des mises à jour importantes</li>
-                    </ul>
-                    
-                    <h4 data-translate="data_protection">Protection des Données</h4>
-                    <p data-translate="privacy_p3">
-                        Nous mettons en œuvre des mesures de sécurité techniques et organisationnelles pour protéger 
-                        vos données contre tout accès non autorisé, modification ou destruction.
-                    </p>
-                    
-                    <h4 data-translate="data_sharing">Partage des Données</h4>
-                    <p data-translate="privacy_p4">
-                        <strong>Nous ne vendons, ne louons ni ne partageons vos données personnelles avec des tiers.</strong>
-                        Vos informations ne sont partagées qu'avec les prestataires de services essentiels à votre trek 
-                        (hébergement, transport) et uniquement dans la mesure nécessaire.
-                    </p>
-                    
-                    <h4 data-translate="data_retention">Conservation des Données</h4>
-                    <p data-translate="privacy_p5">
-                        Nous conservons vos données pendant la durée nécessaire à l'organisation de votre trek 
-                        et conformément aux obligations légales. Vous pouvez demander la suppression de vos données à tout moment.
-                    </p>
-                    
-                    <h4 data-translate="your_rights">Vos Droits</h4>
-                    <p data-translate="privacy_p6">
-                        Vous avez le droit d'accéder à vos données, de les rectifier, de les supprimer, 
-                        ou de vous opposer à leur traitement. Contactez-nous à anytrek@gmail.com pour exercer vos droits.
-                    </p>
+                <!-- Affichage des commentaires -->
+                <div class="comments-display" id="commentsContainer">
+                    <div style="text-align: center; padding: 2rem; color: #666;">
+                        <p>Soyez le premier à laisser un avis sur Ali!</p>
+                    </div>
                 </div>
             </div>
         </div>
@@ -1225,103 +763,84 @@
 
     <section class="section" id="contact">
         <div class="container">
-            <h2 class="section-title" data-translate="contact_title">Contact & Réservation</h2>
-            <div class="contact-grid">
-                <div class="contact-info">
-                    <div class="contact-card animate-in">
-                        <h3 data-translate="response_time">Temps de réponse</h3>
-                        <p data-translate="response_desc">Moins de 24 heures - Paiement après accord sur WhatsApp</p>
-                    </div>
-                    
-                    <div class="contact-card animate-in delay-1">
-                        <h3 data-translate="contact_info">Coordonnées</h3>
-                        
-                        <div class="contact-method">
-                            <div class="contact-icon">
-                                <i class="fab fa-whatsapp"></i>
-                            </div>
-                            <div>
-                                <strong>WhatsApp</strong>
-                                <div>+212 661 79 61 17</div>
-                                <div>+212 633 65 27 21</div>
-                            </div>
-                        </div>
-                        
-                        <div class="contact-method">
-                            <div class="contact-icon">
-                                <i class="fas fa-envelope"></i>
-                            </div>
-                            <div>
-                                <strong>Email</strong>
-                                <div>aventuretreksmaroc@gmail.com</div>
-                            </div>
-                        </div>
-                        
-                        <div class="contact-method">
-                            <div class="contact-icon">
-                                <i class="fab fa-instagram"></i>
-                            </div>
-                            <div>
-                                <strong>Instagram</strong>
-                                <div>@adventure.treks.maroc</div>
-                            </div>
-                        </div>
-                    </div>
-                    
-                    <div class="contact-card animate-in delay-2">
-                        <h3 data-translate="booking_process">Processus de Réservation</h3>
-                        <p data-translate="booking_desc">
-                            La réservation démarre une conversation WhatsApp. Ensuite, 
-                            nous discutons des détails du trek et du prix personnalisé 
-                            selon le type de voyage et le nombre de personnes.
-                        </p>
-                        <a href="https://wa.me/212661796117" class="btn" style="width: 100%; margin-top: 1rem;" target="_blank">
-                            <i class="fab fa-whatsapp"></i>
-                            <span data-translate="start_chat">Démarrer sur WhatsApp</span>
-                        </a>
-                    </div>
+            <h2 class="section-title">Contact Direct avec Votre Guide</h2>
+            <div class="contact-info">
+                <div class="contact-card">
+                    <h3>Contact Direct Français</h3>
+                    <p>Ali vous répond personnellement en français</p>
+                    <a href="tel:+212661796117" class="phone">+212 661-796117</a>
+                    <a href="https://wa.me/212661796117?text=Bonjour%20Ali,%20je%20suis%20intéressé%20par%20vos%20services%20de%20guide%20personnel" 
+                       class="whatsapp-btn" target="_blank">
+                       <i class="fab fa-whatsapp"></i> WhatsApp Direct Français
+                    </a>
                 </div>
-                
-                <div class="contact-form animate-in delay-3">
-                    <h3 data-translate="quick_contact">Contact Rapide</h3>
-                    <form id="contactForm">
-                        <div class="form-group">
-                            <label for="name" data-translate="form_name">Nom complet *</label>
-                            <input type="text" id="name" required>
+                <div class="contact-card">
+                    <h3>Direct English Contact</h3>
+                    <p>Ali answers you personally in English</p>
+                    <a href="tel:+212633652721" class="phone">+212 633-652721</a>
+                    <a href="https://wa.me/212633652721?text=Hello%20Ali,%20I%20am%20interested%20in%20your%20personal%20guide%20services" 
+                       class="whatsapp-btn" target="_blank">
+                       <i class="fab fa-whatsapp"></i> Direct English WhatsApp
+                    </a>
+                </div>
+                <div class="contact-card">
+                    <h3>Réseaux Sociaux & Email</h3>
+                    <p>Suivez nos aventures au quotidien</p>
+                    <a href="https://instagram.com/adventure.treks.maroc" class="btn" target="_blank" style="background: #E4405F; display: block; margin-bottom: 0.5rem;">
+                        <i class="fab fa-instagram"></i> @adventure.treks.maroc
+                    </a>
+                    <a href="mailto:aventuretreksmaroc@gmail.com" class="btn" style="background: #EA4335; display: block;">
+                        <i class="fas fa-envelope"></i> aventuretreksmaroc@gmail.com
+                    </a>
+                </div>
+            </div>
+
+            <!-- Formulaire de contact -->
+            <div style="background: white; padding: 2.5rem; border-radius: 15px; box-shadow: var(--shadow); margin-top: 3rem;">
+                <h3 style="text-align: center; margin-bottom: 2rem;">Demande de Renseignement</h3>
+                <form id="contactForm" style="display: grid; gap: 1.5rem;">
+                    <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1rem;">
+                        <div>
+                            <label style="display: block; margin-bottom: 0.5rem; font-weight: 600;">Nom complet *</label>
+                            <input type="text" required style="width: 100%; padding: 1rem; border: 2px solid #e2e8f0; border-radius: 8px;">
                         </div>
-                        
-                        <div class="form-group">
-                            <label for="email" data-translate="form_email">Email *</label>
-                            <input type="email" id="email" required>
+                        <div>
+                            <label style="display: block; margin-bottom: 0.5rem; font-weight: 600;">Email *</label>
+                            <input type="email" required style="width: 100%; padding: 1rem; border: 2px solid #e2e8f0; border-radius: 8px;">
                         </div>
-                        
-                        <div class="form-group">
-                            <label for="phone" data-translate="form_phone">Téléphone</label>
-                            <input type="tel" id="phone">
-                        </div>
-                        
-                        <div class="form-group">
-                            <label for="trek_type" data-translate="form_trek">Type de trek intéressé</label>
-                            <select id="trek_type">
-                                <option value="" data-translate="option_choose">Choisir...</option>
-                                <option value="toubkal" data-translate="option_toubkal">Trek du Toubkal</option>
-                                <option value="mgoun" data-translate="option_mgoun">Expédition M'Goun</option>
-                                <option value="roses" data-translate="option_roses">Vallée des Roses</option>
-                                <option value="desert" data-translate="option_desert">Désert de Merzouga</option>
-                                <option value="custom" data-translate="option_custom">Circuit personnalisé</option>
-                            </select>
-                        </div>
-                        
-                        <div class="form-group">
-                            <label for="message" data-translate="form_message">Message</label>
-                            <textarea id="message" rows="4" placeholder="Vos questions ou demandes spéciales..."></textarea>
-                        </div>
-                        
-                        <button type="submit" class="btn" style="width: 100%;">
-                            <i class="fas fa-paper-plane"></i>
-                            <span data-translate="form_submit">Envoyer le message</span>
-                        </button>
-                    </form>
+                    </div>
+                    <div>
+                        <label style="display: block; margin-bottom: 0.5rem; font-weight: 600;">Votre message</label>
+                        <textarea style="width: 100%; padding: 1rem; border: 2px solid #e2e8f0; border-radius: 8px; min-height: 120px;" placeholder="Décrivez votre projet de randonnée..."></textarea>
+                    </div>
+                    <button type="submit" class="btn" style="width: 100%;">
+                        <i class="fas fa-paper-plane"></i> Envoyer la demande à Ali
+                    </button>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <section class="section" id="privacy">
+        <div class="container">
+            <h2 class="section-title">Politique de Confidentialité</h2>
+            <div class="privacy-policy">
+                <div class="privacy-content">
+                    <h4>Protection de Vos Données Personnelles</h4>
+                    <p><strong>Utilisation des données :</strong> Vos informations (nom, email, téléphone) sont utilisées uniquement pour organiser votre randonnée et communiquer avec vous.</p>
+                    
+                    <h4>Données Collectées</h4>
+                    <ul>
+                        <li>Nom et prénom - pour la réservation</li>
+                        <li>Email et téléphone - pour la communication</li>
+                        <li>Préférences de voyage - pour personnaliser votre expérience</li>
+                    </ul>
+                    
+                    <h4>Protection et Partage</h4>
+                    <p>Nous ne vendons ni ne partageons vos données. Elles sont sécurisées et utilisées uniquement pour vos réservations.</p>
+                    
+                    <h4>Vos Droits</h4>
+                    <p>Vous pouvez demander l'accès, la modification ou la suppression de vos données à tout moment en nous contactant.</p>
                 </div>
             </div>
         </div>
@@ -1329,325 +848,69 @@
 
     <footer class="footer">
         <div class="container">
-            <div class="footer-grid">
-                <div class="footer-column">
-                    <h3 data-translate="footer_about">Adventure Treks avec Ali</h3>
-                    <p data-translate="footer_desc">
-                        Votre guide personnel pour des expériences authentiques dans les montagnes 
-                        et déserts du Maroc. 30 ans de passion et d'expertise.
-                    </p>
-                    <div class="social-links">
-                        <a href="https://instagram.com/adventure.treks.maroc" class="social-link" target="_blank">
-                            <i class="fab fa-instagram"></i>
-                        </a>
-                        <a href="https://wa.me/212661796117" class="social-link" target="_blank">
-                            <i class="fab fa-whatsapp"></i>
-                        </a>
-                        <a href="mailto:aventuretreksmaroc@gmail.com" class="social-link">
-                            <i class="fas fa-envelope"></i>
-                        </a>
-                    </div>
-                </div>
-                
-                <div class="footer-column">
-                    <h3 data-translate="footer_links">Liens Rapides</h3>
-                    <ul class="footer-links">
-                        <li><a href="#accueil" data-translate="home">Accueil</a></li>
-                        <li><a href="#histoire" data-translate="story">Mon Histoire</a></li>
-                        <li><a href="#services" data-translate="services">Services</a></li>
-                        <li><a href="#galerie" data-translate="gallery">Galerie</a></li>
-                        <li><a href="#tarifs" data-translate="pricing">Tarifs</a></li>
-                        <li><a href="#privacy" data-translate="privacy_policy">Politique de Confidentialité</a></li>
-                    </ul>
-                </div>
-                
-                <div class="footer-column">
-                    <h3 data-translate="footer_contact">Contact</h3>
-                    <ul class="footer-links">
-                        <li><i class="fas fa-phone"></i> +212 661 79 61 17</li>
-                        <li><i class="fas fa-phone"></i> +212 633 65 27 21</li>
-                        <li><i class="fas fa-envelope"></i> aventuretreksmaroc@gmail.com</li>
-                        <li><i class="fas fa-map-marker-alt"></i> Vallée des Roses - Ouarzazate</li>
-                    </ul>
-                </div>
-            </div>
-            
-            <div class="footer-bottom">
-                <p data-translate="footer_copyright">&copy; 2024 Adventure Treks avec Ali. Tous droits réservés.</p>
-            </div>
+            <p>Adventure Treks avec Ali - Votre Guide Personnel</p>
+            <p>Contact Français: +212 661-796117 | English Contact: +212 633-652721</p>
+            <p>Vallée des Roses - Ouarzazate, Maroc</p>
+            <p style="margin-top: 1rem; font-size: 0.9rem;">
+                &copy; 2024 Adventure Treks avec Ali. Services de guide personnel.
+            </p>
         </div>
     </footer>
 
     <script>
-        // Système de traduction complet
+        // Firebase configuration
+        const firebaseConfig = {
+            apiKey: "AIzaSyCgfGwHACxx_SRsjo4qKoOJsUUXxc-b7eE",
+            authDomain: "adventure-treks-comments.firebaseapp.com",
+            projectId: "adventure-treks-comments",
+            storageBucket: "adventure-treks-comments.firebasestorage.app",
+            messagingSenderId: "792729535477",
+            appId: "1:792729535477:web:17af8772f5da73ff4cd6bc"
+        };
+
+        // Translations complètes
         const translations = {
             fr: {
-                // Navigation
-                "logo": "Adventure Treks avec Ali",
                 "home": "Accueil",
-                "story": "Mon Histoire",
-                "services": "Services",
+                "guide": "Votre Guide",
+                "treks": "Randonnées", 
                 "gallery": "Galerie",
-                "pricing": "Tarifs",
                 "reviews": "Avis",
                 "contact": "Contact",
-                "privacy_policy": "Politique de Confidentialité",
-                
-                // Hero
-                "hero_title": "Votre Guide Personnel dans les Montagnes et Déserts du Maroc",
-                "hero_subtitle": "30 ans d'expérience - Des souvenirs inoubliables garantis",
-                "book_now": "Réserver Maintenant",
-                "discover_story": "Découvrir mon histoire",
-                
-                // Story
-                "my_story": "Mon Histoire",
-                "story_title": "Fils de la Vallée des Roses",
-                "story_p1": "Je suis né et j'ai grandi dans la magnifique Vallée des Roses, au cœur des montagnes de l'Atlas. Depuis mon enfance, j'ai parcouru et exploré chaque sentier du massif du M'Goun, découvrant les secrets les mieux gardés de nos montagnes et de nos déserts.",
-                "story_p2": "Ce qui fait ma différence : Je suis un enfant des montagnes. Je connais chaque pierre, chaque sentier, et je sais comment anticiper les changements de temps capricieux dans l'Atlas. Mes 30 années d'expérience m'ont enseigné non seulement la géographie, mais aussi la psychologie des voyageurs.",
-                "story_p3": "Je parle couramment le français et l'anglais, ce qui me permet de créer des liens authentiques avec les voyageurs du monde entier. Mes clients ne reviennent pas seulement pour les paysages époustouflants, mais pour l'amitié et la confiance que nous construisons ensemble.",
-                "memories_title": "Souvenirs Inoubliables",
-                "memory_1": "Un couple est resté chez moi plusieurs jours. Le mari a voulu nous préparer le dîner, et après des heures en cuisine, nous avons découvert qu'il avait oublié le pain ! Nous en rions encore aujourd'hui.",
-                "memory_2": "Une autre fois, une famille avec deux enfants est restée une semaine complète après leur trek. Leurs enfants jouaient avec les miens, créant des souvenirs magiques malgré la barrière linguistique. Une soirée mémorable avec des ballons et notre chat espiègle !",
-                
-                // Services
-                "services_title": "Ce Qui Nous Distingue",
-                "service_1_title": "Expertise Locale Authentique",
-                "service_1_desc": "En marchant avec moi, vous ne suivez pas un guide, mais un ami qui partage 30 ans de souvenirs et d'expériences dans chaque sentier.",
-                "service_2_title": "Connaissance Complète",
-                "service_2_desc": "Du Toubkal au M'Goun, de Merzouga aux vallées cachées, il n'y a pas une pierre que mes pieds n'ont pas foulée.",
-                "service_3_title": "Relation Privilégiée",
-                "service_3_desc": "Mes clients reviennent car je deviens leur ami au Maroc. Je respecte leur intimité et m'adapte à leurs souhaits.",
-                
-                // Gallery
-                "gallery_title": "Nos Aventures",
-                "toubkal_title": "Massif du Toubkal",
-                "toubkal_desc": "Point culminant de l'Afrique du Nord (4167m) - Site historique des tribus berbères",
-                "vallee_roses_title": "Vallée des Roses",
-                "vallee_roses_desc": "Fleuron de la région de Ouarzazate - Célèbre pour sa production de rose de Damas",
-                "merzouga_title": "Désert de Merzouga",
-                "merzouga_desc": "Les plus belles dunes du Sahara marocain - Patrimoine naturel unique",
-                
-                // Pricing
-                "pricing_title": "Tarifs & Réservation",
-                "trek_short": "Randonnées Courtes",
-                "trek_medium": "Randonnées Moyennes",
-                "trek_long": "Expéditions",
-                "custom_price": "Sur mesure",
-                "duration_2_6": "2-6 jours",
-                "duration_7_11": "7-11 jours",
-                "duration_12_15": "12-15 jours",
-                "feature_guide": "Guide personnel Ali",
-                "feature_transport": "Transport inclus",
-                "feature_meals": "Repas traditionnels",
-                "feature_accommodation": "Hébergement",
-                "feature_equipment": "Équipement inclus",
-                "feature_culture": "Expérience culturelle complète",
-                "popular": "Populaire",
-                "get_quote": "Obtenir un devis",
-                "book_popular": "Réserver",
-                "custom_trip": "Circuit personnalisé",
-                "payment_terms": "Conditions de Paiement",
-                "deposit_info": "Arabon : 20% après accord sur tous les détails de la randonnée",
-                "balance_info": "Solde : Pendant la randonnée ou à la fin",
-                "cancellation_info": "Annulation : Possible sans frais dans les 48 heures après l'accord",
-                
-                // Reviews
-                "reviews_title": "Avis des Clients",
-                "add_review": "Ajouter un avis",
-                "your_name": "Votre nom",
-                "your_rating": "Votre note",
-                "your_review": "Votre avis",
-                "submit_review": "Publier l'avis",
-                
-                // Privacy Policy
-                "privacy_title": "Politique de Confidentialité",
-                "privacy_intro": "Protection de Vos Données Personnelles",
-                "privacy_p1": "Chez Adventure Treks avec Ali, nous prenons la protection de vos données personnelles très au sérieux. Cette politique explique comment nous collectons, utilisons et protégeons vos informations.",
-                "data_collection": "Données Que Nous Collectons",
-                "data_name": "Nom et prénom",
-                "data_email": "Adresse e-mail",
-                "data_phone": "Numéro de téléphone",
-                "data_preferences": "Préferences de voyage",
-                "data_emergency": "Informations d'urgence (pour votre sécurité)",
-                "data_usage": "Utilisation de Vos Données",
-                "privacy_p2": "Vos données sont utilisées uniquement pour :",
-                "usage_booking": "Organiser et gérer votre randonnée",
-                "usage_communication": "Communiquer avec vous concernant votre réservation",
-                "usage_safety": "Assurer votre sécurité pendant le trek",
-                "usage_updates": "Vous envoyer des mises à jour importantes",
-                "data_protection": "Protection des Données",
-                "privacy_p3": "Nous mettons en œuvre des mesures de sécurité techniques et organisationnelles pour protéger vos données contre tout accès non autorisé, modification ou destruction.",
-                "data_sharing": "Partage des Données",
-                "privacy_p4": "Nous ne vendons, ne louons ni ne partageons vos données personnelles avec des tiers. Vos informations ne sont partagées qu'avec les prestataires de services essentiels à votre trek (hébergement, transport) et uniquement dans la mesure nécessaire.",
-                "data_retention": "Conservation des Données",
-                "privacy_p5": "Nous conservons vos données pendant la durée nécessaire à l'organisation de votre trek et conformément aux obligations légales. Vous pouvez demander la suppression de vos données à tout moment.",
-                "your_rights": "Vos Droits",
-                "privacy_p6": "Vous avez le droit d'accéder à vos données, de les rectifier, de les supprimer, ou de vous opposer à leur traitement. Contactez-nous à aventuretreksmaroc@gmail.com pour exercer vos droits.",
-                
-                // Contact
-                "contact_title": "Contact & Réservation",
-                "response_time": "Temps de réponse",
-                "response_desc": "Moins de 24 heures - Paiement après accord sur WhatsApp",
-                "contact_info": "Coordonnées",
-                "booking_process": "Processus de Réservation",
-                "booking_desc": "La réservation démarre une conversation WhatsApp. Ensuite, nous discutons des détails du trek et du prix personnalisé selon le type de voyage et le nombre de personnes.",
-                "quick_contact": "Contact Rapide",
-                "start_chat": "Démarrer sur WhatsApp",
-                
-                // Form
-                "form_name": "Nom complet *",
-                "form_email": "Email *",
-                "form_phone": "Téléphone",
-                "form_trek": "Type de trek intéressé",
-                "form_message": "Message",
-                "form_submit": "Envoyer le message",
-                "option_choose": "Choisir...",
-                "option_toubkal": "Trek du Toubkal",
-                "option_mgoun": "Expédition M'Goun",
-                "option_roses": "Vallée des Roses",
-                "option_desert": "Désert de Merzouga",
-                "option_custom": "Circuit personnalisé",
-                
-                // Footer
-                "footer_about": "Adventure Treks avec Ali",
-                "footer_desc": "Votre guide personnel pour des expériences authentiques dans les montagnes et déserts du Maroc. 30 ans de passion et d'expertise.",
-                "footer_links": "Liens Rapides",
-                "footer_contact": "Contact",
-                "footer_copyright": "© 2024 Adventure Treks avec Ali. Tous droits réservés."
+                "hero_title": "Adventure Treks avec Ali - Votre Guide Personnel",
+                "hero_subtitle": "Trekking dans l'Atlas, randonnées au désert - Guide expert 30+ ans d'expérience",
+                "discover_btn": "Contact Direct avec Ali",
+                "guide_title": "Votre Guide Expert",
+                "guide_job": "Votre guide personnel pour espaces naturels et montagnes",
+                "guide_exp": "Plus de 30 ans d'expérience",
+                "peaks_title": "Sommets Maîtrisés",
+                "deserts_title": "Déserts",
+                "valleys_title": "Vallées Expertisées", 
+                "price_title": "Prix Tout Compris avec Votre Guide",
+                "price_desc": "Je m'occupe de tout : guidage personnel, transport, hébergement, repas, et équipement.",
+                "gallery_title": "Galerie Photos",
+                "treks_title": "Nos Randonnées"
             },
             en: {
-                // Navigation
-                "logo": "Adventure Treks with Ali",
                 "home": "Home",
-                "story": "My Story",
-                "services": "Services",
+                "guide": "Your Guide",
+                "treks": "Treks", 
                 "gallery": "Gallery",
-                "pricing": "Pricing",
                 "reviews": "Reviews",
                 "contact": "Contact",
-                "privacy_policy": "Privacy Policy",
-                
-                // Hero
-                "hero_title": "Your Personal Guide in the Mountains and Deserts of Morocco",
-                "hero_subtitle": "30 years of experience - Unforgettable memories guaranteed",
-                "book_now": "Book Now",
-                "discover_story": "Discover my story",
-                
-                // Story
-                "my_story": "My Story",
-                "story_title": "Son of the Valley of Roses",
-                "story_p1": "I was born and raised in the beautiful Valley of Roses, in the heart of the Atlas Mountains. Since childhood, I have walked and explored every trail of the M'Goun massif, discovering the best-kept secrets of our mountains and deserts.",
-                "story_p2": "What makes me different: I am a child of the mountains. I know every stone, every trail, and I know how to anticipate the capricious weather changes in the Atlas. My 30 years of experience have taught me not only geography but also the psychology of travelers.",
-                "story_p3": "I speak French and English fluently, which allows me to create authentic connections with travelers from around the world. My clients return not only for the stunning landscapes but for the friendship and trust we build together.",
-                "memories_title": "Unforgettable Memories",
-                "memory_1": "A couple stayed at my home for several days. The husband wanted to prepare dinner for us, and after hours in the kitchen, we discovered he had forgotten the bread! We still laugh about it today.",
-                "memory_2": "Another time, a family with two children stayed for a full week after their trek. Their children played with mine, creating magical memories despite the language barrier. A memorable evening with balloons and our mischievous cat!",
-                
-                // Services
-                "services_title": "What Makes Us Different",
-                "service_1_title": "Authentic Local Expertise",
-                "service_1_desc": "When walking with me, you're not following a guide, but a friend who shares 30 years of memories and experiences on every trail.",
-                "service_2_title": "Complete Knowledge",
-                "service_2_desc": "From Toubkal to M'Goun, from Merzouga to hidden valleys, there isn't a stone my feet haven't touched.",
-                "service_3_title": "Privileged Relationship",
-                "service_3_desc": "My clients return because I become their friend in Morocco. I respect their privacy and adapt to their wishes.",
-                
-                // Gallery
-                "gallery_title": "Our Adventures",
-                "toubkal_title": "Toubkal Massif",
-                "toubkal_desc": "Highest peak in North Africa (4167m) - Historic site of Berber tribes",
-                "vallee_roses_title": "Valley of Roses",
-                "vallee_roses_desc": "Jewel of the Ouarzazate region - Famous for its Damask rose production",
-                "merzouga_title": "Merzouga Desert",
-                "merzouga_desc": "The most beautiful dunes of the Moroccan Sahara - Unique natural heritage",
-                
-                // Pricing
-                "pricing_title": "Pricing & Booking",
-                "trek_short": "Short Treks",
-                "trek_medium": "Medium Treks",
-                "trek_long": "Expeditions",
-                "custom_price": "Custom",
-                "duration_2_6": "2-6 days",
-                "duration_7_11": "7-11 days",
-                "duration_12_15": "12-15 days",
-                "feature_guide": "Personal guide Ali",
-                "feature_transport": "Transport included",
-                "feature_meals": "Traditional meals",
-                "feature_accommodation": "Accommodation",
-                "feature_equipment": "Equipment included",
-                "feature_culture": "Complete cultural experience",
-                "popular": "Popular",
-                "get_quote": "Get a quote",
-                "book_popular": "Book Now",
-                "custom_trip": "Custom trip",
-                "payment_terms": "Payment Terms",
-                "deposit_info": "Deposit: 20% after agreement on all trek details",
-                "balance_info": "Balance: During the trek or at the end",
-                "cancellation_info": "Cancellation: Free within 48 hours after agreement",
-                
-                // Reviews
-                "reviews_title": "Customer Reviews",
-                "add_review": "Add a review",
-                "your_name": "Your name",
-                "your_rating": "Your rating",
-                "your_review": "Your review",
-                "submit_review": "Submit review",
-                
-                // Privacy Policy
-                "privacy_title": "Privacy Policy",
-                "privacy_intro": "Protection of Your Personal Data",
-                "privacy_p1": "At Adventure Treks with Ali, we take the protection of your personal data very seriously. This policy explains how we collect, use and protect your information.",
-                "data_collection": "Data We Collect",
-                "data_name": "First and last name",
-                "data_email": "Email address",
-                "data_phone": "Phone number",
-                "data_preferences": "Travel preferences",
-                "data_emergency": "Emergency information (for your safety)",
-                "data_usage": "Use of Your Data",
-                "privacy_p2": "Your data is used only for:",
-                "usage_booking": "Organizing and managing your trek",
-                "usage_communication": "Communicating with you about your booking",
-                "usage_safety": "Ensuring your safety during the trek",
-                "usage_updates": "Sending you important updates",
-                "data_protection": "Data Protection",
-                "privacy_p3": "We implement technical and organizational security measures to protect your data against unauthorized access, modification or destruction.",
-                "data_sharing": "Data Sharing",
-                "privacy_p4": "We do not sell, rent or share your personal data with third parties. Your information is only shared with essential service providers for your trek (accommodation, transport) and only to the extent necessary.",
-                "data_retention": "Data Retention",
-                "privacy_p5": "We retain your data for the duration necessary to organize your trek and in accordance with legal obligations. You can request deletion of your data at any time.",
-                "your_rights": "Your Rights",
-                "privacy_p6": "You have the right to access your data, rectify it, delete it, or object to its processing. Contact us at aventuretreksmaroc@gmail.com to exercise your rights.",
-                
-                // Contact
-                "contact_title": "Contact & Booking",
-                "response_time": "Response time",
-                "response_desc": "Less than 24 hours - Payment after agreement on WhatsApp",
-                "contact_info": "Contact Information",
-                "booking_process": "Booking Process",
-                "booking_desc": "Booking starts a WhatsApp conversation. Then we discuss trek details and personalized pricing based on trip type and number of people.",
-                "quick_contact": "Quick Contact",
-                "start_chat": "Start on WhatsApp",
-                
-                // Form
-                "form_name": "Full name *",
-                "form_email": "Email *",
-                "form_phone": "Phone",
-                "form_trek": "Interested trek type",
-                "form_message": "Message",
-                "form_submit": "Send message",
-                "option_choose": "Choose...",
-                "option_toubkal": "Toubkal Trek",
-                "option_mgoun": "M'Goun Expedition",
-                "option_roses": "Valley of Roses",
-                "option_desert": "Merzouga Desert",
-                "option_custom": "Custom circuit",
-                
-                // Footer
-                "footer_about": "Adventure Treks with Ali",
-                "footer_desc": "Your personal guide for authentic experiences in the mountains and deserts of Morocco. 30 years of passion and expertise.",
-                "footer_links": "Quick Links",
-                "footer_contact": "Contact",
-                "footer_copyright": "© 2024 Adventure Treks with Ali. All rights reserved."
+                "hero_title": "Adventure Treks with Ali - Your Personal Guide",
+                "hero_subtitle": "Atlas trekking, desert hikes - Expert guide 30+ years experience", 
+                "discover_btn": "Direct Contact with Ali",
+                "guide_title": "Your Expert Guide",
+                "guide_job": "Your personal guide for natural spaces and mountains",
+                "guide_exp": "Over 30 years of experience",
+                "peaks_title": "Mastered Peaks",
+                "deserts_title": "Deserts",
+                "valleys_title": "Expertised Valleys",
+                "price_title": "All-Inclusive with Your Guide",
+                "price_desc": "I take care of everything: personal guidance, transport, accommodation, meals, and equipment.",
+                "gallery_title": "Photo Gallery",
+                "treks_title": "Our Treks"
             }
         };
 
@@ -1660,58 +923,18 @@
 
             init() {
                 this.setupLoading();
-                this.setupNavigation();
                 this.setupLanguage();
-                this.setupAnimations();
-                this.setupForms();
-                this.setupReviews();
-                this.setupSecurity();
-                this.loadReviews();
+                this.setupGallery();
+                this.setupTreksFilter();
+                this.setupComments();
+                this.setupContactForm();
             }
 
             setupLoading() {
                 window.addEventListener('load', () => {
                     setTimeout(() => {
-                        const loading = document.getElementById('loading');
-                        loading.style.opacity = '0';
-                        setTimeout(() => {
-                            loading.style.display = 'none';
-                        }, 500);
+                        document.getElementById('loading').style.display = 'none';
                     }, 1000);
-                });
-            }
-
-            setupNavigation() {
-                // Mobile menu
-                document.querySelector('.mobile-menu-btn').addEventListener('click', () => {
-                    document.querySelector('.nav-links').classList.toggle('active');
-                });
-
-                // Header scroll effect
-                window.addEventListener('scroll', () => {
-                    const header = document.getElementById('header');
-                    if (window.scrollY > 100) {
-                        header.classList.add('scrolled');
-                    } else {
-                        header.classList.remove('scrolled');
-                    }
-                });
-
-                // Smooth scrolling
-                document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-                    anchor.addEventListener('click', function (e) {
-                        e.preventDefault();
-                        const target = document.querySelector(this.getAttribute('href'));
-                        if (target) {
-                            // Close mobile menu if open
-                            document.querySelector('.nav-links').classList.remove('active');
-                            
-                            target.scrollIntoView({
-                                behavior: 'smooth',
-                                block: 'start'
-                            });
-                        }
-                    });
                 });
             }
 
@@ -1723,7 +946,6 @@
                     });
                 });
 
-                // Load saved language preference
                 const savedLang = localStorage.getItem('preferredLang');
                 if (savedLang) {
                     this.switchLanguage(savedLang);
@@ -1734,107 +956,57 @@
                 this.currentLang = lang;
                 localStorage.setItem('preferredLang', lang);
                 
-                // Update language buttons
                 document.querySelectorAll('.lang-btn').forEach(btn => {
                     btn.classList.remove('active');
                     if (btn.dataset.lang === lang) {
                         btn.classList.add('active');
                     }
                 });
-
-                // Update all translatable content
+                
                 document.querySelectorAll('[data-translate]').forEach(element => {
                     const key = element.getAttribute('data-translate');
                     if (translations[lang] && translations[lang][key]) {
                         element.textContent = translations[lang][key];
                     }
                 });
+            }
 
-                // Update alt attributes
-                document.querySelectorAll('[data-translate-alt]').forEach(img => {
-                    const key = img.getAttribute('data-translate-alt');
-                    if (translations[lang] && translations[lang][key]) {
-                        img.alt = translations[lang][key];
-                    }
+            setupGallery() {
+                const slider = document.getElementById('gallerySlider');
+                const prevBtn = document.querySelector('.gallery-prev');
+                const nextBtn = document.querySelector('.gallery-next');
+
+                prevBtn.addEventListener('click', () => {
+                    slider.scrollBy({ left: -320, behavior: 'smooth' });
+                });
+
+                nextBtn.addEventListener('click', () => {
+                    slider.scrollBy({ left: 320, behavior: 'smooth' });
                 });
             }
 
-            setupAnimations() {
-                // Intersection Observer for scroll animations
-                const observer = new IntersectionObserver((entries) => {
-                    entries.forEach(entry => {
-                        if (entry.isIntersecting) {
-                            entry.target.classList.add('animate-in');
-                        }
+            setupTreksFilter() {
+                document.querySelectorAll('.duration-btn').forEach(btn => {
+                    btn.addEventListener('click', function() {
+                        document.querySelectorAll('.duration-btn').forEach(b => b.classList.remove('active'));
+                        this.classList.add('active');
+                        
+                        document.querySelectorAll('.treks-container').forEach(container => {
+                            container.classList.remove('active');
+                        });
+                        
+                        document.getElementById(this.dataset.duration + '-treks').classList.add('active');
                     });
-                }, { 
-                    threshold: 0.1,
-                    rootMargin: '0px 0px -50px 0px'
-                });
-
-                document.querySelectorAll('.animate-in').forEach(element => {
-                    observer.observe(element);
-                });
-
-                // Parallax effect for hero
-                window.addEventListener('scroll', () => {
-                    const scrolled = window.pageYOffset;
-                    const heroBg = document.getElementById('heroBg');
-                    if (heroBg) {
-                        heroBg.style.transform = `scale(1.1) translateY(${scrolled * 0.5}px)`;
-                    }
                 });
             }
 
-            setupForms() {
-                // Contact form
-                const contactForm = document.getElementById('contactForm');
-                if (contactForm) {
-                    contactForm.addEventListener('submit', (e) => {
-                        e.preventDefault();
-                        
-                        // Basic validation
-                        const name = document.getElementById('name').value;
-                        const email = document.getElementById('email').value;
-                        
-                        if (!name || !email) {
-                            alert(this.currentLang === 'fr' 
-                                ? 'Veuillez remplir les champs obligatoires' 
-                                : 'Please fill in required fields');
-                            return;
-                        }
-
-                        // Simulate form submission
-                        const submitBtn = contactForm.querySelector('button[type="submit"]');
-                        const originalText = submitBtn.innerHTML;
-                        
-                        submitBtn.innerHTML = this.currentLang === 'fr' 
-                            ? '<i class="fas fa-spinner fa-spin"></i> Envoi en cours...' 
-                            : '<i class="fas fa-spinner fa-spin"></i> Sending...';
-                        submitBtn.disabled = true;
-
-                        setTimeout(() => {
-                            alert(this.currentLang === 'fr'
-                                ? 'Merci ! Ali vous contactera dans les 24 heures.'
-                                : 'Thank you! Ali will contact you within 24 hours.');
-                            
-                            contactForm.reset();
-                            submitBtn.innerHTML = originalText;
-                            submitBtn.disabled = false;
-                        }, 2000);
-                    });
-                }
-            }
-
-            setupReviews() {
-                // Star rating system
+            setupComments() {
                 const stars = document.querySelectorAll('.star');
                 stars.forEach(star => {
                     star.addEventListener('click', () => {
                         const rating = parseInt(star.dataset.rating);
                         this.currentRating = rating;
                         
-                        // Update stars appearance
                         stars.forEach((s, index) => {
                             if (index < rating) {
                                 s.classList.add('active');
@@ -1845,117 +1017,34 @@
                     });
                 });
 
-                // Review form submission
-                const reviewForm = document.getElementById('reviewForm');
-                if (reviewForm) {
-                    reviewForm.addEventListener('submit', (e) => {
+                const commentForm = document.getElementById('commentForm');
+                if (commentForm) {
+                    commentForm.addEventListener('submit', (e) => {
                         e.preventDefault();
-                        
-                        const name = document.getElementById('reviewName').value;
-                        const text = document.getElementById('reviewText').value;
-                        
-                        if (!name || !text || this.currentRating === 0) {
-                            alert(this.currentLang === 'fr'
-                                ? 'Veuillez remplir tous les champs et donner une note'
-                                : 'Please fill all fields and provide a rating');
-                            return;
-                        }
-
-                        this.addReview(name, this.currentRating, text);
-                        reviewForm.reset();
-                        
-                        // Reset stars
-                        stars.forEach(star => star.classList.remove('active'));
-                        this.currentRating = 0;
+                        alert(this.currentLang === 'fr' 
+                            ? 'Système de commentaires - À intégrer avec Firebase' 
+                            : 'Comments system - To be integrated with Firebase');
                     });
                 }
             }
 
-            addReview(name, rating, text) {
-                const reviews = this.getReviews();
-                const newReview = {
-                    id: Date.now(),
-                    name: name,
-                    rating: rating,
-                    text: text,
-                    date: new Date().toLocaleDateString('fr-FR')
-                };
-                
-                reviews.unshift(newReview);
-                localStorage.setItem('adventureTreksReviews', JSON.stringify(reviews));
-                this.displayReviews();
-                
-                alert(this.currentLang === 'fr'
-                    ? 'Merci pour votre avis !'
-                    : 'Thank you for your review!');
-            }
-
-            getReviews() {
-                return JSON.parse(localStorage.getItem('adventureTreksReviews') || '[]');
-            }
-
-            loadReviews() {
-                this.displayReviews();
-            }
-
-            displayReviews() {
-                const reviews = this.getReviews();
-                const container = document.getElementById('commentsList');
-                
-                if (reviews.length === 0) {
-                    container.innerHTML = `<p style="text-align: center; color: #666; padding: 2rem;">${this.currentLang === 'fr' ? 'Soyez le premier à laisser un avis !' : 'Be the first to leave a review!'}</p>`;
-                    return;
+            setupContactForm() {
+                const contactForm = document.getElementById('contactForm');
+                if (contactForm) {
+                    contactForm.addEventListener('submit', (e) => {
+                        e.preventDefault();
+                        alert(this.currentLang === 'fr'
+                            ? 'Merci ! Ali vous contacte personnellement dans les 24h.'
+                            : 'Thank you! Ali will contact you personally within 24 hours.');
+                        contactForm.reset();
+                    });
                 }
-
-                container.innerHTML = reviews.map(review => `
-                    <div class="comment">
-                        <div class="comment-header">
-                            <div class="comment-author">${review.name}</div>
-                            <div class="comment-rating">${'★'.repeat(review.rating)}${'☆'.repeat(5 - review.rating)}</div>
-                        </div>
-                        <p>${review.text}</p>
-                        <small style="color: #888;">${review.date}</small>
-                    </div>
-                `).join('');
-            }
-
-            setupSecurity() {
-                // Basic XSS protection
-                const sanitizeHTML = (str) => {
-                    const temp = document.createElement('div');
-                    temp.textContent = str;
-                    return temp.innerHTML;
-                };
-
-                // Override innerHTML setter for basic protection
-                const originalInnerHTML = Object.getOwnPropertyDescriptor(Element.prototype, 'innerHTML').set;
-                Object.defineProperty(Element.prototype, 'innerHTML', {
-                    set: function(value) {
-                        if (typeof value === 'string' && /<script\b[^<]*(?:(?!<\/script>)<[^<]*)*<\/script>/gi.test(value)) {
-                            console.warn('Potential XSS attack prevented');
-                            return;
-                        }
-                        return originalInnerHTML.call(this, value);
-                    }
-                });
             }
         }
 
-        // Initialize the application
+        // Initialize app
         document.addEventListener('DOMContentLoaded', () => {
-            window.app = new AdventureTreksApp();
-        });
-
-        // Service Worker for offline functionality
-        if ('serviceWorker' in navigator) {
-            window.addEventListener('load', () => {
-                navigator.serviceWorker.register('/sw.js').catch(console.error);
-            });
-        }
-
-        // Error handling
-        window.addEventListener('error', (e) => {
-            console.error('Application error:', e.error);
+            new AdventureTreksApp();
         });
     </script>
 </body>
