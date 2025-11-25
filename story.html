@@ -8,6 +8,15 @@
     <meta name="description" content="Découvrez l'histoire d'Ali Ouzemmad - Fils de la Vallée des Roses, guide expert avec 30+ ans d'expérience dans les montagnes et déserts du Maroc.">
     <meta name="keywords" content="histoire ali ouzemmad, guide maroc, expérience 30 ans, vallée des roses, mgoun, enfance montagnes">
     
+    <!-- Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-XXXXXXXXXX"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        gtag('config', 'G-XXXXXXXXXX');
+    </script>
+
     <style>
         /* أنماط الصفحة الرئيسية - نفس index.html */
         :root {
@@ -18,10 +27,7 @@
             --light: #F8F9FA;
             --dark: #1A1A2E;
             --gray: #6C757D;
-            --success: #28A745;
-            --warning: #FFC107;
             --glass-bg: rgba(255, 255, 255, 0.1);
-            --glass-border: rgba(255, 255, 255, 0.2);
             --shadow-lg: 0 20px 40px rgba(0,0,0,0.1);
             --shadow-xl: 0 25px 50px rgba(0,0,0,0.15);
             --gradient-primary: linear-gradient(135deg, var(--primary), var(--accent));
@@ -33,7 +39,6 @@
             --dark: #FFFFFF;
             --gray: #B0B0B0;
             --glass-bg: rgba(255, 255, 255, 0.05);
-            --glass-border: rgba(255, 255, 255, 0.1);
         }
 
         * {
@@ -373,10 +378,10 @@
             <nav>
                 <ul class="nav-links">
                     <li><a href="index.html">Accueil</a></li>
-                    <li><a href="story.html" class="active">Mon Histoire</a></li>
-                    <li><a href="treks.html">Randonnées</a></li>
-                    <li><a href="gallery.html">Galerie</a></li>
-                    <li><a href="contact.html">Contact</a></li>
+                    <li><a href="story.html" class="active" data-translate="nav.story">Mon Histoire</a></li>
+                    <li><a href="treks.html" data-translate="nav.treks">Randonnées</a></li>
+                    <li><a href="gallery.html" data-translate="nav.gallery">Galerie</a></li>
+                    <li><a href="contact.html" data-translate="nav.contact">Contact</a></li>
                 </ul>
             </nav>
             
@@ -399,7 +404,7 @@
 
     <!-- Story Hero Section -->
     <section class="story-hero">
-        <h1>Mon Histoire</h1>
+        <h1 data-translate="story.title">Mon Histoire</h1>
         <p>30 ans à créer des souvenirs inoubliables dans les montagnes et déserts du Maroc</p>
     </section>
 
@@ -603,6 +608,48 @@
         </div>
     </footer>
 
+    <!-- نظام الترجمة -->
+    <script>
+        const translations = {
+            fr: {
+                "nav.home": "Accueil",
+                "nav.story": "Mon Histoire",
+                "nav.treks": "Randonnées", 
+                "nav.gallery": "Galerie",
+                "nav.contact": "Contact",
+                "story.title": "Mon Histoire"
+            },
+            en: {
+                "nav.home": "Home",
+                "nav.story": "My Story", 
+                "nav.treks": "Treks",
+                "nav.gallery": "Gallery",
+                "nav.contact": "Contact",
+                "story.title": "My Story"
+            }
+        };
+
+        let currentLang = 'fr';
+
+        function updateLanguage(lang) {
+            currentLang = lang;
+            document.querySelectorAll('[data-translate]').forEach(element => {
+                const key = element.getAttribute('data-translate');
+                if (translations[lang] && translations[lang][key]) {
+                    element.textContent = translations[lang][key];
+                }
+            });
+            
+            if (lang === 'en') {
+                document.title = 'My Story - Ali Ouzemmad | Expert Guide Morocco 30+ Years';
+            } else {
+                document.title = 'Mon Histoire - Ali Ouzemmad | Guide Expert Maroc 30+ Ans';
+            }
+            
+            localStorage.setItem('preferredLang', lang);
+        }
+    </script>
+
     <script>
         // نظام التبديل بين الثيمات
         const themeToggle = document.getElementById('themeToggle');
@@ -627,8 +674,22 @@
             btn.addEventListener('click', function() {
                 document.querySelectorAll('.lang-btn').forEach(b => b.classList.remove('active'));
                 this.classList.add('active');
+                
+                const lang = this.dataset.lang;
+                updateLanguage(lang);
             });
         });
+
+        // تحميل اللغة المحفوظة
+        const savedLang = localStorage.getItem('preferredLang') || 'fr';
+        document.querySelectorAll('.lang-btn').forEach(btn => {
+            if (btn.dataset.lang === savedLang) {
+                btn.classList.add('active');
+            } else {
+                btn.classList.remove('active');
+            }
+        });
+        updateLanguage(savedLang);
 
         // Menu mobile
         document.getElementById('mobileMenuBtn').addEventListener('click', function() {
