@@ -11,6 +11,15 @@
     <meta name="author" content="Ali Ouzemmad">
     <meta name="robots" content="index, follow">
     
+    <!-- Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-XXXXXXXXXX"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        gtag('config', 'G-XXXXXXXXXX');
+    </script>
+    
     <!-- Open Graph -->
     <meta property="og:title" content="Adventure Treks avec Ali - Votre Guide Personnel au Maroc">
     <meta property="og:description" content="30+ ans d'expérience dans les montagnes et déserts marocains. Guide personnel pour des aventures authentiques.">
@@ -598,11 +607,11 @@
             
             <nav>
                 <ul class="nav-links">
-                    <li><a href="index.html" class="nav-link active">Accueil</a></li>
-                    <li><a href="story.html" class="nav-link">Mon Histoire</a></li>
-                    <li><a href="treks.html" class="nav-link">Randonnées</a></li>
-                    <li><a href="gallery.html" class="nav-link">Galerie</a></li>
-                    <li><a href="contact.html" class="nav-link">Contact</a></li>
+                    <li><a href="index.html" class="nav-link active" data-translate="nav.home">Accueil</a></li>
+                    <li><a href="story.html" class="nav-link" data-translate="nav.story">Mon Histoire</a></li>
+                    <li><a href="treks.html" class="nav-link" data-translate="nav.treks">Randonnées</a></li>
+                    <li><a href="gallery.html" class="nav-link" data-translate="nav.gallery">Galerie</a></li>
+                    <li><a href="contact.html" class="nav-link" data-translate="nav.contact">Contact</a></li>
                 </ul>
             </nav>
             
@@ -626,19 +635,19 @@
     <!-- Hero Section -->
     <section class="hero" id="accueil">
         <div class="hero-content animate-fade-in-up">
-            <h1 class="hero-title">
+            <h1 class="hero-title" data-translate="hero.title">
                 Randonnées Inoubliables avec 
                 <span class="gradient-text">Ali</span>
             </h1>
-            <p class="hero-subtitle">
+            <p class="hero-subtitle" data-translate="hero.subtitle">
                 30+ ans d'expérience dans les montagnes et déserts du Maroc.<br>
                 Votre guide personnel pour des aventures authentiques et des souvenirs éternels.
             </p>
             <div style="display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap;">
-                <a href="treks.html" class="btn btn-primary">
+                <a href="treks.html" class="btn btn-primary" data-translate="hero.book">
                     🗓️ Réserver Votre Aventure
                 </a>
-                <a href="story.html" class="btn btn-outline">
+                <a href="story.html" class="btn btn-outline" data-translate="hero.discover">
                     📖 Découvrir Mon Histoire
                 </a>
             </div>
@@ -647,10 +656,10 @@
 
     <!-- Story Preview Section -->
     <section class="section" id="story-preview">
-        <h2 class="section-title">Mon Histoire</h2>
+        <h2 class="section-title" data-translate="story.title">Mon Histoire</h2>
         <div class="story-preview">
             <div class="story-content">
-                <h3>Enfant des Montagnes, Guide de Cœur</h3>
+                <h3 data-translate="story.subtitle">Enfant des Montagnes, Guide de Cœur</h3>
                 <p>
                     Je suis Ali Ouzemmad, fils de la Vallée des Roses. Depuis mon enfance, j'ai parcouru les sentiers 
                     des montagnes de M'goun, exploré chaque recoin de ces paysages magnifiques qui m'ont donné la passion du métier de guide.
@@ -709,7 +718,7 @@
 
     <!-- Treks Preview Section -->
     <section class="section" id="treks-preview" style="background: var(--light);">
-        <h2 class="section-title">Nos Randonnées</h2>
+        <h2 class="section-title" data-translate="treks.title">Nos Randonnées</h2>
         <div class="treks-preview">
             <p style="font-size: 1.2rem; margin-bottom: 2rem; max-width: 600px; margin-left: auto; margin-right: auto;">
                 Des expériences uniques adaptées à vos envies. <strong>Les prix varient selon le type de randonnée et le nombre de personnes.</strong>
@@ -808,7 +817,7 @@
 
     <!-- Gallery Preview Section -->
     <section class="section" id="gallery-preview">
-        <h2 class="section-title">Galerie d'Aventures</h2>
+        <h2 class="section-title" data-translate="gallery.title">Galerie d'Aventures</h2>
         <div class="gallery-preview">
             <div class="gallery-item">
                 <img src="https://drive.google.com/thumbnail?id=17j0rL9qOahrMQ1sjIRD1P0mcy8Cgv3pU&sz=w1000" alt="Trekking dans l'Atlas">
@@ -832,7 +841,7 @@
 
     <!-- Contact Preview Section -->
     <section class="section" id="contact-preview" style="background: var(--light);">
-        <h2 class="section-title">Contact Direct</h2>
+        <h2 class="section-title" data-translate="contact.title">Contact Direct</h2>
         <div class="contact-preview">
             <div class="contact-card">
                 <div class="contact-icon">📞</div>
@@ -909,6 +918,64 @@
 
     <!-- Scripts -->
     <script>
+        // نظام الترجمة الكامل
+        const translations = {
+            fr: {
+                "nav.home": "Accueil",
+                "nav.story": "Mon Histoire",
+                "nav.treks": "Randonnées", 
+                "nav.gallery": "Galerie",
+                "nav.contact": "Contact",
+                "hero.title": "Randonnées Inoubliables avec",
+                "hero.subtitle": "30+ ans d'expérience dans les montagnes et déserts du Maroc. Votre guide personnel pour des aventures authentiques.",
+                "hero.book": "🗓️ Réserver Votre Aventure",
+                "hero.discover": "📖 Découvrir Mon Histoire",
+                "story.title": "Mon Histoire",
+                "story.subtitle": "Enfant des Montagnes, Guide de Cœur",
+                "treks.title": "Nos Randonnées",
+                "gallery.title": "Galerie d'Aventures", 
+                "contact.title": "Contact Direct"
+            },
+            en: {
+                "nav.home": "Home",
+                "nav.story": "My Story",
+                "nav.treks": "Treks",
+                "nav.gallery": "Gallery", 
+                "nav.contact": "Contact",
+                "hero.title": "Unforgettable Treks with",
+                "hero.subtitle": "30+ years experience in Moroccan mountains and deserts. Your personal guide for authentic adventures.",
+                "hero.book": "🗓️ Book Your Adventure", 
+                "hero.discover": "📖 Discover My Story",
+                "story.title": "My Story",
+                "story.subtitle": "Mountain Child, Guide by Heart",
+                "treks.title": "Our Treks",
+                "gallery.title": "Adventure Gallery",
+                "contact.title": "Direct Contact"
+            }
+        };
+
+        let currentLang = 'fr';
+
+        function updateLanguage(lang) {
+            currentLang = lang;
+            document.querySelectorAll('[data-translate]').forEach(element => {
+                const key = element.getAttribute('data-translate');
+                if (translations[lang] && translations[lang][key]) {
+                    element.textContent = translations[lang][key];
+                }
+            });
+            
+            // تحديث عنوان الصفحة
+            if (lang === 'en') {
+                document.title = 'Adventure Treks with Ali - Expert Guide Morocco | Atlas Trekking & Desert';
+            } else {
+                document.title = 'Adventure Treks avec Ali - Guide Expert Maroc | Trekking Atlas & Désert';
+            }
+            
+            // حفظ اللغة
+            localStorage.setItem('preferredLang', lang);
+        }
+
         // نظام التبديل بين الثيمات
         const themeToggle = document.getElementById('themeToggle');
         const themeIcon = themeToggle.querySelector('.theme-icon');
@@ -945,11 +1012,21 @@
                 document.querySelectorAll('.lang-btn').forEach(b => b.classList.remove('active'));
                 this.classList.add('active');
                 
-                // هنا سنضيف نظام الترجمة لاحقاً
                 const lang = this.dataset.lang;
-                console.log('Changer langue vers:', lang);
+                updateLanguage(lang);
             });
         });
+
+        // تحميل اللغة المحفوظة
+        const savedLang = localStorage.getItem('preferredLang') || 'fr';
+        document.querySelectorAll('.lang-btn').forEach(btn => {
+            if (btn.dataset.lang === savedLang) {
+                btn.classList.add('active');
+            } else {
+                btn.classList.remove('active');
+            }
+        });
+        updateLanguage(savedLang);
 
         // Menu mobile
         document.getElementById('mobileMenuBtn').addEventListener('click', function() {
